@@ -367,6 +367,7 @@
 (lazy-set-autoload-key
  '(
    ("s-n" . multi-term)                      ;新建一个终端
+   ("s-h" . multi-term-next)                 ;选择终端
    ("s-x s-x" . multi-term-dedicated-toggle) ;切换专注终端
    ("s-x s-c" . multi-term-dedicated-select) ;选择专注终端
    )
