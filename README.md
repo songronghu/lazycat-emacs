@@ -1,13 +1,13 @@
-# Deepin Emacs
+# Lazycat Emacs
 
-**Description**: Is a customized emacs for Deepin
+**Description**: Is a customized emacs for my own need.
 
 Emacs is hackable OS for top hackers, most of emacs extensions are written in elisp.
-Deepin Emacs merged many extensions from [AndyStewart](http://www.emacswiki.org/emacs/AndyStewart),
-you can find all extensions under [site-lisp](https://gitcafe.com/Deepin/deepin-emacs/tree/master/site-lisp).
+Lazycat Emacs merged many extensions from [AndyStewart](http://www.emacswiki.org/emacs/AndyStewart),
+you can find all extensions under [site-lisp](https://gitcafe.com/manateelazycat/lazycat-emacs/tree/master/site-lisp).
 
-Deepin Emacs’s target is to build a development environment that users don’t need to config elisp code line by line.
-Deepin Emacs provides below features:
+Lazycat Emacs’s target is to build a development environment that users don’t need to config elisp code line by line.
+Lazycat Emacs provides below features:
 
 - Code auto completion with most languages. (by autocomplete extensions)
 - Code template system. (by yasnippet extension)
@@ -130,7 +130,7 @@ $ cd ./emacs-git && ./autogen.sh
 $ ./configure --prefix=/usr/share/deepin-emacs/common --with-x-toolkit=gtk3 && make && sudo make install
 ```
 
-Install Deepin emacs
+Install Lazycat emacs
 ```
 $ sudo cp ./site-start.el /usr/share/deepin-emacs/common/share/emacs/site-lisp/
 $ sudo cp -r ./site-lisp /usr/share/deepin-emacs
@@ -164,4 +164,4 @@ We encourage you to report issues and contribute changes
 
 ## License
 
-Deepin Emacs is licensed under [GPLv3](LICENSE).
+Lazycat Emacs is licensed under [GPLv3](LICENSE).
