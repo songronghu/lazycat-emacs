@@ -109,11 +109,11 @@
   (let ((helm-ff-transformer-show-only-basename nil))
     (helm-other-buffer
      '(
-       helm-source-findutils
+       ;; helm-source-findutils
        helm-source-buffers-list
        helm-source-recentf
        helm-source-occur
-       helm-source-do-ag
+       ;; helm-source-do-ag
        helm-source-locate
        helm-source-kill-ring
        helm-source-imenu
@@ -121,8 +121,8 @@
        helm-source-ls-git
        helm-c-source-yasnippet
        ;; helm-source-webkit
-       helm-source-apt
-       helm-source-man-pages
+       ;; helm-source-apt
+       ;; helm-source-man-pages
        )
      "*helm search*")))
 
