@@ -104,28 +104,29 @@
 (defun auto-save-buffers ()
   (interactive)
   (let ((autosave-buffer-list))
-    (save-excursion
-      (dolist (buf (buffer-list))
-        (set-buffer buf)
-        (if (and (buffer-file-name) (buffer-modified-p))
-            (progn
-              (push (buffer-name) autosave-buffer-list)
-              (if auto-save-slient
-                  (with-temp-message ""
-                    (basic-save-buffer))
-                (basic-save-buffer))
-              )))
-      ;; Tell user when auto save files.
-      (unless auto-save-slient
-        (cond
-         ;; It's stupid tell user if nothing to save.
-         ((= (length autosave-buffer-list) 1)
-          (message "# Saved %s" (car autosave-buffer-list)))
-         ((> (length autosave-buffer-list) 1)
-          (message "# Saved %d files: %s"
-                   (length autosave-buffer-list)
-                   (mapconcat 'identity autosave-buffer-list ", ")))))
-      )))
+    (ignore-errors
+      (save-excursion
+        (dolist (buf (buffer-list))
+          (set-buffer buf)
+          (if (and (buffer-file-name) (buffer-modified-p))
+              (progn
+                (push (buffer-name) autosave-buffer-list)
+                (if auto-save-slient
+                    (with-temp-message ""
+                      (basic-save-buffer))
+                  (basic-save-buffer))
+                )))
+        ;; Tell user when auto save files.
+        (unless auto-save-slient
+          (cond
+           ;; It's stupid tell user if nothing to save.
+           ((= (length autosave-buffer-list) 1)
+            (message "# Saved %s" (car autosave-buffer-list)))
+           ((> (length autosave-buffer-list) 1)
+            (message "# Saved %d files: %s"
+                     (length autosave-buffer-list)
+                     (mapconcat 'identity autosave-buffer-list ", ")))))
+        ))))
 
 (defun auto-save-enable ()
   (interactive)
