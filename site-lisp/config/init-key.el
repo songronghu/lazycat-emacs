@@ -550,9 +550,9 @@
    ("s-k" . mc/mark-previous-like-this)
    ("s-u" . mc/unmark-next-like-this)
    ("s-i" . mc/unmark-previous-like-this)
-   ("s-Z" . one-key-menu-multiple-cursors)
+   ("s-Z" . mc/edit-lines)
    )
- "init-multiple-cursors"
+ "multiple-cursors"
  )
 ;;; ### Ace jump ###
 (lazy-set-autoload-key
