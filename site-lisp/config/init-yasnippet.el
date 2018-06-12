@@ -78,7 +78,7 @@
 
 ;;; Code:
 
-(add-to-list `yas/root-directory "/usr/share/emacs/lazycat/site-lisp/extensions/yasnippet/snippets/")
+(add-to-list `yas/root-directory (concat lazycat-emacs-extension-dir "/yasnippet/snippets"))
 (yas-global-mode 1)
 
 ;; Disable yasnippet mode on some mode.

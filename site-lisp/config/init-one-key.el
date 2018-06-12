@@ -91,9 +91,9 @@
       '(
         (("h" . "Home") . (lambda () (interactive) (dired-x-find-file "~/")))
         (("b" . "Book") . (lambda () (interactive) (dired-x-find-file "/space/data/Book")))
-        (("p" . "Emacs Package") . (lambda () (interactive) (dired-x-find-file "~/lazycat-emacs/site-lisp")))
-        (("z" . "Elisp") . (lambda () (interactive) (dired-x-find-file "~/lazycat-emacs/site-lisp/extensions/lazycat")))
-        (("c" . "Config") . (lambda () (interactive) (dired-x-find-file "~/lazycat-emacs/site-lisp/config")))
+        (("p" . "Emacs Package") . (lambda () (interactive) (dired-x-find-file lazycat-emacs-root-dir)))
+        (("z" . "Elisp") . (lambda () (interactive) (dired-x-find-file (concat lazycat-emacs-extension-dir "/lazycat"))))
+        (("c" . "Config") . (lambda () (interactive) (dired-x-find-file lazycat-emacs-config-dir)))
         ((";" . "Android SDK") . (lambda () (interactive) (dired-x-find-file "/usr/local/android-sdk-linux_86")))
         (("e" . "Emacs") . (lambda () (interactive) (dired-x-find-file "/usr/share/deepin-emacs/")))
         (("s" . "Space") . (lambda () (interactive) (dired-x-find-file "/space")))

@@ -1,3 +1,8 @@
+;; 定义一些启动目录，方便下次迁移修改
+(defvar lazycat-emacs-root-dir (file-truename "/usr/share/emacs/lazycat"))
+(defvar lazycat-emacs-config-dir (concat lazycat-emacs-root-dir "/config"))
+(defvar lazycat-emacs-extension-dir (concat lazycat-emacs-root-dir "/extensions"))
+
 (with-temp-message ""                   ;抹掉插件启动的输出
   ;; 必须加载的
   (require 'benchmark-init)

@@ -87,7 +87,7 @@
 
 ;;; Code:
 
-(add-to-list 'ac-dictionary-directories "/usr/share/emacs/lazycat/site-lisp/extensions/auto-complete/dict")
+(add-to-list 'ac-dictionary-directories (concat lazycat-emacs-extension-dir "/auto-complete/dict"))
 (ac-config-default)
 (setq ac-use-quick-help nil)
 
