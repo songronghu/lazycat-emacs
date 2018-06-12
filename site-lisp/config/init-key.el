@@ -687,6 +687,20 @@
    ("C-c r" . org-remember)             ;Org-remeber
    )
  "init-org-mode")
+;;; ### String Inflection ###
+;; --- 单词语法风格快速转换
+(lazy-set-autoload-key
+ '(
+   ("C-c C-u" . one-key-string-inflection)
+   )
+ "init-string-inflection")
+;;; ### Projectile Rails ###
+;; Rails 文件快速导航
+(lazy-set-autoload-key
+ '(
+   ("s-c p" . one-key-projectile-rails) ;projectile rails
+   )
+ "init-projectile-rails")
 ;;; ### Top ###
 ;;; --- 进程管理器
 (lazy-set-autoload-key

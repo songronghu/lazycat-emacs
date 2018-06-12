@@ -76,10 +76,10 @@ If EXPR is not nil exeutes BODY.
 (defun string-repeat (char num)
   (let ((len num)
         (str ""))
-  (while (not (zerop len))
-    (setq len (- len 1))
-    (setq str (concat char str)))
-  str))
+    (while (not (zerop len))
+      (setq len (- len 1))
+      (setq str (concat char str)))
+    str))
 
 
 (defmacro string=~ (regex string &rest body)
@@ -94,7 +94,7 @@ If EXPR is not nil exeutes BODY.
            (flet (($ (i) (match-string i ,str))
                   (sub (replacement &optional (i 0) &key fixedcase literal-string)
                        (replace-match replacement fixedcase literal-string ,str i)))
-             (symbol-macrolet ( ;;before
+             (symbol-macrolet (;;before
                                ($b (substring ,str 0 (match-beginning 0)))
                                ;;match
                                ($m (match-string 0 ,str))
@@ -112,7 +112,7 @@ If EXPR is not nil exeutes BODY.
        "\\([a-z0-9]\\)\\([A-Z]\\)" "\\1_\\2"
        string)))))
 
-(defun string-not-empty (str) ;(+)
+(defun string-not-empty (str)           ;(+)
   "Return t if string STR is not empty."
   (and (stringp str) (not (or (string-equal "" str)
                               (string-match "^ +$" str)))))
@@ -162,9 +162,9 @@ not exist."
      (unless (boundp ',key-map)
        (setf ,key-map (make-sparse-keymap)))
      ,@(mapcar
-  #'(lambda (key-func)
-      `(define-key ,key-map ,(first key-func) ,(second key-func)))
-  key-funcs)))
+        #'(lambda (key-func)
+            `(define-key ,key-map ,(first key-func) ,(second key-func)))
+        key-funcs)))
 
 ;; Files
 
@@ -209,12 +209,12 @@ For example, (path \"/foo/bar/baz/../\") returns bar."
 (defun find-or-ask-to-create (question file)
   "Open file if it exists. If it does not exist, ask to create
 it."
-    (if (file-exists-p file)
-  (find-file file)
-      (when (y-or-n-p question)
-  (when (string-match "\\(.*\\)/[^/]+$" file)
-    (make-directory (match-string 1 file) t))
-  (find-file file))))
+  (if (file-exists-p file)
+      (find-file file)
+    (when (y-or-n-p question)
+      (when (string-match "\\(.*\\)/[^/]+$" file)
+        (make-directory (match-string 1 file) t))
+      (find-file file))))
 
 (defun directory-of-file (file-name)
   "Return the parent directory of a file named FILE-NAME."
@@ -222,8 +222,8 @@ it."
 
 (defmacro* in-directory ((directory) &rest body)
   (let ((before-directory (gensym)))
-  `(let ((,before-directory default-directory)
-         (default-directory ,directory))
+    `(let ((,before-directory default-directory)
+           (default-directory ,directory))
        (cd ,directory)
        ,@body
        (cd ,before-directory))))
@@ -273,24 +273,24 @@ the user explicit sets `rails-use-alternative-browse-url'."
 ;; completion-read
 (defun rails-completing-read (prompt table history require-match)
   (let ((history-value (symbol-value history)))
-  (list (completing-read
-         (format "%s?%s: "
-                 prompt
-                 (if (car history-value)
-                     (format " (%s)" (car history-value))
-                   ""))
-         (list->alist table) ; table
-         nil ; predicate
-         require-match ; require-match
-         nil ; initial input
-         history ; hist
-         (car history-value))))) ;def
+    (list (completing-read
+           (format "%s?%s: "
+                   prompt
+                   (if (car history-value)
+                       (format " (%s)" (car history-value))
+                     ""))
+           (list->alist table)          ; table
+           nil                          ; predicate
+           require-match                ; require-match
+           nil                          ; initial input
+           history                      ; hist
+           (car history-value)))))      ;def
 
 ;; railsy-replace
 (defun camelized-p (string)
   "Return nil unless string is in camelized format (first character is capital, there is at least on lower capital and all characters are letters of numbers"
   (let ((case-fold-search nil))
-      (string-match "^[A-Z][A-Za-z0-9]*[a-z]+[A-Za-z0-9]*$" string)))
+    (string-match "^[A-Z][A-Za-z0-9]*[a-z]+[A-Za-z0-9]*$" string)))
 
 (defun underscored-p (string)
   "Return nil unless string is in underscored format (containing only lower case characters, numbers or underscores)"
@@ -299,7 +299,7 @@ the user explicit sets `rails-use-alternative-browse-url'."
 
 (defun replace-rails-variable ()
   (interactive)
-)
+  )
 
 ;; MMM
 
