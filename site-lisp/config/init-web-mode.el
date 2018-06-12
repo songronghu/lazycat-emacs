@@ -15,7 +15,7 @@
 ;;
 ;; Features that might be required by this library:
 ;;
-;; `web-mode' `emmet-mode' `tagedit' `emmet-mode'
+;; `web-mode' `emmet-mode' `tagedit'
 ;;
 
 ;;; This file is NOT part of GNU Emacs
