@@ -91,7 +91,7 @@
 ;;; --- Minibuffer的智能补全
 (setq icicle-top-level-key-bindings nil) ;禁止icicles的按键生效
 (setq icicle-key-complete-keys nil)      ;禁止icicles的补全按键加载
-(setq icicle-download-dir "/usr/share/deepin-emacs/site-lisp/extensions/icicles/") ;设置icicles的下载目录, 运行 'icicle-download-wizard' 即可更新
+(setq icicle-download-dir "/usr/share/emacs/lazycat/site-lisp/extensions/icicles/") ;设置icicles的下载目录, 运行 'icicle-download-wizard' 即可更新
 (setq icicle-highlight-input-completion-failure-delay 0.0) ;输入补全失败延迟高亮
 (setq icicle-incremental-completion-delay 0.0)             ;增量补全延迟
 (setq icicle-default-value nil)                            ;不显示默认的值

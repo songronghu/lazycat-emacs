@@ -78,7 +78,7 @@
 
 ;;; Code:
 
-(load "/usr/share/deepin-emacs/Site-Lisp/Packages/haskell-mode/haskell-site-file")
+(load "/usr/share/emacs/lazycat/Site-Lisp/Packages/haskell-mode/haskell-site-file")
 (add-hook 'haskell-mode-hook 'turn-on-font-lock) ;高亮模式
 (add-hook 'haskell-mode-hook 'haskell-indentation-mode) ;智能缩进模式
 (add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)     ;GHCi 交互模式
