@@ -49,7 +49,7 @@
        (require 'elf-mode)
 
        (require 'init-tempbuf)
-       ;; (require 'init-pdf-tools)
+       (require 'init-pdf-tools)
        (require 'init-eldoc)
        (require 'init-doxymacs)
        (require 'init-yasnippet)
