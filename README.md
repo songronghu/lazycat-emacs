@@ -125,42 +125,19 @@ $ git clone --depth 1 git://git.savannah.gnu.org/emacs.git
 
 Compile emacs git
 ```
-$ sudo mkdir -p /usr/share/deepin-emacs/common
+$ sudo mkdir -p /usr/share/lazycat-emacs/common
 $ cd ./emacs-git && ./autogen.sh
-$ ./configure --prefix=/usr/share/deepin-emacs/common --with-x-toolkit=gtk3 && make && sudo make install
+$ ./configure --prefix=/usr/share/lazycat-emacs/common --with-x-toolkit=gtk3 && make && sudo make install
 ```
 
 Install Lazycat emacs
 ```
-$ sudo cp ./site-start.el /usr/share/deepin-emacs/common/share/emacs/site-lisp/
-$ sudo cp -r ./site-lisp /usr/share/deepin-emacs
-$ sudo ln -s /usr/share/deepin-emacs/common/bin/emacs /usr/bin/deepin-emacs
-$ sudo cp ./deepin-emacs.svg /usr/share/icons/hicolor/scalable/apps/
-$ sudo cp ./deepin-emacs.desktop /usr/share/applications/
+$ sudo cp ./site-start.el /usr/share/lazycat-emacs/common/share/emacs/site-lisp/
+$ sudo cp -r ./site-lisp /usr/share/lazycat-emacs
+$ sudo ln -s /usr/share/lazycat-emacs/common/bin/emacs /usr/bin/lazycat-emacs
+$ sudo cp ./lazycat-emacs.svg /usr/share/icons/hicolor/scalable/apps/
+$ sudo cp ./lazycat-emacs.desktop /usr/share/applications/
 ```
-
-## Usage
-
-Run deepin emacs with the command below
-```
-$ deepin-emacs
-```
-
-## Getting help
-
-Any usage issues can ask for help via
-
-* [Gitter](https://gitter.im/orgs/linuxdeepin/rooms)
-* [IRC channel](https://webchat.freenode.net/?channels=deepin)
-* [Forum](https://bbs.deepin.org)
-* [WiKi](http://wiki.deepin.org/)
-
-## Getting involved
-
-We encourage you to report issues and contribute changes
-
-* [Contribution guide for users](http://wiki.deepin.org/index.php?title=Contribution_Guidelines_for_Users)
-* [Contribution guide for developers](http://wiki.deepin.org/index.php?title=Contribution_Guidelines_for_Developers).
 
 ## License
 
