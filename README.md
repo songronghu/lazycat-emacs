@@ -4,7 +4,7 @@
 
 Emacs is hackable OS for top hackers, most of emacs extensions are written in elisp.
 Lazycat Emacs merged many extensions from [AndyStewart](http://www.emacswiki.org/emacs/AndyStewart),
-you can find all extensions under [site-lisp](https://gitcafe.com/manateelazycat/lazycat-emacs/tree/master/site-lisp).
+you can find all extensions under [site-lisp](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp).
 
 Lazycat Emacs’s target is to build a development environment that users don’t need to config elisp code line by line.
 Lazycat Emacs provides below features:
