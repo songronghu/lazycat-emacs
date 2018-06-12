@@ -17,6 +17,7 @@
   (require 'redo)
   (require 'highlight-parentheses)
 
+  (require 'init-backup)
   (require 'init-smex)
   (require 'init-minibuffer-tray)
   (require 'init-linum)
@@ -49,7 +50,6 @@
 
        (require 'init-tempbuf)
        ;; (require 'init-pdf-tools)
-       (require 'init-backup)
        (require 'init-eldoc)
        (require 'init-doxymacs)
        (require 'init-yasnippet)
