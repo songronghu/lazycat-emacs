@@ -91,6 +91,7 @@
 (menu-bar-mode -1)                            ;禁用菜单栏
 (scroll-bar-mode -1)                          ;禁用滚动条
 (set-face-attribute 'default nil :height 120) ;设置字体大小
+(server-start)                     ;为emacsclient准备使用场景，比如git
 
 (provide 'init-startup)
 
