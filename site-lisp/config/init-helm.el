@@ -114,7 +114,7 @@
        helm-source-recentf
        helm-source-occur
        ;; helm-source-do-ag
-       helm-source-locate
+       ;; helm-source-locate
        helm-source-kill-ring
        helm-source-imenu
        helm-source-autoload-commands
