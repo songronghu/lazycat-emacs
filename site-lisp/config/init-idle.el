@@ -131,11 +131,14 @@ from tradition chinese to simple chinese" t)
               interactive-only          ;正常不被调用的命令
               make-local ;调用 `make-variable-buffer-local' 可能会不正确的
               mapcar     ;`mapcar' 调用
+              ;;
               ;; 抑制的警告
               (not redefine)        ;重新定义的函数 (比如参数数量改变)
               (not cl-functions)    ;`CL' 包中的运行时调用的函数
               )))
 (elf-setup-default)                     ;二进制文件默认用elf模式打开
+(setq echo-keystrokes 0.1)              ;加快快捷键提示的速度
+(tooltip-mode -1)                       ;不要显示任何 tooltips
 
 (provide 'init-idle)
 
