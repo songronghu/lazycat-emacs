@@ -274,7 +274,6 @@
    ("C-4" . insert-changelog-date)      ;插入日志时间 (%Y/%m/%d)
    ("C-5" . insert-standard-date)       ;插入标准时间 (%Y-%m-%d %T)
    ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
-   ("C-7" . jump-back)                  ;返回查找符号定义前的位置
    ("M-I" . backward-indent)            ;向后移动4个字符
    ))
 (lazy-set-autoload-key
@@ -293,9 +292,11 @@
  "init-one-key")
 (lazy-set-autoload-key
  '(
-   ("C-8" . find-function-or-variable-at-point) ;查找符号的定义
+   ("C-7" . find-define-back)           ;返回查找符号的定义之前的位置
+   ("C-8" . find-define-go)             ;查找符号的定义
+   ("C-9" . find-define-prompt)         ;手动输入查询的定义
    )
- "find-func-extension")
+ "find-define")
 ;;; ### Paredit ###
 ;;; --- 结构化编程
 (lazy-unset-key

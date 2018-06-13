@@ -79,10 +79,10 @@
 (defun find-function-or-variable-at-point (&optional prefix)
   "Find function, variable define at current point."
   (interactive "P")
-  (if (equal 0 (variable-at-point))     ;if have not variable at current point
-      (if (function-called-at-point)    ;if have function call at current point
+  (if (equal 0 (variable-at-point)) ;if have not variable at current point
+      (if (function-called-at-point) ;if have function call at current point
           (call-interactively (if (null prefix) 'find-function 'find-function-other-window))
-        (if (face-at-point)             ;if have face define at current point
+        (if (face-at-point)      ;if have face define at current point
             (call-interactively (if (null prefix) 'find-face-definition 'find-face-definition-other-window))
           (message "Nothing at point.")))
     (call-interactively (if (null prefix) 'find-variable 'find-variable-other-window))))

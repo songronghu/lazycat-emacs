@@ -164,7 +164,6 @@
         (("C-s" . "Wtf Is") . wtf-is)
         (("C-z" . "Sys Apropos") . sys-apropos)
         (("C-w" . "Where Is") . where-is)
-        (("x" . "Find Function On Key") . find-function-on-key)
         ))
 
 (defun one-key-menu-help ()
