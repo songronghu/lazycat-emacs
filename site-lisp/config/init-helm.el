@@ -80,49 +80,31 @@
 ;;
 
 ;;; Require
-
-(require 'ag)
-(require 'helm-files)
-(require 'helm-config)
-(require 'helm-helm-commands)
-(require 'helm-c-yasnippet)
-(require 'helm-apt)
+(require 'helm)
 (require 'helm-autoload-commands)
-(require 'helm-ls-git)
-(require 'helm-descbinds)
-;; (require 'helm-webkit)
-(require 'helm-ring)
+(require 'helm-buffers)
+(require 'helm-c-yasnippet)
+(require 'helm-for-files)
 (require 'helm-imenu)
-(require 'helm-man)
-(require 'helm-ag)
-(require 'apt-utils)
+(require 'helm-projectile)
+(require 'helm-ring)
 
 ;;; Code:
-
-(setq helm-apt-cache-show-function
-      '(lambda (package)
-         (require 'init-apt-utils)
-         (apt-utils-show-package-1 package)))
 
 (defun helm-dwim ()
   (interactive)
   (let ((helm-ff-transformer-show-only-basename nil))
     (helm-other-buffer
      '(
-       ;; helm-source-findutils
        helm-source-buffers-list
        helm-source-recentf
-       helm-source-occur
-       ;; helm-source-do-ag
-       ;; helm-source-locate
+       helm-source-projectile-buffers-list
+       helm-source-projectile-files-list
+       helm-source-projectile-projects
        helm-source-kill-ring
+       helm-source-yasnippet
        helm-source-imenu
        helm-source-autoload-commands
-       helm-source-ls-git
-       ;; helm-c-source-yasnippet
-       ;; helm-source-webkit
-       ;; helm-source-apt
-       ;; helm-source-man-pages
        )
      "*helm search*")))
 
@@ -138,9 +120,6 @@
         ("yaoddmuse-post-library-default" "Post elisp library to EmacsWiki" "yaoddmuse-extension")
         ("yaoddmuse-edit-default" "Edit EmacsWiki page" "yaoddmuse-extension")
         ("auto-install-from-emacswiki" "Install package from EmacsWiki.org" "auto-install")
-        )
-      )
+        ))
 
 (provide 'init-helm)
-
-;;; init-helm.el ends here
