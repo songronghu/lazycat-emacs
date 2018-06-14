@@ -99,12 +99,12 @@
 
 (emms-devel)                            ;选择开发者模式
 ;; 目录
-(make-directory "~/.emacs.d/deepin-emacs/Configure-File/Emms/" t)
-(setq emms-directory "~/.emacs.d/deepin-emacs/Configure-File/Emms/")           ;设置EMMS的目录
-(setq emms-history-file "~/.emacs.d/deepin-emacs/Configure-File/Emms/history") ;播放列表历史记录
-(setq emms-cache-file "~/.emacs.d/deepin-emacs/Configure-File/Emms/cache")     ;缓存文件
-(setq emms-stream-bookmarks-file "~/.emacs.d/deepin-emacs/Configure-File/Emms/streams") ;网络电台保存文件
-(setq emms-score-file "~/.emacs.d/deepin-emacs/Configure-File/Emms/scores")             ;分数文件
+(make-directory "~/.emacs.d/lazycat-emacs/Configure-File/Emms/" t)
+(setq emms-directory "~/.emacs.d/lazycat-emacs/Configure-File/Emms/")           ;设置EMMS的目录
+(setq emms-history-file "~/.emacs.d/lazycat-emacs/Configure-File/Emms/history") ;播放列表历史记录
+(setq emms-cache-file "~/.emacs.d/lazycat-emacs/Configure-File/Emms/cache")     ;缓存文件
+(setq emms-stream-bookmarks-file "~/.emacs.d/lazycat-emacs/Configure-File/Emms/streams") ;网络电台保存文件
+(setq emms-score-file "~/.emacs.d/lazycat-emacs/Configure-File/Emms/scores")             ;分数文件
 (setq emms-source-file-default-directory "/space/data/Music/") ;设定默认的播放目录
 ;; 播放设置
 (setq emms-repeat-playlist t)           ;设定EMMS启动列表循环播放

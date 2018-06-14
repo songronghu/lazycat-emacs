@@ -131,7 +131,7 @@ class TrayView(QWidget):
         (self.minibuffer_x, self.minibuffer_y, self.minibuffer_w, self.minibuffer_h) = (x, y, w, h)
         
     def get_current_time(self):
-        return time.strftime(" [%Y-%m%d]  %H:%M %A", time.localtime())
+        return time.strftime(" [%Y-%m-%d]  %H:%M %A", time.localtime())
 
     def update_info(self):
         info_string = "%s   %s   %s" % (self.pos_string, self.percent_string, self.time_string)

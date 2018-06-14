@@ -111,7 +111,7 @@
 (setq erc-autojoin-channels-alist       ;自动加入的服务器和频道
       `(,(cons "freenode.net" '("#emacs" "#deepin"))))
 (setq erc-log-channels-directory        ;日志的记录目录
-      "~/.emacs.d/deepin-emacs/Configure-File/ERC/logs/")
+      "~/.emacs.d/lazycat-emacs/Configure-File/ERC/logs/")
 (dolist (hooked (list
                  'turn-on-eldoc-mode    ;开启elisp参数提醒模式
                  ))
