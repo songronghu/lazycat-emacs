@@ -195,14 +195,14 @@ It is there because Helm requires it."
   (let ((map (make-sparse-keymap)))
     (set-keymap-parent map helm-map)
     (helm-projectile-define-key map
-                                (kbd "C-d") #'dired
-                                (kbd "M-g") #'helm-projectile-vc
-                                (kbd "M-e") #'helm-projectile-switch-to-eshell
-                                (kbd "C-s") #'helm-projectile-grep
-                                (kbd "M-c") #'helm-projectile-compile-project
-                                (kbd "M-t") #'helm-projectile-test-project
-                                (kbd "M-r") #'helm-projectile-run-project
-                                (kbd "M-D") #'helm-projectile-remove-known-project)
+      (kbd "C-d") #'dired
+      (kbd "M-g") #'helm-projectile-vc
+      (kbd "M-e") #'helm-projectile-switch-to-eshell
+      (kbd "C-s") #'helm-projectile-grep
+      (kbd "M-c") #'helm-projectile-compile-project
+      (kbd "M-t") #'helm-projectile-test-project
+      (kbd "M-r") #'helm-projectile-run-project
+      (kbd "M-D") #'helm-projectile-remove-known-project)
     map)
   "Mapping for known projectile projects.")
 
@@ -234,16 +234,16 @@ It is there because Helm requires it."
   (let ((map (make-sparse-keymap)))
     (set-keymap-parent map helm-map)
     (helm-projectile-define-key map
-                                (kbd "C-d") #'dired
-                                (kbd "M-o") #'(lambda (project)
-                                                (let ((projectile-completion-system 'helm))
-                                                  (projectile-switch-project-by-name project)))
-                                (kbd "M-e") #'helm-projectile-switch-to-eshell
-                                (kbd "C-s") #'helm-projectile-grep
-                                (kbd "M-c") #'helm-projectile-compile-project
-                                (kbd "M-t") #'helm-projectile-test-project
-                                (kbd "M-r") #'helm-projectile-run-project
-                                (kbd "M-D") #'helm-projectile-remove-known-project)
+      (kbd "C-d") #'dired
+      (kbd "M-o") #'(lambda (project)
+                      (let ((projectile-completion-system 'helm))
+                        (projectile-switch-project-by-name project)))
+      (kbd "M-e") #'helm-projectile-switch-to-eshell
+      (kbd "C-s") #'helm-projectile-grep
+      (kbd "M-c") #'helm-projectile-compile-project
+      (kbd "M-t") #'helm-projectile-test-project
+      (kbd "M-r") #'helm-projectile-run-project
+      (kbd "M-D") #'helm-projectile-remove-known-project)
     map)
   "Mapping for dirty projectile projects.")
 
@@ -465,11 +465,11 @@ CANDIDATE is the selected file.  Used when no file is explicitly marked."
 (defvar helm-projectile-find-file-map
   (let ((map (copy-keymap helm-find-files-map)))
     (helm-projectile-define-key map
-                                (kbd "C-c f") #'helm-projectile-dired-files-new-action
-                                (kbd "C-c a") #'helm-projectile-dired-files-add-action
-                                (kbd "M-e") #'helm-projectile-switch-to-eshell
-                                (kbd "M-.") #'helm-projectile-ff-etags-select-action
-                                (kbd "M-!") #'helm-projectile-find-files-eshell-command-on-file-action)
+      (kbd "C-c f") #'helm-projectile-dired-files-new-action
+      (kbd "C-c a") #'helm-projectile-dired-files-add-action
+      (kbd "M-e") #'helm-projectile-switch-to-eshell
+      (kbd "M-.") #'helm-projectile-ff-etags-select-action
+      (kbd "M-!") #'helm-projectile-find-files-eshell-command-on-file-action)
     (define-key map (kbd "<left>") #'helm-previous-source)
     (define-key map (kbd "<right>") #'helm-next-source)
     (dolist (cmd '(helm-find-files-up-one-level
@@ -604,7 +604,7 @@ Meant to be added to `helm-cleanup-hook', from which it removes
     :action-transformer 'helm-find-files-action-transformer
     :keymap (let ((map (copy-keymap helm-projectile-find-file-map)))
               (helm-projectile-define-key map
-                                          (kbd "C-c d") 'helm-projectile-dired-files-delete-action)
+                (kbd "C-c d") 'helm-projectile-dired-files-delete-action)
               map)
     :help-message 'helm-ff-help-message
     :mode-line helm-read-file-name-mode-line-string
@@ -635,13 +635,13 @@ Meant to be added to `helm-cleanup-hook', from which it removes
     :keymap (let ((map (make-sparse-keymap)))
               (set-keymap-parent map helm-map)
               (helm-projectile-define-key map
-                                          (kbd "<left>") #'helm-previous-source
-                                          (kbd "<right>") #'helm-next-source
-                                          (kbd "C-c o") #'helm-projectile-dired-find-dir-other-window
-                                          (kbd "M-e")   #'helm-projectile-switch-to-eshell
-                                          (kbd "C-c f") #'helm-projectile-dired-files-new-action
-                                          (kbd "C-c a") #'helm-projectile-dired-files-add-action
-                                          (kbd "C-s")   #'helm-projectile-grep)
+                (kbd "<left>") #'helm-previous-source
+                (kbd "<right>") #'helm-next-source
+                (kbd "C-c o") #'helm-projectile-dired-find-dir-other-window
+                (kbd "M-e")   #'helm-projectile-switch-to-eshell
+                (kbd "C-c f") #'helm-projectile-dired-files-new-action
+                (kbd "C-c a") #'helm-projectile-dired-files-add-action
+                (kbd "C-s")   #'helm-projectile-grep)
               map)
     :help-message 'helm-ff-help-message
     :mode-line helm-read-file-name-mode-line-string
@@ -814,7 +814,7 @@ Other file extensions can be customized with the variable `projectile-other-file
   '("Find file" helm-grep-action
     "Find file other frame" helm-grep-other-frame
     (lambda () (and (locate-library "elscreen")
-                "Find file in Elscreen"))
+                    "Find file in Elscreen"))
     helm-grep-jump-elscreen
     "Save results in grep buffer" helm-grep-save-results
     "Find file other window" helm-grep-other-window)
