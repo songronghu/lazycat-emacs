@@ -119,7 +119,7 @@
        helm-source-imenu
        helm-source-autoload-commands
        helm-source-ls-git
-       helm-c-source-yasnippet
+       ;; helm-c-source-yasnippet
        ;; helm-source-webkit
        ;; helm-source-apt
        ;; helm-source-man-pages
