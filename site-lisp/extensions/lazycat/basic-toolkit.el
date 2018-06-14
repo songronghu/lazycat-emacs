@@ -4,10 +4,10 @@
 ;; Description: Basic edit toolkit.
 ;; Author: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
-;; Copyright (C) 2009, Andy Stewart, all rights reserved.
+;; Copyright (C) 2009 ~ 2018 Andy Stewart, all rights reserved.
 ;; Created: 2009-02-07 20:56:08
-;; Version: 0.1
-;; Last-Updated: 2009-02-07 20:56:08
+;; Version: 0.2
+;; Last-Updated: 2018-06-14 12:54:40
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/basic-toolkit.el
 ;; Keywords: edit, toolkit
@@ -58,6 +58,9 @@
 ;; No need more.
 
 ;;; Change log:
+;;
+;; 2018/06/14
+;;      * Add function `kill-unused-buffers'
 ;;
 ;; 2009/02/07
 ;;      * First released.
@@ -162,16 +165,16 @@ if not select any area, then strip all line number of buffer."
   "Strip all string that match REGULAR-EXPRESSION in select area of buffer.
 If not select any area, then strip current buffer"
   (interactive)
-  (let ((begin (point-min))             ;initialization make select all buffer
+  (let ((begin (point-min))     ;initialization make select all buffer
         (end (point-max)))
-    (if mark-active                     ;if have select some area of buffer, then strip this area
+    (if mark-active ;if have select some area of buffer, then strip this area
         (setq begin (region-beginning)
               end (region-end)))
-    (save-excursion                                              ;save position
-      (goto-char end)                                            ;goto end position
-      (while (and (> (point) begin)                              ;when above beginning position
+    (save-excursion                     ;save position
+      (goto-char end)                   ;goto end position
+      (while (and (> (point) begin)     ;when above beginning position
                   (re-search-backward regular-expression nil t)) ;and find string that match regular expression
-        (replace-match "" t t)))))                               ;replace target string with null
+        (replace-match "" t t)))))    ;replace target string with null
 
 (defun comment-part-move-up (n)
   "Move comment part up."
@@ -245,7 +248,7 @@ With prefix ARG, copy comments on that many lines starting with this one."
 If have return comment, otherwise return nil."
   (let (cs ce cmt)
     (setq cs (comment-on-line-p))
-    (if cs                              ;If have comment start position
+    (if cs                             ;If have comment start position
         (progn
           (goto-char cs)
           (skip-syntax-backward " ")
@@ -253,8 +256,8 @@ If have return comment, otherwise return nil."
           (comment-forward)
           (setq ce (if (bolp) (1- (point)) (point))) ;get comment end position
           (setq cmt (buffer-substring cs ce))        ;get comment
-          (kill-region cs ce)                        ;kill region between comment start and end
-          (goto-char cs)                             ;revert position
+          (kill-region cs ce) ;kill region between comment start and end
+          (goto-char cs)      ;revert position
           cmt)
       nil)))
 
@@ -401,7 +404,7 @@ If mark is activate, duplicate region lines below."
   (let ((arg (or arg 1))
         (inc (if (and arg (< arg 0)) 1 -1))
         (opoint (point)))
-    (while (or                          ;(not (= arg 0)) ;; This condition is implied.
+    (while (or          ;(not (= arg 0)) ;; This condition is implied.
             (and (> arg 0) (not (eobp)))
             (and (< arg 0) (not (bobp))))
       (if (> arg 0)
@@ -751,6 +754,16 @@ use function `completion-delete'."
   "Access file through samba protocol."
   (interactive "fFind file as samba: ")
   (find-file (concat "/smb:" file)))
+
+(defun kill-unused-buffers ()
+  (interactive)
+  (ignore-errors
+    (save-excursion
+      (dolist (buf (buffer-list))
+        (set-buffer buf)
+        (if (and (string-prefix-p "*" (buffer-name)) (string-suffix-p "*" (buffer-name)))
+            (kill-buffer buf))
+        ))))
 
 (provide 'basic-toolkit)
 
