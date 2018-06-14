@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <andy@freedom>
 ;; Copyright (C) 2013, Andy Stewart, all rights reserved.
 ;; Created: 2013-12-30 16:23:29
-;; Version: 0.1
-;; Last-Updated: 2013-12-30 16:23:29
+;; Version: 0.2
+;; Last-Updated: 2018-06-14 12:19:13
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-helm.el
 ;; Keywords:
@@ -15,7 +15,9 @@
 ;;
 ;; Features that might be required by this library:
 ;;
-;;
+;; `helm' `helm-autoload-commands' `helm-buffers'
+;; `helm-c-yasnippet' `helm-for-files' `helm-imenu'
+;; `helm-projectile' `helm-ring'
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -64,6 +66,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2018/06/14
+;;      * Upgrade configuration to match git version of helm.
 ;;
 ;; 2013/12/30
 ;;      * First released.
