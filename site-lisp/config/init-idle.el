@@ -139,6 +139,9 @@ from tradition chinese to simple chinese" t)
 (elf-setup-default)                     ;二进制文件默认用elf模式打开
 (setq echo-keystrokes 0.1)              ;加快快捷键提示的速度
 (tooltip-mode -1)                       ;不要显示任何 tooltips
+(setq package-archives ;设置中国的镜像源，国外的太慢了，偶尔去偷点 *.el 文件
+      '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+        ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
 (provide 'init-idle)
 
