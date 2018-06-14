@@ -16,7 +16,7 @@
 ;; Features that might be required by this library:
 ;;
 ;; `helm' `helm-autoload-commands' `helm-buffers'
-;; `helm-c-yasnippet' `helm-for-files' `helm-imenu'
+;; `helm-c-yasnippet' `helm-for-files'
 ;; `helm-projectile' `helm-ring'
 ;;
 
@@ -90,7 +90,6 @@
 (require 'helm-buffers)
 (require 'helm-c-yasnippet)
 (require 'helm-for-files)
-(require 'helm-imenu)
 (require 'helm-projectile)
 (require 'helm-ring)
 
@@ -108,7 +107,6 @@
        helm-source-projectile-projects
        helm-source-kill-ring
        helm-source-yasnippet
-       helm-source-imenu
        helm-source-autoload-commands
        )
      "*helm search*")))
