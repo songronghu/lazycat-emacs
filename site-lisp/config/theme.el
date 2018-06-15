@@ -129,6 +129,7 @@
  '(erm-syn-warnline ((t (:background "black" :foreground "yellow" :underline nil))))
  '(fixme-face ((t (:foreground "orange" :box (:line-width 1 :color "orange") :weight bold))))
  '(flycheck-error-list-highlight ((t (:foreground "orange red"))))
+ '(flymake-error ((t (:background "#660000" :foreground "white"))))
  '(flymake-errline ((t (:background "black" :underline "red"))))
  '(flymake-infoline ((t (:background "black" :underline "yellow" :slant italic))))
  '(flymake-warnline ((((class color)) (:background "Gold3" :foreground "Black"))))
