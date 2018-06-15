@@ -1,17 +1,17 @@
-;;; python-mode-utils.el --- Utils for python-mode
+;;; python-extension.el --- Some useful functions for python-mode
 
-;; Filename: python-mode-utils.el
-;; Description: Utils for python-mode
+;; Filename: python-extension.el
+;; Description: Some useful functions for python-mode
 ;; Author: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
-;; Copyright (C) 2012, Andy Stewart, all rights reserved.
-;; Created: 2012-11-10 09:01:38
+;; Copyright (C) 2018, Andy Stewart, all rights reserved.
+;; Created: 2018-06-15 09:46:06
 ;; Version: 0.1
-;; Last-Updated: 2012-11-10 09:01:38
+;; Last-Updated: 2018-06-15 09:46:06
 ;;           By: Andy Stewart
-;; URL: http://www.emacswiki.org/emacs/download/python-mode-utils.el
-;; Keywords: python, utils
-;; Compatibility: GNU Emacs 24.0.94.2
+;; URL: http://www.emacswiki.org/emacs/download/python-extension.el
+;; Keywords:
+;; Compatibility: GNU Emacs 27.0.50
 ;;
 ;; Features that might be required by this library:
 ;;
@@ -39,19 +39,19 @@
 
 ;;; Commentary:
 ;;
-;; Utils for python-mode
+;; Some useful functions for python-mode
 ;;
 
 ;;; Installation:
 ;;
-;; Put python-mode-utils.el to your load-path.
+;; Put python-extension.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'python-mode-utils)
+;; (require 'python-extension)
 ;;
 ;; No need more.
 
@@ -60,12 +60,12 @@
 ;;
 ;;
 ;; All of the above can customize by:
-;;      M-x customize-group RET python-mode-utils RET
+;;      M-x customize-group RET python-extension RET
 ;;
 
 ;;; Change log:
 ;;
-;; 2012/11/10
+;; 2018/06/15
 ;;      * First released.
 ;;
 
@@ -80,10 +80,9 @@
 ;;
 
 ;;; Require
-
+(require 'jedi)
 
 ;;; Code:
-
 (defun jump-to-import()
   (interactive)
   ;; Rember position before jump.
@@ -93,6 +92,14 @@
   (search-forward-regexp "\\(^import\\|^from\\)" nil t)
   )
 
-(provide 'python-mode-utils)
+(defun find-python-define (&optional prefix)
+  (interactive "P")
+  (if (null prefix)
+      (jedi:goto-definition)
+    (progn
+      (switch-to-buffer-other-window (buffer-name))
+      (jedi:goto-definition))))
 
-;;; python-mode-utils.el ends here
+(provide 'python-extension)
+
+;;; python-extension.el ends here

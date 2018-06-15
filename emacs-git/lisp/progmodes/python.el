@@ -391,8 +391,8 @@
                                             (or "def" "for" "with")))
                                    symbol-end))
       (dedenter            . ,(rx symbol-start
-                                   (or "elif" "else" "except" "finally")
-                                   symbol-end))
+                                  (or "elif" "else" "except" "finally")
+                                  symbol-end))
       (block-ender         . ,(rx symbol-start
                                   (or
                                    "break" "continue" "pass" "raise" "return")
@@ -1154,10 +1154,10 @@ indentation levels from right to left."
   "De-indent current line."
   (interactive "*")
   (when (and (not (bolp))
-           (not (python-syntax-comment-or-string-p))
-           (= (current-indentation) (current-column)))
-      (python-indent-line t)
-      t))
+             (not (python-syntax-comment-or-string-p))
+             (= (current-indentation) (current-column)))
+    (python-indent-line t)
+    t))
 
 (defun python-indent-dedent-line-backspace (arg)
   "De-indent current line.
@@ -2143,26 +2143,26 @@ appends `python-shell-remote-exec-path' instead of `exec-path'."
   (let ((env (append (when (fboundp #'tramp-get-remote-locale)
                        ;; Emacs<24.4 compat.
                        (list (tramp-get-remote-locale vec)))
-		     (copy-sequence env)))
+                     (copy-sequence env)))
         (tramp-end-of-heredoc
          (if (boundp 'tramp-end-of-heredoc)
              tramp-end-of-heredoc
            (md5 tramp-end-of-output)))
-	unset vars item)
+        unset vars item)
     (while env
       (setq item (split-string (car env) "=" 'omit))
       (setcdr item (mapconcat 'identity (cdr item) "="))
       (if (and (stringp (cdr item)) (not (string-equal (cdr item) "")))
-	  (push (format "%s %s" (car item) (cdr item)) vars)
-	(push (car item) unset))
+          (push (format "%s %s" (car item) (cdr item)) vars)
+        (push (car item) unset))
       (setq env (cdr env)))
     (when vars
       (tramp-send-command
        vec
        (format "while read var val; do export $var=$val; done <<'%s'\n%s\n%s"
-	       tramp-end-of-heredoc
-	       (mapconcat 'identity vars "\n")
-	       tramp-end-of-heredoc)
+               tramp-end-of-heredoc
+               (mapconcat 'identity vars "\n")
+               tramp-end-of-heredoc)
        t))
     (when unset
       (tramp-send-command
@@ -3152,7 +3152,7 @@ t when called interactively."
        (or (python-nav-end-of-defun)
            (end-of-line 1))
        (point-marker))
-     nil  ;; noop
+     nil ;; noop
      msg)))
 
 (defun python-shell-send-file (file-name &optional process temp-file-name
@@ -3708,7 +3708,7 @@ Never set this variable directly, use
 Internally it uses the `python-pdbtrack-tracked-buffer' variable.
 Returns the tracked buffer."
   (let* ((file-name-prospect (concat (file-remote-p default-directory)
-                              file-name))
+                                     file-name))
          (file-buffer (get-file-buffer file-name-prospect)))
     (if file-buffer
         (setq python-pdbtrack-tracked-buffer file-buffer)
@@ -4149,8 +4149,8 @@ The skeleton will be bound to python-skeleton-NAME."
   "def " str "(" ("Parameter, %s: "
                   (unless (equal ?\( (char-before)) ", ")
                   str) "):" \n
-                  "\"\"\"" - "\"\"\"" \n
-                  > _ \n)
+  "\"\"\"" - "\"\"\"" \n
+  > _ \n)
 
 (python-skeleton-define class nil
   "Class name: "
@@ -4416,7 +4416,7 @@ Interactively, prompt for symbol."
 (defun python-hideshow-forward-sexp-function (arg)
   "Python specific `forward-sexp' function for `hs-minor-mode'.
 Argument ARG is ignored."
-  arg  ; Shut up, byte compiler.
+  arg                                   ; Shut up, byte compiler.
   (python-nav-end-of-defun)
   (unless (python-info-current-line-empty-p)
     (backward-char)))
@@ -4571,8 +4571,8 @@ To this:
     (or alist
         (let* ((fn (lambda (_type name) name))
                (python-imenu-format-item-label-function fn)
-              (python-imenu-format-parent-item-label-function fn)
-              (python-imenu-format-parent-item-jump-label-function fn))
+               (python-imenu-format-parent-item-label-function fn)
+               (python-imenu-format-parent-item-jump-label-function fn))
           (python-imenu-create-index))))))
 
 
@@ -4936,7 +4936,7 @@ operator."
   "Return non-nil if point is in a docstring.
 When optional argument SYNTAX-PPSS is given, use that instead of
 point's current `syntax-ppss'."
-  ;;; https://www.python.org/dev/peps/pep-0257/#what-is-a-docstring
+;;; https://www.python.org/dev/peps/pep-0257/#what-is-a-docstring
   (save-excursion
     (when (and syntax-ppss (python-syntax-context 'string syntax-ppss))
       (goto-char (nth 8 syntax-ppss)))

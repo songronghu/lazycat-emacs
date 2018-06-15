@@ -22,7 +22,6 @@
   (require 'init-minibuffer-tray)
   (require 'init-linum)
   (require 'init-auto-save)
-  (require 'init-jedi)
   (require 'init-tabbar)
   (require 'init-mode)
   (require 'init-qt)

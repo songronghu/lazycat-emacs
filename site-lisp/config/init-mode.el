@@ -105,6 +105,7 @@
                     ("cron\\(tab\\)?\\." . crontab-mode)
                     ("\\.a90\\'" . intel-hex-mode)
                     ("\\.hex\\'" . intel-hex-mode)
+                    ("\\.py$" . python-mode)
                     ("SConstruct". python-mode)
                     ("\\.ml\\'" . tuareg-mode)
                     ("\\.mli\\'" . tuareg-mode)
@@ -160,6 +161,7 @@
 (autoload 'qmake-mode "qmake-mode")
 (autoload 'ruby-mode "init-ruby")
 (autoload 'rjsx-mode "init-reactjs")
+(autoload 'python-mode "init-python")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行
