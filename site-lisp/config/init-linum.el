@@ -114,6 +114,7 @@
                'vala-mode-hook
                'rust-mode-hook
                'ruby-mode-hook
+               'qmake-mode-hook
                ))
   (add-hook hook (lambda () (linum-mode 1))))
 

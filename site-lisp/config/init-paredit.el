@@ -98,6 +98,7 @@
                'css-mode-hook
                'ruby-mode-hook
                'rust-mode-hook
+               'qmake-mode-hook
                ))
   (add-hook hook '(lambda () (paredit-mode 1))))
 
