@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2014, Andy Stewart, all rights reserved.
 ;; Created: 2014-03-17 02:06:19
-;; Version: 0.1
-;; Last-Updated: 2014-03-17 02:06:19
+;; Version: 0.2
+;; Last-Updated: 2018-06-20 06:53:19
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-flymake.el
 ;; Keywords:
@@ -65,6 +65,9 @@
 
 ;;; Change log:
 ;;
+;; 2018/06/20
+;;      * Remove flymake log buffer when start emacs.
+;;
 ;; 2014/03/17
 ;;      * First released.
 ;;
@@ -84,7 +87,7 @@
 
 ;;; Code:
 
-;; Remove 
+;; Remove flymake log buffer when start emacs.
 (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
 
 (add-hook 'shell-mode-hook

@@ -9,6 +9,7 @@
   (require 'benchmark-init)
   (require 'theme)
   (require 'init-startup)
+  (require 'init-flymake)
   (require 'lazy-set-key)
   (require 'one-key)
   (require 'paredit)
@@ -37,7 +38,6 @@
   (require 'init-key)
   (require 'init-generic)
   (require 'init-auto-indent-mode)
-  (require 'init-flymake)
 
   ;; 可以延后加载的
   (run-with-idle-timer
