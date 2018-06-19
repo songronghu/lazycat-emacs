@@ -1,0 +1,11 @@
+StarDict's dict ifo file
+version=3.0.0
+wordcount=117659
+synwordcount=89319
+idxfilesize=2186342
+bookname=WordNet
+website=http://wordnet.princeton.edu
+date=2007.09.10
+description=Made by Hu Zheng.
+sametypesequence=n
+dicttype=wordnet
