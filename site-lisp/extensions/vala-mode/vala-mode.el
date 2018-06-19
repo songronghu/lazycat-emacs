@@ -1,7 +1,7 @@
 ;;; vala-mode.el --- Vala mode derived mode
 
 ;; Author:     2005 Dylan R. E. Moonfire
-;;	       2008 Étienne BERSAC
+;;             2008 Étienne BERSAC
 ;; Maintainer: Étienne BERSAC <bersace03@laposte.net>
 ;; Modifier:   Kentaro NAKAZAWA <kentaro.nakazawa@nifty.com>
 ;; Created:    2008 May the 4th
@@ -13,12 +13,12 @@
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2 of the License, or
 ;; (at your option) any later version.
-;; 
+;;
 ;; This program is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
@@ -43,7 +43,7 @@
 
 ;;; Versions:
 ;;
-;;	0.1	: Initial version based on csharp-mode
+;;      0.1     : Initial version based on csharp-mode
 ;;
 
 ;; This is a copy of the function in cc-mode which is used to handle
@@ -53,31 +53,31 @@
   (unless (listp (car-safe ops))
     (setq ops (list ops)))
   (cond ((eq opgroup-filter t)
-	 (setq opgroup-filter (lambda (opgroup) t)))
-	((not (functionp opgroup-filter))
-	 (setq opgroup-filter `(lambda (opgroup)
-				 (memq opgroup ',opgroup-filter)))))
+         (setq opgroup-filter (lambda (opgroup) t)))
+        ((not (functionp opgroup-filter))
+         (setq opgroup-filter `(lambda (opgroup)
+                                 (memq opgroup ',opgroup-filter)))))
   (cond ((eq op-filter t)
-	 (setq op-filter (lambda (op) t)))
-	((stringp op-filter)
-	 (setq op-filter `(lambda (op)
-			    (string-match ,op-filter op)))))
+         (setq op-filter (lambda (op) t)))
+        ((stringp op-filter)
+         (setq op-filter `(lambda (op)
+                            (string-match ,op-filter op)))))
   (unless xlate
     (setq xlate 'identity))
   (c-with-syntax-table (c-lang-const c-mode-syntax-table)
     (delete-duplicates
      (mapcan (lambda (opgroup)
-	       (when (if (symbolp (car opgroup))
-			 (when (funcall opgroup-filter (car opgroup))
-			   (setq opgroup (cdr opgroup))
-			   t)
-		       t)
-		 (mapcan (lambda (op)
-			   (when (funcall op-filter op)
-			     (let ((res (funcall xlate op)))
-			       (if (listp res) res (list res)))))
-			 opgroup)))
-	     ops)
+               (when (if (symbolp (car opgroup))
+                         (when (funcall opgroup-filter (car opgroup))
+                           (setq opgroup (cdr opgroup))
+                           t)
+                       t)
+                 (mapcan (lambda (op)
+                           (when (funcall op-filter op)
+                             (let ((res (funcall xlate op)))
+                               (if (listp res) res (list res)))))
+                         opgroup)))
+             ops)
      :test 'equal)))
 
 ;; This inserts the bulk of the code.
@@ -90,10 +90,10 @@
 ;; necessary to get them compiled.)
 (eval-when-compile
   (let ((load-path
-	 (if (and (boundp 'byte-compile-dest-file)
-		  (stringp byte-compile-dest-file))
-	     (cons (file-name-directory byte-compile-dest-file) load-path)
-	   load-path)))
+         (if (and (boundp 'byte-compile-dest-file)
+                  (stringp byte-compile-dest-file))
+             (cons (file-name-directory byte-compile-dest-file) load-path)
+           load-path)))
     (load "cc-mode" nil t)
     (load "cc-fonts" nil t)
     (load "cc-langs" nil t)))
@@ -114,80 +114,80 @@
 ;;(error (c-get-current-file))
 (c-lang-defconst c-opt-after-id-concat-key
   vala (if (c-lang-const c-opt-identifier-concat-key)
-	   (c-lang-const c-symbol-start)))
+           (c-lang-const c-symbol-start)))
 
 (c-lang-defconst c-basic-matchers-before
   vala `(
 ;;;; Font-lock the attributes by searching for the
 ;;;; appropriate regex and marking it as TODO.
-	 ;;,`(,(concat "\\(" vala-attribute-regex "\\)")
-	 ;;   0 font-lock-function-name-face)	   
+         ;;,`(,(concat "\\(" vala-attribute-regex "\\)")
+         ;;   0 font-lock-function-name-face)
 
-	 ;; Put a warning face on the opener of unclosed strings that
-	 ;; can't span lines.  Later font
-	 ;; lock packages have a `font-lock-syntactic-face-function' for
-	 ;; this, but it doesn't give the control we want since any
-	 ;; fontification done inside the function will be
-	 ;; unconditionally overridden.
-	 ,(c-make-font-lock-search-function
-	   ;; Match a char before the string starter to make
-	   ;; `c-skip-comments-and-strings' work correctly.
-	   (concat ".\\(" c-string-limit-regexp "\\)")
-	   '((c-font-lock-invalid-string)))
-	   
-	 ;; Fontify keyword constants.
-	 ,@(when (c-lang-const c-constant-kwds)
-	     (let ((re (c-make-keywords-re nil
-			 (c-lang-const c-constant-kwds))))
-	       `((eval . (list ,(concat "\\<\\(" re "\\)\\>")
-			       1 c-constant-face-name)))))
-	   
-	 ;; Fontify all keywords except the primitive types.
-	 ,`(,(concat "\\<" (c-lang-const c-regular-keywords-regexp))
-	    1 font-lock-keyword-face)
+         ;; Put a warning face on the opener of unclosed strings that
+         ;; can't span lines.  Later font
+         ;; lock packages have a `font-lock-syntactic-face-function' for
+         ;; this, but it doesn't give the control we want since any
+         ;; fontification done inside the function will be
+         ;; unconditionally overridden.
+         ,(c-make-font-lock-search-function
+           ;; Match a char before the string starter to make
+           ;; `c-skip-comments-and-strings' work correctly.
+           (concat ".\\(" c-string-limit-regexp "\\)")
+           '((c-font-lock-invalid-string)))
 
-	 ;; Fontify leading identifiers in fully
-	 ;; qualified names like "Foo.Bar".
-	 ,@(when (c-lang-const c-opt-identifier-concat-key)
-	     `((,(byte-compile
-		  `(lambda (limit)
-		     (while (re-search-forward
-			     ,(concat "\\(\\<" ; 1
-				      "\\(" (c-lang-const c-symbol-key)
-				      "\\)" ; 2
-				      "[ \t\n\r\f\v]*"
-				      (c-lang-const
-				       c-opt-identifier-concat-key)
-				      "[ \t\n\r\f\v]*"
-				      "\\)"
-				      "\\("
-				      (c-lang-const
-				       c-opt-after-id-concat-key)
-				      "\\)")
-			     limit t)
-		       (unless (progn
-				 (goto-char (match-beginning 0))
-				 (c-skip-comments-and-strings limit))
-			 (or (get-text-property (match-beginning 2) 'face)
-			     (c-put-font-lock-face (match-beginning 2)
-						   (match-end 2)
-						   c-reference-face-name))
-			 (goto-char (match-end 1)))))))))
-	 ))
+         ;; Fontify keyword constants.
+         ,@(when (c-lang-const c-constant-kwds)
+             (let ((re (c-make-keywords-re nil
+                         (c-lang-const c-constant-kwds))))
+               `((eval . (list ,(concat "\\<\\(" re "\\)\\>")
+                               1 c-constant-face-name)))))
+
+         ;; Fontify all keywords except the primitive types.
+         ,`(,(concat "\\<" (c-lang-const c-regular-keywords-regexp))
+            1 font-lock-keyword-face)
+
+         ;; Fontify leading identifiers in fully
+         ;; qualified names like "Foo.Bar".
+         ,@(when (c-lang-const c-opt-identifier-concat-key)
+             `((,(byte-compile
+                  `(lambda (limit)
+                     (while (re-search-forward
+                             ,(concat "\\(\\<" ; 1
+                                      "\\(" (c-lang-const c-symbol-key)
+                                      "\\)" ; 2
+                                      "[ \t\n\r\f\v]*"
+                                      (c-lang-const
+                                       c-opt-identifier-concat-key)
+                                      "[ \t\n\r\f\v]*"
+                                      "\\)"
+                                      "\\("
+                                      (c-lang-const
+                                       c-opt-after-id-concat-key)
+                                      "\\)")
+                             limit t)
+                       (unless (progn
+                                 (goto-char (match-beginning 0))
+                                 (c-skip-comments-and-strings limit))
+                         (or (get-text-property (match-beginning 2) 'face)
+                             (c-put-font-lock-face (match-beginning 2)
+                                                   (match-end 2)
+                                                   c-reference-face-name))
+                         (goto-char (match-end 1)))))))))
+         ))
 
 ;; Vala does not allow a leading qualifier operator. It also doesn't
 ;; allow the ".*" construct of Java. So, we redo this regex without
 ;; the "\\|\\*" regex.
 (c-lang-defconst c-identifier-key
   vala (concat "\\(" (c-lang-const c-symbol-key) "\\)" ; 1
-	       (concat "\\("
-		       "[ \t\n\r\f\v]*"
-		       (c-lang-const c-opt-identifier-concat-key)
-		       "[ \t\n\r\f\v]*"
-		       (concat "\\("
-			       "\\(" (c-lang-const c-symbol-key) "\\)"
-			       "\\)")
-		       "\\)*")))
+               (concat "\\("
+                       "[ \t\n\r\f\v]*"
+                       (c-lang-const c-opt-identifier-concat-key)
+                       "[ \t\n\r\f\v]*"
+                       (concat "\\("
+                               "\\(" (c-lang-const c-symbol-key) "\\)"
+                               "\\)")
+                       "\\)*")))
 
 ;; Vala has a few rules that are slightly different than Java for
 ;; operators. This also removed the Java's "super" and replaces it
@@ -203,13 +203,13 @@
 ;; Vala uses the following assignment operators
 (c-lang-defconst c-assignment-operators
   vala '("=" "*=" "/=" "%=" "+=" "-=" ">>=" "<<="
-	 "&=" "^=" "|=" "++" "--"))
+         "&=" "^=" "|=" "++" "--"))
 
 ;; This defines the primative types for Vala
 (c-lang-defconst c-primitive-type-kwds
   vala '("void" "bool" "char" "uchar" "short" "ushort" "int" "uint" "long" "ulong"
-	 "size_t" "ssize_t" "int8" "uint8" "int16" "uint16" "int32" "uint32" "int64" "uint64"
-	 "unichar" "float" "double" "string"))
+         "size_t" "ssize_t" "int8" "uint8" "int16" "uint16" "int32" "uint32" "int64" "uint64"
+         "unichar" "float" "double" "string"))
 
 ;; The keywords that define that the following is a type, such as a
 ;; class definition.
@@ -228,9 +228,9 @@
 ;; The various modifiers used for class and method descriptions.
 (c-lang-defconst c-modifier-kwds
   vala '("public" "partial" "private" "const" "abstract"
-	 "protected" "ref" "in" "out" "static" "virtual"
-	 "override" "params" "internal" "weak" "owned"
-	 "unowned" "async" "yield"))
+         "protected" "ref" "in" "out" "static" "virtual"
+         "override" "params" "internal" "weak" "owned"
+         "unowned" "async" "yield"))
 
 ;; We don't use the protection level stuff because it breaks the
 ;; method indenting. Not sure why, though.
@@ -240,11 +240,11 @@
 ;; Define the keywords that can have something following after them.
 (c-lang-defconst c-type-list-kwds
   vala '("struct" "class" "interface" "is" "as"
-	 "delegate" "event" "set" "get" "add" "remove"
-	 "callback" "signal" "var" "default"))
+         "delegate" "event" "set" "get" "add" "remove"
+         "callback" "signal" "var" "default"))
 
 ;; This allows the classes after the : in the class declartion to be
-;; fontified. 
+;; fontified.
 (c-lang-defconst c-typeless-decl-kwds
   vala '(":"))
 
@@ -313,7 +313,7 @@
   "Syntax table used in vala-mode buffers.")
 (or vala-mode-syntax-table
     (setq vala-mode-syntax-table
-	  (funcall (c-lang-const c-make-mode-syntax-table vala))))
+          (funcall (c-lang-const c-make-mode-syntax-table vala))))
 
 (defvar vala-mode-abbrev-table nil
   "Abbreviation table used in vala-mode buffers.")
@@ -328,17 +328,17 @@
     ("finally" "finally" c-electric-continued-statement 0)))
 
 (defvar vala-mode-map (let ((map (c-make-inherited-keymap)))
-			;; Add bindings which are only useful for Vala
-			map)
+                        ;; Add bindings which are only useful for Vala
+                        map)
   "Keymap used in vala-mode buffers.")
 
 ;;(easy-menu-define vala-menu vala-mode-map "Vala Mode Commands"
-;;		  ;; Can use `vala' as the language for `c-mode-menu'
-;;		  ;; since its definition covers any language.  In
-;;		  ;; this case the language is used to adapt to the
-;;		  ;; nonexistence of a cpp pass and thus removing some
-;;		  ;; irrelevant menu alternatives.
-;;		  (cons "Vala" (c-lang-const c-mode-menu vala)))
+;;                ;; Can use `vala' as the language for `c-mode-menu'
+;;                ;; since its definition covers any language.  In
+;;                ;; this case the language is used to adapt to the
+;;                ;; nonexistence of a cpp pass and thus removing some
+;;                ;; irrelevant menu alternatives.
+;;                (cons "Vala" (c-lang-const c-mode-menu vala)))
 
 ;;; Autoload mode trigger
 (add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))
@@ -368,9 +368,9 @@ Key bindings:
   (c-initialize-cc-mode t)
   (set-syntax-table vala-mode-syntax-table)
   (setq major-mode 'vala-mode
-	mode-name "Vala"
-	local-abbrev-table vala-mode-abbrev-table
-	abbrev-mode t)
+        mode-name "Vala"
+        local-abbrev-table vala-mode-abbrev-table
+        abbrev-mode t)
   (use-local-map c-mode-map)
   ;; `c-init-language-vars' is a macro that is expanded at compile
   ;; time to a large `setq' with all the language variables and their
