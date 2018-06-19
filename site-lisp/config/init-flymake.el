@@ -84,6 +84,9 @@
 
 ;;; Code:
 
+;; Remove 
+(remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
+
 (add-hook 'shell-mode-hook
           (lambda ()
             (require 'flymake)

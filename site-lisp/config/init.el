@@ -2,6 +2,7 @@
 (defvar lazycat-emacs-root-dir (file-truename "/usr/share/emacs/lazycat"))
 (defvar lazycat-emacs-config-dir (concat lazycat-emacs-root-dir "/config"))
 (defvar lazycat-emacs-extension-dir (concat lazycat-emacs-root-dir "/extensions"))
+(defvar lazycat-emacs-sdcv-data-dir (concat lazycat-emacs-root-dir "/sdcv-dict"))
 
 (with-temp-message ""                   ;抹掉插件启动的输出
   ;; 必须加载的
