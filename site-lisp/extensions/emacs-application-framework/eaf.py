@@ -20,7 +20,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+import threading
 from PyQt5 import QtCore
+from PyQt5.QtGui import QPainter, QImage
+from PyQt5.QtWebKitWidgets import QWebView, QWebPage
+from PyQt5.QtCore import QUrl, Qt
 from PyQt5 import QtGui
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import Qt, QTimer, QEvent
@@ -81,7 +85,7 @@ class EAF(dbus.service.Object):
     @dbus.service.method(EAF_DBUS_NAME, in_signature="sss", out_signature="")
     def new_buffer(self, buffer_id, app_type, input_content):
         if app_type == "browser":
-            self.buffer_dict[buffer_id] = BrowserBuffer(buffer_id, app_type, input_content)
+            self.buffer_dict[buffer_id] = BrowserBuffer(buffer_id, app_type, input_content, self.emacs_width, self.emacs_height)
             
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def update_views(self, args):
@@ -98,7 +102,7 @@ class EAF(dbus.service.Object):
         if view_infos != ['']:
             for view_info in view_infos:
                 if view_info not in self.view_dict:
-                    self.view_dict[view_info] = View(view_info)
+                    self.view_dict[view_info] = View(self.emacs_xid, view_info)
                     
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def kill_buffer(self, buffer_id):
@@ -115,29 +119,112 @@ class EAF(dbus.service.Object):
             self.buffer_dict[buffer_id].destroy()
 
             self.buffer_dict.pop(buffer_id)
+    
+    def update_buffers(self):
+        while True:
+            for buffer in self.buffer_dict.values():
+                buffer.update_content()
                 
+                for view in self.view_dict.values():
+                    if view.buffer_id == buffer.buffer_id:
+                        view.view_widget.qimage = buffer.qimage
+                        view.view_widget.update()
+                
+            time.sleep(0.05)
         
 class Buffer(object):
-    def __init__(self, buffer_id, app_type, input_content):
+    def __init__(self, buffer_id, app_type, input_content, emacs_width, emacs_height):
         self.buffer_id = buffer_id
         self.app_type = app_type
         self.input_content = input_content
+        self.emacs_width = emacs_width
+        self.emacs_height = emacs_height
+        
+        self.qimage = None
+        self.buffer_widget = None
         
     def destroy(self):
         print("Destroy buffer: %s" % self.buffer_id)
         
+        if self.buffer_widget != None:
+            self.buffer_widget.destroy()
+        
+    @postGui()    
+    def update_content(self):
+        if self.buffer_widget != None:
+            qimage = QImage(self.emacs_width, self.emacs_height, QImage.Format_ARGB32)
+            self.buffer_widget.render(qimage)
+            self.qimage = qimage
+        
+class ViewWidget(QWidget):
+    def __init__(self, emacs_xid, x, y, w, h):
+        super(ViewWidget, self).__init__()
+
+        self.emacs_xid = int(emacs_xid)
+        self.x = x
+        self.y = y
+        self.width = w
+        self.height = h
+        
+        self.setWindowFlags(Qt.FramelessWindowHint)
+        # self.setAttribute(Qt.WA_TranslucentBackground, True)
+        self.setContentsMargins(0, 0, 0, 0)
+        
+        self.qimage = None
+        
+        self.show()
+        
+    def paintEvent(self, event):
+        print("##########################3")
+        
+        painter = QPainter(self)
+                    
+        if self.qimage != None:
+            painter.drawImage(QtCore.QRect(0, 0, self.width, self.height), self.qimage)
+            print("!!!!!!!!!!!!!!!!!!")
+        
+        painter.end()
+        
+    def reparent(self):
+        xlib_display = get_xlib_display()
+        
+        view_xid = self.winId().__int__()
+        view_xwindow = xlib_display.create_resource_object("window", view_xid)
+        emacs_xwindow = xlib_display.create_resource_object("window", self.emacs_xid)
+        
+        view_xwindow.reparent(emacs_xwindow, self.x, self.y)
+        
+        xlib_display.sync()
+        
 class View(object):
-    def __init__(self, view_info):
+    def __init__(self, emacs_xid, view_info):
         self.view_info = view_info
+        
+        (self.buffer_id, self.x, self.y, self.width, self.height) = view_info.split(":")
+        self.x = int(self.x)
+        self.y = int(self.y)
+        self.width = int(self.width)
+        self.height = int(self.height)
+        
+        self.view_widget = ViewWidget(emacs_xid, self.x, self.y, self.width, self.height)
+        self.view_widget.resize(self.width, self.height)
+        
+        self.view_widget.reparent()
         
         print("Create view: %s" % self.view_info)
         
     def destroy(self):
         print("Destroy view: %s" % self.view_info)
         
+        self.view_widget.destroy()
+        
 class BrowserBuffer(Buffer):
-    def __init__(self, buffer_id, app_type, input_content):
-        Buffer.__init__(self, buffer_id, app_type, input_content)
+    def __init__(self, buffer_id, app_type, input_content, emacs_width, emacs_height):
+        Buffer.__init__(self, buffer_id, app_type, input_content, emacs_width, emacs_height)
+        
+        self.buffer_widget = QWebView()
+        self.buffer_widget.resize(emacs_width, emacs_height)
+        self.buffer_widget.setUrl(QUrl("http://www.baidu.com"))
         
         print("Create buffer: %s" % buffer_id)
         
@@ -154,6 +241,8 @@ if __name__ == "__main__":
         app = QApplication(sys.argv)
         
         eaf = EAF(sys.argv[1:])
+        
+        threading.Thread(target=eaf.update_buffers).start()
         
         print("EAF process start.")
         

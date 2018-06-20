@@ -113,13 +113,12 @@
   :group 'eaf)
 
 (defun eaf-call (method &rest args)
-  (progn
-    (apply 'dbus-call-method
-           :session                 ; use the session (not system) bus
-           "com.lazycat.eaf"        ; service name
-           "/com/lazycat/eaf"       ; path name
-           "com.lazycat.eaf"        ; interface name
-           method args)))
+  (apply 'dbus-call-method
+         :session                   ; use the session (not system) bus
+         "com.lazycat.eaf"          ; service name
+         "/com/lazycat/eaf"         ; path name
+         "com.lazycat.eaf"          ; interface name
+         method args))
 
 (defun eaf-get-emacs-xid ()
   (frame-parameter nil 'window-id))
@@ -204,30 +203,34 @@ We need calcuate render allocation to make sure no black border around render co
   (eaf-open "browser" url))
 
 (defun eaf-monitor-configuration-change (&rest _)
-  (let (view-infos)
-    (dolist (window (window-list))
-      (let ((buffer (window-buffer window)))
-        (with-current-buffer buffer
-          (if (string= "eaf-mode" (format "%s" major-mode))
-              (let* ((window-allocation (eaf-get-window-allocation window))
-                     (x (nth 0 window-allocation))
-                     (y (nth 1 window-allocation))
-                     (w (nth 2 window-allocation))
-                     (h (nth 3 window-allocation))
-                     )
-                (add-to-list 'view-infos (format "%s:%s:%s:%s:%s" buffer-id x y w h))
-                )))))
-    (eaf-call "update_views" (mapconcat 'identity view-infos ","))
-    ))
+  (ignore-errors
+    (let (view-infos)
+      (dolist (window (window-list))
+        (let ((buffer (window-buffer window)))
+          (with-current-buffer buffer
+            (if (string= "eaf-mode" (format "%s" major-mode))
+                (let* ((window-allocation (eaf-get-window-allocation window))
+                       (x (nth 0 window-allocation))
+                       (y (nth 1 window-allocation))
+                       (w (nth 2 window-allocation))
+                       (h (nth 3 window-allocation))
+                       )
+                  (add-to-list 'view-infos (format "%s:%s:%s:%s:%s" buffer-id x y w h))
+                  )))))
+      ;; I don't know how to make emacs send dbus-message with two-dimensional list.
+      ;; So i package two-dimensional list in string, then unpack on server side. ;)
+      (eaf-call "update_views" (mapconcat 'identity view-infos ","))
+      )))
 
 (add-hook 'window-configuration-change-hook #'eaf-monitor-configuration-change)
 
 (defun eaf-monitor-buffer-kill ()
-  (with-current-buffer (buffer-name)
-    (when (string= "eaf-mode" (format "%s" major-mode))
-      (eaf-call "kill_buffer" buffer-id)
-      (message (format "Kill %s" buffer-id))
-      )))
+  (ignore-errors
+    (with-current-buffer (buffer-name)
+      (when (string= "eaf-mode" (format "%s" major-mode))
+        (eaf-call "kill_buffer" buffer-id)
+        (message (format "Kill %s" buffer-id))
+        ))))
 
 (add-hook 'kill-buffer-hook #'eaf-monitor-buffer-kill)
 
