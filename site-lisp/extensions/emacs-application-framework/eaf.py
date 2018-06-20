@@ -20,23 +20,18 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import threading
 from PyQt5 import QtCore
-from PyQt5.QtGui import QPainter, QImage
-from PyQt5.QtWebKitWidgets import QWebView, QWebPage
 from PyQt5.QtCore import QUrl, Qt
-from PyQt5 import QtGui
-from PyQt5.QtWidgets import QWidget
-from PyQt5.QtCore import Qt, QTimer, QEvent
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtGui import QPainter, QColor
-import time
-import copy
-import functools
-from xutils import get_xlib_display, grab_focus
+from PyQt5.QtGui import QPainter, QImage
+from PyQt5.QtWebKitWidgets import QWebView
+from PyQt5.QtWidgets import QWidget, QApplication
 from dbus.mainloop.glib import DBusGMainLoop
+from xutils import get_xlib_display
 import dbus
 import dbus.service
+import functools
+import threading
+import time
 
 EAF_DBUS_NAME = "com.lazycat.eaf"
 EAF_OBJECT_NAME = "/com/lazycat/eaf"
