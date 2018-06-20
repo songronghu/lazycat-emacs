@@ -72,8 +72,6 @@ class EAF(dbus.service.Object):
         
         (self.emacs_xid, self.emacs_x, self.emacs_y, self.emacs_width, self.emacs_height) = (map(lambda x: int(x), args))
         
-        print (self.emacs_xid, self.emacs_x, self.emacs_y, self.emacs_width, self.emacs_height)
-        
         self.buffer_dict = {}
         self.view_dict = {}
         
@@ -104,11 +102,9 @@ class EAF(dbus.service.Object):
         for key in list(self.view_dict):
             (bid, _, _, _, _) = key.split(":")
             if buffer_id == bid:
-                print("**********************")
                 self.view_dict[key].destroy()
                 
                 self.view_dict.pop(key)
-                print("**********************")
         
         if buffer_id in self.buffer_dict:
             self.buffer_dict[buffer_id].destroy()
@@ -170,13 +166,10 @@ class ViewWidget(QWidget):
         self.show()
         
     def paintEvent(self, event):
-        print("##########################3")
-        
         painter = QPainter(self)
                     
         if self.qimage != None:
             painter.drawImage(QtCore.QRect(0, 0, self.width, self.height), self.qimage)
-            print("!!!!!!!!!!!!!!!!!!")
         
         painter.end()
         
@@ -219,7 +212,7 @@ class BrowserBuffer(Buffer):
         
         self.buffer_widget = QWebView()
         self.buffer_widget.resize(emacs_width, emacs_height)
-        self.buffer_widget.setUrl(QUrl("http://www.baidu.com"))
+        self.buffer_widget.setUrl(QUrl(input_content))
         
         print("Create buffer: %s" % buffer_id)
         

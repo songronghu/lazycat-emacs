@@ -198,7 +198,7 @@ We need calcuate render allocation to make sure no black border around render co
     (switch-to-buffer buffer)
     ))
 
-(defun eaf-test (url)
+(defun eaf-open-url (url)
   (interactive "sURL: ")
   (eaf-open "browser" url))
 
