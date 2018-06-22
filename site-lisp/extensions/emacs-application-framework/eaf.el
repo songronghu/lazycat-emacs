@@ -130,7 +130,7 @@
           (apply 'start-process
                  eaf-name
                  eaf-name
-                 "python" (append (list eaf-python-file (eaf-get-emacs-xid)) (eaf-get-render-allocation))
+                 "python" (append (list eaf-python-file (eaf-get-emacs-xid)) (eaf-get-render-size))
                  ))
     (set-process-query-on-exit-flag eaf-process nil)
     (set-process-sentinel
@@ -151,17 +151,15 @@
   (eaf-stop-process)
   (eaf-start-process))
 
-(defun eaf-get-render-allocation ()
+(defun eaf-get-render-size ()
   "Get allocation for render application in backend.
 We need calcuate render allocation to make sure no black border around render content."
   (let* (;; We use `window-inside-pixel-edges' and `window-absolute-pixel-edges' calcuate height of window header, such as tabbar.
          (window-header-height (- (nth 1 (window-inside-pixel-edges)) (nth 1 (window-absolute-pixel-edges))))
-         (x 0)
-         (y window-header-height)
          (width (frame-pixel-width))
          ;; Render height should minus mode-line height, minibuffer height, header height.
          (height (- (frame-pixel-height) (window-mode-line-height) (window-pixel-height (minibuffer-window)) window-header-height)))
-    (mapcar (lambda (x) (format "%s" x)) (list x y width height))))
+    (mapcar (lambda (x) (format "%s" x)) (list width height))))
 
 (defun eaf-get-window-allocation (&optional window)
   (let* ((window-edges (window-inside-pixel-edges window))

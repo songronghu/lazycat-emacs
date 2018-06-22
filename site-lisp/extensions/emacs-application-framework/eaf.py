@@ -70,7 +70,7 @@ class EAF(dbus.service.Object):
             dbus.service.BusName(EAF_DBUS_NAME, bus=dbus.SessionBus()),
             EAF_OBJECT_NAME)
         
-        (self.emacs_xid, self.emacs_x, self.emacs_y, self.emacs_width, self.emacs_height) = (map(lambda x: int(x), args))
+        (self.emacs_xid, self.emacs_width, self.emacs_height) = (map(lambda x: int(x), args))
         self.buffer_dict = {}
         self.view_dict = {}
         
