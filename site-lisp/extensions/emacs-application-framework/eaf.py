@@ -22,11 +22,12 @@
 
 from PyQt5 import QtCore
 from PyQt5.QtCore import QUrl, Qt
-from PyQt5.QtGui import QPainter, QImage
+from PyQt5.QtGui import QPainter, QImage, QColor
 from PyQt5.QtWebKitWidgets import QWebView
 from PyQt5.QtWidgets import QWidget, QApplication
 from dbus.mainloop.glib import DBusGMainLoop
 from xutils import get_xlib_display
+import abc
 import dbus
 import dbus.service
 import functools
@@ -111,43 +112,35 @@ class EAF(dbus.service.Object):
             self.buffer_dict.pop(buffer_id, None)
     
     def update_buffers(self):
+        global emacs_width, emacs_height
+        
         while True:
             for buffer in self.buffer_dict.values():
+                # Get size list of buffer's views.
+                view_sizes = list(map(lambda v: (v.width, v.height), self.view_dict.values()))
+                
+                # Init buffer size with emacs' size.
+                buffer_width = emacs_width
+                buffer_height = emacs_height
+                
+                # Update buffer size with max area view's size,
+                # to make each view has the same rendering area after user do split operation in emacs.
+                if len(view_sizes) > 0:
+                    buffer_width, buffer_height = max(view_sizes, key=lambda size: size[0] * size[1])
+                                        
+                # Resize buffer.
+                buffer.resize_buffer(buffer_width, buffer_height)        
+                
+                # Update buffer image.
                 buffer.update_content()
                 
+                # Render views.
                 for view in self.view_dict.values():
                     if view.buffer_id == buffer.buffer_id:
                         view.qimage = buffer.qimage
                         view.update()
                 
             time.sleep(0.05)
-        
-class Buffer(object):
-    def __init__(self, buffer_id, app_type, input_content):
-        self.buffer_id = buffer_id
-        self.app_type = app_type
-        self.input_content = input_content
-                
-        self.qimage = None
-        self.buffer_widget = None
-        
-    def handleDestroy(self):
-        if self.buffer_widget != None:
-            self.buffer_widget.destroy()
-            
-        if self.qimage != None:
-            del self.qimage
-            
-        print("Destroy buffer: %s" % self.buffer_id)
-        
-    @postGui()    
-    def update_content(self):
-        global emacs_width, emacs_height
-        
-        if self.buffer_widget != None:
-            qimage = QImage(emacs_width, emacs_height, QImage.Format_ARGB32)
-            self.buffer_widget.render(qimage)
-            self.qimage = qimage
         
 class View(QWidget):
     def __init__(self, emacs_xid, view_info):
@@ -176,11 +169,20 @@ class View(QWidget):
         print("Create view: %s" % self.view_info)
         
     def paintEvent(self, event):
+        # Init painter.
         painter = QPainter(self)
-                    
-        if self.qimage != None:
-            painter.drawImage(QtCore.QRect(0, 0, self.width, self.height), self.qimage)
         
+        # Render background.
+        painter.setBrush(QColor(255, 255, 255, 255))
+        painter.drawRect(0, 0, self.width, self.height)
+        
+        # Render buffer image in center of view.
+        if self.qimage != None:
+            render_x = (self.width - self.qimage.width()) / 2
+            render_y = (self.height - self.qimage.height()) / 2
+            painter.drawImage(QtCore.QRect(render_x, render_y, self.qimage.width(), self.qimage.height()), self.qimage)
+        
+        # End painter.
         painter.end()
         
     def showEvent(self, event):
@@ -206,17 +208,55 @@ class View(QWidget):
         
         print("Destroy view: %s" % self.view_info)
         
-class BrowserBuffer(Buffer):
+class Buffer(object):
+    __metaclass__ = abc.ABCMeta
+    
     def __init__(self, buffer_id, app_type, input_content):
         global emacs_width, emacs_height
         
+        self.width = emacs_width
+        self.height = emacs_height
+        
+        self.buffer_id = buffer_id
+        self.app_type = app_type
+        self.input_content = input_content
+                
+        self.qimage = None
+        self.buffer_widget = None
+        
+    def resize_buffer(self, width, height):
+        pass
+            
+    def handleDestroy(self):
+        if self.buffer_widget != None:
+            self.buffer_widget.destroy()
+            
+        if self.qimage != None:
+            del self.qimage
+            
+        print("Destroy buffer: %s" % self.buffer_id)
+        
+    @postGui()    
+    def update_content(self):
+        if self.buffer_widget != None:
+            qimage = QImage(self.width, self.height, QImage.Format_ARGB32)
+            self.buffer_widget.render(qimage)
+            self.qimage = qimage
+            
+class BrowserBuffer(Buffer):
+    def __init__(self, buffer_id, app_type, input_content):
         Buffer.__init__(self, buffer_id, app_type, input_content)
         
         self.buffer_widget = QWebView()
-        self.buffer_widget.resize(emacs_width, emacs_height)
+        self.buffer_widget.resize(self.width, self.height)
         self.buffer_widget.setUrl(QUrl(input_content))
         
         print("Create buffer: %s" % buffer_id)
+        
+    def resize_buffer(self, width, height):
+        self.width = width
+        self.height = height
+        self.buffer_widget.resize(self.width, self.height)
         
 if __name__ == "__main__":
     import sys
