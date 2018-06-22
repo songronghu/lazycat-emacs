@@ -99,17 +99,22 @@ sudo make install
 sudo pacman -S emacs-git
 ```
 
-2. Build my config symlink to emacs directory:
+2. Install necessary dependency for plugins:
+```
+sudo pacman -S python-xlib python-pyqt5
+```
+
+3. Build my config symlink to emacs directory:
 ```
 sudo ln -s /home/username/lazycat-emacs/site-lisp /usr/share/emacs/lazycat
 ```
 
-3. Copy site-start.el in emacs directory to start my config:
+4. Copy site-start.el in emacs directory to start my config:
 ```
 sudo cp /home/username/lazycat-emacs/site-start.el /usr/share/emacs/site-lisp/
 ```
 
-4. Start emacs:
+5. Start emacs:
 ```
 emacs
 ```
