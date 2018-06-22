@@ -65,19 +65,21 @@ class postGui(QtCore.QObject):
 
 class EAF(dbus.service.Object):
     def __init__(self, args):
+        global emacs_width, emacs_height
+        
         dbus.service.Object.__init__(
             self,
             dbus.service.BusName(EAF_DBUS_NAME, bus=dbus.SessionBus()),
             EAF_OBJECT_NAME)
         
-        (self.emacs_xid, self.emacs_width, self.emacs_height) = (map(lambda x: int(x), args))
+        (self.emacs_xid, emacs_width, emacs_height) = (map(lambda x: int(x), args))
         self.buffer_dict = {}
         self.view_dict = {}
         
     @dbus.service.method(EAF_DBUS_NAME, in_signature="sss", out_signature="")
     def new_buffer(self, buffer_id, app_type, input_content):
         if app_type == "browser":
-            self.buffer_dict[buffer_id] = BrowserBuffer(buffer_id, app_type, input_content, self.emacs_width, self.emacs_height)
+            self.buffer_dict[buffer_id] = BrowserBuffer(buffer_id, app_type, input_content)
             
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def update_views(self, args):
@@ -121,13 +123,11 @@ class EAF(dbus.service.Object):
             time.sleep(0.05)
         
 class Buffer(object):
-    def __init__(self, buffer_id, app_type, input_content, emacs_width, emacs_height):
+    def __init__(self, buffer_id, app_type, input_content):
         self.buffer_id = buffer_id
         self.app_type = app_type
         self.input_content = input_content
-        self.emacs_width = emacs_width
-        self.emacs_height = emacs_height
-        
+                
         self.qimage = None
         self.buffer_widget = None
         
@@ -142,8 +142,10 @@ class Buffer(object):
         
     @postGui()    
     def update_content(self):
+        global emacs_width, emacs_height
+        
         if self.buffer_widget != None:
-            qimage = QImage(self.emacs_width, self.emacs_height, QImage.Format_ARGB32)
+            qimage = QImage(emacs_width, emacs_height, QImage.Format_ARGB32)
             self.buffer_widget.render(qimage)
             self.qimage = qimage
         
@@ -205,8 +207,10 @@ class View(QWidget):
         print("Destroy view: %s" % self.view_info)
         
 class BrowserBuffer(Buffer):
-    def __init__(self, buffer_id, app_type, input_content, emacs_width, emacs_height):
-        Buffer.__init__(self, buffer_id, app_type, input_content, emacs_width, emacs_height)
+    def __init__(self, buffer_id, app_type, input_content):
+        global emacs_width, emacs_height
+        
+        Buffer.__init__(self, buffer_id, app_type, input_content)
         
         self.buffer_widget = QWebView()
         self.buffer_widget.resize(emacs_width, emacs_height)
@@ -224,6 +228,8 @@ if __name__ == "__main__":
     if bus.request_name(EAF_DBUS_NAME) != dbus.bus.REQUEST_NAME_REPLY_PRIMARY_OWNER:
         print("EAF process has startup.")
     else:
+        emacs_width = emacs_height = 0
+        
         app = QApplication(sys.argv)
         
         eaf = EAF(sys.argv[1:])
