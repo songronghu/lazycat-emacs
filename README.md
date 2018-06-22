@@ -66,7 +66,8 @@ sudo pacman -S emacs-git
 
 2. Install necessary dependency for plugins:
 ```
-sudo pacman -S python-xlib python-pyqt5
+sudo pacman -S python-xlib python-pyqt5 python-pip
+sudo pip install jedi epc pyflakes
 ```
 
 3. Build my config symlink to emacs directory:
