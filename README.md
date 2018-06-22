@@ -93,29 +93,50 @@ sudo make install
 
 ## Installation
 
+### ArchLinux
+1. Install emacs git version:
+```
+sudo pacman -S emacs-git
+```
+
+2. Build my config symlink to emacs directory:
+```
+sudo ln -s /home/username/lazycat-emacs/site-lisp /usr/share/emacs/lazycat
+```
+
+3. Copy site-start.el in emacs directory to start my config:
+```
+sudo cp /home/username/lazycat-emacs/site-start.el /usr/share/emacs/site-lisp/
+```
+
+4. Start emacs:
+```
+emacs
+```
+
 ### Debian 8.0 (jessie)
 
 Install prerequisites
 ```
 $ sudo apt-get install \
-               build-essential \
-               git \
-               autoconf \
-               texinfo \
-               libxaw7-dev \
-               libxpm-dev \
-               libpng-dev \
-               libjpeg-dev \
-               libtiff5-dev \
-               libgif-dev \
-               libncurses5-dev \
-               libdbus-1-dev \
-               libgtk-3-dev \
-               w3m \
-               w3m-img \
-               pyflakes \
-               elpa-pdf-tools-server \
-               locate
+build-essential \
+git \
+autoconf \
+texinfo \
+libxaw7-dev \
+libxpm-dev \
+libpng-dev \
+libjpeg-dev \
+libtiff5-dev \
+libgif-dev \
+libncurses5-dev \
+libdbus-1-dev \
+libgtk-3-dev \
+w3m \
+w3m-img \
+pyflakes \
+elpa-pdf-tools-server \
+locate
 ```
 ```
 $ sudo apt-get install python-pip && sudo pip install jedi epc mocker
