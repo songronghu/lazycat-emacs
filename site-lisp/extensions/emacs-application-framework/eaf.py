@@ -89,7 +89,7 @@ class EAF(dbus.service.Object):
             if key not in view_infos:
                 self.view_dict[key].destroy()
 
-                self.view_dict.pop(key)
+                self.view_dict.pop(key, None)
         
         # Create new view and udpate in view dict.
         if view_infos != ['']:
@@ -104,12 +104,12 @@ class EAF(dbus.service.Object):
             if buffer_id == bid:
                 self.view_dict[key].destroy()
                 
-                self.view_dict.pop(key)
+                self.view_dict.pop(key, None)
         
         if buffer_id in self.buffer_dict:
             self.buffer_dict[buffer_id].destroy()
 
-            self.buffer_dict.pop(buffer_id)
+            self.buffer_dict.pop(buffer_id, None)
     
     def update_buffers(self):
         while True:
@@ -139,6 +139,9 @@ class Buffer(object):
         
         if self.buffer_widget != None:
             self.buffer_widget.destroy()
+            
+        if self.qimage != None:
+            del self.qimage
         
     @postGui()    
     def update_content(self):
@@ -206,6 +209,9 @@ class View(object):
     def destroy(self):
         print("Destroy view: %s" % self.view_info)
         
+        if self.view_widget.qimage != None:
+            del self.view_widget.qimage
+            
         self.view_widget.destroy()
         
 class BrowserBuffer(Buffer):
