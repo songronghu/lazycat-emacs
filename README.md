@@ -3,8 +3,7 @@
 *What is lazycat emacs can do?*
 This is video show: [Video](https://www.youtube.com/watch?v=ZA3uuflGtk8)
 
-**Description**: Is a customized emacs for my own need.
-
+**Description**: 
 Emacs is hackable OS for top hackers, most of emacs extensions are written in elisp.
 Lazycat Emacs merged many extensions from [AndyStewart](http://www.emacswiki.org/emacs/AndyStewart),
 you can find all extensions under [site-lisp](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp).
@@ -57,40 +56,6 @@ Lazycat Emacs provides below features:
 - English completion helper. (by predictive extension)
 - Webkit browser. (by webkit extension)
 
-## Dependencies
-
-### Build dependencies
-
- - build-essential (>= 12.1)
- - git (>= 1:2.6.2-1)
- - autoconf (>= 2.69-9)
- - texinfo (>= 6.0.0.dfsg.1-3)
-
-### Runtime dependencies
-
- - libxaw7-dev (>= 2:1.0.13-1)
- - libxpm-dev (>= 1:3.5.11-1)
- - libpng12-dev (>= 1.2.50-2)
- - libjpeg-dev (>= 1:1.4.1-2)
- - libtiff5-dev (>= 4.0.5-1)
- - libgif-dev (>= 4.1.6-11)
- - libncurses5-dev (>= 6.0+20151024-2)
- - libdbus-1-dev (>= 1.10.2-1)
- - libgtk-3-dev (>= 3.18.4-1)
- - w3m (>= 0.5.3-25)
- - w3m-img (>= 0.5.3-25)
- - pyflakes (>= 1.0.0-4）
- - locate (>= 4.4.2-10)
-
-## Install rtags for C/C++
-git clone --recursive https://github.com/Andersbakken/rtags.git
-cd rtags
-mkdir build
-cd build
-cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
-make
-sudo make install
-
 ## Installation
 
 ### ArchLinux
@@ -120,6 +85,40 @@ emacs
 ```
 
 ### Debian 8.0 (jessie)
+
+Build dependencies
+
+- build-essential (>= 12.1)
+- git (>= 1:2.6.2-1)
+- autoconf (>= 2.69-9)
+- texinfo (>= 6.0.0.dfsg.1-3)
+
+Runtime dependencies
+
+- libxaw7-dev (>= 2:1.0.13-1)
+- libxpm-dev (>= 1:3.5.11-1)
+- libpng12-dev (>= 1.2.50-2)
+- libjpeg-dev (>= 1:1.4.1-2)
+- libtiff5-dev (>= 4.0.5-1)
+- libgif-dev (>= 4.1.6-11)
+- libncurses5-dev (>= 6.0+20151024-2)
+- libdbus-1-dev (>= 1.10.2-1)
+- libgtk-3-dev (>= 3.18.4-1)
+- w3m (>= 0.5.3-25)
+- w3m-img (>= 0.5.3-25)
+- pyflakes (>= 1.0.0-4）
+- locate (>= 4.4.2-10)
+
+Install rtags for C/C++
+```
+git clone --recursive https://github.com/Andersbakken/rtags.git
+cd rtags
+mkdir build
+cd build
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
+make
+sudo make install
+```
 
 Install prerequisites
 ```
