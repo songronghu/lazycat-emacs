@@ -71,7 +71,6 @@ class EAF(dbus.service.Object):
             EAF_OBJECT_NAME)
         
         (self.emacs_xid, self.emacs_x, self.emacs_y, self.emacs_width, self.emacs_height) = (map(lambda x: int(x), args))
-        
         self.buffer_dict = {}
         self.view_dict = {}
         
@@ -87,8 +86,7 @@ class EAF(dbus.service.Object):
         # Remove old key from view dict and destroy old view.
         for key in list(self.view_dict):
             if key not in view_infos:
-                self.view_dict[key].destroy()
-
+                self.view_dict[key].handleDestroy()
                 self.view_dict.pop(key, None)
         
         # Create new view and udpate in view dict.
@@ -99,16 +97,15 @@ class EAF(dbus.service.Object):
                     
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def kill_buffer(self, buffer_id):
+        # Kill all view base on buffer_id.
         for key in list(self.view_dict):
-            (bid, _, _, _, _) = key.split(":")
-            if buffer_id == bid:
-                self.view_dict[key].destroy()
-                
+            if buffer_id == self.view_dict[key].buffer_id:
+                self.view_dict[key].handleDestroy()
                 self.view_dict.pop(key, None)
         
+        # Clean buffer from buffer dict.
         if buffer_id in self.buffer_dict:
-            self.buffer_dict[buffer_id].destroy()
-
+            self.buffer_dict[buffer_id].handleDestroy()
             self.buffer_dict.pop(buffer_id, None)
     
     def update_buffers(self):
@@ -118,8 +115,8 @@ class EAF(dbus.service.Object):
                 
                 for view in self.view_dict.values():
                     if view.buffer_id == buffer.buffer_id:
-                        view.view_widget.qimage = buffer.qimage
-                        view.view_widget.update()
+                        view.qimage = buffer.qimage
+                        view.update()
                 
             time.sleep(0.05)
         
@@ -134,14 +131,14 @@ class Buffer(object):
         self.qimage = None
         self.buffer_widget = None
         
-    def destroy(self):
-        print("Destroy buffer: %s" % self.buffer_id)
-        
+    def handleDestroy(self):
         if self.buffer_widget != None:
             self.buffer_widget.destroy()
             
         if self.qimage != None:
             del self.qimage
+            
+        print("Destroy buffer: %s" % self.buffer_id)
         
     @postGui()    
     def update_content(self):
@@ -150,23 +147,31 @@ class Buffer(object):
             self.buffer_widget.render(qimage)
             self.qimage = qimage
         
-class ViewWidget(QWidget):
-    def __init__(self, emacs_xid, x, y, w, h):
-        super(ViewWidget, self).__init__()
-
-        self.emacs_xid = int(emacs_xid)
-        self.x = x
-        self.y = y
-        self.width = w
-        self.height = h
+class View(QWidget):
+    def __init__(self, emacs_xid, view_info):
+        super(View, self).__init__()
         
+        # Init widget attributes.
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_X11DoNotAcceptFocus, True)
         self.setContentsMargins(0, 0, 0, 0)
         
+        # Init attributes.
+        self.view_info = view_info
+        (self.buffer_id, self.x, self.y, self.width, self.height) = view_info.split(":")
+        self.emacs_xid = int(emacs_xid)
+        self.x = int(self.x)
+        self.y = int(self.y)
+        self.width = int(self.width)
+        self.height = int(self.height)
+        
         self.qimage = None
         
+        # Show and resize.
         self.show()
+        self.resize(self.width, self.height)
+        
+        print("Create view: %s" % self.view_info)
         
     def paintEvent(self, event):
         painter = QPainter(self)
@@ -191,28 +196,13 @@ class ViewWidget(QWidget):
         
         xlib_display.sync()
         
-class View(object):
-    def __init__(self, emacs_xid, view_info):
-        self.view_info = view_info
-        
-        (self.buffer_id, self.x, self.y, self.width, self.height) = view_info.split(":")
-        self.x = int(self.x)
-        self.y = int(self.y)
-        self.width = int(self.width)
-        self.height = int(self.height)
-        
-        self.view_widget = ViewWidget(emacs_xid, self.x, self.y, self.width, self.height)
-        self.view_widget.resize(self.width, self.height)
-        
-        print("Create view: %s" % self.view_info)
-        
-    def destroy(self):
-        print("Destroy view: %s" % self.view_info)
-        
-        if self.view_widget.qimage != None:
-            del self.view_widget.qimage
+    def handleDestroy(self):
+        if self.qimage != None:
+            del self.qimage
             
-        self.view_widget.destroy()
+        self.destroy()
+        
+        print("Destroy view: %s" % self.view_info)
         
 class BrowserBuffer(Buffer):
     def __init__(self, buffer_id, app_type, input_content, emacs_width, emacs_height):
