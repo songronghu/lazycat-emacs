@@ -463,13 +463,13 @@
      ))
 (add-hook 'package-menu-mode-hook
           '(lambda () (lazy-set-key vi-move-key-alist package-menu-mode-map)))
-;;; ### Apt-utils ###
-;;; --- Apt 管理工具
+;;; ### Helm Packman ###
+;;; --- Pacman 管理工具
 (lazy-set-autoload-key
  '(
-   ("s-x z" . apt-utils-search)         ;APT搜索
+   ("s-x z" . helm-system-packages)         
    )
- "init-apt-utils")
+ "helm-system-packages-pacman")
 ;;; ### Auto-complete ###
 ;;; --- 自动补全
 (lazy-set-key

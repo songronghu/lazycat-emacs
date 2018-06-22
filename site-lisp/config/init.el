@@ -21,7 +21,6 @@
 
   (require 'init-backup)
   (require 'init-smex)
-  (require 'init-minibuffer-tray)
   (require 'init-linum)
   (require 'init-auto-save)
   (require 'init-tabbar)
@@ -38,6 +37,7 @@
   (require 'init-key)
   (require 'init-generic)
   (require 'init-auto-indent-mode)
+  (require 'init-minibuffer-tray)
 
   ;; 可以延后加载的
   (run-with-idle-timer

@@ -1,0 +1,318 @@
+#!/bin/sh
+## Copyright (C) 2012 ~ 2014 Thierry Volpiatto <thierry.volpiatto@gmail.com>
+##               2017 ~ 2018 Pierre Neidhardt <ambrevar@gmail.com>
+##
+## Author: Pierre Neidhardt <ambrevar@gmail.com>
+## URL: https://github.com/emacs-helm/helm-system-packages
+## Version: 1.9.0
+##
+## This program is free software; you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation, either version 3 of the License, or
+## (at your option) any later version.
+##
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+[ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME="$HOME/.config"
+[ -z "$XDG_CACHE_HOME" ] && export XDG_CACHE_HOME="$HOME/.cache"
+[ -z "$EMACS" ] && EMACS=emacs
+
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+	cat<<EOF
+Usage: ${0##*/}
+
+# Emacs path:
+\$EMACS=$EMACS
+
+# Cache storage:
+\$XDG_CACHE_HOME/helm-system-packages/=$XDG_CACHE_HOME/helm-system-packages/
+
+# Configuration storage:
+\$XDG_CONFIG_HOME/helm-system-packages/init.el=$XDG_CONFIG_HOME/helm-system-packages/init.el
+
+EOF
+	exit
+fi
+
+mkdir -p "$XDG_CACHE_HOME/helm-system-packages" && \
+ cat<<\EOF > "$XDG_CACHE_HOME/helm-system-packages/init.el"
+;; Auto-generated file: do not edit.
+
+(let ((minver "24.4"))
+  (when (version< emacs-version minver)
+    (switch-to-buffer "*Messages*")
+    (error "Helm System Packages requires Emacs v%s or higher" minver)))
+
+(setq
+ user-emacs-directory (expand-file-name "helm-system-packages" (getenv "XDG_CONFIG_HOME"))
+ user-init-file (expand-file-name "init.el" user-emacs-directory)
+ package-user-dir (expand-file-name "elpa" (expand-file-name "helm-system-packages" (getenv "XDG_CACHE_HOME"))))
+
+;; Load user config.
+(when (getenv "XDG_CONFIG_HOME")
+  (load (expand-file-name
+         "init.el"
+         (expand-file-name "helm-system-packages" (getenv "XDG_CONFIG_HOME")))
+        t))
+
+(unless (and (require 'helm-system-packages nil t)
+             (require 'zenburn-theme nil t)
+             (require 'telephone-line nil t))
+  (when (require 'package)
+    ;; TODO: Use HTTPS?  It may be confusing to newcomers.
+    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+    (package-initialize)
+    (unless (and (fboundp 'helm-system-packages)
+                 (boundp 'zenburn-override-colors-alist)
+                 (fboundp 'telephone-line-mode))
+      (package-refresh-contents)
+      (package-install 'zenburn-theme)
+      (package-install 'telephone-line)
+      (package-install 'helm t)
+      (package-install 'helm-system-packages t))))
+
+(defcustom helm-system-packages-inhibit-default-settings-p nil
+  "Non-nil to skip the default settings of `helm-system-packages'."
+  :group 'helm-system-packages
+  :type 'boolean)
+
+(defcustom helm-system-packages-search-on-startup-p nil
+  "Non-nil to start with the search view."
+  :group 'helm-system-packages
+  :type 'boolean)
+
+(defun helm-system-packages-switch-to-info-buffer ()
+  "Switch to last info buffer if any."
+  (interactive)
+  (if (get-buffer helm-system-packages-buffer)
+      (switch-to-buffer helm-system-packages-buffer)
+    (message "The information window has not been opened yet.")))
+
+(defun helm-system-packages-switch-to-shell-buffer ()
+  "Switch to the shell buffer if any."
+  (interactive)
+  (if (get-buffer helm-system-packages-eshell-buffer)
+      (switch-to-buffer helm-system-packages-eshell-buffer)
+    (message "The shell window has not been opened yet.")))
+
+(defvar helm-system-packages-menu-buffer "*helm-system-packages-menu*")
+
+(defun helm-system-packages-menu-cycle ()
+  (interactive)
+  (when (org-on-heading-p)
+    (org-cycle)))
+
+(defun helm-system-packages-resume (&optional _)
+  (interactive)
+  (if (fboundp 'helm-resume)
+      (helm-resume nil)
+    (message "Start a search first.")))
+
+(defun helm-system-packages-menu ()
+  "Switch to a helper buffer for `helm-system-packages'."
+  (interactive)
+
+  (if (get-buffer helm-system-packages-menu-buffer)
+      (switch-to-buffer helm-system-packages-menu-buffer)
+    (switch-to-buffer helm-system-packages-menu-buffer)
+    (view-mode 0)
+    (erase-buffer)
+    (org-mode)
+    (use-local-map org-mode-map)
+    (local-set-key (kbd "<mouse-1>") 'helm-system-packages-menu-cycle)
+    (save-excursion
+      (insert "You can return to this page anytime with "
+              (substitute-command-keys "\\[helm-system-packages-menu]") ".
+
+- ")
+      (insert-button "Start a search"
+                     'action (lambda (_) (helm-system-packages)) 'follow-link t)
+      (insert " (" (substitute-command-keys "\\[helm-system-packages]") ")
+- <escape> or <C-g> to cancel a search.
+- ")
+      (insert-button "Resume a search"
+                     'action 'helm-system-packages-resume 'follow-link t)
+      (insert " (" (substitute-command-keys "\\[helm-system-packages-resume]") ")
+- ")
+      (insert-button "Show the information window"
+                     'action (lambda (_) (helm-system-packages-switch-to-info-buffer))
+                     'follow-link t)
+      (insert " (" (substitute-command-keys "\\[helm-system-packages-switch-to-info-buffer]") ")
+- ")
+      (insert-button "Show the shell window"
+                     'action (lambda (_) (helm-system-packages-switch-to-shell-buffer))
+                     'follow-link t)
+      (insert " (" (substitute-command-keys "\\[helm-system-packages-switch-to-shell-buffer]") ")
+
+In the following menu, press <tab> to toggle a section, <S-tab>
+to toggle them all.
+
+Notes: In Emacs key bindings terminology, \"C-\" is short for the
+Control key, \"M-\" is short for the Meta key (often equivalent
+to the Alt key) and \"S-\" is short for the Shift key.
+")
+      (insert "
+* Introduction
+
+Helm System Packages is an interface to your system package
+manager.
+
+Everything starts from the search window.  Separate the search
+terms with spaces, the order of the terms won't matter.
+
+Select multiple packages at once with <C-space>, <M-a> to select
+all visible packages and <M-m> to toggle the selection.
+
+Alternate-click or press <tab> on a package or with a selection
+of packages to display the action menu.  Middle-click or press
+<return> to confirm an action.
+
+Press <C-j> to display package information without exiting the
+search.
+
+In the info display and in this buffer, click or press <C-c C-o>
+to follow a link.
+
+* Customization
+
+Helm System Packages configuration is stored in
+
+  [[" user-init-file "]].
+
+Configuration can be done with the ")
+      (insert-button "customization menu"
+                     'action (lambda (_) (customize-group 'helm-system-packages)) 'follow-link t)
+      (insert ".
+
+You can also ")
+      (insert-button "customize the themes"
+                     'action (lambda (_) (customize-themes)) 'follow-link t)
+      (insert ".
+
+The configuration can also be done manually: it is written in
+Emacs Lisp which allows for great extensibility.
+See the Emacs manual and the Elisp manual.
+
+* Uninstall
+
+The cache is stored in
+
+  [[" (expand-file-name "helm-system-packages" (getenv "XDG_CACHE_HOME")) "]].
+
+This is the only location used by helm-system-packages beside the
+configuration file.
+
+* Getting more help
+
+- ")
+      (insert-button "List all help sections"
+                     'action (lambda (_) (help-for-help)) 'follow-link t)
+      (insert " (" (substitute-command-keys "\\[help-for-help]") ")
+- ")
+      (insert-button "Emacs tutorial"
+                     'action (lambda (_) (help-with-tutorial)) 'follow-link t)
+      (insert " (" (substitute-command-keys "\\[help-with-tutorial]") ")
+- ")
+      (insert-button "Emacs manual"
+                     'action (lambda (_) (info-emacs-manual)) 'follow-link t)
+      (insert " (" (substitute-command-keys "\\[info-emacs-manual]") ")
+- ")
+      (insert-button "Contextual help with quick summary and key bindings"
+                     'action (lambda (_) (describe-mode)) 'follow-link t)
+      (insert " (" (substitute-command-keys "\\[describe-mode]") ")
+  Use this from a search window to get extensive help.
+- ")
+      (insert-button "List all key bindings"
+                     'action (lambda (_) (describe-bindings)) 'follow-link t)
+      (insert " (" (substitute-command-keys "\\[describe-bindings]") ")
+"))
+    (toggle-truncate-lines)
+    (org-global-cycle)
+    (view-mode)))
+
+(defvar helm-system-packages-tool-bar-map
+  (let ((map (make-sparse-keymap)))
+    (tool-bar-local-item "search" 'helm-system-packages 'helm-system-packages map
+                         :help "Search (\\[helm-system-packages])")
+    (tool-bar-local-item "jump-to" 'helm-system-packages-resume 'helm-system-packages-resume map
+                         :help "Resume (\\[helm-system-packages-resume])")
+    (tool-bar-local-item "describe" 'helm-system-packages-switch-to-info-buffer 'helm-system-packages-info map
+                         :enable '(get-buffer helm-system-packages-buffer) :vert-only t :help "Information (\\[helm-system-packages-switch-to-info-buffer])")
+    (tool-bar-local-item "index" 'helm-system-packages-switch-to-shell-buffer 'helm-system-packages-shell map
+                         :enable '(get-buffer helm-system-packages-eshell-buffer) :vert-only t :help "Shell (\\[helm-system-packages-switch-to-shell-buffer])")
+    (tool-bar-local-item "home" 'helm-system-packages-menu 'helm-system-packages-menu map
+                         :vert-only t :help "Menu (\\[helm-system-packages-menu])")
+    map))
+
+(defun helm-system-packages-default-settings ()
+  "Taylor Emacs for a stand-alone Helm System Packages experience."
+  (setq-default tool-bar-map helm-system-packages-tool-bar-map)
+  (menu-bar-mode -1)
+  (setq telephone-line-primary-left-separator 'telephone-line-cubed-left
+        telephone-line-secondary-left-separator 'telephone-line-cubed-hollow-left
+        telephone-line-primary-right-separator 'telephone-line-cubed-right
+        telephone-line-secondary-right-separator 'telephone-line-cubed-hollow-right)
+  (setq telephone-line-height 24)
+  (telephone-line-mode)
+  (load-theme 'zenburn t)
+  ;; (load-theme 'tango-dark t)
+  ;; (load-theme 'wombat t) ; Similar to tango-dark but with lower contrast.
+  (kill-buffer "*scratch*")
+  (setq inhibit-startup-screen t)
+  (delete-other-windows)
+  (setq frame-title-format "Helm System Packages")
+  ;; Cache sudo passwords.
+  (require 'em-tramp)
+  (setq password-cache t)
+  (setq password-cache-expiry 300)
+  ;; Bindings.
+  (global-set-key (kbd "<f5>") 'helm-system-packages)
+  (global-set-key (kbd "<f6>") 'helm-system-packages-resume)
+  (global-set-key (kbd "<f7>") 'helm-system-packages-switch-to-info-buffer)
+  (global-set-key (kbd "<f8>") 'helm-system-packages-switch-to-shell-buffer)
+  (global-set-key (kbd "<f9>") 'helm-system-packages-menu)
+  (global-set-key (kbd "C-<wheel-down>") 'text-scale-decrease)
+  (global-set-key (kbd "C-<mouse-5>") 'text-scale-decrease)
+  (global-set-key (kbd "C-<wheel-up>") 'text-scale-increase)
+  (global-set-key (kbd "C-<mouse-4>") 'text-scale-increase)
+  (setq text-scale-mode-step 1.1)
+  (with-eval-after-load 'view
+    (define-key view-mode-map (kbd "Q") 'kill-emacs))
+  (when (display-graphic-p)
+    ;; <escape> is required in TTYs as a substitute to <M->.
+    (global-set-key (kbd "<escape>") 'keyboard-quit)
+    (with-eval-after-load 'helm
+      (define-key helm-map (kbd "<escape>") 'helm-keyboard-quit)))
+  ;; Shell.
+  (setq eshell-banner-message
+        (propertize (concat "Press "
+                            (substitute-command-keys "\\[helm-system-packages-menu]")
+                            " to return to the menu.\n\n")
+                    'face font-lock-warning-face))
+  (with-eval-after-load 'esh-module
+    (push 'eshell-tramp eshell-modules-list))
+  (setq helm-allow-mouse t)
+  (setq helm-full-frame t))
+
+(unless helm-system-packages-inhibit-default-settings-p
+  (helm-system-packages-default-settings))
+
+(helm-system-packages-menu)
+
+(when helm-system-packages-search-on-startup-p
+  (helm-system-packages))
+
+;;; init.el ends here
+EOF
+
+## TODO: Customize actions does not work.
+## TODO: Mouse-controlled helm. (setq helm-allow-mouse t)
+## https://github.com/emacs-helm/helm/issues/1957
+
+exec "$EMACS" --no-init-file --load "$XDG_CACHE_HOME/helm-system-packages/init.el" "$@"

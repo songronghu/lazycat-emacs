@@ -1,0 +1,123 @@
+#+TITLE: Helm System Packages
+
+* Introduction
+
+Helm System Packages is an Emacs-based interface to the package manager of your
+operating system /and/ remote systems as well.
+
+Emacs' knowledge is not required: see the [[stand-alone][stand-alone]] folder for a version targeted at
+non-Emacs users.  Run the script and everything should be self-explanatory.  If
+not then it's bug, please report it.
+
+Start ~helm-system-packages~ to list all available packages (with installed
+packages as well as dependencies displayed in their own respective face).
+Fuzzy-search, mark and execute the desired action over any selections of
+packages:
+
+- Install.
+- Uninstall.
+- Display packages details (in Org Mode!) or insert details at point.
+- Find files owned by packages.
+- And much more, including performing all the above over the network!
+
+Helm System Packages provides a uniform interface over the following package
+managers:
+
+- =brew= (macOS)
+- =dpkg= (apt & friends)
+- =guix=
+- =pacman=
+- =portage= (emerge & friends)
+- =xbps=
+- And (hopefully) more to come!  Contributions are welcome.
+
+Some package managers come with their specific actions and even specific
+Helm sources, e.g. Portage's USE flags.
+
+* Usage
+
+There is only one entry point: ~helm-system-packages~.
+
+Use the persistent action to view the details of the marked packages.
+
+Most actions can be called with a prefix argument to insert the result at point.
+
+If started from a remote TRAMP buffer (e.g. dired, Eshell or just any remote
+file), ~helm-system-packages~ automatically switches to the packages of the
+remote system.  The remote package manager can be different from the local one.
+
+** Maintenance & other operations
+
+Helm System Packages only works over lists of packages.  It does not feature any
+maintenance-related operations such as cleaning the cache or synchronizing the
+database.
+
+[[https://github.com/jabranham/system-packages][system-packages]] is an Emacs package providing Emacs with universal commands for
+such operations.
+It is unrelated to Helm System Packages but both work well together.
+
+** Privileges
+
+Transactions such as installing and removing packages are run via the `sudo`
+command in Eshell.
+If you'd like to cache the password for, say, an hour, you can configure Eshell
+to use its own version of sudo via TRAMP:
+
+: (require 'em-tramp)
+: (setq password-cache t)
+: (setq password-cache-expiry 3600)
+
+* Motivation
+
+Most of the package managers GUIs out there do not provide much efficiency over
+their commandline counterparts.
+
+The commandline workflow is centered around a cumbersome try-repeat loop:
+
+1. Search for local packages.
+2. Package missing?  Search for remote packages.
+3. List is too long?  Pipe through a pager.
+4. (Un)install the desired package by writing the searched package names again.
+
+With Helm all those actions get factored into one.
+Helm sessions can also be resumed.
+
+* Screencasts
+
+- Display information of multiple packages in an Org buffer, resume the search and finally install.
+  #+ATTR_HTML: :width 800px
+  [[./screencasts/helm-system-packages-info-and-install.gif]]
+- Use Helm to find files of multiple packages across different sources.
+  #+ATTR_HTML: :width 800px
+  [[./screencasts/helm-system-packages-find-files.gif]]
+- Use Helm to explore the graph of the (reverse) dependencies.
+  #+ATTR_HTML: :width 800px
+  [[./screencasts/helm-system-packages-deps.gif]]
+
+* Development
+
+Each module is rather straightforward, it only needs to define the following:
+
+- A ~helm-system-packages-FOO~ function that starts a Helm session.
+- An interactive ~helm-system-packages-FOO-refresh~ function to refresh the package list either manually or after transactions.
+
+The =helm-system-packages.el= file provides some helper functions for Helm actions.
+
+** Roadmap
+*** TODO Strengthen the interface with structures
+*** TODO Factor all "info" actions?
+We can add Org subsections for files, dependencies, etc.
+Those sections should be folded by default.
+
+We probably still need specific "info" actions to insert at point.
+*** TODO Use bindings reflecting helm-list-elisp-packages
+*** TODO [#A] Port factorization to dpkg, portage
+*** TODO [#A] Port TRAMP support to brew
+*** Add option to display multiline candidates for long descriptions.
+*** With filtering, the displayed condidates won't include those above the candidate limit
+Can we include as many filtered candidates as possible?
+
+* References
+- https://wiki.voidlinux.eu/Rosetta_stone
+- https://wiki.archlinux.org/index.php/Pacman/Rosetta
+- https://github.com/jabranham/system-packages
