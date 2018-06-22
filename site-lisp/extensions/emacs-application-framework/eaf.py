@@ -158,7 +158,7 @@ class ViewWidget(QWidget):
         self.height = h
         
         self.setWindowFlags(Qt.FramelessWindowHint)
-        # self.setAttribute(Qt.WA_TranslucentBackground, True)
+        self.setAttribute(Qt.WA_X11DoNotAcceptFocus, True)
         self.setContentsMargins(0, 0, 0, 0)
         
         self.qimage = None
@@ -172,6 +172,10 @@ class ViewWidget(QWidget):
             painter.drawImage(QtCore.QRect(0, 0, self.width, self.height), self.qimage)
         
         painter.end()
+        
+    def showEvent(self, event):
+        # NOTE: we must reparent after widget show, otherwise reparent operation maybe failed.
+        self.reparent()
         
     def reparent(self):
         xlib_display = get_xlib_display()
@@ -196,8 +200,6 @@ class View(object):
         
         self.view_widget = ViewWidget(emacs_xid, self.x, self.y, self.width, self.height)
         self.view_widget.resize(self.width, self.height)
-        
-        self.view_widget.reparent()
         
         print("Create view: %s" % self.view_info)
         

@@ -1,4 +1,3 @@
-
 ;;; eaf.el --- Emacs application framework
 
 ;; Filename: eaf.el
