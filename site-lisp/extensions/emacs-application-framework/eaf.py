@@ -40,25 +40,25 @@ EAF_OBJECT_NAME = "/com/lazycat/eaf"
 
 class postGui(QtCore.QObject):
     
-    throughThread = QtCore.pyqtSignal(object, object)    
+    through_thread = QtCore.pyqtSignal(object, object)    
     
     def __init__(self, inclass=True):
         super(postGui, self).__init__()
-        self.throughThread.connect(self.onSignalReceived)
+        self.through_thread.connect(self.on_signal_received)
         self.inclass = inclass
         
     def __call__(self, func):
         self._func = func
         
         @functools.wraps(func)
-        def objCall(*args, **kwargs):
-            self.emitSignal(args, kwargs)
-        return objCall
+        def obj_call(*args, **kwargs):
+            self.emit_signal(args, kwargs)
+        return obj_call
         
-    def emitSignal(self, args, kwargs):
-        self.throughThread.emit(args, kwargs)
+    def emit_signal(self, args, kwargs):
+        self.through_thread.emit(args, kwargs)
                 
-    def onSignalReceived(self, args, kwargs):
+    def on_signal_received(self, args, kwargs):
         if self.inclass:
             obj, args = args[0], args[1:]
             self._func(obj, *args, **kwargs)
@@ -92,7 +92,7 @@ class EAF(dbus.service.Object):
         # Remove old key from view dict and destroy old view.
         for key in list(self.view_dict):
             if key not in view_infos:
-                self.view_dict[key].handleDestroy()
+                self.view_dict[key].handle_destroy()
                 self.view_dict.pop(key, None)
         
         # Create new view and udpate in view dict.
@@ -102,19 +102,19 @@ class EAF(dbus.service.Object):
                     view = View(view_info)
                     self.view_dict[view_info] = view
                     
-                    view.triggerMouseEvent.connect(self.sendMouseEventToBuffer)
+                    view.triggerMouseEvent.connect(self.send_mouse_event_to_buffer)
                     
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def kill_buffer(self, buffer_id):
         # Kill all view base on buffer_id.
         for key in list(self.view_dict):
             if buffer_id == self.view_dict[key].buffer_id:
-                self.view_dict[key].handleDestroy()
+                self.view_dict[key].handle_destroy()
                 self.view_dict.pop(key, None)
         
         # Clean buffer from buffer dict.
         if buffer_id in self.buffer_dict:
-            self.buffer_dict[buffer_id].handleDestroy()
+            self.buffer_dict[buffer_id].handle_destroy()
             self.buffer_dict.pop(buffer_id, None)
     
             
@@ -126,7 +126,7 @@ class EAF(dbus.service.Object):
         if buffer_id in self.buffer_dict:
             QApplication.sendEvent(self.buffer_dict[buffer_id].buffer_widget, fake_key_event(event_string))
         
-    def sendMouseEventToBuffer(self, buffer_id, event):
+    def send_mouse_event_to_buffer(self, buffer_id, event):
         global emacs_xid
         
         if buffer_id in self.buffer_dict:
@@ -249,7 +249,7 @@ class View(QWidget):
         
         xlib_display.sync()
         
-    def handleDestroy(self):
+    def handle_destroy(self):
         if self.qimage != None:
             del self.qimage
             
@@ -277,7 +277,7 @@ class Buffer(object):
     def resize_buffer(self, width, height):
         pass
             
-    def handleDestroy(self):
+    def handle_destroy(self):
         if self.buffer_widget != None:
             self.buffer_widget.destroy()
             
