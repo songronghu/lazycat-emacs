@@ -184,6 +184,7 @@ We need calcuate render allocation to make sure no black border around render co
   (let ((eaf-buffer (generate-new-buffer input-content)))
     (with-current-buffer eaf-buffer
       (eaf-mode)
+      (read-only-mode)
       )
     eaf-buffer))
 
@@ -229,27 +230,42 @@ We need calcuate render allocation to make sure no black border around render co
         (message (format "Kill %s" buffer-id))
         ))))
 
-(defun eaf-focus-browser-view ()
-  (interactive)
-  (with-current-buffer (current-buffer)
-    (if (string= "eaf-mode" (format "%s" major-mode))
-        (let* ((window-allocation (eaf-get-window-allocation (get-buffer-window (current-buffer))))
-               (x (nth 0 window-allocation))
-               (y (nth 1 window-allocation))
-               (w (nth 2 window-allocation))
-               (h (nth 3 window-allocation))
+(defun eaf-monitor-key-event ()
+  (ignore-errors
+    (with-current-buffer (buffer-name)
+      (when (string= "eaf-mode" (format "%s" major-mode))
+        (let* ((key (make-vector 1 last-command-event))
+               (key-command (format "%s" (key-binding key)))
+               (key-desc (key-description key))
                )
-          (eaf-call "focus_view" (format "%s:%s:%s:%s:%s" buffer-id x y w h))
-          (message "Focus view: %S" buffer-id)
-          )
-      )))
+          (cond ((or
+                  (equal key-command "nil")
+                  (equal key-command "self-insert-command")
+                  (equal key-desc "RET")
+                  (equal key-desc "DEL")
+                  (equal key-desc "TAB")
+                  (equal key-desc "<home>")
+                  (equal key-desc "<end>")
+                  (equal key-desc "<left>")
+                  (equal key-desc "<right>")
+                  (equal key-desc "<up>")
+                  (equal key-desc "<down>")
+                  (equal key-desc "<prior>")
+                  (equal key-desc "<next>")
+                  )
+                 (message (format "Send: '%s'" key-desc))
+                 (eaf-call "send_key" (format "%s:%s" buffer-id key-desc))
+                 )
+                (t
+                 (unless (equal key-command "keyboard-quit")
+                   (ignore-errors (call-interactively (key-binding key))))
+                 (message (format "Got command: %s" key-command)))))
+        ;; Set `last-command-event' with nil, emacs won't notify me buffer is ready-only,
+        ;; because i insert nothing in buffer.
+        (setq last-command-event nil)
+        ))))
 
-(defadvice switch-to-buffer (after eaf-switch-to-buffer-advice activate)
-  (eaf-focus-browser-view))
-
-(defadvice other-window (after eaf-other-window-advice activate)
-  (eaf-focus-browser-view))
-
+(add-hook 'pre-command-hook #'eaf-monitor-key-event)
 (add-hook 'kill-buffer-hook #'eaf-monitor-buffer-kill)
 
 (eaf-start-process)

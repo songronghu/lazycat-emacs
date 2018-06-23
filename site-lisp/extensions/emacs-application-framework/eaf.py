@@ -26,8 +26,8 @@ from PyQt5.QtGui import QPainter, QImage, QColor
 from PyQt5.QtWebKitWidgets import QWebView
 from PyQt5.QtWidgets import QWidget, QApplication
 from dbus.mainloop.glib import DBusGMainLoop
-from xutils import get_xlib_display, grab_focus
-from send_key import send_string
+from xutils import get_xlib_display
+from fake_key_event import fake_key_event
 import abc
 import dbus
 import dbus.service
@@ -102,43 +102,7 @@ class EAF(dbus.service.Object):
                     view = View(view_info)
                     self.view_dict[view_info] = view
                     
-                    view.triggerKeyEvent.connect(self.sendEventToBuffer)
-                    
-    def sendEventToBuffer(self, buffer_id, event):
-        global emacs_xid
-        
-        if buffer_id in self.buffer_dict:
-            QApplication.sendEvent(self.buffer_dict[buffer_id].buffer_widget, event)
-            
-            event_text_function = getattr(event, "text", None)
-            if callable(event_text_function):
-                xlib_display = get_xlib_display()
-                xwindow = xlib_display.create_resource_object("window", emacs_xid)
-
-                mask = []
-                event_key = event.text()
-                if event.modifiers() & QtCore.Qt.AltModifier == QtCore.Qt.AltModifier:
-                    mask.append("Alt")
-                elif event.modifiers() & QtCore.Qt.ControlModifier == QtCore.Qt.ControlModifier:
-                    mask.append("Ctrl")
-                elif event.modifiers() & QtCore.Qt.ShiftModifier == QtCore.Qt.ShiftModifier:
-                    mask.append("Shift")
-                elif event.modifiers() & QtCore.Qt.MetaModifier == QtCore.Qt.MetaModifier:
-                    mask.append("Super")
-
-                send_string(xwindow, event_key, mask, event.type() == QEvent.KeyPress)
-
-                xlib_display.sync()
-            
-                print("#### %s %s %s" % (buffer_id, event_key, mask))
-                                        
-    @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
-    def focus_view(self, view_info):
-        if view_info in self.view_dict:
-            view = self.view_dict[view_info]
-            grab_focus(view.winId().__int__())
-            
-            print("Grab focus: %s" % view_info)
+                    view.triggerMouseEvent.connect(self.sendMouseEventToBuffer)
                     
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def kill_buffer(self, buffer_id):
@@ -153,6 +117,21 @@ class EAF(dbus.service.Object):
             self.buffer_dict[buffer_id].handleDestroy()
             self.buffer_dict.pop(buffer_id, None)
     
+            
+    @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
+    def send_key(self, args):
+        print("************ %s" % args)
+        (buffer_id, event_string) = args.split(":")
+        
+        if buffer_id in self.buffer_dict:
+            QApplication.sendEvent(self.buffer_dict[buffer_id].buffer_widget, fake_key_event(event_string))
+        
+    def sendMouseEventToBuffer(self, buffer_id, event):
+        global emacs_xid
+        
+        if buffer_id in self.buffer_dict:
+            QApplication.sendEvent(self.buffer_dict[buffer_id].buffer_widget, event)
+            
     def update_buffers(self):
         global emacs_width, emacs_height
         
@@ -199,7 +178,7 @@ class EAF(dbus.service.Object):
         
 class View(QWidget):
     
-    triggerKeyEvent = QtCore.pyqtSignal(str, QEvent)
+    triggerMouseEvent = QtCore.pyqtSignal(str, QEvent)
     
     def __init__(self, view_info):
         super(View, self).__init__()
@@ -229,13 +208,9 @@ class View(QWidget):
         print("Create view: %s" % self.view_info)
         
     def eventFilter(self, obj, event):
-        if event.type() in [QEvent.KeyPress, QEvent.KeyRelease,
-                            QEvent.MouseButtonPress, QEvent.MouseButtonRelease,
-                            QEvent.MouseMove, QEvent.MouseButtonDblClick, QEvent.Wheel,
-                            QEvent.InputMethod, QEvent.InputMethodQuery, QEvent.ShortcutOverride,
-                            QEvent.ActivationChange, QEvent.Enter, QEvent.WindowActivate,
-                            ]:
-            self.triggerKeyEvent.emit(self.buffer_id, event)
+        if event.type() in [QEvent.MouseButtonPress, QEvent.MouseButtonRelease,
+                            QEvent.MouseMove, QEvent.MouseButtonDblClick, QEvent.Wheel]:
+            self.triggerMouseEvent.emit(self.buffer_id, event)
         
         return False
         
