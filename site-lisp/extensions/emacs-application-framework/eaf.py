@@ -134,23 +134,24 @@ class EAF(dbus.service.Object):
                 # Update buffer image.
                 buffer.update_content()
                 
-                # Render views.
-                for view in self.view_dict.values():
-                    if view.buffer_id == buffer.buffer_id:
-                        # Scale image to view size.
-                        width_scale = view.width * 1.0 / buffer_width
-                        height_scale = view.height * 1.0 / buffer_height
-                        image_scale = 1.0
-                        if width_scale < height_scale:
-                            image_scale = width_scale
-                        else:
-                            image_scale = height_scale
-                            
-                        view.qimage = buffer.qimage.scaled(buffer_width * image_scale, buffer_height * image_scale)
-                        view.background_color = buffer.background_color
-                        
-                        # Update view.
-                        view.update()
+                if buffer.qimage != None:
+                    # Render views.
+                    for view in self.view_dict.values():
+                        if view.buffer_id == buffer.buffer_id:
+                            # Scale image to view size.
+                            width_scale = view.width * 1.0 / buffer_width
+                            height_scale = view.height * 1.0 / buffer_height
+                            image_scale = 1.0
+                            if width_scale < height_scale:
+                                image_scale = width_scale
+                            else:
+                                image_scale = height_scale
+
+                            view.qimage = buffer.qimage.scaled(buffer_width * image_scale, buffer_height * image_scale)
+                            view.background_color = buffer.background_color
+
+                            # Update view.
+                            view.update()
                 
             time.sleep(0.05)
         
