@@ -229,6 +229,27 @@ We need calcuate render allocation to make sure no black border around render co
         (message (format "Kill %s" buffer-id))
         ))))
 
+(defun eaf-focus-browser-view ()
+  (interactive)
+  (with-current-buffer (current-buffer)
+    (if (string= "eaf-mode" (format "%s" major-mode))
+        (let* ((window-allocation (eaf-get-window-allocation (get-buffer-window (current-buffer))))
+               (x (nth 0 window-allocation))
+               (y (nth 1 window-allocation))
+               (w (nth 2 window-allocation))
+               (h (nth 3 window-allocation))
+               )
+          (eaf-call "focus_view" (format "%s:%s:%s:%s:%s" buffer-id x y w h))
+          (message "Focus view: %S" buffer-id)
+          )
+      )))
+
+(defadvice switch-to-buffer (after eaf-switch-to-buffer-advice activate)
+  (eaf-focus-browser-view))
+
+(defadvice other-window (after eaf-other-window-advice activate)
+  (eaf-focus-browser-view))
+
 (add-hook 'kill-buffer-hook #'eaf-monitor-buffer-kill)
 
 (eaf-start-process)

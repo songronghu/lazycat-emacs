@@ -37,7 +37,7 @@
    ("C-x w" . count-words)                  ;计算单词的数量
    ("C-x f" . find-file-at-point)           ;文件跳转
    ("s-f" . find-file-root)                 ;用root打开文件
-   ("s-r" . find-file-smb)                  ;访问samba
+   ("s-r" . find-file-smb)                  ;访问sambao
    ("<print>" . save-screenshots)           ;截屏
    ("<M-s-return>" . toggle-debug-on-error) ;切换调试模式
    ("s-1" . sort-lines)                     ;排序

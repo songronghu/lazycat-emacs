@@ -21,12 +21,13 @@
 
 
 from PyQt5 import QtCore
-from PyQt5.QtCore import QUrl, Qt
+from PyQt5.QtCore import QUrl, Qt, QEvent
 from PyQt5.QtGui import QPainter, QImage, QColor
 from PyQt5.QtWebKitWidgets import QWebView
 from PyQt5.QtWidgets import QWidget, QApplication
 from dbus.mainloop.glib import DBusGMainLoop
-from xutils import get_xlib_display
+from xutils import get_xlib_display, grab_focus
+from send_key import send_string
 import abc
 import dbus
 import dbus.service
@@ -66,14 +67,14 @@ class postGui(QtCore.QObject):
 
 class EAF(dbus.service.Object):
     def __init__(self, args):
-        global emacs_width, emacs_height
+        global emacs_xid, emacs_width, emacs_height
         
         dbus.service.Object.__init__(
             self,
             dbus.service.BusName(EAF_DBUS_NAME, bus=dbus.SessionBus()),
             EAF_OBJECT_NAME)
         
-        (self.emacs_xid, emacs_width, emacs_height) = (map(lambda x: int(x), args))
+        (emacs_xid, emacs_width, emacs_height) = (map(lambda x: int(x), args))
         self.buffer_dict = {}
         self.view_dict = {}
         
@@ -84,6 +85,8 @@ class EAF(dbus.service.Object):
             
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def update_views(self, args):
+        global emacs_xid
+        
         view_infos = args.split(",")
         
         # Remove old key from view dict and destroy old view.
@@ -96,7 +99,46 @@ class EAF(dbus.service.Object):
         if view_infos != ['']:
             for view_info in view_infos:
                 if view_info not in self.view_dict:
-                    self.view_dict[view_info] = View(self.emacs_xid, view_info)
+                    view = View(view_info)
+                    self.view_dict[view_info] = view
+                    
+                    view.triggerKeyEvent.connect(self.sendEventToBuffer)
+                    
+    def sendEventToBuffer(self, buffer_id, event):
+        global emacs_xid
+        
+        if buffer_id in self.buffer_dict:
+            QApplication.sendEvent(self.buffer_dict[buffer_id].buffer_widget, event)
+            
+            event_text_function = getattr(event, "text", None)
+            if callable(event_text_function):
+                xlib_display = get_xlib_display()
+                xwindow = xlib_display.create_resource_object("window", emacs_xid)
+
+                mask = []
+                event_key = event.text()
+                if event.modifiers() & QtCore.Qt.AltModifier == QtCore.Qt.AltModifier:
+                    mask.append("Alt")
+                elif event.modifiers() & QtCore.Qt.ControlModifier == QtCore.Qt.ControlModifier:
+                    mask.append("Ctrl")
+                elif event.modifiers() & QtCore.Qt.ShiftModifier == QtCore.Qt.ShiftModifier:
+                    mask.append("Shift")
+                elif event.modifiers() & QtCore.Qt.MetaModifier == QtCore.Qt.MetaModifier:
+                    mask.append("Super")
+
+                send_string(xwindow, event_key, mask, event.type() == QEvent.KeyPress)
+
+                xlib_display.sync()
+            
+                print("#### %s %s %s" % (buffer_id, event_key, mask))
+                                        
+    @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
+    def focus_view(self, view_info):
+        if view_info in self.view_dict:
+            view = self.view_dict[view_info]
+            grab_focus(view.winId().__int__())
+            
+            print("Grab focus: %s" % view_info)
                     
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def kill_buffer(self, buffer_id):
@@ -136,7 +178,7 @@ class EAF(dbus.service.Object):
                 
                 if buffer.qimage != None:
                     # Render views.
-                    for view in self.view_dict.values():
+                    for view in list(self.view_dict.values()):
                         if view.buffer_id == buffer.buffer_id:
                             # Scale image to view size.
                             width_scale = view.width * 1.0 / buffer_width
@@ -156,7 +198,10 @@ class EAF(dbus.service.Object):
             time.sleep(0.05)
         
 class View(QWidget):
-    def __init__(self, emacs_xid, view_info):
+    
+    triggerKeyEvent = QtCore.pyqtSignal(str, QEvent)
+    
+    def __init__(self, view_info):
         super(View, self).__init__()
         
         # Init widget attributes.
@@ -167,7 +212,6 @@ class View(QWidget):
         # Init attributes.
         self.view_info = view_info
         (self.buffer_id, self.x, self.y, self.width, self.height) = view_info.split(":")
-        self.emacs_xid = int(emacs_xid)
         self.x = int(self.x)
         self.y = int(self.y)
         self.width = int(self.width)
@@ -180,7 +224,20 @@ class View(QWidget):
         self.show()
         self.resize(self.width, self.height)
         
+        self.installEventFilter(self)
+        
         print("Create view: %s" % self.view_info)
+        
+    def eventFilter(self, obj, event):
+        if event.type() in [QEvent.KeyPress, QEvent.KeyRelease,
+                            QEvent.MouseButtonPress, QEvent.MouseButtonRelease,
+                            QEvent.MouseMove, QEvent.MouseButtonDblClick, QEvent.Wheel,
+                            QEvent.InputMethod, QEvent.InputMethodQuery, QEvent.ShortcutOverride,
+                            QEvent.ActivationChange, QEvent.Enter, QEvent.WindowActivate,
+                            ]:
+            self.triggerKeyEvent.emit(self.buffer_id, event)
+        
+        return False
         
     def paintEvent(self, event):
         # Init painter.
@@ -205,11 +262,13 @@ class View(QWidget):
         self.reparent()
         
     def reparent(self):
+        global emacs_xid
+        
         xlib_display = get_xlib_display()
         
         view_xid = self.winId().__int__()
         view_xwindow = xlib_display.create_resource_object("window", view_xid)
-        emacs_xwindow = xlib_display.create_resource_object("window", self.emacs_xid)
+        emacs_xwindow = xlib_display.create_resource_object("window", emacs_xid)
         
         view_xwindow.reparent(emacs_xwindow, self.x, self.y)
         
@@ -258,7 +317,7 @@ class Buffer(object):
             qimage = QImage(self.width, self.height, QImage.Format_ARGB32)
             self.buffer_widget.render(qimage)
             self.qimage = qimage
-            
+                            
 class BrowserBuffer(Buffer):
     def __init__(self, buffer_id, app_type, input_content):
         Buffer.__init__(self, buffer_id, app_type, input_content, QColor(255, 255, 255, 255))
@@ -284,6 +343,7 @@ if __name__ == "__main__":
     if bus.request_name(EAF_DBUS_NAME) != dbus.bus.REQUEST_NAME_REPLY_PRIMARY_OWNER:
         print("EAF process has startup.")
     else:
+        emacs_xid = 0
         emacs_width = emacs_height = 0
         
         app = QApplication(sys.argv)
