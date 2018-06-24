@@ -305,13 +305,17 @@ We need calcuate render allocation to make sure no black border around render co
 
 (defun eaf-open (url)
   (interactive "sOpen with EAF: ")
-  (if (eaf-is-support url)
-      (let* ((buffer (eaf-create-buffer url)))
-        (with-current-buffer buffer
-          (eaf-call "new_buffer" buffer-id url))
+  (let* ((buffer (eaf-create-buffer url))
+         buffer-result)
+    (with-current-buffer buffer
+      (setq buffer-result (eaf-call "new_buffer" buffer-id url)))
+    (if (equal buffer-result "")
+        ;; Switch to new buffer if buffer create successful.
         (switch-to-buffer buffer)
-        )
-    (message (format "Can't open %s with EAF" url))))
+      ;; Kill buffer and show error message from python server.
+      (kill-buffer buffer)
+      (message buffer-result))
+    ))
 
 (eaf-start-process)
 

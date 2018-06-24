@@ -35,6 +35,7 @@ current_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfra
 parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir) 
 from app.browser.buffer import BrowserBuffer
+from app.imageviewer.buffer import ImageViewerBuffer
 
 EAF_DBUS_NAME = "com.lazycat.eaf"
 EAF_OBJECT_NAME = "/com/lazycat/eaf"
@@ -52,16 +53,15 @@ class EAF(dbus.service.Object):
         self.buffer_dict = {}
         self.view_dict = {}
         
-    @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="b")
-    def is_support(self, url):
-        return True
-    
-    @dbus.service.method(EAF_DBUS_NAME, in_signature="ss", out_signature="")
+    @dbus.service.method(EAF_DBUS_NAME, in_signature="ss", out_signature="s")
     def new_buffer(self, buffer_id, url):
         global emacs_width, emacs_height
 
         if url.startswith("/"):
-            pass
+            if url.endswith(".jpg") or url.endswith(".png"):
+                self.buffer_dict[buffer_id] = ImageViewerBuffer(buffer_id, url, emacs_width, emacs_height)
+            else:
+                return "Don't know how to open {0}".format(url)
         else:
             from urllib.parse import urlparse 
             result = urlparse(url)
@@ -71,6 +71,10 @@ class EAF(dbus.service.Object):
                 result = urlparse("{0}:{1}".format("http", url))
                 if result.scheme != "":
                     self.buffer_dict[buffer_id] = BrowserBuffer(buffer_id, result.geturl(), emacs_width, emacs_height)
+                else:
+                    return "{0} is not valid url".format(url)
+                
+        return ""
             
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def update_views(self, args):
