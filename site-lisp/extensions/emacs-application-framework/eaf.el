@@ -220,8 +220,6 @@ We need calcuate render allocation to make sure no black border around render co
       (eaf-call "update_views" (mapconcat 'identity view-infos ","))
       )))
 
-(add-hook 'window-configuration-change-hook #'eaf-monitor-configuration-change)
-
 (defun eaf-monitor-buffer-kill ()
   (ignore-errors
     (with-current-buffer (buffer-name)
@@ -234,37 +232,45 @@ We need calcuate render allocation to make sure no black border around render co
   (ignore-errors
     (with-current-buffer (buffer-name)
       (when (string= "eaf-mode" (format "%s" major-mode))
-        (let* ((key (make-vector 1 last-command-event))
+        (let* ((event last-command-event)
+               (key (make-vector 1 event))
                (key-command (format "%s" (key-binding key)))
                (key-desc (key-description key))
                )
-          (cond ((or
-                  (equal key-command "nil")
-                  (equal key-command "self-insert-command")
-                  (equal key-desc "RET")
-                  (equal key-desc "DEL")
-                  (equal key-desc "TAB")
-                  (equal key-desc "<home>")
-                  (equal key-desc "<end>")
-                  (equal key-desc "<left>")
-                  (equal key-desc "<right>")
-                  (equal key-desc "<up>")
-                  (equal key-desc "<down>")
-                  (equal key-desc "<prior>")
-                  (equal key-desc "<next>")
-                  )
-                 (message (format "Send: '%s'" key-desc))
-                 (eaf-call "send_key" (format "%s:%s" buffer-id key-desc))
-                 )
-                (t
-                 (unless (equal key-command "keyboard-quit")
-                   (ignore-errors (call-interactively (key-binding key))))
-                 (message (format "Got command: %s" key-command)))))
+          (cond
+           ;; Just send event when user insert single character.
+           ;; Don't send event 'M' if user press Ctrl + M.
+           ((equal key-command "self-insert-command")
+            (when (equal 1 (string-width (this-command-keys)))
+              (message (format "Send char: '%s" key-desc))
+              (eaf-call "send_key" (format "%s:%s" buffer-id key-desc))))
+           ((or
+             (equal key-command "nil")
+             (equal key-desc "RET")
+             (equal key-desc "DEL")
+             (equal key-desc "TAB")
+             (equal key-desc "<home>")
+             (equal key-desc "<end>")
+             (equal key-desc "<left>")
+             (equal key-desc "<right>")
+             (equal key-desc "<up>")
+             (equal key-desc "<down>")
+             (equal key-desc "<prior>")
+             (equal key-desc "<next>")
+             )
+            (message (format "Send: '%s" key-desc))
+            (eaf-call "send_key" (format "%s:%s" buffer-id key-desc))
+            )
+           (t
+            (unless (equal key-command "keyboard-quit")
+              (ignore-errors (call-interactively (key-binding key))))
+            (message (format "Got command: %s" key-command)))))
         ;; Set `last-command-event' with nil, emacs won't notify me buffer is ready-only,
         ;; because i insert nothing in buffer.
         (setq last-command-event nil)
         ))))
 
+(add-hook 'window-configuration-change-hook #'eaf-monitor-configuration-change)
 (add-hook 'pre-command-hook #'eaf-monitor-key-event)
 (add-hook 'kill-buffer-hook #'eaf-monitor-buffer-kill)
 
