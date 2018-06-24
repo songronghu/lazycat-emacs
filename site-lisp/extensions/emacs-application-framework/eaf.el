@@ -240,10 +240,11 @@ We need calcuate render allocation to make sure no black border around render co
           (cond
            ;; Just send event when user insert single character.
            ;; Don't send event 'M' if user press Ctrl + M.
-           ((equal key-command "self-insert-command")
-            (when (equal 1 (string-width (this-command-keys)))
-              (message (format "Send char: '%s" key-desc))
-              (eaf-call "send_key" (format "%s:%s" buffer-id key-desc))))
+           ((and
+             (equal key-command "self-insert-command")
+             (equal 1 (string-width (this-command-keys))))
+            (message (format "Send char: '%s" key-desc))
+            (eaf-call "send_key" (format "%s:%s" buffer-id key-desc)))
            ((or
              (equal key-command "nil")
              (equal key-desc "RET")
