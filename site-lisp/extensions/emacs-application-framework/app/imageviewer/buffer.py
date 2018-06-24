@@ -20,8 +20,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5.QtGui import QColor, QPixmap, QPainter
-from PyQt5.QtCore import QRect
+from PyQt5.QtCore import QRect, Qt
 from PyQt5.QtWidgets import QWidget
+import os
 from buffer import Buffer
 
 class ImageViewerBuffer(Buffer):
@@ -44,8 +45,34 @@ class ImageViewerWidget(QWidget):
         self.load_image(image_path)
         
     def load_image(self, image_path):
+        self.parent_dir = os.path.abspath(os.path.join(image_path, os.pardir))
+        self.image_name = os.path.basename(image_path)
         self.qimage = QPixmap(image_path)
         self.update()
+        
+    def load_next_image(self):
+        files = [f for f in os.listdir(self.parent_dir) if os.path.isfile(os.path.join(self.parent_dir, f))]
+        images = list(filter(lambda f: f.endswith(".jpg") or f.endswith(".png"), files))
+        if self.image_name in images:
+            image_index = images.index(self.image_name)
+            if image_index == len(images) - 1:
+                image_index = 0
+            else:
+                image_index += 1
+                
+            self.load_image(os.path.join(self.parent_dir, images[image_index]))    
+    
+    def load_prev_image(self):
+        files = [f for f in os.listdir(self.parent_dir) if os.path.isfile(os.path.join(self.parent_dir, f))]
+        images = list(filter(lambda f: f.endswith(".jpg") or f.endswith(".png"), files))
+        if self.image_name in images:
+            image_index = images.index(self.image_name)
+            if image_index == 0:
+                image_index = len(images) - 1
+            else:
+                image_index -= 1
+                
+            self.load_image(os.path.join(self.parent_dir, images[image_index]))    
                 
     def paintEvent(self, event):
         painter = QPainter(self)
@@ -69,6 +96,12 @@ class ImageViewerWidget(QWidget):
         painter.drawPixmap(QRect(render_x, render_y, render_width, render_height), self.qimage)
         
         painter.end()
+        
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_J:
+            self.load_next_image()
+        elif event.key() == Qt.Key_K:
+            self.load_prev_image()
                 
 if __name__ == "__main__":
     from PyQt5.QtWidgets import QApplication
