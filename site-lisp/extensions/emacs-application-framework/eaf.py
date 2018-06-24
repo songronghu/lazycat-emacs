@@ -78,10 +78,23 @@ class EAF(dbus.service.Object):
         self.buffer_dict = {}
         self.view_dict = {}
         
-    @dbus.service.method(EAF_DBUS_NAME, in_signature="sss", out_signature="")
-    def new_buffer(self, buffer_id, app_type, input_content):
-        if app_type == "browser":
-            self.buffer_dict[buffer_id] = BrowserBuffer(buffer_id, app_type, input_content)
+    @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="b")
+    def is_support(self, url):
+        return True
+    
+    @dbus.service.method(EAF_DBUS_NAME, in_signature="ss", out_signature="")
+    def new_buffer(self, buffer_id, url):
+        if url.startswith("/"):
+            pass
+        else:
+            from urllib.parse import urlparse 
+            result = urlparse(url)
+            if len(result.scheme) != 0:
+                self.buffer_dict[buffer_id] = BrowserBuffer(buffer_id, result.geturl())
+            else:
+                result = urlparse("{0}:{1}".format("http", url))
+                if result.scheme != "":
+                    self.buffer_dict[buffer_id] = BrowserBuffer(buffer_id, result.geturl())
             
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def update_views(self, args):
@@ -307,15 +320,14 @@ class View(QWidget):
 class Buffer(object):
     __metaclass__ = abc.ABCMeta
     
-    def __init__(self, buffer_id, app_type, input_content, background_color):
+    def __init__(self, buffer_id, url, background_color):
         global emacs_width, emacs_height
         
         self.width = emacs_width
         self.height = emacs_height
         
         self.buffer_id = buffer_id
-        self.app_type = app_type
-        self.input_content = input_content
+        self.url = url
                 
         self.qimage = None
         self.buffer_widget = None
@@ -341,12 +353,12 @@ class Buffer(object):
             self.qimage = qimage
                             
 class BrowserBuffer(Buffer):
-    def __init__(self, buffer_id, app_type, input_content):
-        Buffer.__init__(self, buffer_id, app_type, input_content, QColor(255, 255, 255, 255))
+    def __init__(self, buffer_id, url):
+        Buffer.__init__(self, buffer_id, url, QColor(255, 255, 255, 255))
         
         self.buffer_widget = QWebView()
         self.buffer_widget.resize(self.width, self.height)
-        self.buffer_widget.setUrl(QUrl(input_content))
+        self.buffer_widget.setUrl(QUrl(url))
         
         print("Create buffer: %s" % buffer_id)
         

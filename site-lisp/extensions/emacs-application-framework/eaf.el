@@ -188,17 +188,13 @@ We need calcuate render allocation to make sure no black border around render co
       )
     eaf-buffer))
 
-(defun eaf-open (app-type input-content)
-  (let* ((buffer (eaf-create-buffer input-content)))
-    (with-current-buffer buffer
-      (eaf-call "new_buffer" buffer-id app-type input-content)
-      (message (format "eaf-open: %s %s %s" buffer-id app-type input-content)))
-    (switch-to-buffer buffer)
-    ))
-
-(defun eaf-open-url (url)
-  (interactive "sURL: ")
-  (eaf-open "browser" url))
+(defun eaf-is-support (url)
+  (dbus-call-method
+   :session "com.lazycat.eaf"
+   "/com/lazycat/eaf"
+   "com.lazycat.eaf"
+   "is_support"
+   url))
 
 (defun eaf-monitor-configuration-change (&rest _)
   (ignore-errors
@@ -306,6 +302,16 @@ We need calcuate render allocation to make sure no black border around render co
 (add-hook 'window-configuration-change-hook #'eaf-monitor-configuration-change)
 (add-hook 'pre-command-hook #'eaf-monitor-key-event)
 (add-hook 'kill-buffer-hook #'eaf-monitor-buffer-kill)
+
+(defun eaf-open (url)
+  (interactive "sOpen with EAF: ")
+  (if (eaf-is-support url)
+      (let* ((buffer (eaf-create-buffer url)))
+        (with-current-buffer buffer
+          (eaf-call "new_buffer" buffer-id url))
+        (switch-to-buffer buffer)
+        )
+    (message (format "Can't open %s with EAF" url))))
 
 (eaf-start-process)
 
