@@ -103,6 +103,7 @@ class EAF(dbus.service.Object):
                     self.view_dict[view_info] = view
                     
                     view.trigger_mouse_event.connect(self.send_mouse_event_to_buffer)
+                    view.trigger_focus_event.connect(self.focus_emacs_buffer)
                     
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def kill_buffer(self, buffer_id):
@@ -125,6 +126,10 @@ class EAF(dbus.service.Object):
         
         if buffer_id in self.buffer_dict:
             QApplication.sendEvent(self.buffer_dict[buffer_id].buffer_widget, fake_key_event(event_string))
+            
+    @dbus.service.signal("com.lazycat.eaf")        
+    def focus_emacs_buffer(self, message):
+        print("************* %s" % message)
         
     def send_mouse_event_to_buffer(self, buffer_id, view_width, view_height, view_image_width, view_image_height, event):
         print("Send mouse: %s %s" % (buffer_id, event))
@@ -133,7 +138,7 @@ class EAF(dbus.service.Object):
         
         if buffer_id in self.buffer_dict:
             if event.type() in [QEvent.MouseButtonPress, QEvent.MouseButtonRelease,
-                                QEvent.MouseMove, QEvent.MouseButtonDblClick, QEvent.Wheel]:
+                                QEvent.MouseMove, QEvent.MouseButtonDblClick]:
                 # Get view render coordinate.
                 view_render_x = (view_width - view_image_width) / 2
                 view_render_y = (view_height - view_image_height) / 2
@@ -219,6 +224,7 @@ class EAF(dbus.service.Object):
 class View(QWidget):
     
     trigger_mouse_event = QtCore.pyqtSignal(str, int, int, int, int, QEvent)
+    trigger_focus_event = QtCore.pyqtSignal(str)
     
     def __init__(self, view_info):
         super(View, self).__init__()
@@ -251,7 +257,8 @@ class View(QWidget):
         if event.type() in [QEvent.MouseButtonPress, QEvent.MouseButtonRelease,
                             QEvent.MouseMove, QEvent.MouseButtonDblClick, QEvent.Wheel]:
             self.trigger_mouse_event.emit(self.buffer_id, self.width, self.height, self.qimage.width(), self.qimage.height(), event)
-        
+            self.trigger_focus_event.emit("{0},{1}".format(event.globalX(), event.globalY()))
+                    
         return False
         
     def paintEvent(self, event):

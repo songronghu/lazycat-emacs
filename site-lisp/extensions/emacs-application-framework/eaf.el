@@ -273,6 +273,36 @@ We need calcuate render allocation to make sure no black border around render co
         (setq last-command-event nil)
         ))))
 
+(defun eaf-focus-buffer (msg)
+  (let* ((coordinate-list (split-string msg ","))
+         (mouse-press-x (string-to-number (nth 0 coordinate-list)))
+         (mouse-press-y (string-to-number (nth 1 coordinate-list))))
+    (catch 'find-window
+      (dolist (window (window-list))
+        (let ((buffer (window-buffer window)))
+          (with-current-buffer buffer
+            (if (string= "eaf-mode" (format "%s" major-mode))
+                (let* ((window-allocation (eaf-get-window-allocation window))
+                       (x (nth 0 window-allocation))
+                       (y (nth 1 window-allocation))
+                       (w (nth 2 window-allocation))
+                       (h (nth 3 window-allocation))
+                       )
+                  (when (and
+                         (> mouse-press-x x)
+                         (< mouse-press-x (+ x w))
+                         (> mouse-press-y y)
+                         (< mouse-press-y (+ y h)))
+                    (select-window window)
+                    (throw 'find-window t)
+                    )
+                  ))))))))
+
+(dbus-register-signal
+ :session "com.lazycat.eaf" "/com/lazycat/eaf"
+ "com.lazycat.eaf" "focus_emacs_buffer"
+ 'eaf-focus-buffer)
+
 (add-hook 'window-configuration-change-hook #'eaf-monitor-configuration-change)
 (add-hook 'pre-command-hook #'eaf-monitor-key-event)
 (add-hook 'kill-buffer-hook #'eaf-monitor-buffer-kill)
