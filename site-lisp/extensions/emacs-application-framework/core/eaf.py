@@ -36,6 +36,7 @@ parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir) 
 from app.browser.buffer import BrowserBuffer
 from app.imageviewer.buffer import ImageViewerBuffer
+from app.videoplayer.buffer import VideoPlayerBuffer
 
 EAF_DBUS_NAME = "com.lazycat.eaf"
 EAF_OBJECT_NAME = "/com/lazycat/eaf"
@@ -60,6 +61,8 @@ class EAF(dbus.service.Object):
         if url.startswith("/"):
             if url.endswith(".jpg") or url.endswith(".png"):
                 self.buffer_dict[buffer_id] = ImageViewerBuffer(buffer_id, url, emacs_width, emacs_height)
+            elif url.endswith(".ogg"):
+                self.buffer_dict[buffer_id] = VideoPlayerBuffer(buffer_id, url, emacs_width, emacs_height)
             else:
                 return "Don't know how to open {0}".format(url)
         else:
@@ -174,7 +177,7 @@ class EAF(dbus.service.Object):
         global emacs_width, emacs_height
         
         while True:
-            for buffer in self.buffer_dict.values():
+            for buffer in list(self.buffer_dict.values()):
                 # Get size list of buffer's views.
                 view_sizes = list(map(lambda v: (v.width, v.height), self.view_dict.values()))
                 
@@ -212,7 +215,7 @@ class EAF(dbus.service.Object):
                             # Update view.
                             view.update()
                 
-            time.sleep(0.05)
+            time.sleep(0.04)
                             
 if __name__ == "__main__":
     import sys
