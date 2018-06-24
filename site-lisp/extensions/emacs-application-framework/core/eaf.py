@@ -19,51 +19,25 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
-from PyQt5 import QtCore
-from PyQt5.QtCore import QUrl, Qt, QEvent, QPointF
-from PyQt5.QtGui import QPainter, QImage, QColor, QMouseEvent
-from PyQt5.QtWebKitWidgets import QWebView
-from PyQt5.QtWidgets import QWidget, QApplication
+from PyQt5.QtCore import QEvent, QPointF
+from PyQt5.QtGui import QMouseEvent
+from PyQt5.QtWidgets import QApplication
 from dbus.mainloop.glib import DBusGMainLoop
-from xutils import get_xlib_display
 from fake_key_event import fake_key_event
-import abc
+from view import View
 import dbus
 import dbus.service
-import functools
 import threading
 import time
 
+import os,sys,inspect
+current_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir) 
+from app.browser.buffer import BrowserBuffer
+
 EAF_DBUS_NAME = "com.lazycat.eaf"
 EAF_OBJECT_NAME = "/com/lazycat/eaf"
-
-class postGui(QtCore.QObject):
-    
-    through_thread = QtCore.pyqtSignal(object, object)    
-    
-    def __init__(self, inclass=True):
-        super(postGui, self).__init__()
-        self.through_thread.connect(self.on_signal_received)
-        self.inclass = inclass
-        
-    def __call__(self, func):
-        self._func = func
-        
-        @functools.wraps(func)
-        def obj_call(*args, **kwargs):
-            self.emit_signal(args, kwargs)
-        return obj_call
-        
-    def emit_signal(self, args, kwargs):
-        self.through_thread.emit(args, kwargs)
-                
-    def on_signal_received(self, args, kwargs):
-        if self.inclass:
-            obj, args = args[0], args[1:]
-            self._func(obj, *args, **kwargs)
-        else:    
-            self._func(*args, **kwargs)
 
 class EAF(dbus.service.Object):
     def __init__(self, args):
@@ -84,17 +58,19 @@ class EAF(dbus.service.Object):
     
     @dbus.service.method(EAF_DBUS_NAME, in_signature="ss", out_signature="")
     def new_buffer(self, buffer_id, url):
+        global emacs_width, emacs_height
+
         if url.startswith("/"):
             pass
         else:
             from urllib.parse import urlparse 
             result = urlparse(url)
             if len(result.scheme) != 0:
-                self.buffer_dict[buffer_id] = BrowserBuffer(buffer_id, result.geturl())
+                self.buffer_dict[buffer_id] = BrowserBuffer(buffer_id, result.geturl(), emacs_width, emacs_height)
             else:
                 result = urlparse("{0}:{1}".format("http", url))
                 if result.scheme != "":
-                    self.buffer_dict[buffer_id] = BrowserBuffer(buffer_id, result.geturl())
+                    self.buffer_dict[buffer_id] = BrowserBuffer(buffer_id, result.geturl(), emacs_width, emacs_height)
             
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def update_views(self, args):
@@ -112,7 +88,7 @@ class EAF(dbus.service.Object):
         if view_infos != ['']:
             for view_info in view_infos:
                 if view_info not in self.view_dict:
-                    view = View(view_info)
+                    view = View(emacs_xid, view_info)
                     self.view_dict[view_info] = view
                     
                     view.trigger_mouse_event.connect(self.send_mouse_event_to_buffer)
@@ -233,140 +209,7 @@ class EAF(dbus.service.Object):
                             view.update()
                 
             time.sleep(0.05)
-        
-class View(QWidget):
-    
-    trigger_mouse_event = QtCore.pyqtSignal(str, int, int, int, int, QEvent)
-    trigger_focus_event = QtCore.pyqtSignal(str)
-    
-    def __init__(self, view_info):
-        super(View, self).__init__()
-        
-        # Init widget attributes.
-        self.setWindowFlags(Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_X11DoNotAcceptFocus, True)
-        self.setContentsMargins(0, 0, 0, 0)
-        
-        # Init attributes.
-        self.view_info = view_info
-        (self.buffer_id, self.x, self.y, self.width, self.height) = view_info.split(":")
-        self.x = int(self.x)
-        self.y = int(self.y)
-        self.width = int(self.width)
-        self.height = int(self.height)
-        
-        self.qimage = None
-        self.background_color = None
-        
-        # Show and resize.
-        self.show()
-        self.resize(self.width, self.height)
-        
-        self.installEventFilter(self)
-        
-        print("Create view: %s" % self.view_info)
-        
-    def eventFilter(self, obj, event):
-        if event.type() in [QEvent.MouseButtonPress, QEvent.MouseButtonRelease,
-                            QEvent.MouseMove, QEvent.MouseButtonDblClick, QEvent.Wheel]:
-            self.trigger_mouse_event.emit(self.buffer_id, self.width, self.height, self.qimage.width(), self.qimage.height(), event)
-            self.trigger_focus_event.emit("{0},{1}".format(event.globalX(), event.globalY()))
-                    
-        return False
-        
-    def paintEvent(self, event):
-        # Init painter.
-        painter = QPainter(self)
-        
-        # Render background.
-        if self.background_color != None:
-            painter.setBrush(self.background_color)
-            painter.drawRect(0, 0, self.width, self.height)
-        
-        # Render buffer image in center of view.
-        if self.qimage != None:
-            render_x = (self.width - self.qimage.width()) / 2
-            render_y = (self.height - self.qimage.height()) / 2
-            painter.drawImage(QtCore.QRect(render_x, render_y, self.qimage.width(), self.qimage.height()), self.qimage)
-        
-        # End painter.
-        painter.end()
-        
-    def showEvent(self, event):
-        # NOTE: we must reparent after widget show, otherwise reparent operation maybe failed.
-        self.reparent()
-        
-    def reparent(self):
-        global emacs_xid
-        
-        xlib_display = get_xlib_display()
-        
-        view_xid = self.winId().__int__()
-        view_xwindow = xlib_display.create_resource_object("window", view_xid)
-        emacs_xwindow = xlib_display.create_resource_object("window", emacs_xid)
-        
-        view_xwindow.reparent(emacs_xwindow, self.x, self.y)
-        
-        xlib_display.sync()
-        
-    def handle_destroy(self):
-        if self.qimage != None:
-            del self.qimage
-            
-        self.destroy()
-        
-        print("Destroy view: %s" % self.view_info)
-        
-class Buffer(object):
-    __metaclass__ = abc.ABCMeta
-    
-    def __init__(self, buffer_id, url, background_color):
-        global emacs_width, emacs_height
-        
-        self.width = emacs_width
-        self.height = emacs_height
-        
-        self.buffer_id = buffer_id
-        self.url = url
-                
-        self.qimage = None
-        self.buffer_widget = None
-        self.background_color = background_color
-        
-    def resize_buffer(self, width, height):
-        pass
-            
-    def handle_destroy(self):
-        if self.buffer_widget != None:
-            self.buffer_widget.destroy()
-            
-        if self.qimage != None:
-            del self.qimage
-            
-        print("Destroy buffer: %s" % self.buffer_id)
-        
-    @postGui()    
-    def update_content(self):
-        if self.buffer_widget != None:
-            qimage = QImage(self.width, self.height, QImage.Format_ARGB32)
-            self.buffer_widget.render(qimage)
-            self.qimage = qimage
                             
-class BrowserBuffer(Buffer):
-    def __init__(self, buffer_id, url):
-        Buffer.__init__(self, buffer_id, url, QColor(255, 255, 255, 255))
-        
-        self.buffer_widget = QWebView()
-        self.buffer_widget.resize(self.width, self.height)
-        self.buffer_widget.setUrl(QUrl(url))
-        
-        print("Create buffer: %s" % buffer_id)
-        
-    def resize_buffer(self, width, height):
-        self.width = width
-        self.height = height
-        self.buffer_widget.resize(self.width, self.height)
-        
 if __name__ == "__main__":
     import sys
     import signal
