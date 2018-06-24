@@ -107,7 +107,6 @@
                'go-mode-hook
                'coffee-mode-hook
                'qml-mode-hook
-               'markdown-mode-hook
                'slime-repl-mode-hook
                'package-menu-mode-hook
                'cmake-mode-hook
