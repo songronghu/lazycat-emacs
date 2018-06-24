@@ -21,8 +21,8 @@
 
 
 from PyQt5 import QtCore
-from PyQt5.QtCore import QUrl, Qt, QEvent
-from PyQt5.QtGui import QPainter, QImage, QColor
+from PyQt5.QtCore import QUrl, Qt, QEvent, QPointF
+from PyQt5.QtGui import QPainter, QImage, QColor, QMouseEvent
 from PyQt5.QtWebKitWidgets import QWebView
 from PyQt5.QtWidgets import QWidget, QApplication
 from dbus.mainloop.glib import DBusGMainLoop
@@ -102,7 +102,7 @@ class EAF(dbus.service.Object):
                     view = View(view_info)
                     self.view_dict[view_info] = view
                     
-                    view.triggerMouseEvent.connect(self.send_mouse_event_to_buffer)
+                    view.trigger_mouse_event.connect(self.send_mouse_event_to_buffer)
                     
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def kill_buffer(self, buffer_id):
@@ -120,18 +120,58 @@ class EAF(dbus.service.Object):
             
     @dbus.service.method(EAF_DBUS_NAME, in_signature="s", out_signature="")
     def send_key(self, args):
-        print("************ %s" % args)
+        print("Send key: %s" % args)
         (buffer_id, event_string) = args.split(":")
         
         if buffer_id in self.buffer_dict:
             QApplication.sendEvent(self.buffer_dict[buffer_id].buffer_widget, fake_key_event(event_string))
         
-    def send_mouse_event_to_buffer(self, buffer_id, event):
+    def send_mouse_event_to_buffer(self, buffer_id, view_width, view_height, view_image_width, view_image_height, event):
+        print("Send mouse: %s %s" % (buffer_id, event))
+        
         global emacs_xid
         
         if buffer_id in self.buffer_dict:
-            QApplication.sendEvent(self.buffer_dict[buffer_id].buffer_widget, event)
-            
+            if event.type() in [QEvent.MouseButtonPress, QEvent.MouseButtonRelease,
+                                QEvent.MouseMove, QEvent.MouseButtonDblClick, QEvent.Wheel]:
+                # Get view render coordinate.
+                view_render_x = (view_width - view_image_width) / 2
+                view_render_y = (view_height - view_image_height) / 2
+                
+                # Just send event if response in view image area.
+                if (event.x() >= view_render_x) and (event.x() <= view_render_x + view_image_width) and (event.y() >= view_render_y) and (event.y() <= view_render_y + view_image_height):
+                    view_sizes = list(map(lambda v: (v.width, v.height), self.view_dict.values()))
+                    
+                    buffer_width = emacs_width
+                    buffer_height = emacs_height
+                    
+                    if len(view_sizes) > 0:
+                        buffer_width, buffer_height = max(view_sizes, key=lambda size: size[0] * size[1])
+                                        
+                    width_scale = view_width * 1.0 / buffer_width
+                    height_scale = view_height * 1.0 / buffer_height
+                    image_scale = 1.0
+                    if width_scale < height_scale:
+                        image_scale = width_scale
+                    else:
+                        image_scale = height_scale
+
+                    new_event_x = (event.x() - view_render_x) / image_scale
+                    new_event_y = (event.y() - view_render_y) / image_scale
+                    new_event_pos = QPointF(new_event_x, new_event_y)
+                    
+                    new_event = QMouseEvent(event.type(),
+                                            new_event_pos,
+                                            event.button(),
+                                            event.buttons(),
+                                            event.modifiers())
+                    
+                    QApplication.sendEvent(self.buffer_dict[buffer_id].buffer_widget, new_event)
+                else:
+                    print("Do not send event, because event out of view's response area")
+            else:
+                QApplication.sendEvent(self.buffer_dict[buffer_id].buffer_widget, event)
+                        
     def update_buffers(self):
         global emacs_width, emacs_height
         
@@ -178,7 +218,7 @@ class EAF(dbus.service.Object):
         
 class View(QWidget):
     
-    triggerMouseEvent = QtCore.pyqtSignal(str, QEvent)
+    trigger_mouse_event = QtCore.pyqtSignal(str, int, int, int, int, QEvent)
     
     def __init__(self, view_info):
         super(View, self).__init__()
@@ -210,7 +250,7 @@ class View(QWidget):
     def eventFilter(self, obj, event):
         if event.type() in [QEvent.MouseButtonPress, QEvent.MouseButtonRelease,
                             QEvent.MouseMove, QEvent.MouseButtonDblClick, QEvent.Wheel]:
-            self.triggerMouseEvent.emit(self.buffer_id, event)
+            self.trigger_mouse_event.emit(self.buffer_id, self.width, self.height, self.qimage.width(), self.qimage.height(), event)
         
         return False
         
