@@ -54,6 +54,8 @@ class EAF(dbus.service.Object):
         self.buffer_dict = {}
         self.view_dict = {}
         
+        self.start_finish()
+        
     @dbus.service.method(EAF_DBUS_NAME, in_signature="ss", out_signature="s")
     def new_buffer(self, buffer_id, url):
         global emacs_width, emacs_height
@@ -126,6 +128,10 @@ class EAF(dbus.service.Object):
     @dbus.service.signal("com.lazycat.eaf")        
     def focus_emacs_buffer(self, message):
         print("************* %s" % message)
+        
+    @dbus.service.signal("com.lazycat.eaf")    
+    def start_finish(self):
+        pass
         
     def send_mouse_event_to_buffer(self, buffer_id, view_width, view_height, view_image_width, view_image_height, event):
         print("Send mouse: %s %s" % (buffer_id, event))

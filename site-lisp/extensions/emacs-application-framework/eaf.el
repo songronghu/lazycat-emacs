@@ -106,6 +106,8 @@
 
 (defvar eaf-process nil)
 
+(defvar eaf-first-start-url nil)
+
 (defcustom eaf-name "*eaf*"
   "Name of eaf buffer."
   :type 'string
@@ -299,12 +301,20 @@ We need calcuate render allocation to make sure no black border around render co
  "com.lazycat.eaf" "focus_emacs_buffer"
  'eaf-focus-buffer)
 
+(defun eaf-start-finish ()
+  ;; Call `eaf-open-internal' after receive `start_finish' signal from server process.
+  (eaf-open-internal eaf-first-start-url))
+
+(dbus-register-signal
+ :session "com.lazycat.eaf" "/com/lazycat/eaf"
+ "com.lazycat.eaf" "start_finish"
+ 'eaf-start-finish)
+
 (add-hook 'window-configuration-change-hook #'eaf-monitor-configuration-change)
 (add-hook 'pre-command-hook #'eaf-monitor-key-event)
 (add-hook 'kill-buffer-hook #'eaf-monitor-buffer-kill)
 
-(defun eaf-open (url)
-  (interactive "sOpen with EAF: ")
+(defun eaf-open-internal (url)
   (let* ((buffer (eaf-create-buffer url))
          buffer-result)
     (with-current-buffer buffer
@@ -317,7 +327,14 @@ We need calcuate render allocation to make sure no black border around render co
       (message buffer-result))
     ))
 
-(eaf-start-process)
+(defun eaf-open (url)
+  (interactive "sOpen with EAF: ")
+  (if (process-live-p eaf-process)
+      ;; Call `eaf-open-internal' directly if server process has start.
+      (eaf-open-internal url)
+    ;; Record user input, and call `eaf-open-internal' after receive `start_finish' signal from server process.
+    (setq eaf-first-start-url url)
+    (eaf-start-process)))
 
 (provide 'eaf)
 
