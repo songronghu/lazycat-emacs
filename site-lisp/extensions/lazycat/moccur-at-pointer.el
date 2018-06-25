@@ -89,7 +89,7 @@
                  (list (beginning-of-thing 'symbol) (end-of-thing 'symbol))))
   (let ((content (buffer-substring-no-properties beg end)))
     ;; Convert content whitespace with \s- and around \b, then pass regex to moccur-grep-find to search.
-    (moccur-grep-find
+    (moccur-grep-find-without-binary-files
      default-directory
      (moccur-split-string (concat "\\b" (replace-regexp-in-string  "\\s-+" "\\\\s-" content) "\\b")))))
 
