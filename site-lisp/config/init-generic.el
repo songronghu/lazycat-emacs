@@ -101,6 +101,7 @@
 (setq x-select-enable-clipboard t)      ;支持emacs和外部程序的粘贴
 (setq split-width-threshold nil)        ;分屏的时候使用上下分屏
 (add-hook 'find-file-hook 'highlight-parentheses-mode t) ;增强的括号高亮
+(add-hook 'before-save-hook 'whitespace-cleanup) ;cleanup white before save file.
 
 (provide 'init-generic)
 
