@@ -403,6 +403,13 @@
    ("s-t" . helm-descbinds)
    )
  "init-helm")
+;;; ### EAF ###
+;;; EAF
+(lazy-set-autoload-key
+ '(
+   ("s-'" . eaf-open)
+   )
+ "eaf")
 ;; Cycle buffer
 (lazy-set-autoload-key
  '(
@@ -467,7 +474,7 @@
 ;;; --- Pacman 管理工具
 (lazy-set-autoload-key
  '(
-   ("s-x z" . helm-system-packages)         
+   ("s-x z" . helm-system-packages)
    )
  "helm-system-packages-pacman")
 ;;; ### Auto-complete ###
