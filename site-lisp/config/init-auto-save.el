@@ -6,12 +6,12 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2014, Andy Stewart, all rights reserved.
 ;; Created: 2014-01-04 14:18:20
-;; Version: 0.1
-;; Last-Updated: 2014-01-04 14:18:20
+;; Version: 0.2
+;; Last-Updated: 2018-06-25 11:31:57
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-auto-save.el
 ;; Keywords:
-;; Compatibility: GNU Emacs 24.3.50.1
+;; Compatibility: GNU Emacs 27.0.50
 ;;
 ;; Features that might be required by this library:
 ;;
@@ -64,6 +64,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2018/06/25
+;;      * Delete whitespace before auto-save file.
 ;;
 ;; 2014/01/04
 ;;      * First released.
