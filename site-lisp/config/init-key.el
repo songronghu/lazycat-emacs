@@ -408,6 +408,7 @@
 (lazy-set-autoload-key
  '(
    ("s-'" . eaf-open)
+   ("s-/" . eaf-stop-process)
    )
  "eaf")
 ;; Cycle buffer
