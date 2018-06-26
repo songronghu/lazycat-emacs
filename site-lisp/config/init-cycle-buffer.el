@@ -94,6 +94,7 @@
       '(
         (("l" . "Elisp") . (lambda () (interactive) (cycle-buffer-in-special-mode 'emacs-lisp-mode)))
         (("e" . "Jade") . (lambda () (interactive) (cycle-buffer-in-special-mode 'jade-mode)))
+        (("'" . "EAF") . (lambda () (interactive) (cycle-buffer-in-special-mode 'eaf-mode)))
         (("i" . "IRC") . (lambda () (interactive) (cycle-buffer-in-special-mode 'erc-mode)))
         (("d" . "Dired") . (lambda () (interactive) (cycle-buffer-in-special-mode 'dired-mode)))
         (("o" . "Org") . (lambda () (interactive) (cycle-buffer-in-special-mode 'org-mode)))
