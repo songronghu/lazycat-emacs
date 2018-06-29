@@ -139,6 +139,7 @@
                     ("\\.rs$" . rust-mode)
                     ("\\.pro$" . qmake-mode)
                     ("\\.js$" . rjsx-mode)
+                    ("\\.lua$" . lua-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -162,6 +163,7 @@
 (autoload 'ruby-mode "init-ruby")
 (autoload 'rjsx-mode "init-reactjs")
 (autoload 'python-mode "init-python")
+(autoload 'lua-mode "lua-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行

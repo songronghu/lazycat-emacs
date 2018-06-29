@@ -282,6 +282,7 @@ Will delete blank line after execute `paredit-splice-sexp'."
        (eq major-mode 'js2-mode)
        (eq major-mode 'ruby-mode)
        (eq major-mode 'python-mode)
+       (eq major-mode 'lua-mode)
        )
       ;; Just do same as `paredit-open-curly' in some mode.
       (paredit-open-curly)
