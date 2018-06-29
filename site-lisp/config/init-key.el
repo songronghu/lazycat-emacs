@@ -410,7 +410,7 @@
    ("s-'" . eaf-open)
    ("s-/" . eaf-stop-process)
    )
- "eaf")
+ "~/emacs-application-framework/eaf.el")
 ;; Cycle buffer
 (lazy-set-autoload-key
  '(
