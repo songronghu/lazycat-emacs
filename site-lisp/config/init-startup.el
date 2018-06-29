@@ -85,11 +85,11 @@
 
 ;;; Code:
 
-(setq ad-redefinition-action 'accept)         ;不要烦人的 redefine warning
-(fullscreen)                                  ;全屏
-(tool-bar-mode -1)                            ;禁用工具栏
-(menu-bar-mode -1)                            ;禁用菜单栏
-(scroll-bar-mode -1)                          ;禁用滚动条
+(setq ad-redefinition-action 'accept)   ;不要烦人的 redefine warning
+(fullscreen)                            ;全屏
+(tool-bar-mode -1)                      ;禁用工具栏
+(menu-bar-mode -1)                      ;禁用菜单栏
+(scroll-bar-mode -1)                    ;禁用滚动条
 (set-face-attribute 'default nil :height 120) ;设置字体大小
 (server-start)                     ;为emacsclient准备使用场景，比如git
 
