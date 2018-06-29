@@ -77,10 +77,11 @@ $ cd ./emacs && ./autogen.sh
 $ ./configure && make && make install
 ```
 
-4. Install
-open -R nextstep/Emacs.app
+4. Install in launcher:
 
-and dragging Emacs to the Applications folder.
+    open -R nextstep/Emacs.app
+
+    and dragging Emacs to the Applications folder.
 
 5. Add config in ~/.emacs
 ```Elisp
