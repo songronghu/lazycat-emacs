@@ -17,7 +17,7 @@ Lazycat Emacs provides below features:
 - Auto save when figure idle.
 - Line number support. (by linum extension)
 - Kill ring search. (by kill-ring-search extension)
-- File manager. (by dired extension)
+- File manager. (by dired extension) 
 - Music player. (by emms extensions)
 - Pdf viewer. (by doc-view extension)
 - Irc client. (by rcirc and erc extension)
@@ -57,6 +57,43 @@ Lazycat Emacs provides below features:
 - Webkit browser. (by webkit extension)
 
 ## Installation
+
+### Mac OS High Sierra
+
+1. Install compile dependencies
+```
+$ brew install autoconf automake texinfo gnutls pkg-config --debug --verbose
+```
+    Note, you need install pkg-config before compile emacs git, otherwise ./configure emacs will throw error "can't found gnutls"
+
+2. Download emacs git code
+```
+$ git clone --depth 1 git://git.savannah.gnu.org/emacs.git
+```
+
+3. Compile emacs git
+```
+$ cd ./emacs && ./autogen.sh
+$ ./configure && make && make install
+```
+
+4. Install in launcher:
+
+    open -R nextstep/Emacs.app
+
+    and dragging Emacs to the Applications folder.
+
+5. Add config in ~/.emacs
+```Elisp
+(defun add-subdirs-to-load-path (dir)
+  "Recursive add directories to `load-path'."
+  (let ((default-directory (file-name-as-directory dir)))
+    (add-to-list 'load-path dir)
+    (normal-top-level-add-subdirs-to-load-path)))
+(add-subdirs-to-load-path "~/lazycat-emacs/site-lisp/")
+
+(require 'init)
+```
 
 ### ArchLinux
 1. Install emacs git version:
