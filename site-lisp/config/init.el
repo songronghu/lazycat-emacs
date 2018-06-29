@@ -1,5 +1,5 @@
 ;; 定义一些启动目录，方便下次迁移修改
-(defvar lazycat-emacs-root-dir (file-truename "/usr/share/emacs/lazycat"))
+(defvar lazycat-emacs-root-dir (file-truename "~/lazycat-emacs/site-lisp"))
 (defvar lazycat-emacs-config-dir (concat lazycat-emacs-root-dir "/config"))
 (defvar lazycat-emacs-extension-dir (concat lazycat-emacs-root-dir "/extensions"))
 (defvar lazycat-emacs-sdcv-data-dir (concat lazycat-emacs-root-dir "/sdcv-dict"))
