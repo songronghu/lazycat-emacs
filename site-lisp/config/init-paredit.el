@@ -99,6 +99,7 @@
                'ruby-mode-hook
                'rust-mode-hook
                'qmake-mode-hook
+               'lua-mode-hook
                ))
   (add-hook hook '(lambda () (paredit-mode 1))))
 
