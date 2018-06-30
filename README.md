@@ -3,7 +3,7 @@
 *What is lazycat emacs can do?*
 This is video show: [Video](https://www.youtube.com/watch?v=ZA3uuflGtk8)
 
-**Description**: 
+**Description**:
 Emacs is hackable OS for top hackers, most of emacs extensions are written in elisp.
 Lazycat Emacs merged many extensions from [AndyStewart](http://www.emacswiki.org/emacs/AndyStewart),
 you can find all extensions under [site-lisp](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp).
@@ -17,7 +17,7 @@ Lazycat Emacs provides below features:
 - Auto save when figure idle.
 - Line number support. (by linum extension)
 - Kill ring search. (by kill-ring-search extension)
-- File manager. (by dired extension) 
+- File manager. (by dired extension)
 - Music player. (by emms extensions)
 - Pdf viewer. (by doc-view extension)
 - Irc client. (by rcirc and erc extension)
@@ -93,6 +93,39 @@ $ ./configure && make && make install
 (add-subdirs-to-load-path "~/lazycat-emacs/site-lisp/")
 
 (require 'init)
+```
+
+### Install PyQt5 libraries for Mac OS:
+1. Install python3 and qt:
+```
+$ brew install python3 qt
+```
+
+2. Change pip.conf with below if your pip3 will report SSL error when install:
+```
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host=pypi.tuna.tsinghua.edu.cn
+```
+
+3. Install PyQt5:
+```
+sudo pip3 intall PyQt5
+```
+
+$ brew install python3 qt
+$ sudo pip3 install pyqt5 jedi epc pyflakes
+```
+
+4. Add below in ~/.bash_profile:
+```
+$ export PATH=/Library/Frameworks/Python.framework/Versions/3.7/bin:$PATH
+```
+
+5. Add below in ~/.zshrc:
+```
+source ~/.bash_profile
 ```
 
 ### ArchLinux
