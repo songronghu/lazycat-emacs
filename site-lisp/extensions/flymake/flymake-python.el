@@ -29,12 +29,10 @@ The CMDLINE should be something like:
 
 (defvar flymake-allowed-file-name-masks nil)
 (add-to-list 'flymake-allowed-file-name-masks
-             (list "\\.py\\'" (apply-partially 'flymake-command-parse "pyflakes %f")))
+             (list "\\.py\\'" (if (string-equal system-type "darwin")
+                                  (apply-partially 'flymake-command-parse "/Library/Frameworks/Python.framework/Versions/3.7/bin/pyflakes %f")
+                                (apply-partially 'flymake-command-parse "pyflakes %f"))))
 
 (add-hook 'python-mode-hook 'flymake-mode)
 
 (provide 'flymake-python)
-
-
-
-
