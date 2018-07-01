@@ -95,13 +95,13 @@ $ ./configure && make && make install
 (require 'init)
 ```
 
-### Install PyQt5 libraries for Mac OS:
-1. Install python3 and qt:
+### Install libraries (PyQt5, Python-Xlib, Python-DBus) for Mac OS:
+1. Install Anaconda:
 ```
-$ brew install python3 qt
+Download Python3.6 version from https://www.anaconda.com/download/#macos and install it.
 ```
 
-2. Change pip.conf with below if your pip3 will report SSL error when install:
+2. Change pip mirror, write below into ~/.pip/pip.conf:
 ```
 [global]
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple
@@ -109,23 +109,20 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 trusted-host=pypi.tuna.tsinghua.edu.cn
 ```
 
-3. Install PyQt5:
+3. Change conda mirror, write below into ~/.condarc:
 ```
-sudo pip3 intall PyQt5
-```
-
-$ brew install python3 qt
-$ sudo pip3 install pyqt5 jedi epc pyflakes
-```
-
-4. Add below in ~/.bash_profile:
-```
-$ export PATH=/Library/Frameworks/Python.framework/Versions/3.7/bin:$PATH
+channels:
+ - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+ - defaults
+show_channel_urls: true
 ```
 
-5. Add below in ~/.zshrc:
+4. Install PyQt5 and other python libraries:
 ```
-source ~/.bash_profile
+$ conda create --name python36 python=3.6
+$ source activate python36
+$ conda install pip
+$ pip install PyQt5 jedi pyflakes
 ```
 
 ### ArchLinux
