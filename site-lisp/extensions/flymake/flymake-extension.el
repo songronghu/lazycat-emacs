@@ -182,7 +182,10 @@ If NO-ECHO t, don't display message when no error or waring."
           (setq msg (replace-regexp-in-string "^[ \t]*\n" "" msg))
           ;; Show information.
           (if flymake-extension-use-tooltip
-              (progn
+              (if (string-equal system-type "darwin")
+                  (progn
+                    (require 'popup)
+                    (popup-tip msg))
                 (require 'posframe)
                 (posframe-show
                  flymake-extension-tooltip-name
