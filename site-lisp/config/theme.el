@@ -368,6 +368,10 @@
  '(xref-list-symbol-face ((t (:foreground "green"))) t)
  '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 1.5))))
  '(yas/field-highlight-face ((t (:background "grey20" :foreground "gold"))))
- '(yas/mirror-highlight-face ((t (:background "brown" :foreground "white")))))
+ '(yas/mirror-highlight-face ((t (:background "brown" :foreground "white"))))
+ '(mode-line ((t (:background "darkred" :foreground "#ffffff"))))
+ '(mode-line-highlight ((t (:height 1))))
+ '(mode-line-inactive ((t (:background "gray10" :foreground "#aaaaaa"))))
+ )
 
 (provide 'theme)

@@ -37,6 +37,8 @@
   (require 'init-key)
   (require 'init-generic)
   (require 'init-auto-indent-mode)
+  (unless (string-equal system-type "darwin")
+    (require 'init-minibuffer-tray))
 
   ;; 可以延后加载的
   (run-with-idle-timer
@@ -62,8 +64,6 @@
        (require 'init-idle)
 
        (load-file (concat lazycat-emacs-config-dir "/theme.el")) ;最后重新加载一次让所有插件的主题都生效
-
-       (require 'init-minibuffer-tray)
        )))
 
 
