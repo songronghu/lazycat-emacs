@@ -374,4 +374,16 @@
  '(mode-line-inactive ((t (:background "gray10" :foreground "#aaaaaa"))))
  )
 
+(if (string-equal system-type "darwin")
+    (custom-set-faces
+     '(mode-line ((t (:background "darkred" :foreground "#ffffff"))))
+     '(mode-line-highlight ((t (:height 1))))
+     '(mode-line-inactive ((t (:background "gray10" :foreground "#aaaaaa"))))
+     )
+  (custom-set-faces
+   '(mode-line ((t (:background "#3E0303" :foreground "#3E0303" :height 1))))
+   '(mode-line-highlight ((t (:height 1))))
+   '(mode-line-inactive ((t (:background "gray10" :foreground "gray10" :height 1))))
+   ))
+
 (provide 'theme)
