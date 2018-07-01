@@ -37,7 +37,11 @@
   (require 'init-key)
   (require 'init-generic)
   (require 'init-auto-indent-mode)
-  (unless (string-equal system-type "darwin")
+  (if (string-equal system-type "darwin")
+      (custom-set-faces
+       '(mode-line ((t (:background "darkred" :foreground "#ffffff"))))
+       '(mode-line-highlight ((t (:height 1))))
+       '(mode-line-inactive ((t (:background "gray10" :foreground "#aaaaaa")))))
     (require 'init-minibuffer-tray))
 
   ;; 可以延后加载的
