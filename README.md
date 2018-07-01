@@ -122,7 +122,7 @@ show_channel_urls: true
 $ conda create --name python36 python=3.6
 $ source activate python36
 $ conda install pip
-$ pip install PyQt5 jedi pyflakes
+$ pip install PyQt5 jedi pyflakes epc
 ```
 
 ### ArchLinux
