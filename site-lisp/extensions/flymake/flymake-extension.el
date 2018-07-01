@@ -4,8 +4,8 @@
 ;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
 ;; Copyright (C) 2008, 2009, Andy Stewart, all rights reserved.
 ;; Created: 2008-10-11 23:05:38
-;; Version: 0.4
-;; Last-Updated: 2018-06-20 20:54:17
+;; Version: 0.5
+;; Last-Updated: 2018-07-01 21:15:44
 ;; URL:
 ;; Keywords: flymake
 ;; Compatibility: GNU Emacs 27.0.50
@@ -65,6 +65,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2018/07/01
+;;      * Add support for MacOS, use `popup-tip'.
 ;;
 ;; 2018/06/20
 ;;      * Switch from `showtip' to `posframe' to show tooltip.
