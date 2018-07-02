@@ -62,8 +62,12 @@
   :group 'pdf-tools)
 
 (defcustom pdf-info-epdfinfo-program
-  (let ((executable (if (eq system-type 'windows-nt)
-                        "epdfinfo.exe" "epdfinfo"))
+  (let ((executable (cond ((string-equal system-type "darwin")
+                           "epdfinfo_for_mac")
+                          ((string-equal system-type "window-nt")
+                           "epdfinfo.exe")
+                          (t
+                           "epdfinfo")))
         (default-directory
           (or (and load-file-name
                    (file-name-directory load-file-name))

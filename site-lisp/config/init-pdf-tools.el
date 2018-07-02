@@ -60,7 +60,7 @@
 ;; You can use below commands to install epdfinfo:
 ;; 1. Install cask:
 ;;    curl -fsSkL https://raw.github.com/cask/cask/master/go | python
-;;    
+;;
 ;; 2. Export cash bin path make pdf-tools know which find cash:
 ;;    export PATH="/home/yourusername/.cask/bin:$PATH"
 ;;
@@ -70,13 +70,15 @@
 ;; 4. Compile epdfinfo:
 ;;    make
 ;;
+;;    If you use MacOS, you need use command "brew install libpng poppler" install librarires before you make epdfinfo
+;;
 ;; 5. Copy epdfinfo to same directory that put `pdf-tools.el'
 ;;    cp server/epdfinfo ~/pdf-tools-elisp-path/
 
 ;;; Change log:
 ;;
 ;; 2018/06/12
-;;      * Add commands of install epdfinfo, make me can use this awesome extension in ArchLinux. 
+;;      * Add commands of install epdfinfo, make me can use this awesome extension in ArchLinux.
 ;;
 ;; 2014/03/17
 ;;      * First released.
