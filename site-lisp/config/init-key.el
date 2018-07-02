@@ -137,6 +137,7 @@
    ("s-c n" . copy-buffer-file-name-as-kill) ;拷贝buffer名字
    ("C-M-;" . kill-other-window-buffer)      ;关闭其他窗口的buffer
    ("s-Q" . kill-current-mode-buffers) ;关闭与当前模式相同的所有buffers
+   ("C-S-s-q" . kill-current-mode-buffers) ;关闭与当前模式相同的所有buffers
    ("s-q" . kill-current-mode-buffers-except-current) ;关闭当前模式所有buffers, 除了当前buffer
    )
  "buffer-extension")
