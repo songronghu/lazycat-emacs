@@ -83,6 +83,7 @@
 
 (require 'go-mode)
 (require 'go-autocomplete)
+(require 'gotest)
 
 ;;; Code:
 
@@ -121,6 +122,10 @@
    ("C-u C-8" . godef-jump-other-window)
    ("C-k" . go-kill)
    ("M-o" . go-backward-delete)
+   ("C-c t" . go-test-current-test)
+   ("C-c f" . go-test-current-file)
+   ("C-c p" . go-test-current-project)
+   ("C-c b" . go-test-current-benchmark)
    )
  go-mode-map
  )
