@@ -140,6 +140,7 @@
                     ("\\.pro$" . qmake-mode)
                     ("\\.js$" . rjsx-mode)
                     ("\\.lua$" . lua-mode)
+                    ("\\.swift$" . swift-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -164,6 +165,7 @@
 (autoload 'rjsx-mode "init-reactjs")
 (autoload 'python-mode "init-python")
 (autoload 'lua-mode "lua-mode")
+(autoload 'swift-mode "swift-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行

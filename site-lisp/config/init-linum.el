@@ -116,6 +116,7 @@
                'ruby-mode-hook
                'qmake-mode-hook
                'lua-mode-hook
+               'swift-mode-hook
                ))
   (add-hook hook (lambda () (linum-mode 1))))
 
