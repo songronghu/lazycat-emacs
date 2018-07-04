@@ -300,7 +300,7 @@
  '(speedbar-separator-face ((((class color) (background dark)) (:background "DarkRed" :foreground "white" :overline "gray"))))
  '(tabbar-button ((t (:inherit tabbar-default :background "black" :foreground "red" :box (:line-width 1 :color "black" :style released-button)))))
  '(tabbar-button-highlight ((t (:inherit tabbar-default :background "black" :foreground "green" :box (:color "red")))))
- '(tabbar-default ((((class color grayscale) (background dark)) (:inherit variable-pitch :height 1.1))))
+ '(tabbar-default ((((class color grayscale) (background dark)) (:inherit variable-pitch :height 1.3))))
  '(tabbar-selected ((t (:inherit tabbar-default :background "black" :foreground "green2" :box (:line-width 1 :color "#10650F")))))
  '(tabbar-selected-face ((t (:inherit tabbar-default-face :background "black" :foreground "grey" :box (:line-width -1 :color "grey" :style released-button)))))
  '(tabbar-separator ((t (:inherit tabbar-default :background "black" :foreground "brown" :height 0.1))))

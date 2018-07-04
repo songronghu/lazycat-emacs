@@ -9,7 +9,7 @@
   (require 'benchmark-init)
   (require 'theme)                 ;第一次尽量加载主题，让启动不要闪烁
   (require 'init-startup)
-  (require 'init-flymake)
+  (require 'init-flycheck)
   (require 'lazy-set-key)
   (require 'one-key)
   (require 'paredit)

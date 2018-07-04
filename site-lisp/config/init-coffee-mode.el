@@ -91,19 +91,6 @@
             (setq coffee-tab-width 4)
             ))
 
-;; (require 'flymake-coffeelint)
-;; ;; Make sure we can find the lintnode executable
-;; (setq coffeelintnode-location "/usr/local/bin/coffeelint")
-;; (setq coffeelintnode-node-program "/usr/bin/node")
-;; (setq coffeelintnode-coffeelintrc "~")
-;; ;; Start the server when we first open a coffee file and start checking
-;; (setq coffeelintnode-autostart 'true)
-;; (add-hook 'coffee-mode-hook
-;;           (lambda ()
-;;             (coffeelintnode-hook)
-;;             (unless (eq buffer-file-name nil) (flymake-mode 1)) ;dont invoke flymake on temporary buffers for the interpreter
-;;             ))
-
 (provide 'init-coffee-mode)
 
 ;;; init-coffee-mode.el ends here

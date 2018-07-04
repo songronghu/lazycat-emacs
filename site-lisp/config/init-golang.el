@@ -102,11 +102,6 @@
       (paredit-backward-delete-in-string)
     (paredit-backward-delete)))
 
-(add-hook 'go-mode-hook
-          (lambda ()
-            (flymake-mode 1)
-            ))
-
 ;;; ### Golang ###
 (lazy-unset-key
  '("C-k" "M-o")

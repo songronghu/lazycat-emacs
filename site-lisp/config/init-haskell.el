@@ -90,7 +90,6 @@
   ;; (local-set-key "\C-cL" 'hs-scan)
   )
 (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
-;; (add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
 
 (lazy-set-key
  '(

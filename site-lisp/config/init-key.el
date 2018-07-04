@@ -496,10 +496,10 @@
 ;;; --- 及时拼写检查
 (lazy-set-autoload-key
  '(
-   ("M-s-j" . flymake-show-next-error)  ;显示下一个错误
-   ("M-s-k" . flymake-show-prev-error)  ;显示上一个错误
+   ("M-s-j" . flycheck-next-error)      ;显示下一个错误
+   ("M-s-k" . flycheck-previous-error)  ;显示上一个错误
    )
- "flymake-extension"
+ "init-flycheck"
  )
 ;;; ### kill-ring-search ###
 ;;; --- 删除环的递增式搜索
