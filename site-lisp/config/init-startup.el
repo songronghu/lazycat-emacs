@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2014, Andy Stewart, all rights reserved.
 ;; Created: 2014-01-20 23:58:38
-;; Version: 0.1
-;; Last-Updated: 2014-01-20 23:58:38
+;; Version: 0.2
+;; Last-Updated: 2018-07-05 18:23:57
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-startup.el
 ;; Keywords:
@@ -64,6 +64,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2018/07/05
+;;      * Make emacs fullscreen mode works with MacOS.
 ;;
 ;; 2014/01/20
 ;;      * First released.

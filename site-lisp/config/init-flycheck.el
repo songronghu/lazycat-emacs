@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2018, Andy Stewart, all rights reserved.
 ;; Created: 2018-07-04 21:35:23
-;; Version: 0.1
-;; Last-Updated: 2018-07-04 21:35:23
+;; Version: 0.2
+;; Last-Updated: 2018-07-05 18:27:38
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-flycheck.el
 ;; Keywords:
@@ -64,6 +64,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2018/07/05
+;;      * Use `posframe' for MacOS, bug has fixed at: https://www.emacswiki.org/emacs/init-startup.el
 ;;
 ;; 2018/07/04
 ;;      * First released.
