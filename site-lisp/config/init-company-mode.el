@@ -53,7 +53,18 @@
 ;;
 ;; (require 'init-company-mode)
 ;;
-;; No need more.
+;;
+;; LSP server install step:
+;;
+;; Python:
+;; * conda info --envs
+;; * source activate python36
+;; * sudo pip install python-language-server
+;;
+;; Ruby:
+;; * sudo gem install solargraph
+;; * Add gem 'solargraph' in Gemfile, then execute command "bundler update" in ruby project
+;;
 
 ;;; Change log:
 ;;
@@ -75,12 +86,35 @@
 (require 'company)
 (require 'company-posframe)
 (require 'company-yasnippet)
+(require 'lsp-mode)
+(require 'lsp-ruby)
+(require 'company-lsp)
 (require 'desktop)
 
 ;;; Code:
 
+;; Init company and posframe.
 (global-company-mode)
 (company-posframe-mode 1)
+
+;; LSP mode for languages.
+(dolist (hook (list
+               'python-mode-hook
+               ))
+  (add-hook hook '(lambda () (lsp-mode 1))))
+
+(dolist (hook (list
+               'ruby-mode-hook
+               ))
+  (add-hook hook
+            '(lambda ()
+               (ignore-errors
+                 (lsp-mode 1)
+                 (lsp-ruby-enable))
+               )))
+
+;; Add company-lsp backend.
+(push 'company-lsp company-backends)
 
 ;; Let desktop.el not record the company-posframe-mode
 (push '(company-posframe-mode . nil)
@@ -104,9 +138,9 @@
 
 (lazy-set-key
  '(
-   ("TAB" . company-complete-common)    ;补全公共部分
-   ("M-H" . company-complete-common)    ;补全公共部分
+   ("TAB" . company-complete-selection) ;补全选择的
    ("M-h" . company-complete-selection) ;补全选择的
+   ("M-H" . company-complete-common)    ;补全公共部分
    ("M-w" . company-show-location)      ;显示局部的
    ("M-s" . company-search-candidates)  ;搜索候选
    ("M-S" . company-filter-candidates)  ;过滤候选
