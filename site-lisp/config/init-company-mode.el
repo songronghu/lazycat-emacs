@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
 ;; Copyright (C) 2008, 2009, Andy Stewart, all rights reserved.
 ;; Created: 2008-10-20 09:56:57
-;; Version: 0.1
-;; Last-Updated: 2008-10-20 09:56:57
+;; Version: 0.2
+;; Last-Updated: 2018-07-06 02:13:43
 ;;           By: Andy Stewart
 ;; URL:
 ;; Keywords: company-mode
@@ -68,8 +68,14 @@
 
 ;;; Change log:
 ;;
+;; 2018/07/05
+;;      * Config company and company-lsp fronted.
+;;      * Make company works with posframe.
+;;      * Add LSP mode support.
+;;      * Add support for python and rubyl
+;;
 ;; 2008/10/20
-;;      First released.
+;;      * First released.
 ;;
 
 ;;; Acknowledgements:
