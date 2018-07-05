@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2014, Andy Stewart, all rights reserved.
 ;; Created: 2014-03-14 21:45:07
-;; Version: 0.1
-;; Last-Updated: 2014-03-16 17:10:13
+;; Version: 0.2
+;; Last-Updated: 2018-07-05 22:31:04
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/web-mode-extension.el
 ;; Keywords:
@@ -64,6 +64,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2018/07/05
+;;      * Fix `web-mode-element-unwrap' error cause by `web-mode-element-vanish'.
 ;;
 ;; 2014/03/16
 ;;      * Add `web-mode-element-unwrap'.
@@ -134,7 +137,7 @@ Just like `paredit-splice-sexp+' style."
   (interactive)
   (save-excursion
     (web-mode-element-parent)
-    (web-mode-element-vanish)
+    (web-mode-element-vanish 1)
     (back-to-indentation)
     ))
 
