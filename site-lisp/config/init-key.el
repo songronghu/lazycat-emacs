@@ -479,19 +479,6 @@
    ("s-x z" . helm-system-packages)
    )
  "helm-system-packages-pacman")
-;;; ### Auto-complete ###
-;;; --- 自动补全
-(lazy-set-key
- '(
-   ("M-h" . ac-complete)                ;补全当前选中的
-   ("M-H" . ac-expand-common)           ;补全公共部分
-   ("M-U" . ac-stop)                    ;停止
-   ("M-," . ac-next)                    ;下一个
-   ("M-." . ac-previous)                ;上一个
-   ("M-s" . ac-isearch)                 ;搜索补全
-   )
- ac-complete-mode-map
- )
 ;;; ### Flymake ###
 ;;; --- 及时拼写检查
 (lazy-set-autoload-key

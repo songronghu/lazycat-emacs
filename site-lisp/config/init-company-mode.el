@@ -72,8 +72,19 @@
 ;;
 
 ;;; Require
+(require 'company)
+(require 'company-posframe)
+(require 'company-yasnippet)
+(require 'desktop)
 
 ;;; Code:
+
+(global-company-mode)
+(company-posframe-mode 1)
+
+;; Let desktop.el not record the company-posframe-mode
+(push '(company-posframe-mode . nil)
+      desktop-minor-mode-table)
 
 (setq company-idle-delay 0.2)           ;延迟时间
 (setq company-minimum-prefix-length 1)  ;触发补全的字符数量
@@ -82,6 +93,7 @@
 (lazy-unset-key
  '("TAB")
  company-mode-map)                      ;卸载按键
+
 (lazy-unset-key
  '("M-p" "M-n" "M-1"
    "M-2" "M-3" "M-4"
@@ -89,32 +101,31 @@
    "M-8" "M-9" "M-0"
    "C-m")
  company-active-map)
+
 (lazy-set-key
  '(
-   ("M-h" . company-complete-common)    ;补全公共部分
-   ("M-H" . company-complete-selection) ;补全选择的
+   ("TAB" . company-complete-common)    ;补全公共部分
+   ("M-H" . company-complete-common)    ;补全公共部分
+   ("M-h" . company-complete-selection) ;补全选择的
    ("M-w" . company-show-location)      ;显示局部的
    ("M-s" . company-search-candidates)  ;搜索候选
    ("M-S" . company-filter-candidates)  ;过滤候选
-   ("M-," . company-select-next)        ;下一个
-   ("M-." . company-select-previous)    ;上一个
+   ("M-n" . company-select-next)        ;下一个
+   ("M-p" . company-select-previous)    ;上一个
    )
- company-active-map
- )
-(dolist (hook (list
-               'emacs-lisp-mode-hook
-               'lisp-mode-hook
-               'lisp-interaction-mode-hook
-               'scheme-mode-hook
-               'c-mode-hook
-               'c++-mode-hook
-               'java-mode-hook
-               'haskell-mode-hook
-               'asm-mode-hook
-               'emms-tag-editor-mode-hook
-               'sh-mode-hook
-               ))
-  (add-hook hook 'company-mode))
+ company-active-map)
+
+;; Add yasnippet support for all company backends
+(defvar company-mode/enable-yas t
+  "Enable yasnippet for all backends.")
+
+(defun company-mode/backend-with-yas (backend)
+  (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
+      backend
+    (append (if (consp backend) backend (list backend))
+            '(:with company-yasnippet))))
+
+(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
 (provide 'init-company-mode)
 

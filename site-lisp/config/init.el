@@ -30,7 +30,7 @@
   (require 'init-session)
   (require 'init-paredit)
   (require 'init-indent)
-  (require 'init-auto-complete)
+  (require 'init-company-mode)
   (require 'init-one-key)
   (require 'init-iedit)
   (require 'init-visual-regexp)
