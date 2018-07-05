@@ -37,7 +37,7 @@
   (require 'init-key)
   (require 'init-generic)
   (require 'init-auto-indent-mode)
-  (unless (string-equal system-type "darwin")
+  (unless (featurep 'cocoa)
     (require 'init-minibuffer-tray))
 
   ;; 可以延后加载的

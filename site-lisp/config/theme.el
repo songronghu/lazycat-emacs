@@ -4,7 +4,7 @@
 (defvar emacs-font-size 14
   "The default font size.")
 (cond
- ((string-equal system-type "darwin")
+ ((featurep 'cocoa)
   (setq emacs-font-name "Monaco"))
  ((string-equal system-type "gnu/linux")
   (setq emacs-font-name "Droid Sans Mono")))
