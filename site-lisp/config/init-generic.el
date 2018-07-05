@@ -102,12 +102,6 @@
 (setq split-width-threshold nil)        ;分屏的时候使用上下分屏
 (add-hook 'find-file-hook 'highlight-parentheses-mode t) ;增强的括号高亮
 
-;; Don't ask me when close emacs with process is running
-(require 'noflet)
-(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
-  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
-  (noflet ((process-list ())) ad-do-it))
-
 ;; Don't ask me when kill process buffer
 (setq kill-buffer-query-functions
       (remq 'process-kill-buffer-query-function
