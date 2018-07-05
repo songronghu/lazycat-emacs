@@ -186,9 +186,7 @@
 (require 'outline)
 (eval-when-compile
   (require 'cl))
-(if (string-equal system-type "darwin")
-    (require 'popup)
-  (require 'posframe))
+(require 'posframe)
 
 ;;; Code:
 
@@ -426,19 +424,17 @@ The result will be displayed in buffer named with
   "Search WORD simple translate result."
   (let ((result (sdcv-search-witch-dictionary word sdcv-dictionary-simple-list)))
     ;; Show tooltip at point if word fetch from user cursor.
-    (if (string-equal system-type "darwin")
-        (popup-tip result)
-      (posframe-show
-       sdcv-tooltip-name
-       :string result
-       :position (point)
-       :timeout sdcv-tooltip-timeout
-       :background-color (face-attribute 'sdcv-tooltip-face :background)
-       :foreground-color (face-attribute 'sdcv-tooltip-face :foreground))
-      (add-hook 'post-command-hook 'sdcv-hide-tooltip-after-move)
-      (setq sdcv-tooltip-last-point (point))
-      (setq sdcv-tooltip-last-scroll-offset (window-start))
-      )))
+    (posframe-show
+     sdcv-tooltip-name
+     :string result
+     :position (point)
+     :timeout sdcv-tooltip-timeout
+     :background-color (face-attribute 'sdcv-tooltip-face :background)
+     :foreground-color (face-attribute 'sdcv-tooltip-face :foreground))
+    (add-hook 'post-command-hook 'sdcv-hide-tooltip-after-move)
+    (setq sdcv-tooltip-last-point (point))
+    (setq sdcv-tooltip-last-scroll-offset (window-start))
+    ))
 
 (defun sdcv-hide-tooltip-after-move ()
   (ignore-errors

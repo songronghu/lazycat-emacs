@@ -7,7 +7,7 @@
 (with-temp-message ""                   ;抹掉插件启动的输出
   ;; 必须加载的
   (require 'benchmark-init)
-  (require 'theme)                 ;第一次尽量加载主题，让启动不要闪烁
+  (require 'theme)
   (require 'init-startup)
   (require 'init-flycheck)
   (require 'lazy-set-key)
@@ -63,8 +63,6 @@
        (require 'init-pdf-tools)
 
        (require 'init-idle)
-
-       (load-file (concat lazycat-emacs-config-dir "/theme.el")) ;最后重新加载一次让所有插件的主题都生效
        )))
 
 

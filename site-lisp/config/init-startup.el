@@ -81,17 +81,24 @@
 
 ;;; Require
 
-(require 'fullscreen)
-
 ;;; Code:
 
+(if (string-equal system-type "darwin")
+    ;; Mac 下不全屏
+    (progn
+      (setq ns-use-native-fullscreen nil)
+      (setq ns-use-fullscreen-animation nil)
+      (set-frame-parameter (selected-frame) 'fullscreen 'maximized))
+  ;; 其他平台下默认全屏
+  (require 'fullscreen)
+  (fullscreen))
+
 (setq ad-redefinition-action 'accept)   ;不要烦人的 redefine warning
-(fullscreen)                            ;全屏
-(tool-bar-mode -1)                      ;禁用工具栏
-(menu-bar-mode -1)                      ;禁用菜单栏
-(scroll-bar-mode -1)                    ;禁用滚动条
-(set-face-attribute 'default nil :height 120) ;设置字体大小
-(server-start)                     ;为emacsclient准备使用场景，比如git
+(setq frame-resize-pixelwise t) ;设置缩放的模式,避免Mac平台最大化窗口以后右边和下边有空隙
+(tool-bar-mode -1)              ;禁用工具栏
+(menu-bar-mode -1)              ;禁用菜单栏
+(scroll-bar-mode -1)            ;禁用滚动条
+(server-start)                  ;为emacsclient准备使用场景，比如git
 
 (provide 'init-startup)
 

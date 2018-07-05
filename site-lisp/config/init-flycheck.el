@@ -92,11 +92,9 @@
                ))
   (add-hook hook '(lambda () (flycheck-mode 1))))
 
-;; Use tooltip show errors.
-;; Don't use tooltip in Mac, it's font too smalll!!!
-(unless (string-equal system-type "darwin")
-  (require 'flycheck-pos-tip)
-  (with-eval-after-load 'flycheck (flycheck-pos-tip-mode)))
+(with-eval-after-load 'flycheck
+  (require 'flycheck-posframe)
+  (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode))
 
 (add-hook 'swift-mode-hook
           (lambda ()

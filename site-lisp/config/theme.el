@@ -136,6 +136,7 @@
  '(flycheck-error-list-highlight ((t (:foreground "orange red"))))
  '(flymake-error ((t (:background "#660000" :foreground "white"))))
  '(flymake-errline ((t (:background "black" :underline "red"))))
+ '(flycheck-posframe-face ((t (:inherit default :foreground "gold"))))
  '(flymake-infoline ((t (:background "black" :underline "yellow" :slant italic))))
  '(flymake-warnline ((((class color)) (:background "Gold3" :foreground "Black"))))
  '(font-lock-builtin-face ((((class color) (min-colors 88) (background dark)) (:foreground "RosyBrown4"))))
