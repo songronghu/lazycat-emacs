@@ -109,7 +109,7 @@
                        ;; Manipulating a frame without waiting for the fullscreen
                        ;; animation to complete can cause a crash, or other unexpected
                        ;; behavior, on macOS (bug#28496).
-                       (when (featurep 'cocoa) (sleep-for 0.5))
+                       (sleep-for 0.5)
                        ;; Call `toggle-frame-fullscreen' to fullscreen emacs.
                        (toggle-frame-fullscreen)))))
   ;; 非Mac平台直接全屏
