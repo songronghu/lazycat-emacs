@@ -119,8 +119,6 @@
         (("i" . "Insert Pagename") . yaoddmuse-insert-pagename)
         (("x" . "Insert File Content") . yaoddmuse-insert-file-content)
         (("K" . "Kill Url") . yaoddmuse-kill-url)
-        (("j" . "Anything Edit or View") . anything-yaoddmuse-emacswiki-edit-or-view)
-        (("k" . "Anything Post") . anything-yaoddmuse-emacswiki-post-library)
         ))
 
 (defun one-key-menu-yaoddmuse ()

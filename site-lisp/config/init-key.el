@@ -396,7 +396,7 @@
    ("C-x C-f" . find-file)
    )
  "init-dired")
-;;; ### Anything ###
+;;; ### Helm ###
 ;;; --- 快速buffer切换
 (lazy-set-autoload-key
  '(

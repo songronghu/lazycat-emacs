@@ -185,9 +185,6 @@
         (("e" . "Lyrics Visit") . emms-lyrics-visit-lyric)
         (("s" . "Emms Streams") . emms-streams)
         (("b" . "Emms Browser") . emms-browser)
-        (("p" . "Anything Playlist") . anything-emms-playlist)
-        (("o" . "Anything Directory") . anything-emms-directory)
-        ((";" . "Anything File") . anything-emms-file)
         ))
 
 (defun one-key-menu-emms ()

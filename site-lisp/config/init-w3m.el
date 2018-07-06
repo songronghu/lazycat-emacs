@@ -111,7 +111,7 @@
 (setq w3m-bookmark-file "~/.emacs.d/lazycat-emacs/Configure-File/Emacs-W3M/bookmark.html") ;设定书签文件
 (setq w3m-cookie-file "~/.emacs.d/lazycat-emacs/Configure-File/Emacs-W3M/W3m-cookie") ;设置w3m-cookie保存位置
 (setq w3m-session-file "~/.emacs.d/lazycat-emacs/Configure-File/Emacs-W3M/W3m-session") ;设定任务保存的文件位置
-;; 修改Buffer名字为网页的标题或链接, 以利于 anything 搜索
+;; 修改Buffer名字为网页的标题或链接
 (add-hook 'w3m-display-hook
           (lambda (url)
             (rename-buffer
