@@ -103,13 +103,9 @@
       (run-at-time "5sec" nil
                    (lambda ()
                      (let ((fullscreen (frame-parameter (selected-frame) 'fullscreen)))
-                       ;; If emacs has in fullscreen status, maximized window first, drag from Mac's single space.
+                       ;; If emacs has in fullscreen status, maximized window first, drag emacs window from Mac's single space.
                        (when (memq fullscreen '(fullscreen fullboth))
                          (set-frame-parameter (selected-frame) 'fullscreen 'maximized))
-                       ;; Manipulating a frame without waiting for the fullscreen
-                       ;; animation to complete can cause a crash, or other unexpected
-                       ;; behavior, on macOS (bug#28496).
-                       (sleep-for 1)
                        ;; Call `toggle-frame-fullscreen' to fullscreen emacs.
                        (toggle-frame-fullscreen)))))
 
