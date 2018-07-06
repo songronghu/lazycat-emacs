@@ -479,7 +479,7 @@
    ("s-x z" . helm-system-packages)
    )
  "helm-system-packages-pacman")
-;;; ### Flymake ###
+;;; ### Flycheck ###
 ;;; --- 及时拼写检查
 (lazy-set-autoload-key
  '(
