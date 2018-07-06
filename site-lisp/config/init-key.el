@@ -599,13 +599,13 @@
  '(
    ("C-<f1>" . woman))
  "init-woman")
-;;; ### Predictive ###
+;;; ### Company en words ###
 ;;; --- 英文助手
 (lazy-set-autoload-key
  '(
-   ("M-r" . predictive-mode)            ;英文助手
+   ("M-r" . toggle-company-english-helper) ;英文助手
    )
- "init-predictive")
+ "company-english-helper")
 ;;; ### Ispell ###
 ;;; --- 拼写检查
 (lazy-set-autoload-key
