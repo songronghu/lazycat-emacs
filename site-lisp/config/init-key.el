@@ -728,17 +728,6 @@
    ("M-s-q" . apply-macro-to-region-lines) ;应用键盘宏到选择的区域
    )
  "macros+")
-;;; ### WebKit ###
-;; (lazy-set-autoload-key
-;;  '(
-;;    ("s-/" . webkit-open-url)
-;;    )
-;;  "webkit")
-;;; ### yaoddmuse ###
-(lazy-set-autoload-key
- '(
-   ("C-s-z" . yaoddmuse-post-library-default))
- "yaoddmuse-extension")
 ;;; ### auto-install ###
 (lazy-set-autoload-key
  '(
