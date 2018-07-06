@@ -1,9 +1,11 @@
 # Lazycat Emacs
 
-*What is lazycat emacs can do?*
+**What is lazycat emacs can do?**
+
 This is video show: [Video](https://www.youtube.com/watch?v=ZA3uuflGtk8)
 
 **Description**:
+
 Emacs is hackable OS for top hackers, most of emacs extensions are written in elisp.
 
 Lazycat Emacs merged many extensions from [AndyStewart](http://www.emacswiki.org/emacs/AndyStewart),
