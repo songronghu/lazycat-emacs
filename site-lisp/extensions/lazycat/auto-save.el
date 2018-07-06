@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
 ;; Copyright (C) 2013 ~ 2014, Andy Stewart, all rights reserved.
 ;; Created: 2013-12-31 00:32:00
-;; Version: 0.1
-;; Last-Updated: 2014-01-04 14:23:05
+;; Version: 0.2
+;; Last-Updated: 2018-07-06 20:42:15
 ;;           By: Andy Stewart
 ;; URL:
 ;; Keywords: autosave
@@ -61,9 +61,12 @@
 
 ;;; Change log:
 ;;
+;; 2018/07/06
+;;      * Add new option `auto-save-delete-trailing-whitespace'.
+;;
 ;; 2014/01/04
 ;;      * Add new function `auto-save-enable' to enable auto-save in user config file.
-;;      * Add options: `auto-save-idle' and `auto-save-slient'
+;;      * Add options: `auto-save-idle' and `auto-save-slient'.
 ;;
 ;; 2008/10/20
 ;;      First released.
@@ -98,6 +101,13 @@
   :type 'boolean
   :group 'auto-save)
 
+(defcustom auto-save-delete-trailing-whitespace nil
+  "Delete trailing whitespace when save if this option is non-nil.
+Note, this option is non-nil, will delete all training whitespace execpet current line,
+avoid delete current indent space when you programming."
+  :type 'boolean
+  :group 'auto-save)
+
 ;; Emacs' default auto-save is stupid to generate #foo# files!
 (setq auto-save-default nil)
 
@@ -128,10 +138,25 @@
                      (mapconcat 'identity autosave-buffer-list ", ")))))
         ))))
 
+(defun auto-save-delete-trailing-whitespace-except-current-line ()
+  (interactive)
+  (when auto-save-delete-trailing-whitespace
+    (let ((begin (line-beginning-position))
+          (end (line-end-position)))
+      (save-excursion
+        (when (< (point-min) begin)
+          (save-restriction
+            (narrow-to-region (point-min) (1- begin))
+            (delete-trailing-whitespace)))
+        (when (> (point-max) end)
+          (save-restriction
+            (narrow-to-region (1+ end) (point-max))
+            (delete-trailing-whitespace)))))))
+
 (defun auto-save-enable ()
   (interactive)
   (run-with-idle-timer auto-save-idle t #'auto-save-buffers)
-  )
+  (add-hook 'before-save-hook 'auto-save-delete-trailing-whitespace-except-current-line))
 
 (provide 'auto-save)
 
