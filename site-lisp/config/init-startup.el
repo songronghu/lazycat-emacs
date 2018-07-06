@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2014, Andy Stewart, all rights reserved.
 ;; Created: 2014-01-20 23:58:38
-;; Version: 0.4
-;; Last-Updated: 2018-07-05 19:01:41
+;; Versio: 0.5
+;; Last-Updated: 2018-07-06 10:02:57
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-startup.el
 ;; Keywords:
@@ -68,6 +68,7 @@
 ;; 2018/07/05
 ;;      * Make emacs fullscreen mode works with MacOS.
 ;;      * Make emacs fullscreen works perfect even MacOS fullscreen emacs first.
+;;      * Don't need `sleep-for' now.
 ;;
 ;; 2014/01/20
 ;;      * First released.
