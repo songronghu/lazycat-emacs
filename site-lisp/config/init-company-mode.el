@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
 ;; Copyright (C) 2008, 2009, Andy Stewart, all rights reserved.
 ;; Created: 2008-10-20 09:56:57
-;; Version: 0.3
-;; Last-Updated: 2018-07-06 08:02:50
+;; Version: 0.4
+;; Last-Updated: 2018-07-06 09:25:10
 ;;           By: Andy Stewart
 ;; URL:
 ;; Keywords: company-mode
@@ -53,13 +53,20 @@
 ;;
 ;; (require 'init-company-mode)
 ;;
+;; For Mac user:
+;; You need install `exec-path-from-shell' from https://raw.githubusercontent.com/purcell/exec-path-from-shell/master/exec-path-from-shell.el
+;; Then put below code in your ~/.emacs, otherwise `lsp-python' will report can't found pyls from PATH:
+;;
+;; (when (featurep 'cocoa)
+;;   (require 'exec-path-from-shell)
+;;   (exec-path-from-shell-initialize))
 ;;
 ;; LSP server install step:
 ;;
 ;; Python:
 ;; * conda info --envs
 ;; * source activate python36
-;; * sudo pip install python-language-server
+;; * sudo pip install 'python-language-server[all]'
 ;;
 ;; Ruby:
 ;; * sudo gem install solargraph
@@ -70,6 +77,8 @@
 ;;
 ;; 2018/07/06
 ;;      * Fix ruby mode load error.
+;;      * Fix python mode load error.
+;;      * Use `exec-path-from-shell' avoid LSP can't found server bin path.
 ;;
 ;; 2018/07/05
 ;;      * Config company and company-lsp fronted.
@@ -97,29 +106,31 @@
 (require 'company-yasnippet)
 (require 'lsp-mode)
 (require 'lsp-ruby)
+(require 'lsp-python)
 (require 'company-lsp)
 (require 'desktop)
 
 ;;; Code:
+
+;; Make LSP can find server bin path.
+(when (featurep 'cocoa)
+  (require 'exec-path-from-shell)
+  (exec-path-from-shell-initialize))
 
 ;; Init company and posframe.
 (global-company-mode)
 (company-posframe-mode 1)
 
 ;; LSP mode for languages.
-(dolist (hook (list
-               'python-mode-hook
-               ))
-  (add-hook hook '(lambda () (lsp-mode 1))))
-
-(dolist (hook (list
-               'ruby-mode-hook
-               ))
-  (add-hook hook
-            '(lambda ()
-               ;; Don't call (lsp-mode 1) before (lsp-ruby-enable), (lsp-ruby-enable) will call lsp-mode automatically.
-               (ignore-errors (lsp-ruby-enable))
-               )))
+(add-hook 'python-mode-hook
+          '(lambda ()
+             ;; Use `ignore-errors' avoid LSP failed.
+             (ignore-errors (lsp-python-enable()))
+             ))                         ;
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             ;; Use `ignore-errors' avoid LSP failed.
+             (ignore-errors (lsp-ruby-enable()))))
 
 ;; Add company-lsp backend.
 (push 'company-lsp company-backends)
