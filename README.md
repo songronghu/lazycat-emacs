@@ -10,9 +10,9 @@ Emacs is hackable OS for top hackers, most of emacs extensions are written in el
 
 Lazycat Emacs merged many extensions from [AndyStewart](http://www.emacswiki.org/emacs/AndyStewart),
 
-All my extensions under [site-lisp](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions).
+All my extensions under [extensions](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions).
 
-All my configuration files under [site-lisp](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions).
+All my configuration files under [config](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions).
 
 ## Installation
 
