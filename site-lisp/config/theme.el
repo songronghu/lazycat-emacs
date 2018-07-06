@@ -286,7 +286,6 @@
  '(rfcview-rfcnum-face ((t (:foreground "Green3" :weight bold))))
  '(rfcview-stdnum-face ((t (:foreground "Grey" :weight bold))))
  '(rfcview-title-face ((t (:foreground "Gold" :weight bold))))
- '(rtags-argument-face ((t (:foreground "gold"))))
  '(secondary-selection ((((class color) (min-colors 88) (background dark)) (:background "Black"))))
  '(show-paren-match ((((class color) (background dark)) (:background "green" :foreground "black"))))
  '(show-paren-mismatch ((((class color)) (:background "red" :foreground "white"))))
