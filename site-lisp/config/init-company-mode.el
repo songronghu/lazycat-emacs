@@ -101,6 +101,7 @@
 ;;
 
 ;;; Require
+(require 'lazy-set-key)
 (require 'company)
 (require 'company-posframe)
 (require 'company-yasnippet)
@@ -117,9 +118,19 @@
   (require 'exec-path-from-shell)
   (exec-path-from-shell-initialize))
 
-;; Init company and posframe.
+;; Config for company mode.
 (global-company-mode)
+(setq company-idle-delay 0.2)
+(setq company-minimum-prefix-length 1)
+(setq company-show-numbers nil)
+
+;; Add company-lsp backend.
+(push 'company-lsp company-backends)
+
+;; Let desktop.el not record the company-posframe-mode
 (company-posframe-mode 1)
+(push '(company-posframe-mode . nil)
+      desktop-minor-mode-table)
 
 ;; LSP mode for languages.
 (add-hook 'python-mode-hook
@@ -132,20 +143,10 @@
              ;; Use `ignore-errors' avoid LSP failed.
              (ignore-errors (lsp-ruby-enable()))))
 
-;; Add company-lsp backend.
-(push 'company-lsp company-backends)
-
-;; Let desktop.el not record the company-posframe-mode
-(push '(company-posframe-mode . nil)
-      desktop-minor-mode-table)
-
-(setq company-idle-delay 0.2)           ;延迟时间
-(setq company-minimum-prefix-length 1)  ;触发补全的字符数量
-(setq company-show-numbers nil)         ;不显示数字
-
+;; Key settings.
 (lazy-unset-key
  '("TAB")
- company-mode-map)                      ;卸载按键
+ company-mode-map)                      ;unset default keys
 
 (lazy-unset-key
  '("M-p" "M-n" "M-1"
@@ -157,18 +158,18 @@
 
 (lazy-set-key
  '(
-   ("TAB" . company-complete-selection) ;补全选择的
-   ("M-h" . company-complete-selection) ;补全选择的
-   ("M-H" . company-complete-common)    ;补全公共部分
-   ("M-w" . company-show-location)      ;显示局部的
-   ("M-s" . company-search-candidates)  ;搜索候选
-   ("M-S" . company-filter-candidates)  ;过滤候选
-   ("M-n" . company-select-next)        ;下一个
-   ("M-p" . company-select-previous)    ;上一个
+   ("TAB" . company-complete-selection)
+   ("M-h" . company-complete-selection)
+   ("M-H" . company-complete-common)
+   ("M-w" . company-show-location)
+   ("M-s" . company-search-candidates)
+   ("M-S" . company-filter-candidates)
+   ("M-n" . company-select-next)
+   ("M-p" . company-select-previous)
    )
  company-active-map)
 
-;; Add yasnippet support for all company backends
+;; Add yasnippet support for all company backends.
 (defvar company-mode/enable-yas t
   "Enable yasnippet for all backends.")
 
