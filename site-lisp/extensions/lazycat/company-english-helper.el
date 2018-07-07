@@ -49455,9 +49455,14 @@
   (cl-subsetp (string-to-list prefix)
               (string-to-list candidate)))
 
-
-(defun en-words-annotation  (s)
-  (format " [\%s]" (get-text-property 0 :initials s)))
+(defun en-words-annotation (s)
+  (let* ((str1 (get-text-property 0 :initials s))
+         (str2 (replace-regexp-in-string "\\cc" "" str1))
+         (w1 (length str1))
+         (w2 (length str2))
+         (n1 (max 0 (- company-en-words-candidate-max-width (- w1 w2)))))
+    ;; This is hacking way that make all candidates alignment.
+    (format " [%s]" (concat str1 (make-string n1 ?\－)))))
 
 (defun company-en-words (command &optional arg &rest ignored)
   (interactive (list 'interactive))
@@ -49473,6 +49478,10 @@
     (sorted t)
     (ignore-case 'keep-prefix)
     ))
+
+(defvar company-en-words-candidate-max-width 30
+  "The max width of candidates.
+Default is 30, it will occur candidate is not alignment if this value too small.")
 
 (defvar company-en-words-active-p nil
   "The status of company-en-words plugins.
