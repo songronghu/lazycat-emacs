@@ -92,6 +92,7 @@
                'ruby-mode-hook
                'python-mode-hook
                'swift-mode-hook
+               'go-mode-hook
                ))
   (add-hook hook '(lambda () (flycheck-mode 1))))
 
