@@ -26,6 +26,7 @@
   (require 'init-tabbar)
   (require 'init-mode)
   (require 'init-qt)
+  (require 'init-ruby)
   (require 'init-dired)
   (require 'init-session)
   (require 'init-paredit)
