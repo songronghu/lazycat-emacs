@@ -112,6 +112,7 @@
 (require 'lsp-mode)
 (require 'lsp-ruby)
 (require 'lsp-python)
+(require 'lsp-go)
 (require 'company-lsp)
 (require 'desktop)
 
