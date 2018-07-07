@@ -49458,11 +49458,14 @@
 (defun en-words-annotation (s)
   (let* ((str1 (get-text-property 0 :initials s))
          (str2 (replace-regexp-in-string "\\cc" "" str1))
+         (w0 (length s))
          (w1 (length str1))
          (w2 (length str2))
+         (n0 (max 0 (- 15 w0)))
          (n1 (max 0 (- company-en-words-candidate-max-width (- w1 w2)))))
-    ;; This is hacking way that make all candidates alignment.
-    (format " [%s]" (concat str1 (make-string n1 ?\－)))))
+    (format "%s" (concat (make-string n0 ?\ )
+                         str1
+                         (make-string n1 ?\．)))))
 
 (defun company-en-words (command &optional arg &rest ignored)
   (interactive (list 'interactive))
