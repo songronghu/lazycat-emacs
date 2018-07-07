@@ -81,11 +81,14 @@
 
 ;;; Require
 (require 'robe)
-(require 'ac-robe)
 (require 'inf-ruby-extension)
 (require 'ruby-end)
 
-(add-hook 'ruby-mode-hook 'robe-mode)
-(add-hook 'robe-mode-hook 'ac-robe-setup)
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (robe-mode 1)
+             (ruby-end-mode 1)
+             ))
 
+(provide 'init-ruby)
 ;;; init-ruby.el ends here
