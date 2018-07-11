@@ -4,14 +4,14 @@
 ;; Description: Extension for web-mode
 ;; Author: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
-;; Copyright (C) 2014, Andy Stewart, all rights reserved.
+;; Copyright (C) 2014 ~ 2018 Andy Stewart, all rights reserved.
 ;; Created: 2014-03-14 21:45:07
 ;; Version: 0.2
 ;; Last-Updated: 2018-07-05 22:31:04
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/web-mode-extension.el
 ;; Keywords:
-;; Compatibility: GNU Emacs 24.3.50.1
+;; Compatibility: GNU Emacs 23.0.60.1 ~ GNU Emacs 27.0.50
 ;;
 ;; Features that might be required by this library:
 ;;
