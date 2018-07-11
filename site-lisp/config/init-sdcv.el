@@ -114,8 +114,6 @@
         ))
 (setq sdcv-dictionary-data-dir lazycat-emacs-sdcv-data-dir) ;设置星际译王本地词典的目录
 
-
-
 (provide 'init-sdcv)
 
 ;;; init-sdcv.el ends here

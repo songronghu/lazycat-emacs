@@ -156,7 +156,9 @@ Only the `background' is used in this face."
      flycheck-posframe-buffer
      :string (flycheck-posframe-format-errors errors)
      :background-color (face-background 'flycheck-posframe-background-face nil t)
-     :position (point))
+     :position (point)
+     :internal-border-width 20
+     )
     (dolist (hook flycheck-posframe-hide-posframe-hooks)
       (add-hook hook #'flycheck-posframe-hide-posframe nil t))))
 

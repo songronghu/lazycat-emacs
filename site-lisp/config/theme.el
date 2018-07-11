@@ -134,6 +134,7 @@
  '(erm-syn-warnline ((t (:background "black" :foreground "yellow" :underline nil))))
  '(fixme-face ((t (:foreground "orange" :box (:line-width 1 :color "orange") :weight bold))))
  '(flycheck-error-list-highlight ((t (:foreground "orange red"))))
+ '(flycheck-posframe-error-face ((t (:background "gray12" :foreground "red3"))))
  '(flycheck-posframe-face ((t (:inherit default :foreground "gold"))))
  '(font-lock-builtin-face ((((class color) (min-colors 88) (background dark)) (:foreground "RosyBrown4"))))
  '(font-lock-comment-face ((((class color) (min-colors 88) (background dark)) (:foreground "gray30"))))
