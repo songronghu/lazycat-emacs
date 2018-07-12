@@ -85,6 +85,10 @@
 ;;; Code:
 
 (require 'magit)
+(require 'git-blamed)
+(require 'gitignore-mode)
+(require 'gitignore-mode)
+(require 'git-timemachine)
 (lazy-set-key '(("C-x g" . magit-status)))
 
 (defun get-git-user-name ()
