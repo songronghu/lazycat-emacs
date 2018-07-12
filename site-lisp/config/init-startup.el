@@ -88,6 +88,10 @@
 
 ;;; Code:
 
+(tool-bar-mode -1)              ;禁用工具栏
+(menu-bar-mode -1)              ;禁用菜单栏
+(scroll-bar-mode -1)            ;禁用滚动条
+
 (if (featurep 'cocoa)
     (progn
       ;; 在Mac平台, Emacs不能进入Mac原生的全屏模式,否则会导致 `make-frame' 创建时也集成原生全屏属性后造成白屏和左右滑动现象.
@@ -116,9 +120,6 @@
 
 (setq ad-redefinition-action 'accept)   ;不要烦人的 redefine warning
 (setq frame-resize-pixelwise t) ;设置缩放的模式,避免Mac平台最大化窗口以后右边和下边有空隙
-(tool-bar-mode -1)              ;禁用工具栏
-(menu-bar-mode -1)              ;禁用菜单栏
-(scroll-bar-mode -1)            ;禁用滚动条
 (server-start)                  ;为emacsclient准备使用场景，比如git
 
 (provide 'init-startup)

@@ -66,5 +66,4 @@
        (require 'init-idle)
        )))
 
-
 (provide 'init)
