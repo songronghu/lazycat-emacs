@@ -215,7 +215,6 @@
  '(isearch ((((class color) (min-colors 88) (background dark)) (:background "brown" :foreground "white"))))
  '(isearch-fail ((((class color) (min-colors 88) (background dark)) (:background "red4" :foreground "white"))))
  '(italic ((t (:underline nil :slant normal))))
- '(jedi:highlight-function-argument ((t (:foreground "gold"))))
  '(lazy-highlight ((((class color) (min-colors 88) (background dark)) (:background "grey20"))))
  '(linum ((t (:background "black" :foreground "gray35"))))
  '(magit-diff-add ((t (:foreground "DodgerBlue1"))))

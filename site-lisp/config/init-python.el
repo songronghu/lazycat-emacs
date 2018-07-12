@@ -81,7 +81,6 @@
 
 ;;; Require
 (require 'python)
-(require 'jedi)
 
 ;;; Code:
 
@@ -93,10 +92,6 @@
 
 (add-hook 'python-mode-hook
           '(lambda ()
-             ;; Configure jedi.
-             (jedi:setup)
-             (jedi:ac-setup)
-             (setq jedi:tooltip-method nil)
              ;; Set indent.
              (setq electric-indent-mode nil)
              (setq indent-tabs-mode nil)
