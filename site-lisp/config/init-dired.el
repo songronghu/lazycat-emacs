@@ -185,12 +185,15 @@
    ("j" . dired-next-file-line)         ;下一行
    ("{" . dired-gnome-open-file)        ;用GNOME方式打开文件
    ("E" . dired-touch-now)              ;Touch命令
-   ("]" . dired-nautilus)               ;用 Nautils 加载当前目录
    ("f" . dired-find-file+)             ;打开当前文件或目录
    ("\"" . find-lisp-find-dired-pwd)    ;查找特定的lisp文件
    ("C-m" . dired-find-file+)           ;打开当前文件或目录
    )
  dired-mode-map nil "dired-extension")
+(lazy-set-mode-autoload-key
+ '(
+   ("]" . dired-show-file-qrcode))
+ dired-mode-map nil "~/emacs-application-framework/eaf.el")
 ;;; ### Wdired ###
 ;;; --- Dired 的编辑模式
 (eval-after-load 'wdired
