@@ -743,5 +743,11 @@
  '(
    ("M-s-u" . vdiff-buffers))
  "vdiff")
+;;; ### Magit ###
+;;
+(lazy-set-autoload-key
+ '(
+   ("C-x g" . magit-status))
+ "init-git")
 
 (provide 'init-key)
