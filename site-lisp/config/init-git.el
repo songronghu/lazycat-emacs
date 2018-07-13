@@ -87,7 +87,6 @@
 (require 'magit)
 (require 'git-blamed)
 (require 'gitignore-mode)
-(require 'gitignore-mode)
 (require 'git-timemachine)
 
 (defun get-git-user-name ()
