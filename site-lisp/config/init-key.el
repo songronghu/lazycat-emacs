@@ -747,7 +747,7 @@
 ;;
 (lazy-set-autoload-key
  '(
-   ("C-x g" . magit-status))
+   ("s-x f" . one-key-menu-magit))
  "init-git")
 
 (provide 'init-key)

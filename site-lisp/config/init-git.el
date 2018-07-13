@@ -97,6 +97,22 @@
   (interactive)
   (replace-regexp-in-string "\n$" "" (shell-command-to-string "git config --get user.email")))
 
+(defvar one-key-menu-magit-alist nil
+  "The `one-key' menu alist for MAGIT.")
+
+(setq one-key-menu-magit-alist
+      '(
+        (("s" . "Magit status") . magit-status)
+        (("c" . "Magit commit") . magit-commit)
+        (("p" . "Magit push") . magit-push-current-to-upstream)
+        (("l" . "Magit pull") . magit-pull-from-upstream)
+        ))
+
+(defun one-key-menu-magit ()
+  "The `one-key' menu for MAGIT."
+  (interactive)
+  (one-key-menu "MAGIT" one-key-menu-magit-alist t))
+
 (provide 'init-git)
 
 ;;; init-git.el ends here
