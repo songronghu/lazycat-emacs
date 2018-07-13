@@ -104,8 +104,9 @@
       '(
         (("s" . "Magit status") . magit-status)
         (("c" . "Magit commit") . magit-commit)
-        (("p" . "Magit push") . magit-push-current-to-upstream)
-        (("l" . "Magit pull") . magit-pull-from-upstream)
+        (("u" . "Magit push") . magit-push-current-to-upstream)
+        (("i" . "Magit pull") . magit-pull-from-upstream)
+        (("l" . "Magit log") . magit-log-all)
         ))
 
 (defun one-key-menu-magit ()
