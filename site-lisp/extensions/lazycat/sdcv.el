@@ -466,7 +466,7 @@ Argument DICTIONARY-LIST the word that need transform."
   ;; Record current translate object.
   (setq sdcv-current-translate-object word)
   ;; Set LANG environment variable, make sure `shell-command-to-string' can handle CJK character correctly.
-  ;; (setenv "LANG" "en_US.UTF-8")
+  (setenv "LANG" "en_US.UTF-8")
   ;; Return translate result.
   (sdcv-filter
    (shell-command-to-string
