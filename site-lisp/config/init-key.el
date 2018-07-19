@@ -412,6 +412,13 @@
    ("s-/" . eaf-stop-process)
    )
  "~/emacs-application-framework/eaf.el")
+(lazy-set-mode-autoload-key
+ '(
+   ("K" . eaf-dired-open-file)
+   )
+ dired-mode-map
+ nil
+ "~/emacs-application-framework/eaf.el")
 ;; Cycle buffer
 (lazy-set-autoload-key
  '(

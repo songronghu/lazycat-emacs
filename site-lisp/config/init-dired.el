@@ -159,11 +159,6 @@
  )
 (lazy-set-mode-autoload-key
  '(
-   ("K" . dired-open-file)              ;用W3M打开各种文件
-   )
- dired-mode-map nil "dired-open")
-(lazy-set-mode-autoload-key
- '(
    (";" . dired-view-minor-mode-toggle) ;字母输入导航模式
    )
  dired-mode-map nil "dired-view")
