@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2018, Andy Stewart, all rights reserved.
 ;; Created: 2018-07-06 23:22:22
-;; Version: 0.1
-;; Last-Updated: 2018-07-06 23:22:22
+;; Version: 0.2
+;; Last-Updated: 2018-07-20 13:04:14
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/company-english-helper.el
 ;; Keywords:
@@ -69,6 +69,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2018/07/20
+;;      * Use `string-prefix-p' instead fuzz match, too many wrong candidates in completion result.
 ;;
 ;; 2018/07/06
 ;;      * First released.
@@ -49450,11 +49453,6 @@
       (:initials "n.接合子，受精卵"))
     ))
 
-;;add support for fuzzy matching.
-(defun en-words-fuzzy-match (prefix candidate)
-  (cl-subsetp (string-to-list prefix)
-              (string-to-list candidate)))
-
 (defun en-words-annotation (s)
   (let* ((str1 (get-text-property 0 :initials s))
          (str2 (replace-regexp-in-string "\\cc" "" str1))
@@ -49469,13 +49467,12 @@
 
 (defun company-en-words (command &optional arg &rest ignored)
   (interactive (list 'interactive))
-
   (cl-case command
     (interactive (company-begin-backend 'company-en-words))
     (prefix (company-grab-word))
     (candidates
      (remove-if-not
-      (lambda (c) (en-words-fuzzy-match arg c))
+      (lambda (c) (string-prefix-p arg c))
       en-words-completions))
     (annotation (en-words-annotation arg))
     (sorted t)
