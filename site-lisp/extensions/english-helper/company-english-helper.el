@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2018, Andy Stewart, all rights reserved.
 ;; Created: 2018-07-06 23:22:22
-;; Version: 0.2
-;; Last-Updated: 2018-07-20 13:04:14
+;; Version: 0.3
+;; Last-Updated: 2018-07-20 15:21:39
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/company-english-helper.el
 ;; Keywords:
@@ -41,10 +41,6 @@
 ;;
 ;; English helper with company interface.
 ;;
-;; This module is base on https://github.com/wushuaibuaa/emacscompanywords
-;;
-;; I just write new function `toggle-company-english-helper'.
-;;
 
 ;;; Installation:
 ;;
@@ -72,6 +68,7 @@
 ;;
 ;; 2018/07/20
 ;;      * Use `string-prefix-p' instead fuzz match, too many wrong candidates in completion result.
+;;      * Use `company-grab-symbol' instead `company-grab-word' to fix that word "good-bye" can't completion, thanks et2010!
 ;;
 ;; 2018/07/06
 ;;      * First released.
@@ -111,7 +108,7 @@
   (interactive (list 'interactive))
   (cl-case command
     (interactive (company-begin-backend 'company-en-words))
-    (prefix (company-grab-word))
+    (prefix (company-grab-symbol))
     (candidates
      (remove-if-not
       (lambda (c) (string-prefix-p (downcase arg) c))
