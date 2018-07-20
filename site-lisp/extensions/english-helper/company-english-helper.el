@@ -114,7 +114,7 @@
     (prefix (company-grab-word))
     (candidates
      (remove-if-not
-      (lambda (c) (string-prefix-p arg c))
+      (lambda (c) (string-prefix-p (downcase arg) c))
       en-words-completions))
     (annotation (en-words-annotation arg))
     (sorted t)
