@@ -85,31 +85,31 @@
 
 ;;; Code:
 
-(setq erc-user-full-name (get-git-user-name))                         ;设置全名
-(setq erc-autojoin-mode t)                                            ;自动加入
-(setq erc-join-buffer 'bury)                                          ;在隐藏的Buffer中加入
-(setq erc-autoaway-mode t)                                            ;开启自动离开模块
-(setq erc-server-auto-reconnect t)                                    ;开启自动重新链接
-(setq erc-prompt ">")                                                 ;提示符号
-(setq erc-prompt-for-password nil)                                    ;不用提示密码
-(setq erc-prompt-for-nickserv-password nil)                           ;鉴别时不提示密码
-(setq erc-fill-static-center 0)                                       ;中间填充
-(setq erc-fill-column 100)                                            ;折叠列数
-(setq erc-timestamp-right-column 110)                                 ;插入时间戳的列数
-(setq erc-timestamp-format "[%H:%M:%S]")                              ;时间错显示格式
-(setq erc-timestamp-format-right " [%H:%M:%S]")                       ;右边时间戳显示格式
-(setq erc-insert-timestamp-function 'erc-insert-timestamp-right)      ;插入时间戳的方式(右边)
+(setq erc-user-full-name (get-git-user-name))   ;设置全名
+(setq erc-autojoin-mode t)                      ;自动加入
+(setq erc-join-buffer 'bury)                    ;在隐藏的Buffer中加入
+(setq erc-autoaway-mode t)                      ;开启自动离开模块
+(setq erc-server-auto-reconnect t)              ;开启自动重新链接
+(setq erc-prompt ">")                           ;提示符号
+(setq erc-prompt-for-password nil)              ;不用提示密码
+(setq erc-prompt-for-nickserv-password nil)     ;鉴别时不提示密码
+(setq erc-fill-static-center 0)                 ;中间填充
+(setq erc-fill-column 100)                      ;折叠列数
+(setq erc-timestamp-right-column 110)           ;插入时间戳的列数
+(setq erc-timestamp-format "[%H:%M:%S]")        ;时间错显示格式
+(setq erc-timestamp-format-right " [%H:%M:%S]") ;右边时间戳显示格式
+(setq erc-insert-timestamp-function 'erc-insert-timestamp-right) ;插入时间戳的方式(右边)
 (setq erc-insert-away-timestamp-function 'erc-insert-timestamp-right) ;插入离开时间戳的方式(右边)
-(setq erc-track-position-in-mode-line t)                              ;在Mode-line显示频道信息
-(setq erc-truncate-mode t)                                            ;开启截断模式
-(setq erc-enable-logging nil)                                         ;禁止日志
-(setq erc-log-mode nil)                                               ;关闭日志模式
-(setq erc-header-line-uses-tabbar-p t)                                ;默认开启 Tabbar
-(setq erc-nick-notify-delay '(0 1 0))                                 ;设置延迟为1分钟
-(setq erc-nickserv-passwords                                          ;设置自动登录时需要的密码
+(setq erc-track-position-in-mode-line t) ;在Mode-line显示频道信息
+(setq erc-truncate-mode t)               ;开启截断模式
+(setq erc-enable-logging nil)            ;禁止日志
+(setq erc-log-mode nil)                  ;关闭日志模式
+(setq erc-header-line-uses-tabbar-p t)   ;默认开启 Tabbar
+(setq erc-nick-notify-delay '(0 1 0))    ;设置延迟为1分钟
+(setq erc-nickserv-passwords             ;设置自动登录时需要的密码
       '((freenode (((eval erc-nick) . (eval erc-password))))))
 (setq erc-autojoin-channels-alist       ;自动加入的服务器和频道
-      `(,(cons "freenode.net" '("#emacs" "#deepin"))))
+      `(,(cons "freenode.net" '("#emacs"))))
 (setq erc-log-channels-directory        ;日志的记录目录
       "~/.emacs.d/lazycat-emacs/Configure-File/ERC/logs/")
 (dolist (hooked (list
@@ -143,7 +143,7 @@
         ))
 (setq erc-hide-list                     ;需要隐藏的IRC消息的类型
       '(
-        "353"                           ;忽略昵称列表
+        "353"                 ;忽略昵称列表
         ;; "JOIN"                          ;加入
         ;; "PART"                          ;离开
         ;; "QUIT"                          ;退出
