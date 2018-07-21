@@ -84,7 +84,11 @@
 (require 'eaf)
 
 ;;; Code:
+;; Please use your own github token, it's free generate at https://github.com/settings/tokens/new?scopes=
+;; Setting token will avoid block off by github API times limit.
 (setq eaf-grip-token "2a8ffd3a265e8da29e208e2da5a6636a7940c540")
+
+;; You need configuration your own local proxy program first.
 (setq eaf-http-proxy-host "127.0.0.1")
 (setq eaf-http-proxy-port "1080")
 
