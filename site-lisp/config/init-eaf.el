@@ -85,6 +85,8 @@
 
 ;;; Code:
 (setq eaf-grip-token "2a8ffd3a265e8da29e208e2da5a6636a7940c540")
+(setq eaf-http-proxy-host "127.0.0.1")
+(setq eaf-http-proxy-port "1080")
 
 (provide 'init-eaf)
 
