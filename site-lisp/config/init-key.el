@@ -406,19 +406,20 @@
  "init-helm")
 ;;; ### EAF ###
 ;;; EAF
-(lazy-set-autoload-key
- '(
-   ("s-'" . eaf-open)
-   ("s-/" . eaf-stop-process)
-   )
- "init-eaf")
-(lazy-set-mode-autoload-key
- '(
-   ("K" . eaf-dired-open-file)
-   )
- dired-mode-map
- nil
- "init-eaf")
+(unless (featurep 'cocoa)
+  (lazy-set-autoload-key
+   '(
+     ("s-'" . eaf-open)
+     ("s-/" . eaf-stop-process)
+     )
+   "init-eaf")
+  (lazy-set-mode-autoload-key
+   '(
+     ("K" . eaf-dired-open-file)
+     )
+   dired-mode-map
+   nil
+   "init-eaf"))
 ;; Cycle buffer
 (lazy-set-autoload-key
  '(
