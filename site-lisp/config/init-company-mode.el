@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
 ;; Copyright (C) 2008, 2009, Andy Stewart, all rights reserved.
 ;; Created: 2008-10-20 09:56:57
-;; Version: 0.8
-;; Last-Updated: 2018-07-16 09:13:30
+;; Version: 0.9
+;; Last-Updated: 2018-07-23 13:03:15
 ;;           By: Andy Stewart
 ;; URL:
 ;; Keywords: company-mode
@@ -55,6 +55,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2018/07/23
+;;      * Add `company-elisp' backend when load emacs-lisp mode.
 ;;
 ;; 2018/07/16
 ;;      * Don't downcase completion result from dabbrev.
@@ -134,6 +137,11 @@
           '(lambda ()
              (require 'company-robe)
              (push 'company-robe company-backends)))
+
+(add-hook 'emacs-lisp-mode-hook
+          '(lambda ()
+             (require 'company-elisp)
+             (push 'company-elisp company-backends)))
 
 ;; Key settings.
 (lazy-unset-key
