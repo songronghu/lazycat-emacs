@@ -6,7 +6,7 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2018, Andy Stewart, all rights reserved.
 ;; Created: 2018-07-06 23:22:22
-;; Version: 0.5
+;; Version: 0.6
 ;; Last-Updated: 2018-07-29 07:37:53
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/company-english-helper.el
@@ -69,6 +69,7 @@
 ;; 2018/07/29
 ;;      * Calculate maximin length of match candidates dynamically.
 ;;      * Adjust require code place.
+;;      * Adjust variable code place.
 ;;
 ;; 2018/07/20
 ;;      * Use `string-prefix-p' instead fuzz match, too many wrong candidates in completion result.
@@ -94,6 +95,14 @@
 (require 'company-english-helper-data)
 
 ;;; Code:
+
+(defvar company-en-words-candidate-max-width 30
+  "The max width of candidates.
+Default is 30, it will occur candidate is not alignment if this value too small.")
+
+(defvar company-en-words-active-p nil
+  "The status of company-en-words plugins.
+Default is disable.")
 
 (defun en-words-annotation (s)
   (let* ((translation (get-text-property 0 :initials s))
@@ -121,14 +130,6 @@
     (sorted t)
     (ignore-case 'keep-prefix)
     ))
-
-(defvar company-en-words-candidate-max-width 30
-  "The max width of candidates.
-Default is 30, it will occur candidate is not alignment if this value too small.")
-
-(defvar company-en-words-active-p nil
-  "The status of company-en-words plugins.
-Default is disable.")
 
 (defun toggle-company-english-helper ()
   "Toggle company english helper."
