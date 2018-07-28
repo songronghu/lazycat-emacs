@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2018, Andy Stewart, all rights reserved.
 ;; Created: 2018-07-06 23:22:22
-;; Version: 0.4
-;; Last-Updated: 2018-07-29 07:31:08
+;; Version: 0.5
+;; Last-Updated: 2018-07-29 07:37:53
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/company-english-helper.el
 ;; Keywords:
@@ -67,7 +67,8 @@
 ;;; Change log:
 ;;
 ;; 2018/07/29
-;;      * Calculate maximin length of match candidates dynamically. 
+;;      * Calculate maximin length of match candidates dynamically.
+;;      * Adjust require code place.
 ;;
 ;; 2018/07/20
 ;;      * Use `string-prefix-p' instead fuzz match, too many wrong candidates in completion result.
@@ -88,12 +89,11 @@
 ;;
 
 ;;; Require
-
-
-;;; Code:
 (require 'cl-lib)
 (require 'company)
 (require 'company-english-helper-data)
+
+;;; Code:
 
 (defun en-words-annotation (s)
   (let* ((translation (get-text-property 0 :initials s))
