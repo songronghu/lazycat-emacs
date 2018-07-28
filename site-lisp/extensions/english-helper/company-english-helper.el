@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2018, Andy Stewart, all rights reserved.
 ;; Created: 2018-07-06 23:22:22
-;; Version: 0.3
-;; Last-Updated: 2018-07-20 15:21:39
+;; Version: 0.4
+;; Last-Updated: 2018-07-29 07:31:08
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/company-english-helper.el
 ;; Keywords:
@@ -66,6 +66,9 @@
 
 ;;; Change log:
 ;;
+;; 2018/07/29
+;;      * Calculate maximin length of match candidates dynamically. 
+;;
 ;; 2018/07/20
 ;;      * Use `string-prefix-p' instead fuzz match, too many wrong candidates in completion result.
 ;;      * Use `company-grab-symbol' instead `company-grab-word' to fix that word "good-bye" can't completion, thanks et2010!
@@ -93,16 +96,17 @@
 (require 'company-english-helper-data)
 
 (defun en-words-annotation (s)
-  (let* ((str1 (get-text-property 0 :initials s))
-         (str2 (replace-regexp-in-string "\\cc" "" str1))
-         (w0 (length s))
-         (w1 (length str1))
-         (w2 (length str2))
-         (n0 (max 0 (- 15 w0)))
-         (n1 (max 0 (- company-en-words-candidate-max-width (- w1 w2)))))
-    (format "%s" (concat (make-string n0 ?\ )
-                         str1
-                         (make-string n1 ?\．)))))
+  (let* ((translation (get-text-property 0 :initials s))
+         (translation-format-string (replace-regexp-in-string "\\cc" "" translation))
+         (max-translation-length (+ 1 (apply 'max (mapcar 'length company-candidates))))
+         (candidate-length (length s))
+         (translation-length (length translation))
+         (translation-format-length (length translation-format-string))
+         (blank-length (max 0 (- max-translation-length candidate-length)))
+         (dot-length (max 0 (- company-en-words-candidate-max-width (- translation-length translation-format-length)))))
+    (format "%s" (concat (make-string blank-length ?\ )
+                         translation
+                         (make-string dot-length ?\．)))))
 
 (defun company-en-words (command &optional arg &rest ignored)
   (interactive (list 'interactive))
