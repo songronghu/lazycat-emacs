@@ -110,7 +110,6 @@
                'slime-repl-mode-hook
                'package-menu-mode-hook
                'cmake-mode-hook
-               'php-mode-hook
                'web-mode-hook
                'coffee-mode-hook
                'sws-mode-hook
@@ -120,6 +119,11 @@
                ))
   (add-hook hook (lambda () (aggressive-indent-mode 1))))
 
+;; Disable aggressive indent in some mode.
+(dolist (hook (list
+               'php-mode-hook
+               ))
+  (add-hook hook (lambda () (aggressive-indent-mode -1))))
 
 (provide 'init-aggressive-indent)
 
