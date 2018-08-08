@@ -74,6 +74,7 @@
 ;;; Require
 
 (require 'haskell-mode)
+(require 'haskell-indentation)
 (require 'haskell-extension)
 
 ;;; Code:

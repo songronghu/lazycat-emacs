@@ -166,7 +166,7 @@
 (autoload 'python-mode "init-python")
 (autoload 'lua-mode "lua-mode")
 (autoload 'swift-mode "swift-mode")
-(autoload 'haskell-mode "haskell-mode")
+(autoload 'haskell-mode "init-haskell")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行
