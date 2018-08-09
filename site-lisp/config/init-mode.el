@@ -164,7 +164,7 @@
 (autoload 'ruby-mode "init-ruby")
 (autoload 'rjsx-mode "init-reactjs")
 (autoload 'python-mode "init-python")
-(autoload 'lua-mode "lua-mode")
+(autoload 'lua-mode "init-lua")
 (autoload 'swift-mode "swift-mode")
 (autoload 'haskell-mode "init-haskell")
 
