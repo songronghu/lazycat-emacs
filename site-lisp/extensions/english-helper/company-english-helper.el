@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2018, Andy Stewart, all rights reserved.
 ;; Created: 2018-07-06 23:22:22
-;; Version: 0.6
-;; Last-Updated: 2018-07-29 07:37:53
+;; Version: 0.7
+;; Last-Updated: 2018-08-10 12:39:24
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/company-english-helper.el
 ;; Keywords:
@@ -15,7 +15,7 @@
 ;;
 ;; Features that might be required by this library:
 ;;
-;;
+;; `cl' `cl-lib' `company' `company-english-helper-data'
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -66,6 +66,9 @@
 
 ;;; Change log:
 ;;
+;; 2018/08/10
+;;      * Require `cl' avoid error "Symbol's function definition is void: remove-if-not".
+;;
 ;; 2018/07/29
 ;;      * Calculate maximin length of match candidates dynamically.
 ;;      * Adjust require code place.
@@ -90,6 +93,7 @@
 ;;
 
 ;;; Require
+(require 'cl)
 (require 'cl-lib)
 (require 'company)
 (require 'company-english-helper-data)
