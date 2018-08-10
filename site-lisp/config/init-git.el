@@ -86,14 +86,6 @@
 
 (require 'magit)
 
-(defun get-git-user-name ()
-  (interactive)
-  (replace-regexp-in-string "\n$" "" (shell-command-to-string "git config --get user.name")))
-
-(defun get-git-user-email ()
-  (interactive)
-  (replace-regexp-in-string "\n$" "" (shell-command-to-string "git config --get user.email")))
-
 (defvar one-key-menu-magit-alist nil
   "The `one-key' menu alist for MAGIT.")
 

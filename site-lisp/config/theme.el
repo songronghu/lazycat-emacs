@@ -390,6 +390,10 @@
  '(mode-line ((t (:background "darkred" :foreground "darkred" :height 0.1))))
  '(mode-line-highlight ((t (:height 0.1))))
  '(mode-line-inactive ((t (:background "gray10" :foreground "gray10" :height 0.1))))
+ '(rg-file-tag-face ((t (:foreground "blue"))))
+ '(rg-filename-face ((t (:foreground "purple"))))
+ '(rg-info-face ((t (:foreground "green"))))
+ '(rg-match-face ((t (:foreground "gold"))))
  )
 
 (provide 'theme)
