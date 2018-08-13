@@ -11,10 +11,11 @@ So i write `aweshell.el' to extension `eshell' with below features:
 3. Display extra information and color like zsh, powered by `eshell-prompt-extras'
 4. Add Fish-like history autosuggestions, powered by `esh-autosuggest'
 5. Validate and highlight command before post to eshell.
+6. Fix error `command not found' in MacOS.
 
 # Installation
 
-Put `aweshell.el', `esh-autosuggest.el', `eshell-prompt-extras.el' to your load-path.
+Put `aweshell.el', `esh-autosuggest.el', `eshell-prompt-extras.el', `exec-path-from-shell.el' to your load-path.
 The load-path is usually ~/elisp/.
 It's set in your ~/.emacs like this:
 ```Elisp
