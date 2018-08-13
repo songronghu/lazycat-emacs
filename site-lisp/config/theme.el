@@ -394,6 +394,8 @@
  '(rg-filename-face ((t (:foreground "purple"))))
  '(rg-info-face ((t (:foreground "green"))))
  '(rg-match-face ((t (:foreground "gold"))))
+ '(epe-dir-face ((t (:foreground "green3"))))
+ '(epe-git-face ((t (:foreground "systemRedColor"))))
  )
 
 (provide 'theme)

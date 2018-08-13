@@ -364,16 +364,14 @@
    )
  "init-thing-edit"
  )
-;;; ### Multi-Term ###
+;;; ### Aweshell ###
 ;;; --- 多标签式的shell
 (lazy-set-autoload-key
  '(
-   ("s-n" . multi-term)                      ;新建一个终端
-   ("s-h" . multi-term-next)                 ;选择终端
-   ("s-x s-x" . multi-term-dedicated-toggle) ;切换专注终端
-   ("s-x s-c" . multi-term-dedicated-select) ;选择专注终端
+   ("s-n" . aweshell-new)               ;新建一个终端
+   ("s-h" . aweshell-next)              ;选择终端
    )
- "init-multiterm")
+ "aweshell")
 ;;; ### W3m ###
 ;;; --- 网页浏览器
 (lazy-set-autoload-key
