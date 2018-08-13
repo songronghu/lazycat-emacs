@@ -24,11 +24,13 @@ It's set in your ~/.emacs like this:
 
 Binding your favorite key to functions:
 
-`aweshell-new'
-`aweshell-next'
-`aweshell-prev'
-`aweshell-clear-buffer'
-`aweshell-sudo-toggle'
+```Elisp
+aweshell-new
+aweshell-next
+aweshell-prev
+aweshell-clear-buffer
+aweshell-sudo-toggle
+```
 
 # Customize:
 
@@ -37,6 +39,8 @@ Below of the above can customize by:
 M-x customize-group RET aweshell RET
 ```
 
-`aweshell-complete-selection-key'
-`aweshell-clear-buffer-key'
-`aweshell-sudo-toggle-key'
+```Elisp
+aweshell-complete-selection-key
+aweshell-clear-buffer-key
+aweshell-sudo-toggle-key
+```
