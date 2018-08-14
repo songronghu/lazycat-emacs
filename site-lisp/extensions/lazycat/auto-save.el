@@ -62,7 +62,7 @@
 ;;; Change log:
 ;;
 ;; 2018/08/14
-;;      * Fixed typo, change `auto-save-slient' to `auto-save-silent'.
+;;      *F wwixed typo, change `auto-save-slient' to `auto-save-silent'.
 ;;
 ;; 2018/07/06
 ;;      * Add new option `auto-save-delete-trailing-whitespace'.
