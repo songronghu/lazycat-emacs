@@ -1,3 +1,6 @@
+;; Increase the garbage collection threshold to 128 MB to ease startup
+(setq gc-cons-threshold (* 128 1024 1024 ))
+
 ;; 定义一些启动目录，方便下次迁移修改
 (defvar lazycat-emacs-root-dir (file-truename "~/lazycat-emacs/site-lisp"))
 (defvar lazycat-emacs-config-dir (concat lazycat-emacs-root-dir "/config"))
@@ -63,6 +66,9 @@
        (require 'init-pdf-tools)
 
        (require 'init-idle)
+
+       ;; Garbage collector-decrease threshold to 5 MB
+       (add-hook 'after-init-hook (lambda () (setq gc-cons-threshold (* 5 1024 1024))))
        )))
 
 (provide 'init)

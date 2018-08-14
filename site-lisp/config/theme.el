@@ -396,6 +396,10 @@
  '(rg-match-face ((t (:foreground "gold"))))
  '(epe-dir-face ((t (:foreground "green3"))))
  '(epe-git-face ((t (:foreground "systemRedColor"))))
+ '(epe-pipeline-delimiter-face ((t (:foreground "green4"))))
+ '(epe-pipeline-host-face ((t (:foreground "systemGreenColor"))))
+ '(epe-pipeline-time-face ((t (:foreground "systemGrayColor"))))
+ '(epe-pipeline-user-face ((t (:foreground "gold"))))
  )
 
 (provide 'theme)
