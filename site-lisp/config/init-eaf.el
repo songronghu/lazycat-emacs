@@ -80,7 +80,6 @@
 ;;
 
 ;;; Require
-(add-subdirs-to-load-path "~/emacs-application-framework/")
 (require 'eaf)
 
 ;;; Code:

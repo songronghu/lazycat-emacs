@@ -188,7 +188,7 @@
 (lazy-set-mode-autoload-key
  '(
    ("]" . dired-show-file-qrcode))
- dired-mode-map nil "~/emacs-application-framework/eaf.el")
+ dired-mode-map nil "eaf.el")
 ;;; ### Wdired ###
 ;;; --- Dired 的编辑模式
 (eval-after-load 'wdired
