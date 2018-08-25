@@ -80,10 +80,10 @@
  "moccur-extension")
 (lazy-set-autoload-key
  '(
-   ("C-z l" . linum-mode)               ;行号模式切换
-   ("M-g" . goto-line-with-feedback)    ;可视化条转行
+   ("C-z l" . display-line-numbers-mode) ;行号模式切换
+   ("M-g" . goto-line-with-feedback)     ;可视化条转行
    )
- "linum-extension")
+ "basic-toolkit")
 ;;; ### Buffer Move ###
 ;;; --- 缓存移动
 (lazy-set-key

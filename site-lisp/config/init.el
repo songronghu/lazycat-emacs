@@ -23,7 +23,7 @@
 
   (require 'init-backup)
   (require 'init-smex)
-  (require 'init-linum)
+  (require 'init-line-number)
   (require 'init-auto-save)
   (require 'init-tabbar)
   (require 'init-mode)

@@ -15,7 +15,6 @@
 
 (set-face-attribute 'default nil :height 130)
 (set-fringe-mode '(0 . 0))              ;Make fringe mini size
-(setq linum-format (concat " %" (number-to-string (length (number-to-string (count-lines (point-min) (point-max))))) "d "))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -216,7 +215,8 @@
  '(isearch-fail ((((class color) (min-colors 88) (background dark)) (:background "red4" :foreground "white"))))
  '(italic ((t (:underline nil :slant normal))))
  '(lazy-highlight ((((class color) (min-colors 88) (background dark)) (:background "grey20"))))
- '(linum ((t (:background "black" :foreground "gray35"))))
+ '(line-number ((t (:background "black" :foreground "gray35"))))
+ '(line-number-current-line ((t (:background "black" :foreground "gray70"))))
  '(magit-blame-heading ((t (:foreground "tan4" :slant normal :weight normal))))
  '(magit-blame-highlight ((t (:foreground "tan4"))))
  '(magit-branch-current ((t (:foreground "Dodgerblue" :weight extra-bold))))

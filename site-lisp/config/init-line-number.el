@@ -1,17 +1,17 @@
-;;; init-linum.el --- Linum 模式的设置
+;;; init-line-number.el --- Configuration for display line number
 
-;; Filename: init-linum.el
-;; Description: Linum 模式的设置设置
-;; Author: Andy Stewart lazycat.manatee@gmail.com
-;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
-;; Copyright (C) 2008, 2009, Andy Stewart, all rights reserved.
-;; Created: 2008-10-20 09:09:51
+;; Filename: init-line-number.el
+;; Description: Configuration for display line number
+;; Author: Andy Stewart <lazycat.manatee@gmail.com>
+;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
+;; Copyright (C) 2018, Andy Stewart, all rights reserved.
+;; Created: 2018-08-26 02:03:32
 ;; Version: 0.1
-;; Last-Updated: 2008-10-20 09:09:54
+;; Last-Updated: 2018-08-26 02:03:32
 ;;           By: Andy Stewart
-;; URL:
-;; Keywords: linum
-;; Compatibility: 23.0.60.1
+;; URL: http://www.emacswiki.org/emacs/download/init-line-number.el
+;; Keywords:
+;; Compatibility: GNU Emacs 27.0.50
 ;;
 ;; Features that might be required by this library:
 ;;
@@ -39,26 +39,34 @@
 
 ;;; Commentary:
 ;;
-;; Linum 模式的设置设置
+;; Configuration for display line number
 ;;
 
 ;;; Installation:
 ;;
-;; Put init-linum.el to your load-path.
+;; Put init-line-number.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'init-linum)
+;; (require 'init-line-number)
 ;;
 ;; No need more.
 
+;;; Customize:
+;;
+;;
+;;
+;; All of the above can customize by:
+;;      M-x customize-group RET init-line-number RET
+;;
+
 ;;; Change log:
 ;;
-;; 2008/10/20
-;;      First released.
+;; 2018/08/26
+;;      * First released.
 ;;
 
 ;;; Acknowledgements:
@@ -73,7 +81,6 @@
 
 ;;; Require
 
-(require 'linum)
 
 ;;; Code:
 
@@ -118,8 +125,8 @@
                'lua-mode-hook
                'swift-mode-hook
                ))
-  (add-hook hook (lambda () (linum-mode 1))))
+  (add-hook hook (lambda () (display-line-numbers-mode))))
 
-(provide 'init-linum)
+(provide 'init-line-number)
 
-;;; init-linum.el ends here
+;;; init-line-number.el ends here
