@@ -100,7 +100,6 @@
    ("C-z j" . end-of-buffer)               ;缓存结尾
    ("M-p" . go-to-next-pair-right) ;在( ),' ', " ", [ ], { }中跳到匹配符号的右边
    ("M-n" . go-to-next-pair-left) ;在( ), ' ', " ", [ ], { }中跳到匹配符号的左边
-   ("%" . match-paren) ;当在括号上按 % 时, 自动跳转到与当前括号匹配的另一个括号
    ("s-g" . goto-percent)    ;跳转到当前Buffer的文本百分比, 单位为字符
    ("M-G" . goto-column)     ;到指定列
    ("C-M-f" . forward-paragraph)        ;下一个段落
@@ -117,6 +116,11 @@
    ("M-s-." . point-stack-push)         ;buffer索引标记
    ("s-{" . current-line-move-to-top)   ;移动当前行到最上面一行
    ))
+(lazy-set-autoload-key
+ '(
+   ("%" . paredit-match-paren) ;当在括号上按 % 时, 自动跳转到与当前括号匹配的另一个括号
+   )
+ "paredit-extension")
 (lazy-set-autoload-key
  '(
    ("M-s" . lazy-search-menu)           ;懒惰搜索
