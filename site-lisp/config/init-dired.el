@@ -136,7 +136,6 @@
    ("P" . dired-do-kill-lines)          ;删除标记的行
    ("5" . dired-translate-to-html)      ;转换到HTML格式
    ("9" . auto-install-from-dired)      ;自动从EmacsWiki安装标记的文件
-   ("z" . dired-do-moccur)              ;搜索dired
    ("I" . image-dired)                  ;打开浏览模式
    ("W" . dired-x-find-file)            ;查找文件
    ("J" . dired-goto-file)              ;跳到某个文件

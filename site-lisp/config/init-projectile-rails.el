@@ -90,7 +90,7 @@
 (require 'projectile-rails)
 (require 'rake)
 (require 'rails-lib)
-(require 'moccur-extension)
+(require 'color-rg)
 
 ;;; Code:
 
@@ -113,7 +113,7 @@
         (("C" . "Controller") . (lambda () (interactive) (projectile-rails-find-controller)))
         (("M" . "Model") . (lambda () (interactive) (projectile-rails-find-model)))
         (("k" . "Kill Buffers") . (lambda () (interactive) (projectile-kill-buffers)))
-        (("p" . "Grep Project") . (lambda () (interactive) (moccur-grep-in-rails-app-directory)))
+        (("p" . "Grep Project") . (lambda () (interactive) (color-rg-search-project-rails)))
         (("P" . "Visit Project") . (lambda () (interactive) (projectile-dired)))
         ))
 

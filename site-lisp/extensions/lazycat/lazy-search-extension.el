@@ -15,7 +15,7 @@
 ;;
 ;; Features that might be required by this library:
 ;;
-;; `lazy-search' `paredit' `color-moccur'
+;; `lazy-search' `paredit' `color-rg'
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -73,7 +73,7 @@
 ;;; Require
 (require 'lazy-search)
 (require 'paredit)
-(require 'color-moccur)
+(require 'color-rg)
 
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Mark Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -117,29 +117,11 @@
          (forward-char -1)
          (point))))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Others ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun lazy-search-moccur ()
-  "Use moccur for search object."
-  (interactive)
-  (setq isearch-string lazy-search-object) ;set isearch string with object
-  (isearch-moccur)
-  (lazy-search-quit))
-
-(defun lazy-search-moccur-all ()
-  "Use moccur all for search object."
-  (interactive)
-  (setq isearch-string lazy-search-object) ;set isearch string with object
-  (isearch-moccur-all)
-  (lazy-search-quit))
-
 (dolist (elt-cons '(
                     ;; Mark
                     (("'" . "Mark Parentheses") . lazy-search-mark-parentheses)
                     ;; Copy
                     (("\"" . "Copy Parentheses") . lazy-search-copy-parentheses)
-                    ;; Other
-                    (("v" . "Moccur") . lazy-search-moccur)
-                    (("V" . "Moccur All") . lazy-search-moccur-all)
                     ))
   (add-to-alist 'lazy-search-menu-alist elt-cons))
 

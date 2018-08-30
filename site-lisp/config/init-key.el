@@ -65,19 +65,14 @@
  '(
    ("M-!" . quickrun))
  "quickrun")
-;;; ### Color-moccur ###
-;;; --- 增强的moccur
+;;; ### Color-Rg ###
+;;; --- 搜索重构
 (lazy-set-autoload-key
  '(
-   ("s-x v" . moccur-grep)              ;搜索当前目录下的文件
+   ("s-x g" . color-rg-search-symbol)      ;递归搜索当前目录下的文件
+   ("s-x h" . color-rg-search-input)        ;手动递归搜索当前目录下的文件
    )
- "init-moccur")
-(lazy-set-autoload-key
- '(
-   ("s-x g" . moccur-grep-pointer)      ;递归搜索当前目录下的文件
-   ("s-x h" . moccur-grep-input)        ;手动递归搜索当前目录下的文件
-   )
- "moccur-extension")
+ "color-rg")
 (lazy-set-autoload-key
  '(
    ("C-z l" . display-line-numbers-mode) ;行号模式切换
@@ -447,8 +442,6 @@
    ("M-c" . isearch-toggle-case-fold)   ;切换大小写
    ("M-r" . isearch-toggle-regexp)      ;切换正则表达式
    ("M-w" . isearch-toggle-word)        ;切换词
-   ("M-g" . isearch-moccur)             ;moccur 当前 buffer
-   ("M-G" . isearch-moccur-all)         ;moccur 所有 buffer
    ("M->" . isearch-beginning-of-buffer) ;跳转到buffer开头并重新搜索, 搜索最前面一个
    ("M-<" . isearch-end-of-buffer) ;跳转到buffer末尾并重新搜索, 搜索最后面一个
    ("M-%" . isearch-query-replace) ;替换
