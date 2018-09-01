@@ -42,7 +42,7 @@
 ;; Find function or variable definition.
 ;;
 ;; `dumb-jump' is awesome extension, but it's not smart enough for emacs-lisp mode.
-;; So i use my `find-function-or-variable-at-point' instead `dumb-jump-go' if current mode is emacs-lisp mode.
+;; So i use `elisp-defs' instead `dumb-jump-go' if current mode is emacs-lisp mode.
 ;;
 
 ;;; Installation:
