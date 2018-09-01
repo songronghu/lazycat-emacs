@@ -80,7 +80,6 @@
 ;;
 
 ;;; Require
-(require 'jedi-core)
 
 ;;; Code:
 (defun jump-to-import()
@@ -91,14 +90,6 @@
   (goto-char (point-min))
   (search-forward-regexp "\\(^import\\|^from\\)" nil t)
   )
-
-(defun find-python-define (&optional prefix)
-  (interactive "P")
-  (if (null prefix)
-      (jedi:goto-definition)
-    (progn
-      (switch-to-buffer-other-window (buffer-name))
-      (jedi:goto-definition))))
 
 (provide 'python-extension)
 
