@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2014 ~ 2018 Andy Stewart, all rights reserved.
 ;; Created: 2014-03-06 15:50:39
-;; Version: 0.6
-;; Last-Updated: 2018-07-11 23:00:02
+;; Version: 0.7
+;; Last-Updated: 2018-09-02 16:51:21
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-web-mode.el
 ;; Keywords:
@@ -64,6 +64,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2018/09/02
+;;      * Add `js2-refactor'.
 ;;
 ;; 2018/07/11
 ;;      * Use function `paredit-kill+' in paredit-extension.el 0.5 instead `tagedit-kill' to build better kill experience for `web-mode' and `ruby-mode'.
