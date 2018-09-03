@@ -355,6 +355,12 @@
    ("C-S-k" . paredit-duplicate-closest-sexp) ;复制光标处的语法块
    )
  "paredit-extension")
+;;; ### Ruby-Extension ###
+;;; --- Ruby useful functions.
+(lazy-set-mode-autoload-key
+ '(
+   ("C-c t" . ruby-hash-syntax-toggle))
+ ruby-mode-map nil "ruby-extension")
 ;;; ### Thingh-edit ###
 ;;; --- 增强式编辑当前光标的对象
 (lazy-set-autoload-key

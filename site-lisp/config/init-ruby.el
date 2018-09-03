@@ -84,6 +84,8 @@
 (require 'inf-ruby-extension)
 (require 'ruby-end)
 
+(setq ruby-insert-encoding-magic-comment nil) ; don't insert utf-8 comment in first line
+
 (add-hook 'ruby-mode-hook
           '(lambda ()
              (robe-mode 1)

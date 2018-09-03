@@ -186,6 +186,11 @@
  dired-mode-map nil "dired-extension")
 (lazy-set-mode-autoload-key
  '(
+   ("K" . dired-open-file)              ;批量打开文件
+   )
+ dired-mode-map nil "dired-extension")
+(lazy-set-mode-autoload-key
+ '(
    ("]" . dired-show-file-qrcode))
  dired-mode-map nil "eaf.el")
 ;;; ### Wdired ###
