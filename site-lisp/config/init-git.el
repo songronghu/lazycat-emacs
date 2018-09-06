@@ -86,6 +86,18 @@
 
 (require 'magit)
 
+;; Make path column have enough space to display.
+(setq magit-submodule-list-columns
+      '(("Path"     80 magit-modulelist-column-path   nil)
+        ("Version"  30 magit-repolist-column-version  nil)
+        ("Branch"   20 magit-repolist-column-branch   nil)
+        ("B<U" 3 magit-repolist-column-unpulled-from-upstream   ((:right-align t)))
+        ("B>U" 3 magit-repolist-column-unpushed-to-upstream     ((:right-align t)))
+        ("B<P" 3 magit-repolist-column-unpulled-from-pushremote ((:right-align t)))
+        ("B>P" 3 magit-repolist-column-unpushed-to-pushremote   ((:right-align t)))
+        ("B"   3 magit-repolist-column-branches                 ((:right-align t)))
+        ("S"   3 magit-repolist-column-stashes                  ((:right-align t)))))
+
 (defvar one-key-menu-magit-alist nil
   "The `one-key' menu alist for MAGIT.")
 
@@ -96,6 +108,8 @@
         (("u" . "Magit push") . magit-push-current-to-upstream)
         (("i" . "Magit pull") . magit-pull-from-upstream)
         (("l" . "Magit log") . magit-log-all)
+        (("m" . "Magit submodule add") . magit-submodule-add)
+        (("M" . "Magit submodule list") . magit-list-submodules)
         ))
 
 (defun one-key-menu-magit ()
