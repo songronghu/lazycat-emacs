@@ -110,6 +110,7 @@
         (("l" . "Magit log") . magit-log-all)
         (("m" . "Magit submodule add") . magit-submodule-add)
         (("M" . "Magit submodule list") . magit-list-submodules)
+        (("d" . "Magit discarded") . magit-discard)
         ))
 
 (defun one-key-menu-magit ()
