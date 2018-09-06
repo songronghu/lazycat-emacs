@@ -85,6 +85,7 @@
 ;;; Code:
 
 (require 'magit)
+(require 'magit-extension)
 
 ;; Make path column have enough space to display.
 (setq magit-submodule-list-columns
@@ -109,8 +110,9 @@
         (("i" . "Magit pull") . magit-pull-from-upstream)
         (("l" . "Magit log") . magit-log-all)
         (("m" . "Magit submodule add") . magit-submodule-add)
+        (("d" . "Magit submodule remove") . magit-submodule-remove)
         (("M" . "Magit submodule list") . magit-list-submodules)
-        (("d" . "Magit discarded") . magit-discard)
+        (("D" . "Magit discarded") . magit-discard)
         ))
 
 (defun one-key-menu-magit ()
