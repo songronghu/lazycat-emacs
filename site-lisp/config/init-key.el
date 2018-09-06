@@ -69,8 +69,8 @@
 ;;; --- 搜索重构
 (lazy-set-autoload-key
  '(
-   ("s-x g" . color-rg-search-symbol)      ;递归搜索当前目录下的文件
-   ("s-x h" . color-rg-search-input)        ;手动递归搜索当前目录下的文件
+   ("s-x g" . color-rg-search-symbol)   ;递归搜索当前目录下的文件
+   ("s-x h" . color-rg-search-input)    ;手动递归搜索当前目录下的文件
    )
  "color-rg")
 (lazy-set-autoload-key
@@ -373,8 +373,8 @@
 ;;; --- 多标签式的shell
 (lazy-set-autoload-key
  '(
-   ("s-n" . aweshell-new)               ;新建一个终端
-   ("s-h" . aweshell-next)              ;选择终端
+   ("s-n" . aweshell-new)
+   ("s-h" . aweshell-toggle)
    )
  "aweshell")
 ;;; ### W3m ###
