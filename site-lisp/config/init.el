@@ -64,6 +64,7 @@
        (require 'init-aggressive-indent)
        (require 'init-auto-sudoedit)
        (require 'init-pdf-tools)
+       (require 'init-atomic-chrome)
 
        (require 'init-idle)
 
