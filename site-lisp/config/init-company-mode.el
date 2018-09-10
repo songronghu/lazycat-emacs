@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
 ;; Copyright (C) 2008, 2009, Andy Stewart, all rights reserved.
 ;; Created: 2008-10-20 09:56:57
-;; Version: 1.0
-;; Last-Updated: 2018-07-24 09:52:53
+;; Version: 1.1
+;; Last-Updated: 2018-09-11 01:00:24
 ;;           By: Andy Stewart
 ;; URL:
 ;; Keywords: company-mode
@@ -55,6 +55,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2018/09/11
+;;      * Split lsp configuration to `init-lsp.el'.
 ;;
 ;; 2018/07/24
 ;;      * Add command to install python completion backend.
