@@ -87,6 +87,7 @@
 (require 'lsp-html)
 (require 'lsp-javascript-typescript)
 (require 'company-lsp)
+(require 'eglot)
 
 ;;; Code:
 
@@ -114,8 +115,14 @@
 ;;
 ;; gem "solargraph"
 ;;
-(add-hook 'ruby-mode-hook #'lsp-ruby-enable)
-
+;; NOTE:
+;; lsp-ruby has tcp port error when kill ruby buffer.
+;; So i use eglot for ruby-mode.
+;; 
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (setq eglot-show-hover-help-p nil)
+             (eglot-ensure)))
 
 ;; Javascript, Typescript and Flow support for lsp-mode
 ;; Install: npm i -g javascript-typescript-langserver
