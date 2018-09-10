@@ -19,3 +19,21 @@
 [submodule "emacs-application-framework"]
 	path = site-lisp/extensions/emacs-application-framework
 	url = https://github.com/manateelazycat/emacs-application-framework.git
+[submodule "lsp-mode"]
+	path = site-lisp/extensions/lsp-mode
+	url = https://github.com/emacs-lsp/lsp-mode.git
+[submodule "lsp-python"]
+	path = site-lisp/extensions/lsp-python
+	url = https://github.com/emacs-lsp/lsp-python.git
+[submodule "company-lsp"]
+	path = site-lisp/extensions/company-lsp
+	url = https://github.com/tigersoldier/company-lsp.git
+[submodule "lsp-ruby"]
+	path = site-lisp/extensions/lsp-ruby
+	url = https://github.com/emacs-lsp/lsp-ruby.git
+[submodule "lsp-css"]
+	path = site-lisp/extensions/lsp-css
+	url = https://github.com/emacs-lsp/lsp-css.git
+[submodule "lsp-html"]
+	path = site-lisp/extensions/lsp-html
+	url = https://github.com/emacs-lsp/lsp-html.git
