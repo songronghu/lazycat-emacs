@@ -23,6 +23,13 @@
         ("i" . sdcv-search-input)       ;输入的单词, buffer显示
         (";" . sdcv-search-input+)))    ;输入的单词, tooltip显示
 (lazy-set-prefix-autoload-key sdcv-key-alist nil "C-z" "init-sdcv")
+;; Dash.
+(defvar dash-key-alist nil
+  "The key alist that dash.")
+(setq dash-key-alist
+      '(("y" . dash-at-point)
+        ))                              ;输入的单词, tooltip显示
+(lazy-set-prefix-autoload-key dash-key-alist nil "C-x" "dash-at-point")
 ;;; ### Toolkit ###
 ;;; --- 工具函数
 (lazy-set-key
