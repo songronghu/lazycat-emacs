@@ -124,12 +124,6 @@
  go-mode-map
  )
 
-;; go mode use lsp-go for auto complete, YOU NEED to install go language server
-;; use command `go get -u github.com/sourcegraph/go-langserver`
-(add-hook 'go-mode-hook #'lsp-go-enable)
-(add-hook 'go-mode-hook (lambda ()
-                          (setq tab-width 4)))
-
 (provide 'init-golang)
 
 ;;; init-golang.el ends here
