@@ -118,10 +118,9 @@
 ;; NOTE:
 ;; lsp-ruby has tcp port error when kill ruby buffer.
 ;; So i use eglot for ruby-mode.
-;; 
+;;
 (add-hook 'ruby-mode-hook
           '(lambda ()
-             (setq eglot-show-hover-help-p nil)
              (eglot-ensure)))
 
 ;; Javascript, Typescript and Flow support for lsp-mode
