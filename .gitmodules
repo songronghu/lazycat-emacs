@@ -37,3 +37,9 @@
 [submodule "lsp-html"]
 	path = site-lisp/extensions/lsp-html
 	url = https://github.com/emacs-lsp/lsp-html.git
+[submodule "lsp-javascript"]
+	path = site-lisp/extensions/lsp-javascript
+	url = https://github.com/emacs-lsp/lsp-javascript.git
+[submodule "typescript"]
+	path = site-lisp/extensions/typescript
+	url = https://github.com/ananthakumaran/typescript.el.git

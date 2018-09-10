@@ -85,6 +85,7 @@
 (require 'lsp-ruby)
 (require 'lsp-css)
 (require 'lsp-html)
+(require 'lsp-javascript-typescript)
 (require 'company-lsp)
 
 ;;; Code:
@@ -114,6 +115,24 @@
 ;; gem "solargraph"
 ;;
 (add-hook 'ruby-mode-hook #'lsp-ruby-enable)
+
+
+;; Javascript, Typescript and Flow support for lsp-mode
+;; Install: npm i -g javascript-typescript-langserver
+(add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
+(add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
+(add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
+(add-hook 'rjsx-mode #'lsp-javascript-typescript-enable) ;; for rjsx-mode support
+
+(defun lsp-company-transformer (candidates)
+  (let ((completion-ignore-case t))
+    (all-completions (company-grab-symbol) candidates)))
+
+(defun lsp-js-hook nil
+  (make-local-variable 'company-transformers)
+  (push 'lsp-company-transformer company-transformers))
+
+(add-hook 'js-mode-hook 'lsp-js-hook)
 
 ;; CSS, LESS, and SCSS/SASS support for lsp-mode using vscode-css-languageserver-bin
 ;; Install: npm i -g vscode-css-languageserver-bin

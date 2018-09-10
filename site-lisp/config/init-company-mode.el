@@ -104,7 +104,6 @@
 (require 'company-posframe)
 (require 'company-yasnippet)
 (require 'company-dabbrev)
-;; (require 'company-css)
 (require 'company-files)
 (require 'desktop)
 
@@ -116,14 +115,7 @@
 (setq company-minimum-prefix-length 1)
 (setq company-show-numbers nil)
 
-;; Customize dabbrev backend, to make company can completion any words in all buffer like `dabbrev-expand'.
-(push 'company-dabbrev company-backends)
-(setq company-dabbrev-char-regexp "[\\.0-9a-z-_'/]") ;adjust regexp make `company-dabbrev' search words like `dabbrev-expand'
-(setq company-dabbrev-code-other-buffers 'all) ;search completion from all buffers, not just same mode buffers.
-(setq company-dabbrev-downcase nil) ;don't downcase completion result from dabbrev.
-
 ;; ;; Customize company backends.
-;; (push 'company-css company-backends)
 (push 'company-files company-backends)
 
 ;; Let desktop.el not record the company-posframe-mode
