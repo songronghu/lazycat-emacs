@@ -81,10 +81,6 @@
 
 ;;; Require
 (require 'lsp-mode)
-(require 'lsp-python)
-(require 'lsp-ruby)
-(require 'lsp-css)
-(require 'lsp-html)
 (require 'lsp-javascript-typescript)
 (require 'company-lsp)
 (require 'eglot)
