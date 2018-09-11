@@ -19,9 +19,6 @@
 [submodule "emacs-application-framework"]
 	path = site-lisp/extensions/emacs-application-framework
 	url = https://github.com/manateelazycat/emacs-application-framework.git
-[submodule "lsp-mode"]
-	path = site-lisp/extensions/lsp-mode
-	url = https://github.com/emacs-lsp/lsp-mode.git
 [submodule "lsp-python"]
 	path = site-lisp/extensions/lsp-python
 	url = https://github.com/emacs-lsp/lsp-python.git
