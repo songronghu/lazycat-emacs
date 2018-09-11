@@ -115,7 +115,9 @@
 ;;
 (add-hook 'python-mode-hook
           '(lambda ()
-             (eglot-ensure)))
+             (run-with-timer "2sec" nil (lambda () (flymake-mode -1)))
+             (eglot-ensure)
+             ))
 
 ;; Ruby support for eglot using the solargraph gem.
 ;; Install: gem install solargraph
@@ -129,7 +131,9 @@
 ;;
 (add-hook 'ruby-mode-hook
           '(lambda ()
-             (eglot-ensure)))
+             (run-with-timer "2sec" nil (lambda () (flymake-mode -1)))
+             (eglot-ensure)
+             ))
 
 ;; Javascript, Typescript and Flow support for lsp-mode
 ;; Install: npm i -g javascript-typescript-langserver
