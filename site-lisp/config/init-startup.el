@@ -88,9 +88,9 @@
 
 ;;; Code:
 
-(tool-bar-mode -1)                      ;禁用工具栏
-(menu-bar-mode -1)                      ;禁用菜单栏
-(scroll-bar-mode -1)                    ;禁用滚动条
+(tool-bar-mode -1)              ;禁用工具栏
+(menu-bar-mode -1)              ;禁用菜单栏
+(scroll-bar-mode -1)            ;禁用滚动条
 
 (if (featurep 'cocoa)
     (progn
@@ -105,13 +105,14 @@
       ;; Mac就不会移动Emacs窗口到单独的工作区, 最终解决Mac平台下原生全屏窗口导致 `make-frame' 左右滑动闪烁的问题.
       (setq ns-use-native-fullscreen nil)
       (setq ns-use-fullscreen-animation nil)
-      (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
-      (run-at-time "1sec" nil
+      (run-at-time "5sec" nil
                    (lambda ()
-                     (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
-                     (toggle-frame-fullscreen)
-                     ))
-      )
+                     (let ((fullscreen (frame-parameter (selected-frame) 'fullscreen)))
+                       ;; If emacs has in fullscreen status, maximized window first, drag emacs window from Mac's single space.
+                       (when (memq fullscreen '(fullscreen fullboth))
+                         (set-frame-parameter (selected-frame) 'fullscreen 'maximized))
+                       ;; Call `toggle-frame-fullscreen' to fullscreen emacs.
+                       (toggle-frame-fullscreen)))))
 
   ;; 非Mac平台直接全屏
   (require 'fullscreen)
