@@ -1,6 +1,3 @@
-[submodule "color-rg"]
-	path = site-lisp/extensions/color-rg
-	url = https://github.com/manateelazycat/color-rg.git
 [submodule "lazycat-theme"]
 	path = site-lisp/extensions/lazycat-theme
 	url = https://github.com/manateelazycat/lazycat-theme.git
