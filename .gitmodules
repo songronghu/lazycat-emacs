@@ -43,3 +43,6 @@
 [submodule "eglot"]
 	path = site-lisp/extensions/eglot
 	url = https://github.com/joaotavora/eglot.git
+[submodule "lsp-mode"]
+	path = site-lisp/extensions/lsp-mode
+	url = https://github.com/emacs-lsp/lsp-mode.git
