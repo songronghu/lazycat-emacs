@@ -46,3 +46,6 @@
 [submodule "lsp-mode"]
 	path = site-lisp/extensions/lsp-mode
 	url = https://github.com/emacs-lsp/lsp-mode.git
+[submodule "watch-other-window"]
+	path = site-lisp/extensions/watch-other-window
+	url = https://github.com/manateelazycat/watch-other-window.git

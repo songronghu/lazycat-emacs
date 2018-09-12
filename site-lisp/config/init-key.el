@@ -86,20 +86,26 @@
    ("M-g" . goto-line-with-feedback)     ;可视化条转行
    )
  "basic-toolkit")
+;;; ### Watch other window ###
+;;; --- 滚动其他窗口
+(lazy-set-autoload-key
+ '(
+   ("M-J" . watch-other-window-up)        ;向下滚动其他窗口
+   ("M-K" . watch-other-window-down)      ;向上滚动其他窗口
+   ("M-<" . watch-other-window-up-line)   ;向下滚动其他窗口一行
+   ("M->" . watch-other-window-down-line) ;向上滚动其他窗口一行
+   )
+ "watch-other-window")
 ;;; ### Buffer Move ###
 ;;; --- 缓存移动
 (lazy-set-key
  '(
-   ("s-J" . scroll-up-one-line)            ;向上滚动一行
-   ("s-K" . scroll-down-one-line)          ;向下滚动一行
-   ("M-J" . scroll-other-window)           ;向下滚动其他窗口
-   ("M-K" . scroll-other-window-down)      ;向上滚动其他窗口
-   ("M-<" . scroll-other-window-up-line)   ;向下滚动其他窗口一行
-   ("M->" . scroll-other-window-down-line) ;向上滚动其他窗口一行
-   ("C-o" . open-newline-above)            ;在上面一行新建一行
-   ("C-l" . open-newline-below)            ;在下面一行新建一行
-   ("C-z k" . beginning-of-buffer)         ;缓存开始
-   ("C-z j" . end-of-buffer)               ;缓存结尾
+   ("s-J" . scroll-up-one-line)         ;向上滚动一行
+   ("s-K" . scroll-down-one-line)       ;向下滚动一行
+   ("C-o" . open-newline-above)         ;在上面一行新建一行
+   ("C-l" . open-newline-below)         ;在下面一行新建一行
+   ("C-z k" . beginning-of-buffer)      ;缓存开始
+   ("C-z j" . end-of-buffer)            ;缓存结尾
    ("M-p" . go-to-next-pair-right) ;在( ),' ', " ", [ ], { }中跳到匹配符号的右边
    ("M-n" . go-to-next-pair-left) ;在( ), ' ', " ", [ ], { }中跳到匹配符号的左边
    ("s-g" . goto-percent)    ;跳转到当前Buffer的文本百分比, 单位为字符

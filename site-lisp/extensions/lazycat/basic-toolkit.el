@@ -696,16 +696,6 @@ use function `completion-delete'."
   (interactive)
   (scroll-down 1))
 
-(defun scroll-other-window-up-line ()
-  "Scroll other window up one line."
-  (interactive)
-  (scroll-other-window 1))
-
-(defun scroll-other-window-down-line ()
-  "Scroll other window line down."
-  (interactive)
-  (scroll-other-window-down 1))
-
 (defun refresh-file ()
   "Automatic reload current file."
   (interactive)
