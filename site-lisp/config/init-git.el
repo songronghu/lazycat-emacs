@@ -113,6 +113,8 @@
         (("d" . "Magit submodule remove") . magit-submodule-remove)
         (("M" . "Magit submodule list") . magit-list-submodules)
         (("D" . "Magit discarded") . magit-discard)
+        (("," . "Magit init") . magit-init)
+        (("." . "Magit add remote") . magit-remote-add)
         ))
 
 (defun one-key-menu-magit ()
