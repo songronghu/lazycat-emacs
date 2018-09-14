@@ -104,14 +104,17 @@
     (desktop-read "~/.emacs.d/")
     ))
 
-(defun emacs-session-save ()
+(defun emacs-session-save (arg)
   "Save emacs session."
-  (interactive)
+  (interactive "p")
   (ignore-errors
-    ;; Kill unused buffers.
-    (kill-unused-buffers)
-    ;; Save all buffers before exit.
-    (auto-save-buffers)
+    (if arg
+        ;; Kill all buffers if with prefix argument.
+        (mapc 'kill-buffer (buffer-list))
+      ;; Kill unused buffers.
+      (kill-unused-buffers)
+      ;; Save all buffers before exit.
+      (auto-save-buffers))
     ;; Save session.
     (make-directory "~/.emacs.d/" t)
     (desktop-save "~/.emacs.d/")
