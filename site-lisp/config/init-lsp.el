@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2018, Andy Stewart, all rights reserved.
 ;; Created: 2018-09-10 22:46:41
-;; Version: 0.1
-;; Last-Updated: 2018-09-10 22:46:41
+;; Version: 0.2
+;; Last-Updated: 2018-09-14 09:48:52
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-lsp.el
 ;; Keywords:
