@@ -87,6 +87,9 @@
 (require 'magit)
 (require 'magit-extension)
 
+;; Magit configuration.
+(setq magit-commit-ask-to-stage nil)    ;don't ask stage question
+
 ;; Make path column have enough space to display.
 (setq magit-submodule-list-columns
       '(("Path"     80 magit-modulelist-column-path   nil)
