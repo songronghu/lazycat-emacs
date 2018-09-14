@@ -108,7 +108,7 @@
   "Save emacs session."
   (interactive "p")
   (ignore-errors
-    (if arg
+    (if (equal arg 4)
         ;; Kill all buffers if with prefix argument.
         (mapc 'kill-buffer (buffer-list))
       ;; Kill unused buffers.
@@ -119,8 +119,7 @@
     (make-directory "~/.emacs.d/" t)
     (desktop-save "~/.emacs.d/")
     ;; Exit emacs.
-    (kill-emacs)
-    ))
+    (kill-emacs)))
 
 (provide 'init-session)
 
