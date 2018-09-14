@@ -106,7 +106,7 @@
         (("V" . "PDF View") . (lambda () (interactive) (cycle-buffer-in-special-mode 'pdf-view-mode)))
         (("C" . "C-Mode") . (lambda () (interactive) (cycle-buffer-in-special-mode 'c-mode)))
         (("c" . "C++-Mode") . (lambda () (interactive) (cycle-buffer-in-special-mode 'c++-mode)))
-        (("j" . "JS") . (lambda () (interactive) (cycle-buffer-in-special-mode 'js-mode)))
+        (("j" . "JS") . (lambda () (interactive) (cycle-buffer-in-special-mode 'rjsx-mode)))
         (("x" . "XML") . (lambda () (interactive) (cycle-buffer-in-special-mode 'nxml-mode)))
         (("p" . "Python") . (lambda () (interactive) (cycle-buffer-in-special-mode 'python-mode)))
         (("s" . "CSS") . (lambda () (interactive) (cycle-buffer-in-special-mode 'css-mode)))
@@ -115,7 +115,6 @@
         (("g" . "Golang") . (lambda () (interactive) (cycle-buffer-in-special-mode 'go-mode)))
         (("q" . "QML") . (lambda () (interactive) (cycle-buffer-in-special-mode 'qml-mode)))
         (("v" . "Vala") . (lambda () (interactive) (cycle-buffer-in-special-mode 'vala-mode)))
-        ;; (("w" . "WebKit") . (lambda () (interactive) (cycle-buffer-in-special-mode 'webkit-mode)))
         (("u" . "Lisp") . (lambda () (interactive) (cycle-buffer-in-special-mode-except-buffer 'lisp-mode " *slime-fontify*")))
         ))
 
