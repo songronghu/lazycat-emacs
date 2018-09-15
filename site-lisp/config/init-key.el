@@ -560,19 +560,13 @@
    ("s-z s-x" . sr-speedbar-select-window) ;选中speedbar窗口
    )
  "init-speedbar")
-;;; ### Multiple-cursors ###
-;;; --- Multiple cursors, awesome
+;;; ### iedit ###
+;;; --- iedit
 (lazy-set-autoload-key
  '(
-   ("s-o" . mc/mark-all-dwim)
-   ("s-j" . mc/mark-next-like-this)
-   ("s-k" . mc/mark-previous-like-this)
-   ("s-u" . mc/unmark-next-like-this)
-   ("s-i" . mc/unmark-previous-like-this)
-   ("s-Z" . mc/edit-lines)
+   ("s-o" . iedit-mode)
    )
- "multiple-cursors"
- )
+ "iedit")
 ;;; ### Ace jump ###
 (lazy-set-autoload-key
  '(
