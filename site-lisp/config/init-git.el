@@ -113,7 +113,7 @@
         (("i" . "Magit pull") . magit-pull-from-upstream)
         (("l" . "Magit log") . magit-log-all)
         (("b" . "Magit buffer") . magit-process-buffer)
-        (("m" . "Magit submodule add") . magit-submodule-add)
+        (("m" . "Magit submodule add") . magit-submodule-add+)
         (("d" . "Magit submodule remove") . magit-submodule-remove)
         (("M" . "Magit submodule list") . magit-list-submodules)
         (("D" . "Magit discarded") . magit-discard)
@@ -143,6 +143,13 @@
   (interactive)
   (require 'magithub)
   (one-key-menu "MAGITHUB" one-key-menu-magithub-alist t))
+
+(defun magit-submodule-add+ (url)
+  (interactive "sURL: ")
+  (magit-submodule-add
+   url
+   (concat (file-name-as-directory lazycat-emacs-extension-dir) (file-name-base url))
+   (file-name-base url)))
 
 (provide 'init-git)
 
