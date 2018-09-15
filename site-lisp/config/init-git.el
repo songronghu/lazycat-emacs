@@ -112,6 +112,7 @@
         (("u" . "Magit push") . magit-push-current-to-upstream)
         (("i" . "Magit pull") . magit-pull-from-upstream)
         (("l" . "Magit log") . magit-log-all)
+        (("b" . "Magit buffer") . magit-process-buffer)
         (("m" . "Magit submodule add") . magit-submodule-add)
         (("d" . "Magit submodule remove") . magit-submodule-remove)
         (("M" . "Magit submodule list") . magit-list-submodules)
