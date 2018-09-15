@@ -64,3 +64,6 @@
 [submodule "web-mode"]
 	path = site-lisp/extensions/web-mode
 	url = https://github.com/fxbois/web-mode
+[submodule "iedit"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/iedit
+	url = https://github.com/victorhge/iedit
