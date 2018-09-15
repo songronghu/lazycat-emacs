@@ -119,6 +119,49 @@
     (when (file-exists-p submodule-modules-path)
       (delete-directory submodule-modules-path t))))
 
+(defun magit-submodule-add (url &optional path name args)
+  "Add the repository at URL as a module.
+
+Optional PATH is the path to the module relative to the root of
+the superproject.  If it is nil, then the path is determined
+based on the URL.  Optional NAME is the name of the module.  If
+it is nil, then PATH also becomes the name."
+  (interactive
+   (magit-with-toplevel
+     (let* ((url (magit-read-string-ns "Add submodule (remote url)"))
+            (path (let ((read-file-name-function
+                         (if (or (eq read-file-name-function 'ido-read-file-name)
+                                 (advice-function-member-p
+                                  'ido-read-file-name
+                                  read-file-name-function))
+                             ;; The Ido variant doesn't work properly here.
+                             #'read-file-name-default
+                           read-file-name-function)))
+                    (directory-file-name
+                     (file-relative-name
+                      (read-directory-name
+                       "Add submodules at path: " nil nil nil
+                       (and (string-match "\\([^./]+\\)\\(\\.git\\)?$" url)
+                            (match-string 1 url))))))))
+       (list url
+             (directory-file-name path)
+             (magit-submodule-read-name-for-path path)
+             (magit-submodule-filtered-arguments "--force")))))
+  (magit-with-toplevel
+    (magit-run-git-async "submodule" "add"
+                         (and name (list "--name" name))
+                         args "--" url path)
+    (set-process-sentinel
+     magit-this-process
+     (lambda (process event)
+       (when (memq (process-status process) '(exit signal))
+         (if (> (process-exit-status process) 0)
+             (magit-process-sentinel process event)
+           (process-put process 'inhibit-refresh t)
+           (magit-process-sentinel process event)
+           (unless (version< (magit-git-version) "2.12.0")
+             (magit-call-git "submodule" "absorbgitdirs" path))))))))
+
 (defun magit-get-submodule-url (path)
   "Return url of submodule path."
   (let* ((submodule-lines (magit-git-lines "config" "--list" "-f" ".gitmodules"))
