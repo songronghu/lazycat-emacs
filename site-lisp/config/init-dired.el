@@ -188,7 +188,7 @@
  '(
    ("K" . dired-open-file)              ;批量打开文件
    )
- dired-mode-map nil "dired-extension")
+ dired-mode-map nil "dired-open")
 (lazy-set-mode-autoload-key
  '(
    ("]" . dired-show-file-qrcode))
