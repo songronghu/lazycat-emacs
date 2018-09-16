@@ -70,6 +70,3 @@
 [submodule "Indium"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/Indium
 	url = https://github.com/NicolasPetton/Indium
-[submodule "company-tern"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/company-tern
-	url = https://github.com/proofit404/company-tern
