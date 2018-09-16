@@ -143,6 +143,7 @@
 (setq one-key-menu-magithub-alist
       '(
         (("h" . "Browse") . magithub-browse)
+        (("H" . "Browse") . magithub-browse-file)
         (("i" . "Create issue") . magithub-issue-new)
         (("b" . "Browse issue") . magithub-issue-browse)
         (("B" . "Browse pull") . magithub-pull-browse)
@@ -165,6 +166,18 @@
   (interactive)
   (magit-status)
   (other-window 1))
+
+(defun magithub-browse-file ()
+  "Open the git file in your browser."
+  (interactive)
+  (unless (magithub-github-repository-p)
+    (user-error "Not a GitHub repository"))
+  (let* ((repo (magithub-repo))
+         (html-url (alist-get 'html_url repo))
+         (branch (alist-get 'default_branch repo))
+         (github-branch-path (apply 'concat (mapcar 'file-name-as-directory (list html-url "blob" branch))))
+         (file-relative-path (replace-regexp-in-string (magit-toplevel) "" (buffer-file-name))))
+    (browse-url (concat github-branch-path file-relative-path))))
 
 (provide 'init-git)
 
