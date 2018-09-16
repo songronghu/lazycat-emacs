@@ -89,6 +89,7 @@
 
 ;; Magit configuration.
 (setq magit-commit-ask-to-stage nil)    ;don't ask stage question
+(setq magit-display-buffer-noselect t) ;don't select magit buffer default
 
 ;; Make path column have enough space to display.
 (setq magit-submodule-list-columns
@@ -107,7 +108,7 @@
 
 (setq one-key-menu-magit-alist
       '(
-        (("s" . "Magit status") . magit-status)
+        (("s" . "Magit status") . magit-status+)
         (("c" . "Magit commit") . magit-commit)
         (("u" . "Magit push") . magit-push-current-to-upstream)
         (("i" . "Magit pull") . magit-pull-from-upstream)
@@ -150,6 +151,11 @@
    url
    (concat (file-name-as-directory lazycat-emacs-extension-dir) (file-name-base url))
    (file-name-base url)))
+
+(defun magit-status+ ()
+  (interactive)
+  (magit-status)
+  (other-window 1))
 
 (provide 'init-git)
 
