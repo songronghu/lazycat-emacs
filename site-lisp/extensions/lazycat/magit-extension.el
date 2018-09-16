@@ -146,21 +146,21 @@ it is nil, then PATH also becomes the name."
        (list url
              (directory-file-name path)
              (magit-submodule-read-name-for-path path)
-             (magit-submodule-filtered-arguments "--force")))))
-  (magit-with-toplevel
-    (magit-run-git-async "submodule" "add"
-                         (and name (list "--name" name))
-                         args "--" url path)
-    (set-process-sentinel
-     magit-this-process
-     (lambda (process event)
-       (when (memq (process-status process) '(exit signal))
-         (if (> (process-exit-status process) 0)
-             (magit-process-sentinel process event)
-           (process-put process 'inhibit-refresh t)
-           (magit-process-sentinel process event)
-           (unless (version< (magit-git-version) "2.12.0")
-             (magit-call-git "submodule" "absorbgitdirs" path))))))))
+             (magit-submodule-filtered-arguments "--force"))
+       (magit-with-toplevel
+         (magit-run-git-async "submodule" "add"
+                              (and name (list "--name" name))
+                              args "--" url path)
+         (set-process-sentinel
+          magit-this-process
+          (lambda (process event)
+            (when (memq (process-status process) '(exit signal))
+              (if (> (process-exit-status process) 0)
+                  (magit-process-sentinel process event)
+                (process-put process 'inhibit-refresh t)
+                (magit-process-sentinel process event)
+                (unless (version< (magit-git-version) "2.12.0")
+                  (magit-call-git "submodule" "absorbgitdirs" path)))))))))))
 
 (defun magit-get-submodule-url (path)
   "Return url of submodule path."
