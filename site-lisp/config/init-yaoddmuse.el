@@ -82,11 +82,12 @@
 ;;; Require
 
 (require 'yaoddmuse)
+(require 'yaoddmuse-extension)
 
 ;;; Code:
 
 (setq yaoddmuse-browse-function 'yaoddmuse-browse-page-in-w3m) ;设置yaoddmuse浏览函数
-(setq yaoddmuse-notify-function 'yaoddmuse-notify-default) ;设置yaoddmuse提示函数
+(setq yaoddmuse-notify-function 'yaoddmuse-notify-popup-window) ;设置yaoddmuse提示函数
 (setq yaoddmuse-wikis                   ;只更新 EmacsWiki
       '(("EmacsWiki" "http://www.emacswiki.org/cgi-bin/emacs" utf-8 "uihnscuskc=1;")))
 
