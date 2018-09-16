@@ -67,3 +67,6 @@
 [submodule "iedit"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/iedit
 	url = https://github.com/victorhge/iedit
+[submodule "Indium"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/Indium
+	url = https://github.com/NicolasPetton/Indium
