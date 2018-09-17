@@ -116,14 +116,8 @@ Default is t."
    (lambda (x)
      (let ((name (format "%s" x)))
        (and
-        (not (string-prefix-p "*epc" name))
-        (not (string-prefix-p "*helm" name))
-        (not (string-prefix-p "*scratch" name))
-        (not (string-prefix-p "*minibuffer tray" name))
-        (not (string-prefix-p "*WoMan-Log*" name))
-        (not (string-prefix-p "*Messages*" name))
-        (not (string-prefix-p "*lsp" name))
-        (not (string-prefix-p "*Compile-Log*" name))
+        (not (string-prefix-p "*" name))
+        (not (string-match "^magit.*:\\s-" name))
         )))
    (delq nil
          (mapcar #'(lambda (b)
