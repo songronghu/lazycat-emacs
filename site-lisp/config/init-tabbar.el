@@ -131,7 +131,7 @@ Default is t."
 
 (setq tabbar-buffer-list-function 'tabbar-filter-buffer-list)
 
-(defun tabbar-buffer-groups-by-smart ()
+(defun tabbar-buffer-groups-by-mixin-rules ()
   "Mixin multiple rules.
 
 Group tabbar with mode if buffer is derived from `eshell-mode' `emacs-lisp-mode' `dired-mode' `org-mode' `magit-mode'.
@@ -164,7 +164,7 @@ Other buffer group by `projectile-project-p' with project name."
        "Common"))
     )))
 
-(setq tabbar-buffer-groups-function 'tabbar-buffer-groups-by-smart)
+(setq tabbar-buffer-groups-function 'tabbar-buffer-groups-by-mixin-rules)
 
 (provide 'init-tabbar)
 
