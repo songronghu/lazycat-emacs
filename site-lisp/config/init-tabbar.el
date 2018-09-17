@@ -80,14 +80,15 @@
 ;;
 
 ;;; Require
-
+(require 'tabbar)
+(require 'projectile)
 
 ;;; Code:
 
-(tabbar-mode t)                                                ;多标签模式
-(setq uniquify-separator "/")                                  ;分隔符
+(tabbar-mode t)                         ;多标签模式
+(setq uniquify-separator "/")           ;分隔符
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets) ;反方向的显示重复的Buffer名字
-(setq uniquify-after-kill-buffer-p t)                          ;删除重复名字的Buffer后重命名
+(setq uniquify-after-kill-buffer-p t)   ;删除重复名字的Buffer后重命名
 
 (defcustom tabbar-hide-header-button t
   "Hide header button at left-up corner.
@@ -121,6 +122,8 @@ Default is t."
         (not (string-prefix-p "*minibuffer tray" name))
         (not (string-prefix-p "*WoMan-Log*" name))
         (not (string-prefix-p "*Messages*" name))
+        (not (string-prefix-p "*lsp" name))
+        (not (string-prefix-p "*Compile-Log*" name))
         )))
    (delq nil
          (mapcar #'(lambda (b)
@@ -133,6 +136,25 @@ Default is t."
                  (buffer-list)))))
 
 (setq tabbar-buffer-list-function 'tabbar-filter-buffer-list)
+
+(defun tabbar-buffer-groups-by-project ()
+  (list
+   (cond
+    ((derived-mode-p 'eshell-mode)
+     "EShell")
+    ((string-equal "*" (substring (buffer-name) 0 1))
+     "Emacs")
+    ((memq major-mode '(org-mode org-agenda-mode diary-mode))
+     "OrgMode")
+    ((derived-mode-p 'dired-mode)
+     "Dired")
+    (t
+     (if (projectile-project-p)
+         (projectile-project-name)
+       "Common"))
+    )))
+
+(setq tabbar-buffer-groups-function 'tabbar-buffer-groups-by-project)
 
 (provide 'init-tabbar)
 
