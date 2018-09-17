@@ -110,6 +110,7 @@
 (require 'helm-for-files)
 (require 'helm-projectile)
 (require 'helm-ring)
+(require 'tabbar-extension)
 
 ;;; Code:
 
@@ -127,6 +128,7 @@
            (projectile-project-p)
            (setq helm-source-list
                  '(
+                   helm-source-tabbar-group
                    helm-source-buffers-list
                    helm-source-recentf
                    helm-source-projectile-buffers-list
@@ -139,6 +141,7 @@
           (t
            (setq helm-source-list
                  '(
+                   helm-source-tabbar-group
                    helm-source-buffers-list
                    helm-source-recentf
                    helm-source-kill-ring

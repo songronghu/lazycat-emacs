@@ -148,8 +148,6 @@
    ("s-c g" . move-buffer-file)              ;更改当前文件的目录
    ("s-c n" . copy-buffer-file-name-as-kill) ;拷贝buffer名字
    ("C-M-;" . kill-other-window-buffer)      ;关闭其他窗口的buffer
-   ("s-Q" . kill-current-mode-buffers) ;关闭与当前模式相同的所有buffers
-   ("C-S-s-q" . kill-current-mode-buffers) ;关闭与当前模式相同的所有buffers
    ("s-q" . kill-current-mode-buffers-except-current) ;关闭当前模式所有buffers, 除了当前buffer
    )
  "buffer-extension")
@@ -261,6 +259,8 @@
    ("M-*" . tabbar-forward-tab-other-window)  ;向后移动其他窗口的标签
    ("M-s-7" . tabbar-select-beg-tab)          ;移动到最左边的标签
    ("M-s-8" . tabbar-select-end-tab)          ;移动到最右边的标签
+   ("s-Q" . tabbar-kill-all-buffers-in-current-group) ;关闭当前组所有标签
+   ("C-S-s-q" . tabbar-kill-all-buffers-in-current-group) ;关闭当前组所有标签
    )
  "tabbar-extension")
 ;;; ### Functin key ###

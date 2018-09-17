@@ -122,6 +122,53 @@ Optional argument REVERSED default is move backward, if reversed is non-nil move
   (interactive)
   (tabbar-backward-tab-other-window t))
 
+(defun tabbar-get-groups ()
+  ;; Refresh groups.
+  (set tabbar-tabsets-tabset (tabbar-map-tabsets 'tabbar-selected-tab))
+  (mapcar #'(lambda (group)
+              (format "%s" (cdr group)))
+          (tabbar-tabs tabbar-tabsets-tabset)))
+
+(defun tabbar-kill-all-buffers-in-current-group ()
+  "Kill all buffers in current group."
+  (interactive)
+  (let* ((groups (tabbar-get-groups))
+         (current-group-name (cdr (tabbar-selected-tab (tabbar-current-tabset t)))))
+    ;; Kill all buffers in current group.
+    (save-excursion
+      (mapc #'(lambda (buffer)
+                (with-current-buffer buffer
+                  (when (string-equal current-group-name (cdr (tabbar-selected-tab (tabbar-current-tabset t))))
+                    (kill-buffer buffer))))
+            (buffer-list)))
+    ;; Switch to next group.
+    (tabbar-forward-group)
+    ))
+
+(defun tabbar-switch-group (&optional groupname)
+  "Switch tab groups using ido."
+  (interactive)
+  (let* ((tab-buffer-list (mapcar
+                           #'(lambda (b)
+                               (with-current-buffer b
+                                 (list (current-buffer)
+                                       (buffer-name)
+                                       (funcall tabbar-buffer-groups-function) )))
+                           (funcall tabbar-buffer-list-function)))
+         (groups (tabbar-get-groups))
+         (group-name (or groupname (ido-completing-read "Groups: " groups))) )
+    (catch 'done
+      (mapc
+       #'(lambda (group)
+           (when (equal group-name (car (car (cdr (cdr group)))))
+             (throw 'done (switch-to-buffer (car (cdr group))))))
+       tab-buffer-list) )))
+
+(defvar helm-source-tabbar-group
+  (helm-build-sync-source "Tabbar Group"
+    :candidates #'tabbar-get-groups
+    :action '(("Switch to group" . tabbar-switch-group))))
+
 (provide 'tabbar-extension)
 
 ;;; tabbar-extension.el ends here
