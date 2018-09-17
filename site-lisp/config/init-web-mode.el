@@ -102,8 +102,14 @@
 (require 'emmet-extension)
 (require 'paredit-extension)
 (require 'js2-refactor)
+(require 'indium)
 
 ;;; Code:
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; OS Config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (featurep 'cocoa)
+  ;; Initialize environment from user's shell to make eshell know every PATH by other shell.
+  (require 'exec-path-from-shell)
+  (exec-path-from-shell-initialize))
 
 (setq web-mode-tag-auto-close-style 2) ;2 mean auto-close with > and </.
 (setq web-mode-markup-indent-offset 2)
@@ -117,6 +123,31 @@
                    (setq emmet-preview-default nil)
                    (emmet-mode)
                    )))
+;; Indium.
+(add-hook 'js2-mode-hook #'indium-interaction-mode)
+
+(defvar one-key-menu-indium-alist nil
+  "The `one-key' menu alist for JS-REFACOTRY.")
+
+(setq one-key-menu-indium-alist
+      '(
+        (("c" . "Indium connect") . indium-connect)
+        (("C" . "Indium launch") . indium-launch)
+        (("i" . "Indium switch REPL buffer") . indium-switch-to-repl-buffer)
+        (("a" . "Indium add breakpoint") . indium-add-breakpoint)
+        (("A" . "Indium add condition breakpoint") . indium-add-conditional-breakpoint)
+        (("e" . "Indium edit condition breakpoint") . indium-edit-breakpoint-condition)
+        (("l" . "Indium list breakpoints") . indium-list-breakpoints)
+        (("r" . "Indium remove breakpoint") . indium-remove-breakpoint)
+        (("R" . "Indium remove all breakpoints") . indium-remove-all-breakpoints-from-buffer)
+        (("t" . "Indium toggle breakpoint") . indium-toggle-breakpoint)
+        ))
+
+(defun one-key-menu-indium ()
+  "The `one-key' menu for JS-REFACOTRY."
+  (interactive)
+  (one-key-menu "INDIUM" one-key-menu-indium-alist t))
+
 ;; Js2-refactor.
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 (setq js2-skip-preprocessor-directives t)

@@ -766,4 +766,10 @@
    ("s-x f" . one-key-menu-magit))
  "init-git")
 
+;;; ### Magit ###
+(lazy-set-autoload-key
+ '(
+   ("s-x i" . one-key-menu-indium))
+ "init-web-mode")
+
 (provide 'init-key)
