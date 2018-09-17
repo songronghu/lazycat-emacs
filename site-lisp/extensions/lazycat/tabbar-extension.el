@@ -78,8 +78,8 @@
 ;;
 
 ;;; Require
-
 (require 'tabbar)
+(require 'helm)
 
 ;;; Code:
 
