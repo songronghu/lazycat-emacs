@@ -137,24 +137,40 @@ Default is t."
 
 (setq tabbar-buffer-list-function 'tabbar-filter-buffer-list)
 
-(defun tabbar-buffer-groups-by-project ()
+(defun tabbar-buffer-groups-by-smart ()
+  "Mixin multiple rules.
+
+Group tabbar with mode if buffer is derived from `eshell-mode' `emacs-lisp-mode' `dired-mode' `org-mode' `magit-mode'.
+All buffer name start with * will group to \"Emacs\".
+Other buffer group by `projectile-project-p' with project name."
   (list
    (cond
     ((derived-mode-p 'eshell-mode)
      "EShell")
-    ((string-equal "*" (substring (buffer-name) 0 1))
-     "Emacs")
-    ((memq major-mode '(org-mode org-agenda-mode diary-mode))
-     "OrgMode")
+    ((derived-mode-p 'emacs-lisp-mode)
+     "Elisp")
     ((derived-mode-p 'dired-mode)
      "Dired")
+    ((memq major-mode '(org-mode org-agenda-mode diary-mode))
+     "OrgMode")
+    ((memq major-mode '(magit-process-mode
+                        magit-status-mode
+                        magit-diff-mode
+                        magit-log-mode
+                        magit-file-mode
+                        magit-blob-mode
+                        magit-blame-mode
+                        ))
+     "Magit")
+    ((string-equal "*" (substring (buffer-name) 0 1))
+     "Emacs")
     (t
      (if (projectile-project-p)
          (projectile-project-name)
        "Common"))
     )))
 
-(setq tabbar-buffer-groups-function 'tabbar-buffer-groups-by-project)
+(setq tabbar-buffer-groups-function 'tabbar-buffer-groups-by-smart)
 
 (provide 'init-tabbar)
 
