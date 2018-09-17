@@ -110,11 +110,12 @@
 (require 'helm-for-files)
 (require 'helm-projectile)
 (require 'helm-ring)
-(require 'tabbar-extension)
+(require 'awesome-tab)
 
 ;;; Code:
 
 (setq helm-buffer-max-length 60) ; make filename has enough width to display full name
+(tabbar-build-helm-source)
 
 (defun helm-dwim ()
   (interactive)
