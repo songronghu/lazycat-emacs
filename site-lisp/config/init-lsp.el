@@ -106,6 +106,7 @@
 (setq create-lockfiles nil) ;we will got error "Error from the Language Server: FileNotFoundError" if `create-lockfiles' is non-nil
 
 ;; Python support for lsp-mode using pyls.
+;;
 ;; Install: pip install python-language-server
 ;;
 ;; When type os. in python file, pyls will crash.
@@ -117,6 +118,7 @@
 (add-hook 'python-mode-hook #'lsp-python-enable)
 
 ;; Ruby support for lsp-mode using the solargraph gem.
+;;
 ;; Install: gem install solargraph
 ;; NOTE: and you need put below line in your Gemfile, otherwise lsp-ruby will report tcp error.
 ;;
@@ -125,21 +127,23 @@
 (add-hook 'ruby-mode-hook #'lsp-ruby-enable)
 
 ;; Javascript, Typescript and Flow support for lsp-mode
+;;
 ;; Install: npm i -g javascript-typescript-langserver
-(add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
-(add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
-(add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
-(add-hook 'rjsx-mode #'lsp-javascript-typescript-enable) ;; for rjsx-mode support
+;;
+;; (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
+;; (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
+;; (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
+;; (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable) ;; for rjsx-mode support
 
-(defun lsp-company-transformer (candidates)
-  (let ((completion-ignore-case t))
-    (all-completions (company-grab-symbol) candidates)))
+;; (defun lsp-company-transformer (candidates)
+;;   (let ((completion-ignore-case t))
+;;     (all-completions (company-grab-symbol) candidates)))
 
-(defun lsp-js-hook nil
-  (make-local-variable 'company-transformers)
-  (push 'lsp-company-transformer company-transformers))
+;; (defun lsp-js-hook nil
+;;   (make-local-variable 'company-transformers)
+;;   (push 'lsp-company-transformer company-transformers))
 
-(add-hook 'js-mode-hook 'lsp-js-hook)
+;; (add-hook 'js-mode-hook 'lsp-js-hook)
 
 (provide 'init-lsp)
 

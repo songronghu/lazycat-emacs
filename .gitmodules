@@ -76,3 +76,6 @@
 [submodule "xref-js2"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/xref-js2
 	url = https://github.com/NicolasPetton/xref-js2.git
+[submodule "tide"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/tide
+	url = https://github.com/ananthakumaran/tide.git

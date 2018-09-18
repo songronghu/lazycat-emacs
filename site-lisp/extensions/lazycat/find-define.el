@@ -96,6 +96,7 @@
 ;;; Require
 (require 'elisp-def)
 (require 'dumb-jump)
+(require 'tide)
 
 ;;; Code:
 
@@ -118,8 +119,8 @@
         ;; Need xref-js2
         ((equal major-mode 'rjsx-mode)
          (if (null prefix)
-             (xref--find-definitions (symbol-name (symbol-at-point)) nil)
-           (xref--find-definitions (symbol-name (symbol-at-point)) 'window)))
+             (tide-jump-to-definition)
+           (tide-jump-to-implementation)))
         (t
          (if (null prefix)
              (dumb-jump-go)

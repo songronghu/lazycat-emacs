@@ -102,8 +102,9 @@
 (require 'emmet-extension)
 (require 'paredit-extension)
 (require 'js2-refactor)
-(require 'xref-js2)
 (require 'indium)
+(require 'rjsx-mode)
+(require 'tide)
 
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; OS Config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -150,10 +151,17 @@
   (interactive)
   (one-key-menu "INDIUM" one-key-menu-indium-alist t))
 
-;; xref-js2 find definition is much better than js2-mode.
-(add-hook 'js2-mode-hook
-          '(lambda ()
-             (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+;; Tide
+(dolist (hook (list
+               'js2-mode-hook
+               'rjsx-mode-hook
+               'typescript-mode-hook
+               ))
+  (add-hook hook (lambda ()
+                   (tide-setup)
+                   (unless (tide-current-server)
+                     (tide-restart-server))
+                   )))
 
 ;; Js2-refactor.
 (add-hook 'js2-mode-hook #'js2-refactor-mode)

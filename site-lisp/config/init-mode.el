@@ -167,6 +167,8 @@
 (autoload 'lua-mode "init-lua")
 (autoload 'swift-mode "swift-mode")
 (autoload 'haskell-mode "init-haskell")
+(autoload 'rjsx-mode "init-web-mode")
+(autoload 'js2-mode "init-web-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行
