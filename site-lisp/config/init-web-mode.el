@@ -102,6 +102,7 @@
 (require 'emmet-extension)
 (require 'paredit-extension)
 (require 'js2-refactor)
+(require 'xref-js2)
 (require 'indium)
 
 ;;; Code:
@@ -147,6 +148,11 @@
   "The `one-key' menu for JS-REFACOTRY."
   (interactive)
   (one-key-menu "INDIUM" one-key-menu-indium-alist t))
+
+;; xref-js2 find definition is much better than js2-mode.
+(add-hook 'js2-mode-hook
+          '(lambda ()
+             (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 
 ;; Js2-refactor.
 (add-hook 'js2-mode-hook #'js2-refactor-mode)

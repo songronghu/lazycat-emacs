@@ -73,3 +73,6 @@
 [submodule "awesome-tab"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/awesome-tab
 	url = https://github.com/manateelazycat/awesome-tab.git
+[submodule "xref-js2"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/xref-js2
+	url = https://github.com/NicolasPetton/xref-js2.git

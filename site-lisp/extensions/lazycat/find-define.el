@@ -111,10 +111,15 @@
   (interactive "P")
   (setq find-define-symbol-cache (thing-at-point 'symbol))
   (find-define-remember-position)
-  (cond ((equal 'emacs-lisp-mode major-mode)
+  (cond ((equal major-mode 'emacs-lisp-mode)
          (find-elisp-define prefix))
-        ((equal 'python-mode major-mode)
+        ((equal major-mode 'python-mode)
          (find-python-define prefix))
+        ;; Need xref-js2
+        ((equal major-mode 'rjsx-mode)
+         (if (null prefix)
+             (xref--find-definitions (symbol-name (symbol-at-point)) nil)
+           (xref--find-definitions (symbol-name (symbol-at-point)) 'window)))
         (t
          (if (null prefix)
              (dumb-jump-go)
