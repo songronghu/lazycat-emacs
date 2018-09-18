@@ -118,8 +118,30 @@
             (flycheck-swift-setup)
             ))
 
-;; Don't show missing semi warning in js2-mode.
-(add-hook 'js2-mode-hook
+;; Add flycheck for web with eslint.
+;;
+;; npm install -g eslint
+;;
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode)) ;use web-mode for .jsx files
+
+(add-hook 'rjsx-mode-hook
+          (lambda ()
+            (flycheck-mode 1)
+            ))
+
+(setq-default flycheck-disabled-checkers ;disable json-jsonlist checking for json files
+              (append flycheck-disabled-checkers
+                      '(json-jsonlist)))
+
+(setq-default flycheck-disabled-checkers ;disable jshint since we prefer eslint checking
+              (append flycheck-disabled-checkers
+                      '(javascript-jshint)))
+
+(flycheck-add-mode 'javascript-eslint 'web-mode) ;use eslint with web-mode for jsx files
+
+(setq-default flycheck-temp-prefix ".flycheck") ;customize flycheck temp file prefix
+
+(add-hook 'js2-mode-hook ;don't show missing semi warning in js2-mode.
           (lambda ()
             (setq js2-mode-show-strict-warnings nil)))
 
