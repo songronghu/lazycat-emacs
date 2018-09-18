@@ -126,6 +126,7 @@
                    )))
 ;; Indium.
 (add-hook 'js2-mode-hook #'indium-interaction-mode)
+(define-key indium-interaction-mode-map (kbd "C-c C-l") 'indium-reload)
 
 (defvar one-key-menu-indium-alist nil
   "The `one-key' menu alist for JS-REFACOTRY.")
