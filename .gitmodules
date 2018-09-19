@@ -76,3 +76,6 @@
 [submodule "js2-refactor"]
 	path = site-lisp/extensions/js2-refactor
 	url = https://github.com/magnars/js2-refactor.el.git
+[submodule "cache-path-from-shell"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/cache-path-from-shell
+	url = https://github.com/manateelazycat/cache-path-from-shell.git

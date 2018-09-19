@@ -6,6 +6,7 @@
 
 (with-temp-message ""                   ;抹掉插件启动的输出
   ;; 必须加载的
+  (require 'cache-path-from-shell)
   (require 'lazycat-theme)
   (require 'init-startup)
   (require 'init-flycheck)
