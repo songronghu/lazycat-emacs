@@ -104,6 +104,11 @@
 (setq lsp-enable-eldoc nil) ;we will got error "Wrong type argument: sequencep" from `eldoc-message' if `lsp-enable-eldoc' is non-nil
 (setq lsp-message-project-root-warning t) ;avoid popup warning buffer if lsp can't found root directory (such as edit simple *.py file)
 (setq create-lockfiles nil) ;we will got error "Error from the Language Server: FileNotFoundError" if `create-lockfiles' is non-nil
+(setq lsp--silent-errors
+      '(
+        -32800                          ;default error in lsp-mode
+        -32603                          ;error that type in {...}
+        ))
 
 ;; Python support for lsp-mode using pyls.
 ;;
