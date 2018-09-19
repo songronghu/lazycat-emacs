@@ -1,9 +1,6 @@
 [submodule "lazycat-theme"]
 	path = site-lisp/extensions/lazycat-theme
 	url = https://github.com/manateelazycat/lazycat-theme.git
-[submodule "js2-refactor"]
-	path = site-lisp/extensions/js2-refactor
-	url = https://github.com/magnars/js2-refactor.el.git
 [submodule "sdcv"]
 	path = site-lisp/extensions/sdcv
 	url = https://github.com/manateelazycat/sdcv.git
@@ -73,9 +70,6 @@
 [submodule "awesome-tab"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/awesome-tab
 	url = https://github.com/manateelazycat/awesome-tab.git
-[submodule "xref-js2"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/xref-js2
-	url = https://github.com/NicolasPetton/xref-js2.git
 [submodule "tide"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/tide
 	url = https://github.com/ananthakumaran/tide.git

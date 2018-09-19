@@ -94,7 +94,6 @@
     (when submodule-match-line
       (string-remove-suffix ".path" (string-remove-prefix "submodule." (car (split-string submodule-match-line "=")))))))
 
-;;;###autoload
 (defun magit-submodule-remove (&optional module-name)
   (interactive)
   (let* ((default-directory (caar (magit-list-worktrees)))
@@ -107,14 +106,11 @@
                                          (magit-get-submodule-name submodule-name))))
     ;; Remove the submodule entry from .git/config
     (magit-run-git "submodule" "deinit" "-f" submodule-name)
-
     ;; Delete the submodule entry from .gitmodules file.
     (magit-run-git "config" "-f" ".gitmodules" "--remove-section" (format "submodule.%s" submodule-short-name))
-
     ;; Delete submodule directory.
     (when (file-exists-p submodule-fullpath)
       (delete-directory submodule-fullpath t))
-
     ;; Delete submodule under .git/modules/ directory.
     (when (file-exists-p submodule-modules-path)
       (delete-directory submodule-modules-path t))))

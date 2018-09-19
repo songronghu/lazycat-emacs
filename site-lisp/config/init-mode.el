@@ -138,7 +138,7 @@
                     ("\\.vapi$" . vala-mode)
                     ("\\.rs$" . rust-mode)
                     ("\\.pro$" . qmake-mode)
-                    ("\\.js$" . rjsx-mode)
+                    ("\\.js$" . js-mode)
                     ("\\.lua$" . lua-mode)
                     ("\\.swift$" . swift-mode)
                     ))
@@ -162,13 +162,11 @@
 (autoload 'rust-mode "rust-mode")
 (autoload 'qmake-mode "qmake-mode")
 (autoload 'ruby-mode "init-ruby")
-(autoload 'rjsx-mode "init-reactjs")
 (autoload 'python-mode "init-python")
 (autoload 'lua-mode "init-lua")
 (autoload 'swift-mode "swift-mode")
 (autoload 'haskell-mode "init-haskell")
-(autoload 'rjsx-mode "init-web-mode")
-(autoload 'js2-mode "init-web-mode")
+(autoload 'js-mode "init-web-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行

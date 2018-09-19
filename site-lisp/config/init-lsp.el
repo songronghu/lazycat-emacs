@@ -134,13 +134,12 @@
 ;; npm install -g typescript-language-server
 ;;
 ;; Fixed error "[tsserver] /bin/sh: /usr/local/Cellar/node/10.5.0_1/bin/npm: No such file or directory" :
-;; 
+;;
 ;; sudo ln -s /usr/local/bin/npm /usr/local/Cellar/node/10.5.0_1/bin/npm
 ;;
 (add-hook 'js-mode-hook #'lsp-typescript-enable)
 (add-hook 'typescript-mode-hook #'lsp-typescript-enable) ;; for typescript support
 (add-hook 'js3-mode-hook #'lsp-typescript-enable) ;; for js3-mode support
-(add-hook 'rjsx-mode #'lsp-typescript-enable) ;; for rjsx-mode support
 
 (defun lsp-company-transformer (candidates)
   (let ((completion-ignore-case t))

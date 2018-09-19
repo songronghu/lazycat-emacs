@@ -100,7 +100,6 @@
                'sh-mode-hook
                'makefile-gmake-mode-hook
                'python-mode-hook
-               'js2-mode-hook
                'js-mode-hook
                'html-mode-hook
                'css-mode-hook

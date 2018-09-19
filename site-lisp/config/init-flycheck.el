@@ -124,7 +124,7 @@
 ;;
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode)) ;use web-mode for .jsx files
 
-(add-hook 'rjsx-mode-hook
+(add-hook 'js-mode-hook
           (lambda ()
             (flycheck-mode 1)
             ))
@@ -140,10 +140,6 @@
 (flycheck-add-mode 'javascript-eslint 'web-mode) ;use eslint with web-mode for jsx files
 
 (setq-default flycheck-temp-prefix ".flycheck") ;customize flycheck temp file prefix
-
-(add-hook 'js2-mode-hook ;don't show missing semi warning in js2-mode.
-          (lambda ()
-            (setq js2-mode-show-strict-warnings nil)))
 
 (provide 'init-flycheck)
 

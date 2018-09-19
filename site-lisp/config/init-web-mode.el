@@ -101,9 +101,7 @@
 (require 'emmet-mode)
 (require 'emmet-extension)
 (require 'paredit-extension)
-(require 'js2-refactor)
 (require 'indium)
-(require 'rjsx-mode)
 
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; OS Config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -125,7 +123,7 @@
                    (emmet-mode)
                    )))
 ;; Indium.
-(add-hook 'js2-mode-hook #'indium-interaction-mode)
+(add-hook 'js-mode-hook #'indium-interaction-mode)
 (define-key indium-interaction-mode-map (kbd "C-c C-l") 'indium-reload)
 
 (defvar one-key-menu-indium-alist nil
@@ -149,32 +147,6 @@
   "The `one-key' menu for JS-REFACOTRY."
   (interactive)
   (one-key-menu "INDIUM" one-key-menu-indium-alist t))
-
-;; Js2-refactor.
-(add-hook 'js2-mode-hook #'js2-refactor-mode)
-(setq js2-skip-preprocessor-directives t)
-
-(defvar one-key-menu-js2-refacotry-alist nil
-  "The `one-key' menu alist for JS-REFACOTRY.")
-
-(setq one-key-menu-js2-refacotry-alist
-      '(
-        (("v" . "Rename variable") . js2r-rename-var)
-        (("l" . "Extract variable") . js2r-extract-var)
-        (("t" . "var a to this.a") . js2r-var-to-this)
-        (("c" . "console.log") . js2r-log-this)
-        ))
-
-(defun one-key-menu-js2-refacotry ()
-  "The `one-key' menu for JS-REFACOTRY."
-  (interactive)
-  (one-key-menu "JS-REFACOTRY" one-key-menu-js2-refacotry-alist t))
-
-(lazy-set-mode-autoload-key
- '(
-   ("M-'" . one-key-menu-js2-refacotry)
-   )
- js2-mode-map nil "js2-refactor")
 
 ;; We-mode.
 (lazy-set-key paredit-key-alist web-mode-map)
