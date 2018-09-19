@@ -86,7 +86,7 @@
 (require 'lsp-mode)
 (require 'lsp-ruby)
 (require 'lsp-python)
-(require 'lsp-javascript-typescript)
+(require 'lsp-typescript)
 (require 'company-lsp)
 
 ;;; Code:
@@ -128,22 +128,29 @@
 
 ;; Javascript, Typescript and Flow support for lsp-mode
 ;;
-;; Install: npm i -g javascript-typescript-langserver
+;; Install:
 ;;
-;; (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
-;; (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
-;; (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
-;; (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable) ;; for rjsx-mode support
+;; npm install -g typescript
+;; npm install -g typescript-language-server
+;;
+;; Fixed error "[tsserver] /bin/sh: /usr/local/Cellar/node/10.5.0_1/bin/npm: No such file or directory" :
+;; 
+;; sudo ln -s /usr/local/bin/npm /usr/local/Cellar/node/10.5.0_1/bin/npm
+;;
+(add-hook 'js-mode-hook #'lsp-typescript-enable)
+(add-hook 'typescript-mode-hook #'lsp-typescript-enable) ;; for typescript support
+(add-hook 'js3-mode-hook #'lsp-typescript-enable) ;; for js3-mode support
+(add-hook 'rjsx-mode #'lsp-typescript-enable) ;; for rjsx-mode support
 
-;; (defun lsp-company-transformer (candidates)
-;;   (let ((completion-ignore-case t))
-;;     (all-completions (company-grab-symbol) candidates)))
+(defun lsp-company-transformer (candidates)
+  (let ((completion-ignore-case t))
+    (all-completions (company-grab-symbol) candidates)))
 
-;; (defun lsp-js-hook nil
-;;   (make-local-variable 'company-transformers)
-;;   (push 'lsp-company-transformer company-transformers))
+(defun lsp-js-hook nil
+  (make-local-variable 'company-transformers)
+  (push 'lsp-company-transformer company-transformers))
 
-;; (add-hook 'js-mode-hook 'lsp-js-hook)
+(add-hook 'js-mode-hook 'lsp-js-hook)
 
 (provide 'init-lsp)
 

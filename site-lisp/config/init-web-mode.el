@@ -104,7 +104,6 @@
 (require 'js2-refactor)
 (require 'indium)
 (require 'rjsx-mode)
-(require 'tide)
 
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; OS Config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -150,18 +149,6 @@
   "The `one-key' menu for JS-REFACOTRY."
   (interactive)
   (one-key-menu "INDIUM" one-key-menu-indium-alist t))
-
-;; Tide
-(dolist (hook (list
-               'js2-mode-hook
-               'rjsx-mode-hook
-               'typescript-mode-hook
-               ))
-  (add-hook hook (lambda ()
-                   (tide-setup)
-                   (unless (tide-current-server)
-                     (tide-restart-server))
-                   )))
 
 ;; Js2-refactor.
 (add-hook 'js2-mode-hook #'js2-refactor-mode)

@@ -119,8 +119,8 @@
         ;; Need xref-js2
         ((equal major-mode 'rjsx-mode)
          (if (null prefix)
-             (tide-jump-to-definition)
-           (tide-jump-to-implementation)))
+             (xref--find-definitions (symbol-name (symbol-at-point)) nil)
+           (xref--find-definitions (symbol-name (symbol-at-point)) 'window)))
         (t
          (if (null prefix)
              (dumb-jump-go)
