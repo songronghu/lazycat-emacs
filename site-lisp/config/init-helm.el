@@ -109,6 +109,7 @@
 (require 'helm-c-yasnippet)
 (require 'helm-for-files)
 (require 'helm-projectile)
+(require 'helm-x-files)
 (require 'helm-ring)
 (require 'awesome-tab)
 
@@ -116,6 +117,12 @@
 
 (setq helm-buffer-max-length 60) ; make filename has enough width to display full name
 (tabbar-build-helm-source)
+
+;; MacOS use spotlight instead locate.
+(defvar helm-source-system
+  (if (featurep 'cocoa)
+      helm-source-mac-spotlight
+    helm-source-locate))
 
 (defun helm-dwim ()
   (interactive)
@@ -134,9 +141,8 @@
                    helm-source-recentf
                    helm-source-projectile-buffers-list
                    helm-source-projectile-files-list
-                   helm-source-projectile-projects
                    helm-source-kill-ring
-                   helm-source-locate
+                   helm-source-system
                    helm-source-yasnippet
                    )))
           (t
@@ -146,7 +152,7 @@
                    helm-source-buffers-list
                    helm-source-recentf
                    helm-source-kill-ring
-                   helm-source-locate
+                   helm-source-system
                    helm-source-yasnippet
                    ))
            ))
