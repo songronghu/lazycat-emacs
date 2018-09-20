@@ -242,29 +242,29 @@
 ;;  '(
 ;;    ("C-x o" . ace-window))
 ;;  "ace-window")
-;;; ### Tabbar ###
+;;; ### Awesome-Tab ###
 ;;; --- 多标签浏览
 (lazy-set-key
  '(
-   ("M-7" . tabbar-backward-tab)              ;移动到后一个标签
-   ("M-8" . tabbar-forward-tab)               ;移动到前一个标签
-   ("M-9" . tabbar-backward-group)            ;移动到后一个标签组
-   ("M-0" . tabbar-forward-group)             ;移动到前一个标签组
-   ("<C-tab>" . tabbar-backward-tab)          ;移动到后一个标签
-   ("<C-S-iso-lefttab>" . tabbar-forward-tab) ;移动到前一个标签
+   ("M-7" . awesome-tab-backward-tab)              ;移动到后一个标签
+   ("M-8" . awesome-tab-forward-tab)               ;移动到前一个标签
+   ("M-9" . awesome-tab-backward-group)            ;移动到后一个标签组
+   ("M-0" . awesome-tab-forward-group)             ;移动到前一个标签组
+   ("<C-tab>" . awesome-tab-backward-tab)          ;移动到后一个标签
+   ("<C-S-iso-lefttab>" . awesome-tab-forward-tab) ;移动到前一个标签
    ))
 (lazy-set-autoload-key
  '(
-   ("M-&" . tabbar-backward-tab-other-window)
-   ("M-*" . tabbar-forward-tab-other-window)
-   ("M-s-7" . tabbar-select-beg-tab)
-   ("M-s-8" . tabbar-select-end-tab)
-   ("s-Q" . tabbar-kill-all-buffers-in-current-group)
-   ("s-W" . tabbar-kill-match-buffers-in-current-group)
-   ("s-w" . tabbar-keep-match-buffers-in-current-group)
-   ("C-S-s-q" . tabbar-kill-all-buffers-in-current-group)
+   ("M-&" . awesome-tab-backward-tab-other-window)
+   ("M-*" . awesome-tab-forward-tab-other-window)
+   ("M-s-7" . awesome-tab-select-beg-tab)
+   ("M-s-8" . awesome-tab-select-end-tab)
+   ("s-Q" . awesome-tab-kill-all-buffers-in-current-group)
+   ("s-W" . awesome-tab-kill-match-buffers-in-current-group)
+   ("s-w" . awesome-tab-keep-match-buffers-in-current-group)
+   ("C-S-s-q" . awesome-tab-kill-all-buffers-in-current-group)
    )
- "tabbar-extension")
+ "awesome-tab-extension")
 ;;; ### Functin key ###
 ;;; --- 功能函数
 (lazy-set-key

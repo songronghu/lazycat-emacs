@@ -116,7 +116,7 @@
 ;;; Code:
 
 (setq helm-buffer-max-length 60) ; make filename has enough width to display full name
-(tabbar-build-helm-source)
+(awesome-tab-build-helm-source)
 
 ;; MacOS use spotlight instead locate.
 (defvar helm-source-system
@@ -136,7 +136,7 @@
            (projectile-project-p)
            (setq helm-source-list
                  '(
-                   helm-source-tabbar-group
+                   helm-source-awesome-tab-group
                    helm-source-buffers-list
                    helm-source-recentf
                    helm-source-projectile-buffers-list
@@ -148,7 +148,7 @@
           (t
            (setq helm-source-list
                  '(
-                   helm-source-tabbar-group
+                   helm-source-awesome-tab-group
                    helm-source-buffers-list
                    helm-source-recentf
                    helm-source-kill-ring

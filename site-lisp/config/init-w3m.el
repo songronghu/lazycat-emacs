@@ -154,8 +154,8 @@
    ("x" . w3m-zoom-out-image)              ;缩小图片
    ("f" . w3m-view-this-url)               ;在当前标签打开
    ("o" . w3m-view-this-url-new-session)   ;在后台标签打开
-   ("m" . tabbar-forward-tab)              ;切换到右边的标签
-   ("n" . tabbar-backward-tab)             ;切换到左边的标签
+   ("m" . awesome-tab-forward-tab)              ;切换到右边的标签
+   ("n" . awesome-tab-backward-tab)             ;切换到左边的标签
    ("b" . w3m-history)                     ;历史
    ("D" . w3m-dtree)                       ;显示本地目录树
    ("B" . w3m-view-previous-page)          ;后退
