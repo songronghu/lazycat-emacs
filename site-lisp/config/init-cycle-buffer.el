@@ -115,7 +115,6 @@
         (("g" . "Golang") . (lambda () (interactive) (cycle-buffer-in-special-mode 'go-mode)))
         (("q" . "QML") . (lambda () (interactive) (cycle-buffer-in-special-mode 'qml-mode)))
         (("v" . "Vala") . (lambda () (interactive) (cycle-buffer-in-special-mode 'vala-mode)))
-        (("u" . "Lisp") . (lambda () (interactive) (cycle-buffer-in-special-mode-except-buffer 'lisp-mode " *slime-fontify*")))
         ))
 
 (defun one-key-menu-cycle-buffer ()
