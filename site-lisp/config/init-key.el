@@ -255,12 +255,14 @@
    ))
 (lazy-set-autoload-key
  '(
-   ("M-&" . tabbar-backward-tab-other-window) ;向前移动其他窗口的标签
-   ("M-*" . tabbar-forward-tab-other-window)  ;向后移动其他窗口的标签
-   ("M-s-7" . tabbar-select-beg-tab)          ;移动到最左边的标签
-   ("M-s-8" . tabbar-select-end-tab)          ;移动到最右边的标签
-   ("s-Q" . tabbar-kill-all-buffers-in-current-group) ;关闭当前组所有标签
-   ("C-S-s-q" . tabbar-kill-all-buffers-in-current-group) ;关闭当前组所有标签
+   ("M-&" . tabbar-backward-tab-other-window)
+   ("M-*" . tabbar-forward-tab-other-window)
+   ("M-s-7" . tabbar-select-beg-tab)
+   ("M-s-8" . tabbar-select-end-tab)
+   ("s-Q" . tabbar-kill-all-buffers-in-current-group)
+   ("s-W" . tabbar-kill-match-buffers-in-current-group)
+   ("s-w" . tabbar-keep-match-buffers-in-current-group)
+   ("C-S-s-q" . tabbar-kill-all-buffers-in-current-group)
    )
  "tabbar-extension")
 ;;; ### Functin key ###
@@ -395,7 +397,6 @@
 (lazy-set-autoload-key
  '(
    ("C-z C-z" . w3m)                    ;启动W3M
-   ("s-W" . one-key-menu-w3m-search)    ;w3m 搜索菜单
    )
  "init-w3m")
 (lazy-set-autoload-key
