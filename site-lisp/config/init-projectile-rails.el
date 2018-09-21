@@ -104,6 +104,7 @@
         (("r" . "Routes") . (lambda () (interactive) (projectile-rails-goto-routes)))
         (("g" . "Gemfile") . (lambda () (interactive) (projectile-rails-goto-gemfile)))
         (("t" . "Template") . (lambda () (interactive) (projectile-rails-goto-template-at-point)))
+        (("j" . "Visit Javascript") . (lambda () (interactive) (projectile-rails-goto-app-javascript-dir)))
         (("s" . "Seeds") . (lambda () (interactive) (projectile-rails-goto-seeds)))
         (("h" . "Helper") . (lambda () (interactive) (projectile-rails-find-current-helper)))
         (("v" . "Current View") . (lambda () (interactive) (projectile-rails-find-current-view)))
@@ -121,6 +122,11 @@
   "The `one-key' menu for DIRECTORY."
   (interactive)
   (one-key-menu "PROJECTILE RAILS" one-key-projectile-rails-alist t))
+
+(defun projectile-rails-goto-app-javascript-dir ()
+  "Visit Javascript directory."
+  (interactive)
+  (projectile-rails-goto-file "app/javascript/controllers"))
 
 (provide 'init-projectile-rails)
 
