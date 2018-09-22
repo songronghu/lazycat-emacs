@@ -23,6 +23,16 @@
         ("i" . sdcv-search-input)       ;输入的单词, buffer显示
         (";" . sdcv-search-input+)))    ;输入的单词, tooltip显示
 (lazy-set-prefix-autoload-key sdcv-key-alist nil "C-z" "init-sdcv")
+;;; ### Insert translated name ###
+(defvar insert-translated-name-key-alist nil
+  "The key alist that insert-translated-name.")
+(setq insert-translated-name-key-alist
+      '(
+        ("m" . insert-translated-name)
+        ("," . insert-translated-name-with-underline)
+        ("." . insert-translated-name-with-camel)
+        ))
+(lazy-set-prefix-autoload-key insert-translated-name-key-alist nil "C-z" "insert-translated-name")
 ;; Dash.
 (defvar dash-key-alist nil
   "The key alist that dash.")

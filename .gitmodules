@@ -79,3 +79,6 @@
 [submodule "cache-path-from-shell"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/cache-path-from-shell
 	url = https://github.com/manateelazycat/cache-path-from-shell.git
+[submodule "insert-translated-name"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/insert-translated-name
+	url = https://github.com/manateelazycat/insert-translated-name.git
