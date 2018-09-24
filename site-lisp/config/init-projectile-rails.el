@@ -89,7 +89,6 @@
 (require 'projectile)
 (require 'projectile-rails)
 (require 'rake)
-(require 'rails-lib)
 (require 'color-rg)
 
 ;;; Code:
