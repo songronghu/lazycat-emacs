@@ -82,3 +82,6 @@
 [submodule "insert-translated-name"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/insert-translated-name
 	url = https://github.com/manateelazycat/insert-translated-name.git
+[submodule "pyim"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/pyim
+	url = https://github.com/tumashu/pyim.git

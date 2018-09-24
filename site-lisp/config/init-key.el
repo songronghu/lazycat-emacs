@@ -787,4 +787,9 @@
    ("s-x i" . one-key-menu-indium))
  "init-web-mode")
 
+(lazy-set-autoload-key
+ '(
+   ("s-m" . toggle-input-method))
+ "init-pyim")
+
 (provide 'init-key)

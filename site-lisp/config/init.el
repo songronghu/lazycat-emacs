@@ -47,6 +47,7 @@
        (require 'browse-kill-ring)
        (require 'elf-mode)
 
+       (require 'init-pyim)
        (require 'init-tempbuf)
        (require 'init-eldoc)
        (require 'init-doxymacs)
