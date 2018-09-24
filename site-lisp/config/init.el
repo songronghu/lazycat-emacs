@@ -36,6 +36,7 @@
   (require 'init-key)
   (require 'init-generic)
   (require 'init-auto-indent-mode)
+  (require 'init-pyim)
   (unless (featurep 'cocoa)
     (require 'init-minibuffer-tray))
 
@@ -47,7 +48,6 @@
        (require 'browse-kill-ring)
        (require 'elf-mode)
 
-       (require 'init-pyim)
        (require 'init-tempbuf)
        (require 'init-eldoc)
        (require 'init-doxymacs)
