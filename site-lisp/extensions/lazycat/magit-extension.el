@@ -87,88 +87,88 @@
 
 ;;; Code:
 
-(defun magit-get-submodule-short-name (path)
-  "Return short name of submodule path."
-  (let* ((submodule-lines (magit-git-lines "config" "--list" "-f" ".gitmodules"))
-         (submodule-match-line (car (seq-filter (lambda (l) (string-match (format "submodule.*.path=%s" path) l)) submodule-lines))))
-    (when submodule-match-line
-      (string-remove-suffix ".path" (string-remove-prefix "submodule." (car (split-string submodule-match-line "=")))))))
+;; (defun magit-get-submodule-short-name (path)
+;;   "Return short name of submodule path."
+;;   (let* ((submodule-lines (magit-git-lines "config" "--list" "-f" ".gitmodules"))
+;;          (submodule-match-line (car (seq-filter (lambda (l) (string-match (format "submodule.*.path=%s" path) l)) submodule-lines))))
+;;     (when submodule-match-line
+;;       (string-remove-suffix ".path" (string-remove-prefix "submodule." (car (split-string submodule-match-line "=")))))))
 
-(defun magit-submodule-remove (&optional module-name)
-  (interactive)
-  (let* ((default-directory (caar (magit-list-worktrees)))
-         (submodule-name (or module-name (completing-read "Remove submodule: " (magit-list-module-paths))))
-         (submodule-short-name (magit-get-submodule-short-name submodule-name))
-         (submodule-fullpath (concat default-directory submodule-name))
-         (submodule-modules-path (concat default-directory
-                                         (file-name-as-directory ".git")
-                                         (file-name-as-directory "modules")
-                                         (magit-get-submodule-name submodule-name))))
-    ;; Remove the submodule entry from .git/config
-    (magit-run-git "submodule" "deinit" "-f" submodule-name)
-    ;; Delete the submodule entry from .gitmodules file.
-    (magit-run-git "config" "-f" ".gitmodules" "--remove-section" (format "submodule.%s" submodule-short-name))
-    ;; Delete submodule directory.
-    (when (file-exists-p submodule-fullpath)
-      (delete-directory submodule-fullpath t))
-    ;; Delete submodule under .git/modules/ directory.
-    (when (file-exists-p submodule-modules-path)
-      (delete-directory submodule-modules-path t))))
+;; (defun magit-submodule-remove (&optional module-name)
+;;   (interactive)
+;;   (let* ((default-directory (caar (magit-list-worktrees)))
+;;          (submodule-name (or module-name (completing-read "Remove submodule: " (magit-list-module-paths))))
+;;          (submodule-short-name (magit-get-submodule-short-name submodule-name))
+;;          (submodule-fullpath (concat default-directory submodule-name))
+;;          (submodule-modules-path (concat default-directory
+;;                                          (file-name-as-directory ".git")
+;;                                          (file-name-as-directory "modules")
+;;                                          (magit-get-submodule-name submodule-name))))
+;;     ;; Remove the submodule entry from .git/config
+;;     (magit-run-git "submodule" "deinit" "-f" submodule-name)
+;;     ;; Delete the submodule entry from .gitmodules file.
+;;     (magit-run-git "config" "-f" ".gitmodules" "--remove-section" (format "submodule.%s" submodule-short-name))
+;;     ;; Delete submodule directory.
+;;     (when (file-exists-p submodule-fullpath)
+;;       (delete-directory submodule-fullpath t))
+;;     ;; Delete submodule under .git/modules/ directory.
+;;     (when (file-exists-p submodule-modules-path)
+;;       (delete-directory submodule-modules-path t))))
 
-(defun magit-submodule-add (url &optional path name args)
-  "Add the repository at URL as a module.
+;; (defun magit-submodule-add (url &optional path name args)
+;;   "Add the repository at URL as a module.
 
-Optional PATH is the path to the module relative to the root of
-the superproject.  If it is nil, then the path is determined
-based on the URL.  Optional NAME is the name of the module.  If
-it is nil, then PATH also becomes the name."
-  (interactive
-   (magit-with-toplevel
-     (let* ((url (magit-read-string-ns "Add submodule (remote url)"))
-            (path (let ((read-file-name-function
-                         (if (or (eq read-file-name-function 'ido-read-file-name)
-                                 (advice-function-member-p
-                                  'ido-read-file-name
-                                  read-file-name-function))
-                             ;; The Ido variant doesn't work properly here.
-                             #'read-file-name-default
-                           read-file-name-function)))
-                    (directory-file-name
-                     (file-relative-name
-                      (read-directory-name
-                       "Add submodules at path: " nil nil nil
-                       (and (string-match "\\([^./]+\\)\\(\\.git\\)?$" url)
-                            (match-string 1 url))))))))
-       (list url
-             (directory-file-name path)
-             (magit-submodule-read-name-for-path path)
-             (magit-submodule-filtered-arguments "--force")))))
-  (magit-with-toplevel
-    (magit-run-git-async "submodule" "add"
-                         (and name (list "--name" name))
-                         args "--" url path)
-    (set-process-sentinel
-     magit-this-process
-     (lambda (process event)
-       (when (memq (process-status process) '(exit signal))
-         (if (> (process-exit-status process) 0)
-             (magit-process-sentinel process event)
-           (process-put process 'inhibit-refresh t)
-           (magit-process-sentinel process event)
-           (unless (version< (magit-git-version) "2.12.0")
-             (magit-call-git "submodule" "absorbgitdirs" path))))))))
+;; Optional PATH is the path to the module relative to the root of
+;; the superproject.  If it is nil, then the path is determined
+;; based on the URL.  Optional NAME is the name of the module.  If
+;; it is nil, then PATH also becomes the name."
+;;   (interactive
+;;    (magit-with-toplevel
+;;      (let* ((url (magit-read-string-ns "Add submodule (remote url)"))
+;;             (path (let ((read-file-name-function
+;;                          (if (or (eq read-file-name-function 'ido-read-file-name)
+;;                                  (advice-function-member-p
+;;                                   'ido-read-file-name
+;;                                   read-file-name-function))
+;;                              ;; The Ido variant doesn't work properly here.
+;;                              #'read-file-name-default
+;;                            read-file-name-function)))
+;;                     (directory-file-name
+;;                      (file-relative-name
+;;                       (read-directory-name
+;;                        "Add submodules at path: " nil nil nil
+;;                        (and (string-match "\\([^./]+\\)\\(\\.git\\)?$" url)
+;;                             (match-string 1 url))))))))
+;;        (list url
+;;              (directory-file-name path)
+;;              (magit-submodule-read-name-for-path path)
+;;              (magit-submodule-filtered-arguments "--force")))))
+;;   (magit-with-toplevel
+;;     (magit-run-git-async "submodule" "add"
+;;                          (and name (list "--name" name))
+;;                          args "--" url path)
+;;     (set-process-sentinel
+;;      magit-this-process
+;;      (lambda (process event)
+;;        (when (memq (process-status process) '(exit signal))
+;;          (if (> (process-exit-status process) 0)
+;;              (magit-process-sentinel process event)
+;;            (process-put process 'inhibit-refresh t)
+;;            (magit-process-sentinel process event)
+;;            (unless (version< (magit-git-version) "2.12.0")
+;;              (magit-call-git "submodule" "absorbgitdirs" path))))))))
 
-(defun magit-get-submodule-url (path)
-  "Return url of submodule path."
-  (let* ((submodule-lines (magit-git-lines "config" "--list" "-f" ".gitmodules"))
-         (submodule-match-line (car (seq-filter (lambda (l) (string-match (format "submodule.*.path=%s" path) l)) submodule-lines)))
-         submodule-url-title
-         submodule-url-string)
-    (when submodule-match-line
-      (let* ((submodule-url-title (replace-regexp-in-string ".path$" ".url" (car (split-string submodule-match-line "="))))
-             (submodule-url-string (car (seq-filter (lambda (l) (string-match (format "%s=*" submodule-url-title) l)) submodule-lines))))
-        (when submodule-url-string
-          (replace-regexp-in-string "submodule.*url=" "" submodule-url-string))))))
+;; (defun magit-get-submodule-url (path)
+;;   "Return url of submodule path."
+;;   (let* ((submodule-lines (magit-git-lines "config" "--list" "-f" ".gitmodules"))
+;;          (submodule-match-line (car (seq-filter (lambda (l) (string-match (format "submodule.*.path=%s" path) l)) submodule-lines)))
+;;          submodule-url-title
+;;          submodule-url-string)
+;;     (when submodule-match-line
+;;       (let* ((submodule-url-title (replace-regexp-in-string ".path$" ".url" (car (split-string submodule-match-line "="))))
+;;              (submodule-url-string (car (seq-filter (lambda (l) (string-match (format "%s=*" submodule-url-title) l)) submodule-lines))))
+;;         (when submodule-url-string
+;;           (replace-regexp-in-string "submodule.*url=" "" submodule-url-string))))))
 
 (provide 'magit-extension)
 

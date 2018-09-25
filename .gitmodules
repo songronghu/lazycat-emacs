@@ -85,3 +85,6 @@
 [submodule "pyim"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/pyim
 	url = https://github.com/tumashu/pyim.git
+[submodule "eyebrowse"]
+	path = site-lisp/extensions/eyebrowse
+	url = https://github.com/wasamasa/eyebrowse.git

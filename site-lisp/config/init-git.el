@@ -123,7 +123,7 @@
         (("l" . "Magit log") . magit-log-all)
         (("b" . "Magit blame") . magit-blame)
         (("B" . "Magit buffer") . magit-process-buffer)
-        (("m" . "Magit submodule add") . magit-submodule-add+)
+        (("m" . "Magit submodule add") . magit-submodule-add)
         (("d" . "Magit submodule remove") . magit-submodule-remove)
         (("M" . "Magit submodule list") . magit-list-submodules)
         (("D" . "Magit discarded") . magit-discard)
