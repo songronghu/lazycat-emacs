@@ -163,7 +163,7 @@
 
 (defun magit-submodule-remove+ ()
   (interactive)
-  (magit-submodule-remove (magit-read-module-path "Remove module: ") "--force" ))
+  (magit-submodule-remove (list (magit-read-module-path "Remove module")) "--force" nil))
 
 (defun magit-status+ ()
   (interactive)
