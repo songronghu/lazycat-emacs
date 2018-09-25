@@ -102,14 +102,6 @@
         ("B"   3 magit-repolist-column-branches                 ((:right-align t)))
         ("S"   3 magit-repolist-column-stashes                  ((:right-align t)))))
 
-;; Make `magit-blame' always with sidebar style.
-(setq magit-blame--style
-      '(margin
-        (margin-format " %s%f" " %C %a" " %H")
-        (margin-width . 42)
-        (margin-face . magit-blame-margin)
-        (margin-body-face magit-blame-dimmed)))
-
 (defvar one-key-menu-magit-alist nil
   "The `one-key' menu alist for MAGIT.")
 
@@ -120,7 +112,7 @@
         (("u" . "Magit push") . magit-push-current-to-upstream)
         (("i" . "Magit pull") . magit-pull-from-upstream)
         (("l" . "Magit log") . magit-log-all)
-        (("b" . "Magit blame") . magit-blame)
+        (("b" . "Magit blame") . magit-blame+)
         (("B" . "Magit buffer") . magit-process-buffer)
         (("m" . "Magit submodule add") . magit-submodule-add+)
         (("d" . "Magit submodule remove") . magit-submodule-remove+)
@@ -169,6 +161,16 @@
   (interactive)
   (magit-status)
   (other-window 1))
+
+(defun magit-blame+ ()
+  (interactive)
+  (setq magit-blame--style
+        '(margin
+          (margin-format " %s%f" " %C %a" " %H")
+          (margin-width . 42)
+          (margin-face . magit-blame-margin)
+          (margin-body-face magit-blame-dimmed)))
+  (magit-blame))
 
 (provide 'init-git)
 
