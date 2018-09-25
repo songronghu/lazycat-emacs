@@ -14,11 +14,11 @@
   (require 'one-key)
   (require 'paredit)
   (require 'paredit-extension)
-  (require 'awesome-tab)
   (require 'basic-toolkit)
   (require 'redo)
   (require 'highlight-parentheses)
 
+  (require 'init-awesome-tab)
   (require 'init-backup)
   (require 'init-smex)
   (require 'init-line-number)
