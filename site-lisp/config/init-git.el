@@ -85,7 +85,6 @@
 ;;; Code:
 
 (require 'magit)
-(require 'magit-extension)
 
 ;; Magit configuration.
 (setq magit-commit-ask-to-stage nil)    ;don't ask stage question
@@ -123,8 +122,8 @@
         (("l" . "Magit log") . magit-log-all)
         (("b" . "Magit blame") . magit-blame)
         (("B" . "Magit buffer") . magit-process-buffer)
-        (("m" . "Magit submodule add") . magit-submodule-add)
-        (("d" . "Magit submodule remove") . magit-submodule-remove)
+        (("m" . "Magit submodule add") . magit-submodule-add+)
+        (("d" . "Magit submodule remove") . magit-submodule-remove+)
         (("M" . "Magit submodule list") . magit-list-submodules)
         (("D" . "Magit discarded") . magit-discard)
         (("," . "Magit init") . magit-init)
@@ -161,6 +160,10 @@
    url
    (concat (file-name-as-directory lazycat-emacs-extension-dir) (file-name-base url))
    (file-name-base url)))
+
+(defun magit-submodule-remove+ ()
+  (interactive)
+  (magit-submodule-remove (magit-read-module-path "Remove module: ") "--force" ))
 
 (defun magit-status+ ()
   (interactive)
