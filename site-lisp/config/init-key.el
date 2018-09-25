@@ -232,8 +232,7 @@
 ;;; ### Multi-Scratch
 (lazy-set-autoload-key
  '(
-   ("s-a" . multi-scratch-new)
-   ("s-A" . multi-scratch-next)
+   ("s-Q" . multi-scratch-new)
    )
  "multi-scratch")
 (lazy-set-autoload-key
@@ -274,7 +273,8 @@
    ("M-*" . awesome-tab-forward-tab-other-window)
    ("M-s-7" . awesome-tab-select-beg-tab)
    ("M-s-8" . awesome-tab-select-end-tab)
-   ("s-Q" . awesome-tab-kill-all-buffers-in-current-group)
+   ("s-a" . awesome-tab-kill-other-buffers-in-current-group)
+   ("s-A" . awesome-tab-kill-all-buffers-in-current-group)
    ("s-W" . awesome-tab-kill-match-buffers-in-current-group)
    ("s-w" . awesome-tab-keep-match-buffers-in-current-group)
    ("C-S-s-q" . awesome-tab-kill-all-buffers-in-current-group)
