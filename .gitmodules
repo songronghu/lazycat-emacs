@@ -85,3 +85,6 @@
 [submodule "emacs-rails"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/emacs-rails
 	url = https://github.com/manateelazycat/emacs-rails.git
+[submodule "insert-translated-name"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/insert-translated-name
+	url = https://github.com/manateelazycat/insert-translated-name.git
