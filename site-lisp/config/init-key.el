@@ -163,7 +163,6 @@
    ("s-c g" . move-buffer-file)              ;更改当前文件的目录
    ("s-c n" . copy-buffer-file-name-as-kill) ;拷贝buffer名字
    ("C-M-;" . kill-other-window-buffer)      ;关闭其他窗口的buffer
-   ("s-q" . kill-current-mode-buffers-except-current) ;关闭当前模式所有buffers, 除了当前buffer
    )
  "buffer-extension")
 ;;; ### Buffer Edit ###
@@ -233,6 +232,7 @@
 (lazy-set-autoload-key
  '(
    ("s-Q" . multi-scratch-new)
+   ("C-S-s-q" . multi-scratch-new)
    )
  "multi-scratch")
 (lazy-set-autoload-key
@@ -275,9 +275,8 @@
    ("M-s-8" . awesome-tab-select-end-tab)
    ("s-a" . awesome-tab-kill-other-buffers-in-current-group)
    ("s-A" . awesome-tab-kill-all-buffers-in-current-group)
-   ("s-W" . awesome-tab-kill-match-buffers-in-current-group)
    ("s-w" . awesome-tab-keep-match-buffers-in-current-group)
-   ("C-S-s-q" . awesome-tab-kill-all-buffers-in-current-group)
+   ("s-W" . awesome-tab-kill-match-buffers-in-current-group)
    )
  "awesome-tab-extension")
 ;;; ### Functin key ###
