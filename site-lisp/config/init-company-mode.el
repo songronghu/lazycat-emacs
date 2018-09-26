@@ -114,9 +114,10 @@
 
 ;; Config for company mode.
 (global-company-mode)
-(setq company-idle-delay 0.2)
-(setq company-minimum-prefix-length 1)
-(setq company-show-numbers nil)
+(setq company-idle-delay 0.2)   ; set the completion menu pop-up delay
+(setq company-minimum-prefix-length 1) ; pop up a completion menu by tapping a character
+(setq company-show-numbers nil)   ; do not display numbers on the left
+(setq company-require-match nil) ; allow input string that do not match candidate words
 
 ;; ;; Customize company backends.
 (push 'company-files company-backends)
@@ -155,6 +156,7 @@
    ("M-S" . company-filter-candidates)
    ("M-n" . company-select-next)
    ("M-p" . company-select-previous)
+   ("M-i" . yas-expand)
    )
  company-active-map)
 
