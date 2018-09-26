@@ -31,12 +31,12 @@
         ("," . insert-translated-name-insert-with-underline)
         ("." . insert-translated-name-insert-with-camel)
         ))
-(lazy-set-prefix-autoload-key insert-translated-name-key-alist nil "C-z" "insert-translated-name")
+(lazy-set-prefix-autoload-key insert-translated-name-key-alist nil "C-z" "init-insert-translated-name")
 (lazy-set-autoload-key
  '(
    ("s-i" . insert-translated-name-insert)
    )
- "insert-translated-name")
+ "init-insert-translated-name")
 ;; Dash.
 (defvar dash-key-alist nil
   "The key alist that dash.")
