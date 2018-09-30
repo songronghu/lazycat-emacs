@@ -13,6 +13,11 @@
         ("l" . forward-char)            ;向前移动
         ("e" . scroll-down)             ;向下滚动一屏
         ("SPC" . scroll-up)))           ;向上滚动一屏
+
+(add-hook 'eww-mode-hook
+          '(lambda ()
+             (lazy-set-key vi-move-key-alist eww-mode-map)
+             (lazy-set-key sdcv-key-alist eww-mode-map)))
 ;;; ### Sdcv ###
 ;;; --- 星际译王命令行
 (defvar sdcv-key-alist nil
