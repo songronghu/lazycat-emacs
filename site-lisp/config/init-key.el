@@ -2,22 +2,6 @@
 ;;; --- 卸载按键
 (lazy-unset-key                         ;全局按键的卸载
  '("C-x C-f" "C-z" "C-q" "s-W" "s-z" "M-h" "C-x C-c" "C-\\" "s-c" "s-x" "s-v"))
-;;; ### Vi-move ###
-;;; --- Vi式移动
-(defvar vi-move-key-alist nil
-  "The key alist that like vi move.")
-(setq vi-move-key-alist
-      '(("j" . next-line)               ;上一行
-        ("k" . previous-line)           ;下一行
-        ("h" . backward-char)           ;向后移动
-        ("l" . forward-char)            ;向前移动
-        ("e" . scroll-down)             ;向下滚动一屏
-        ("SPC" . scroll-up)))           ;向上滚动一屏
-
-(add-hook 'eww-mode-hook
-          '(lambda ()
-             (lazy-set-key vi-move-key-alist eww-mode-map)
-             (lazy-set-key sdcv-key-alist eww-mode-map)))
 ;;; ### Sdcv ###
 ;;; --- 星际译王命令行
 (defvar sdcv-key-alist nil
@@ -495,26 +479,7 @@
    ("M-L" . isearch-to-lazy-search)     ;切换到lazy-search
    )
  "lazy-search-extension")
-;;; ### Help ###
-;;; --- 帮助模式
-(eval-after-load 'help-mode
-  '(progn
-     (lazy-set-key
-      '(
-        ("J" . scroll-up-one-line)      ;向下滚动一行
-        ("K" . scroll-down-one-line)    ;向上滚动一行
-        ("H" . describe-mode)           ;帮助
-        ("f" . help-go-forward)         ;前一个帮助
-        ("b" . help-go-back)            ;后一个帮助
-        ("y" . sdcv-search-pointer+)    ;翻译
-        ("<tab>" . forward-button)      ;前一个按钮
-        )
-      help-mode-map)
-     (lazy-set-key vi-move-key-alist help-mode-map)
-     ))
-(add-hook 'package-menu-mode-hook
-          '(lambda () (lazy-set-key vi-move-key-alist package-menu-mode-map)))
-;;; ### Helm Packman ###
+;; ### Helm Packman ###
 ;;; --- Pacman 管理工具
 (lazy-set-autoload-key
  '(

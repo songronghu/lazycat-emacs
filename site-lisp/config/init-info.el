@@ -126,8 +126,6 @@
    )
  Info-mode-map
  )
-(lazy-set-key sdcv-key-alist Info-mode-map)    ;sdcv的局部按键绑定
-(lazy-set-key vi-move-key-alist Info-mode-map) ;vi-move 的局部按键
 
 (provide 'init-info)
 

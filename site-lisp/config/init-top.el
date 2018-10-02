@@ -101,8 +101,6 @@
    ("U" . top-mode-show-specific-user))
  top-mode-map
  )
-(lazy-set-key sdcv-key-alist top-mode-map)    ;sdcv 的局部按键
-(lazy-set-key vi-move-key-alist top-mode-map) ;vi-mode的局部按键
 
 (provide 'init-top)
 

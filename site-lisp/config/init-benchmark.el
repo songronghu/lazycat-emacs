@@ -86,9 +86,6 @@
 
 ;;; Code:
 
-(lazy-set-key vi-move-key-alist benchmark-init/tabulated-mode-map) ;vi-mode的局部按键
-(lazy-set-key vi-move-key-alist benchmark-init/tree-mode-map)      ;vi-mode的局部按键
-
 (provide 'init-benchmark)
 
 ;;; init-benchmark.el ends here

@@ -86,6 +86,7 @@
 
 (dolist (hook (list
                'atomic-chrome-edit-mode-hook
+               'markdown-mode-hook
                ))
   (add-hook hook '(lambda () (insert-translated-name-use-original-translation))))
 

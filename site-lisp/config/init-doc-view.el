@@ -130,7 +130,6 @@
    )
  doc-view-mode-map
  )
-(lazy-set-key sdcv-key-alist doc-view-mode-map) ;sdcv的局部按键绑定
 
 (provide 'init-doc-view)
 

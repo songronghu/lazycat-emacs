@@ -1,17 +1,17 @@
-;;; init-less.el --- Init less
+;;; init-vi-navigate.el --- Confiruation for vi-navigate
 
-;; Filename: init-less.el
-;; Description: Init less
-;; Author: Andy Stewart <andy@freedom>
-;; Maintainer: Andy Stewart <andy@freedom>
-;; Copyright (C) 2013, Andy Stewart, all rights reserved.
-;; Created: 2013-12-30 15:38:12
+;; Filename: init-vi-navigate.el
+;; Description: Confiruation for vi-navigate
+;; Author: Andy Stewart <lazycat.manatee@gmail.com>
+;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
+;; Copyright (C) 2018, Andy Stewart, all rights reserved.
+;; Created: 2018-10-02 10:39:09
 ;; Version: 0.1
-;; Last-Updated: 2013-12-30 15:38:12
+;; Last-Updated: 2018-10-02 10:39:09
 ;;           By: Andy Stewart
-;; URL: http://www.emacswiki.org/emacs/download/init-less.el
+;; URL: http://www.emacswiki.org/emacs/download/init-vi-navigate.el
 ;; Keywords:
-;; Compatibility: GNU Emacs 24.3.50.1
+;; Compatibility: GNU Emacs 27.0.50
 ;;
 ;; Features that might be required by this library:
 ;;
@@ -39,19 +39,19 @@
 
 ;;; Commentary:
 ;;
-;; Init less
+;; Confiruation for vi-navigate
 ;;
 
 ;;; Installation:
 ;;
-;; Put init-less.el to your load-path.
+;; Put init-vi-navigate.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'init-less)
+;; (require 'init-vi-navigate)
 ;;
 ;; No need more.
 
@@ -60,12 +60,12 @@
 ;;
 ;;
 ;; All of the above can customize by:
-;;      M-x customize-group RET init-less RET
+;;      M-x customize-group RET init-vi-navigate RET
 ;;
 
 ;;; Change log:
 ;;
-;; 2013/12/30
+;; 2018/10/02
 ;;      * First released.
 ;;
 
@@ -80,27 +80,12 @@
 ;;
 
 ;;; Require
-
-(require 'less)
+(require 'vi-navigate)
 
 ;;; Code:
 
-(lazy-set-key
- '(
-   ("J" . less-scroll-up-one-line)      ;向下浏览
-   ("K" . less-scroll-down-one-line)    ;向上浏览
-   (">" . beginning-of-buffer)          ;BUFFER结尾
-   ("<" . end-of-buffer)                ;BUFFER开始
-   ("q" . less-quit)                    ;退出less模式
-   ("b" . one-key-menu-hideshow)        ;hideshow 菜单
-   ("t" . one-key-menu-etags)           ;Etags 菜单
-   ("dd" . auto-scroll-mode)            ;开始滚屏
-   ("df" . auto-scroll-faster)          ;滚动的快一点
-   ("ds" . auto-scroll-slower)          ;滚动的慢一点
-   )
- less-minor-mode-map
- )
+(vi-navigate-load-keys)
 
-(provide 'init-less)
+(provide 'init-vi-navigate)
 
-;;; init-less.el ends here
+;;; init-vi-navigate.el ends here

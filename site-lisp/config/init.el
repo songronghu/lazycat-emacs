@@ -34,6 +34,7 @@
   (require 'init-iedit)
   (require 'init-visual-regexp)
   (require 'init-key)
+  (require 'init-vi-navigate)
   (require 'init-generic)
   (require 'init-auto-indent-mode)
   (require 'init-pyim)

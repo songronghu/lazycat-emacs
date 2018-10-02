@@ -110,8 +110,6 @@
    )
  apt-utils-mode-map
  )
-(lazy-set-key vi-move-key-alist apt-utils-mode-map) ;vi-move 的局部按键
-
 (defvar one-key-menu-apt-utils-view-alist nil
   "The `one-key' menu alist for APT-UTILS-VIEW.")
 

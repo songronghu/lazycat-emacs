@@ -185,8 +185,6 @@
    )
  apropos-mode-map
  )
-(lazy-set-key sdcv-key-alist apropos-mode-map)    ;sdcv的局部按键绑定
-(lazy-set-key vi-move-key-alist apropos-mode-map) ;vi-move 的局部按键
 
 (provide 'init-help-mode)
 

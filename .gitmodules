@@ -88,3 +88,6 @@
 [submodule "insert-translated-name"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/insert-translated-name
 	url = https://github.com/manateelazycat/insert-translated-name.git
+[submodule "vi-navigate"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/vi-navigate
+	url = https://github.com/manateelazycat/vi-navigate.git

@@ -328,7 +328,6 @@
    )
  emms-playlist-mode-map
  )
-(lazy-set-key vi-move-key-alist emms-playlist-mode-map) ;vi-move 的局部按键
 ;;; ### Emms Tag Editor ###
 ;;; --- Emms 标签编辑器
 (lazy-set-key
@@ -353,8 +352,6 @@
    )
  emms-browser-mode-map
  )
-(lazy-set-key sdcv-key-alist emms-browser-mode-map)    ;sdcv 的局部按键
-(lazy-set-key vi-move-key-alist emms-browser-mode-map) ;vi-move 的局部按键
 ;;; ### EMMS Stream ###
 ;;; --- EMMS 流媒体
 (lazy-set-key
@@ -370,7 +367,6 @@
    )
  emms-stream-mode-map
  )
-(lazy-set-key vi-move-key-alist emms-stream-mode-map) ;vi-move 的局部按键
 
 (provide 'init-emms)
 

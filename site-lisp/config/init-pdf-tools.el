@@ -183,7 +183,6 @@
    )
  pdf-view-mode-map
  )
-(lazy-set-key sdcv-key-alist pdf-view-mode-map) ;sdcv的局部按键绑定
 
 (provide 'init-pdf-tools)
 

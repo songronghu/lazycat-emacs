@@ -99,7 +99,6 @@
    )
  irfc-mode-map
  )
-(lazy-set-key sdcv-key-alist irfc-mode-map)
 
 (provide 'init-irfc)
 
