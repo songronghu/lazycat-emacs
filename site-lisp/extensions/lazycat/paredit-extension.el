@@ -386,6 +386,7 @@ If current line is not blank, do `paredit-kill' first, re-indent line if rest li
        (eq major-mode 'ruby-mode)
        (eq major-mode 'python-mode)
        (eq major-mode 'lua-mode)
+       (eq major-mode 'flex-mode)
        )
       ;; Just do same as `paredit-open-curly' in some mode.
       (paredit-open-curly)

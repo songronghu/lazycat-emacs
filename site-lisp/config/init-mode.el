@@ -141,6 +141,7 @@
                     ("\\.js$" . js-mode)
                     ("\\.lua$" . lua-mode)
                     ("\\.swift$" . swift-mode)
+                    ("\\.l$" . flex-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -167,6 +168,7 @@
 (autoload 'swift-mode "swift-mode")
 (autoload 'haskell-mode "init-haskell")
 (autoload 'js-mode "init-web-mode")
+(autoload 'flex-mode "flex")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行

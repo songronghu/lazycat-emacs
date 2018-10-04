@@ -91,3 +91,6 @@
 [submodule "vi-navigate"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/vi-navigate
 	url = https://github.com/manateelazycat/vi-navigate.git
+[submodule "flex"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/flex
+	url = https://github.com/manateelazycat/flex.git
