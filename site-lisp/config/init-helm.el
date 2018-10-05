@@ -145,6 +145,22 @@
       helm-source-mac-spotlight
     helm-source-locate))
 
+(defun helm-fast ()
+  (interactive)
+  (let ((helm-ff-transformer-show-only-basename nil)
+        helm-source-list)
+    (unless helm-source-buffers-list
+      (setq helm-source-buffers-list
+            (helm-make-source "Buffers" 'helm-source-buffers)))
+    (setq helm-source-list
+          '(
+            helm-source-awesome-tab-group
+            helm-source-buffers-list
+            helm-source-recentf
+            ))
+
+    (helm-other-buffer helm-source-list "*helm search*")))
+
 (defun helm-dwim ()
   (interactive)
   (let ((helm-ff-transformer-show-only-basename nil)
