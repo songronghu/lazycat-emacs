@@ -118,6 +118,27 @@
 (setq helm-buffer-max-length 60) ; make filename has enough width to display full name
 (awesome-tab-build-helm-source)
 
+(defvar helm-source-elisp-library
+  (helm-build-in-buffer-source  "Elisp libraries (Scan)"
+    :data #'helm-locate-library-scan-list
+    :fuzzy-match helm-locate-library-fuzzy-match
+    :keymap helm-generic-files-map
+    :search (unless helm-locate-library-fuzzy-match
+              (lambda (regexp)
+                (re-search-forward
+                 (if helm-ff-transformer-show-only-basename
+                     (replace-regexp-in-string
+                      "\\`\\^" "" regexp)
+                   regexp)
+                 nil t)))
+    :match-part (lambda (candidate)
+                  (if helm-ff-transformer-show-only-basename
+                      (helm-basename candidate) candidate))
+    :filter-one-by-one (lambda (c)
+                         (if helm-ff-transformer-show-only-basename
+                             (cons (helm-basename c) c) c))
+    :action (helm-actions-from-type-file)))
+
 ;; MacOS use spotlight instead locate.
 (defvar helm-source-system
   (if (featurep 'cocoa)
@@ -143,6 +164,7 @@
                    helm-source-projectile-files-list
                    helm-source-kill-ring
                    helm-source-system
+                   helm-source-elisp-library
                    helm-source-yasnippet
                    )))
           (t
@@ -153,6 +175,7 @@
                    helm-source-recentf
                    helm-source-kill-ring
                    helm-source-system
+                   helm-source-elisp-library
                    helm-source-yasnippet
                    ))
            ))
