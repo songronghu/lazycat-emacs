@@ -94,3 +94,6 @@
 [submodule "flex"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/flex
 	url = https://github.com/manateelazycat/flex.git
+[submodule "bison"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/bison
+	url = https://github.com/manateelazycat/bison.git
