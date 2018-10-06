@@ -39,6 +39,7 @@
   (require 'init-auto-indent-mode)
   (require 'init-pyim)
   (require 'init-feebleline)
+  (require 'init-sdcv)
 
   ;; 可以延后加载的
   (run-with-idle-timer
