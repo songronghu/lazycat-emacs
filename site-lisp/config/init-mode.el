@@ -142,6 +142,7 @@
                     ("\\.lua$" . lua-mode)
                     ("\\.swift$" . swift-mode)
                     ("\\.l$" . flex-mode)
+                    ("\\.y$" . bison-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -169,6 +170,7 @@
 (autoload 'haskell-mode "init-haskell")
 (autoload 'js-mode "init-web-mode")
 (autoload 'flex-mode "flex")
+(autoload 'bison-mode "bison")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行
