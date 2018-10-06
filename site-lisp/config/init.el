@@ -38,8 +38,7 @@
   (require 'init-generic)
   (require 'init-auto-indent-mode)
   (require 'init-pyim)
-  (unless (featurep 'cocoa)
-    (require 'init-minibuffer-tray))
+  (require 'init-feebleline)
 
   ;; 可以延后加载的
   (run-with-idle-timer

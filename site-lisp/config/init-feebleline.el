@@ -1,17 +1,17 @@
-;;; init-minibuffer-tray.el --- Init for minibuffer-tray.el
+;;; init-feebleline.el --- Configuration for feebleline
 
-;; Filename: init-minibuffer-tray.el
-;; Description: Init for minibuffer-tray.el
+;; Filename: init-feebleline.el
+;; Description: Configuration for feebleline
 ;; Author: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
-;; Copyright (C) 2014, Andy Stewart, all rights reserved.
-;; Created: 2014-10-07 23:26:04
-;; Version: 0.2
-;; Last-Updated: 2018-06-14 12:57:42
+;; Copyright (C) 2018, Andy Stewart, all rights reserved.
+;; Created: 2018-10-06 20:11:36
+;; Version: 0.1
+;; Last-Updated: 2018-10-06 20:11:36
 ;;           By: Andy Stewart
-;; URL: http://www.emacswiki.org/emacs/download/init-minibuffer-tray.el
+;; URL: http://www.emacswiki.org/emacs/download/init-feebleline.el
 ;; Keywords:
-;; Compatibility: GNU Emacs 24.4.50.1
+;; Compatibility: GNU Emacs 27.0.50
 ;;
 ;; Features that might be required by this library:
 ;;
@@ -39,19 +39,19 @@
 
 ;;; Commentary:
 ;;
-;; Init for minibuffer-tray.el
+;; Configuration for feebleline
 ;;
 
 ;;; Installation:
 ;;
-;; Put init-minibuffer-tray.el to your load-path.
+;; Put init-feebleline.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'init-minibuffer-tray)
+;; (require 'init-feebleline)
 ;;
 ;; No need more.
 
@@ -60,15 +60,12 @@
 ;;
 ;;
 ;; All of the above can customize by:
-;;      M-x customize-group RET init-minibuffer-tray RET
+;;      M-x customize-group RET init-feebleline RET
 ;;
 
 ;;; Change log:
 ;;
-;; 2018/06/14
-;;      * Call `minibuffer-tray-stop-process' when kill emacs.
-;;
-;; 2014/10/07
+;; 2018/10/06
 ;;      * First released.
 ;;
 
@@ -83,14 +80,14 @@
 ;;
 
 ;;; Require
-
-(require 'minibuffer-tray)
+(require 'feebleline)
 
 ;;; Code:
+(feebleline-mode 1)
+(setq feebleline-show-time t)
+(setq feebleline-show-git-branch t)
+(setq feebleline-show-directory nil)
 
-(minibuffer-tray-mode 1)
-(add-hook 'kill-emacs-hook 'minibuffer-tray-stop-process)
+(provide 'init-feebleline)
 
-(provide 'init-minibuffer-tray)
-
-;;; init-minibuffer-tray.el ends here
+;;; init-feebleline.el ends here
