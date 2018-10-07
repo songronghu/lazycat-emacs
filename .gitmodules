@@ -97,6 +97,6 @@
 [submodule "bison"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/bison
 	url = https://github.com/manateelazycat/bison.git
-[submodule "feebleline"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/feebleline
-	url = https://github.com/tautologyclub/feebleline.git
+[submodule "awesome-tray"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/awesome-tray
+	url = https://github.com/manateelazycat/awesome-tray.git

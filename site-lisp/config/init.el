@@ -18,6 +18,7 @@
   (require 'redo)
   (require 'highlight-parentheses)
 
+  (require 'init-awesome-tray)
   (require 'init-awesome-tab)
   (require 'init-backup)
   (require 'init-smex)
@@ -38,8 +39,8 @@
   (require 'init-generic)
   (require 'init-auto-indent-mode)
   (require 'init-pyim)
-  (require 'init-feebleline)
   (require 'init-sdcv)
+  (require 'init-insert-translated-name)
 
   ;; 可以延后加载的
   (run-with-idle-timer
