@@ -129,7 +129,7 @@
 ;;
 ;; gem "solargraph"
 ;;
-(add-hook 'ruby-mode-hook #'lsp-ruby-enable)
+;; (add-hook 'ruby-mode-hook #'lsp-ruby-enable)
 
 ;; Javascript, Typescript and Flow support for lsp-mode
 ;;
