@@ -90,13 +90,6 @@
    )
  python-mode-map nil "python-extension")
 
-(add-hook 'python-mode-hook
-          '(lambda ()
-             ;; Set indent.
-             (setq electric-indent-mode nil)
-             (setq indent-tabs-mode nil)
-             ))
-
 (provide 'init-python)
 
 ;;; init-python.el ends here
