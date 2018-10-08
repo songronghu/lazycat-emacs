@@ -394,7 +394,7 @@
    ("s-n" . aweshell-new)
    ("s-h" . aweshell-toggle)
    )
- "aweshell")
+ "init-aweshell")
 ;;; ### W3m ###
 ;;; --- 网页浏览器
 (lazy-set-autoload-key
