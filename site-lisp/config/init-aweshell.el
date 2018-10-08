@@ -84,7 +84,7 @@
 
 ;;; Code:
 
-(setq aweshell-complete-selection-key "M-H")
+(setq aweshell-complete-selection-key "M-i")
 
 (provide 'init-aweshell)
 
