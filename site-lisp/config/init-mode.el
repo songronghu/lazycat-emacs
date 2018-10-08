@@ -128,6 +128,7 @@
                     ("\\.djhtml\\'" . web-mode)
                     ("\\.html?\\'" . web-mode)
                     ("\\.coffee\\'" . coffee-mode)
+                    ("\\.coffee.erb\\'" . coffee-mode)
                     ("\\.iced\\'" . coffee-mode)
                     ("\\.css\\'" . css-mode)
                     ("Cakefile\\'" . coffee-mode)
