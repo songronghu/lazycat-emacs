@@ -104,13 +104,11 @@
                'apt-utils-mode-hook
                'tuareg-mode-hook
                'go-mode-hook
-               'coffee-mode-hook
                'qml-mode-hook
                'slime-repl-mode-hook
                'package-menu-mode-hook
                'cmake-mode-hook
                'web-mode-hook
-               'coffee-mode-hook
                'sws-mode-hook
                'jade-mode-hook
                'vala-mode-hook
@@ -121,6 +119,7 @@
 ;; Disable aggressive indent in some mode.
 (dolist (hook (list
                'php-mode-hook
+               'coffee-mode-hook
                ))
   (add-hook hook (lambda () (aggressive-indent-mode -1))))
 
