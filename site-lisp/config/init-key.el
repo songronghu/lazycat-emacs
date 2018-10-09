@@ -59,6 +59,7 @@
    ("s-\\" . artist-mode)                   ;绘制模式
    ("C-s-q" . quoted-insert)                ;读取系一个输入字符并插入
    ("M-h" . set-mark-command) ;Instead C-Space for Chinese input method
+   ("M-H" . set-mark-command) ;Instead C-Space for Chinese input method
    ("M-z" . upcase-char)      ;Upcase char handly with capitalize-word
    ("s-p" . insert-standard-date)
    ))
@@ -394,7 +395,7 @@
    ("s-n" . aweshell-new)
    ("s-h" . aweshell-toggle)
    )
- "init-aweshell")
+ "aweshell")
 ;;; ### W3m ###
 ;;; --- 网页浏览器
 (lazy-set-autoload-key
