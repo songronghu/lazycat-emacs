@@ -97,6 +97,7 @@
                'jade-mode-hook
                'css-mode-hook
                'ruby-mode-hook
+               'coffee-mode-hook
                'rust-mode-hook
                'qmake-mode-hook
                'lua-mode-hook

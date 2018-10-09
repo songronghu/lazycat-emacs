@@ -156,7 +156,7 @@
 (autoload 'markdown-mode "markdown-mode")
 (autoload 'php-mode "php-mode")
 (autoload 'web-mode "init-web-mode")
-(autoload 'coffee-mode "init-coffee-mode")
+(autoload 'coffee-mode "coffee-mode")
 (autoload 'sws-mode "sws-mode")
 (autoload 'jade-mode "jade-mode")
 (autoload 'css-mode "init-css-mode")
