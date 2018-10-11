@@ -81,7 +81,6 @@
 
 ;;; Require
 (require 'awesome-tray)
-(require 'magit)
 
 ;;; Code:
 (awesome-tray-mode 1)
