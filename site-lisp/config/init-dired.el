@@ -79,6 +79,7 @@
 (require 'dired+)                       ;增强dired
 (require 'dired-details)                ;Dired详细信息
 (require 'dired-details+)               ;Dired详细消息切换
+(require 'grep-dired)                   ;Dired详细消息切换
 
 ;;; Code:
 
@@ -180,7 +181,7 @@
    ("{" . dired-gnome-open-file)        ;用GNOME方式打开文件
    ("E" . dired-touch-now)              ;Touch命令
    ("f" . dired-find-file+)             ;打开当前文件或目录
-   ("\"" . find-lisp-find-dired-pwd)    ;查找特定的lisp文件
+   ("\"" . grep-dired-dwim)             ;查找特定的lisp文件
    ("C-m" . dired-find-file+)           ;打开当前文件或目录
    )
  dired-mode-map nil "dired-extension")

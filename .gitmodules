@@ -100,3 +100,6 @@
 [submodule "awesome-tray"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/awesome-tray
 	url = https://github.com/manateelazycat/awesome-tray.git
+[submodule "grep-dired"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/grep-dired
+	url = https://github.com/manateelazycat/grep-dired.git
