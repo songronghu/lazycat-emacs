@@ -87,7 +87,6 @@
 
 (require 'windows)
 (require 'cycle-buffer)
-(require 'css-sort-buffer)
 (require 'display-line-numbers)
 
 ;;; Code:
@@ -295,10 +294,6 @@ Optional argument REVERSED default is move next line, if reversed is non-nil mov
   "Automatic format current buffer."
   (interactive)
   (save-excursion
-    (when (or
-           (eq major-mode 'scss-mode)
-           (eq major-mode 'css-mode))
-      (css-sort-buffer))
     (indent-region (point-min) (point-max) nil)
     (delete-trailing-whitespace)
     (untabify (point-min) (point-max))))
