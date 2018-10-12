@@ -108,11 +108,13 @@
 (setq one-key-menu-magit-alist
       '(
         (("s" . "Magit status") . magit-status+)
-        (("c" . "Magit commit") . magit-commit)
+        (("c" . "Magit checkout") . magit-checkout)
+        (("C" . "Magit commit") . magit-commit)
         (("u" . "Magit push") . magit-push-current-to-upstream)
         (("i" . "Magit pull") . magit-pull-from-upstream)
         (("l" . "Magit log") . magit-log-all)
-        (("b" . "Magit blame") . magit-blame+)
+        (("L" . "Magit blame") . magit-blame+)
+        (("b" . "Magit branch") . magit-branch)
         (("B" . "Magit buffer") . magit-process-buffer)
         (("m" . "Magit submodule add") . magit-submodule-add+)
         (("d" . "Magit submodule remove") . magit-submodule-remove+)

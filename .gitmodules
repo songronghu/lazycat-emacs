@@ -103,3 +103,9 @@
 [submodule "grep-dired"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/grep-dired
 	url = https://github.com/manateelazycat/grep-dired.git
+[submodule "json-reformat"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/json-reformat
+	url = https://github.com/gongo/json-reformat.git
+[submodule "restclient.el"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/restclient.el
+	url = https://github.com/pashky/restclient.el.git
