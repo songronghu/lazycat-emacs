@@ -380,6 +380,8 @@ If current line is not blank, do `paredit-kill' first, re-indent line if rest li
 (defun paredit-open-curly-smart ()
   (interactive)
   (if (or
+       (paredit-in-string-p)
+       (paredit-in-comment-p)
        (eq major-mode 'rjsx-mode)
        (eq major-mode 'js-mode)
        (eq major-mode 'js2-mode)
