@@ -109,3 +109,6 @@
 [submodule "restclient.el"]
 	path = /Users/andy/lazycat-emacs/site-lisp/extensions/restclient.el
 	url = https://github.com/pashky/restclient.el.git
+[submodule "helm-projectile"]
+	path = /Users/andy/lazycat-emacs/site-lisp/extensions/helm-projectile
+	url = https://github.com/bbatsov/helm-projectile.git
