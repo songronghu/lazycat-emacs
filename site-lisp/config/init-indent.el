@@ -84,10 +84,8 @@
 ;;; Code:
 
 (defun adjust-languages-indent (n)
-  ;; Java/C/C++
   (setq-local c-basic-offset n)
 
-  ;; Web development
   (setq-local coffee-tab-width n)
   (setq-local javascript-indent-level n)
   (setq-local js-indent-level n)
@@ -106,6 +104,23 @@
   (setq indent-tabs-mode nil)
   (adjust-languages-indent 2))
 
+(defun adjust-languages-indent-for-work ()
+  (setq-local c-basic-offset 2)
+
+  (setq-local coffee-tab-width 2)
+  (setq-local javascript-indent-level 2)
+  (setq-local js-indent-level 2)
+  (setq-local js2-basic-offset 2)
+
+  (setq-local web-mode-attr-indent-offset 2)
+  (setq-local web-mode-attr-value-indent-offset 2)
+  (setq-local web-mode-code-indent-offset 4)
+  (setq-local web-mode-css-indent-offset 2)
+  (setq-local web-mode-markup-indent-offset 4)
+  (setq-local web-mode-sql-indent-offset 2)
+
+  (setq-local css-indent-offset 2))
+
 (dolist (hook (list
                'c-mode-hook
                'c++-mode-hook
@@ -121,7 +136,10 @@
                'scss-mode-hook
                'coffee-mode-hook
                ))
-  (add-hook hook '(lambda () (use-two-spaces-instead-tab))))
+  (add-hook hook '(lambda ()
+                    (setq indent-tabs-mode nil)
+                    (adjust-languages-indent-for-work)
+                    )))
 
 (provide 'init-indent)
 
