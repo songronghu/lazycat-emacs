@@ -112,6 +112,8 @@
         (("C" . "Magit commit") . magit-commit)
         (("u" . "Magit push") . magit-push-current-to-upstream)
         (("i" . "Magit pull") . magit-pull-from-upstream)
+        (("r" . "Magit rebase") . magit-rebase)
+        (("e" . "Magit merge") . magit-merge)
         (("l" . "Magit log") . magit-log-all)
         (("L" . "Magit blame") . magit-blame+)
         (("b" . "Magit branch") . magit-branch)
