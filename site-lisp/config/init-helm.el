@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <andy@freedom>
 ;; Copyright (C) 2013, Andy Stewart, all rights reserved.
 ;; Created: 2013-12-30 16:23:29
-;; Version: 0.7
-;; Last-Updated: 2018-09-03 14:40:31
+;; Version: 0.8
+;; Last-Updated: 2018-10-29 21:05:22
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-helm.el
 ;; Keywords:
@@ -17,7 +17,7 @@
 ;;
 ;; `helm' `helm-buffers'
 ;; `helm-c-yasnippet' `helm-for-files'
-;; `helm-projectile' `helm-ring'
+;; `helm-ring'
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -70,6 +70,9 @@
 
 ;;; Change log:
 ;;
+;; 2018/10-29
+;;      * Use `helm-ls-git' instead `helm-projectile', helm so fast now!!!
+;;
 ;; 2018/09/03
 ;;      * Make filename has enough width to display full name.
 ;;
@@ -108,8 +111,8 @@
 (require 'helm-buffers)
 (require 'helm-c-yasnippet)
 (require 'helm-for-files)
-(require 'helm-projectile)
 (require 'helm-x-files)
+(require 'helm-ls-git)
 (require 'helm-ring)
 (require 'awesome-tab)
 
@@ -145,7 +148,7 @@
       helm-source-mac-spotlight
     helm-source-locate))
 
-(defun helm-fast ()
+(defun helm-dwim ()
   (interactive)
   (let ((helm-ff-transformer-show-only-basename nil)
         helm-source-list)
@@ -155,46 +158,14 @@
     (setq helm-source-list
           '(
             helm-source-awesome-tab-group
+            helm-source-ls-git
             helm-source-buffers-list
             helm-source-recentf
+            helm-source-kill-ring
+            helm-source-system
+            helm-source-elisp-library
+            helm-source-yasnippet
             ))
-
-    (helm-other-buffer helm-source-list "*helm search*")))
-
-(defun helm-dwim ()
-  (interactive)
-  (let ((helm-ff-transformer-show-only-basename nil)
-        helm-source-list)
-    (unless helm-source-buffers-list
-      (setq helm-source-buffers-list
-            (helm-make-source "Buffers" 'helm-source-buffers)))
-    (cond (
-           ;; Just add helm-source-projectile-* in list when current place in project.
-           (projectile-project-p)
-           (setq helm-source-list
-                 '(
-                   helm-source-awesome-tab-group
-                   helm-source-buffers-list
-                   helm-source-recentf
-                   helm-source-projectile-buffers-list
-                   helm-source-projectile-files-list
-                   helm-source-kill-ring
-                   helm-source-system
-                   helm-source-elisp-library
-                   helm-source-yasnippet
-                   )))
-          (t
-           (setq helm-source-list
-                 '(
-                   helm-source-awesome-tab-group
-                   helm-source-buffers-list
-                   helm-source-recentf
-                   helm-source-kill-ring
-                   helm-source-system
-                   helm-source-elisp-library
-                   helm-source-yasnippet
-                   ))
-           ))
     (helm-other-buffer helm-source-list "*helm search*")))
 
 (lazy-set-key

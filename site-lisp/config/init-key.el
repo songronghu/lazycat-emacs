@@ -422,8 +422,6 @@
 (lazy-set-autoload-key
  '(
    ("s-y" . helm-dwim)
-   ("s-u" . helm-fast)
-   ("s-t" . helm-descbinds)
    )
  "init-helm")
 ;;; ### EAF ###
