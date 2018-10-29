@@ -88,7 +88,7 @@
 
 ;;; Code:
 
-(setq sdcv-say-word t)               ;say word after search
+(setq sdcv-say-word-p t)	     ;say word after search
 (setq sdcv-dictionary-simple-list    ;星际译王屏幕取词词典, 简单, 快速
       '("懒虫简明英汉词典"
         "懒虫简明汉英词典"
