@@ -110,7 +110,7 @@
         (("s" . "Magit status") . magit-status+)
         (("c" . "Magit checkout") . magit-checkout)
         (("C" . "Magit commit") . magit-commit)
-        (("u" . "Magit push") . magit-push-current-to-upstream)
+        (("u" . "Magit push to remote") . magit-push-current-to-pushremote)
         (("i" . "Magit pull") . magit-pull-from-upstream)
         (("r" . "Magit rebase") . magit-rebase)
         (("e" . "Magit merge") . magit-merge)
