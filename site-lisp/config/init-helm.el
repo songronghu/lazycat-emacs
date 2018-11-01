@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <andy@freedom>
 ;; Copyright (C) 2013, Andy Stewart, all rights reserved.
 ;; Created: 2013-12-30 16:23:29
-;; Version: 0.8
-;; Last-Updated: 2018-10-29 21:05:22
+;; Version: 1.0
+;; Last-Updated: 2018-11-01 20:53:46
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-helm.el
 ;; Keywords:
@@ -69,6 +69,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2018/11-01
+;;	* Fix `helm-ls-git' not work when first run `helm-dwim'.
 ;;
 ;; 2018/10-29
 ;;      * Use `helm-ls-git' instead `helm-projectile', helm so fast now!!!
@@ -155,6 +158,9 @@
     (unless helm-source-buffers-list
       (setq helm-source-buffers-list
             (helm-make-source "Buffers" 'helm-source-buffers)))
+    (unless helm-source-ls-git
+      (setq helm-source-ls-git
+            (helm-ls-git-build-ls-git-source)))
     (setq helm-source-list
           '(
             helm-source-awesome-tab-group
