@@ -111,6 +111,7 @@
         (("c" . "Magit checkout") . magit-checkout)
         (("C" . "Magit commit") . magit-commit)
         (("u" . "Magit push to remote") . magit-push-current-to-pushremote)
+        (("p" . "Magit delete remote branch") . magit-delete-remote-branch)
         (("i" . "Magit pull") . magit-pull-from-upstream)
         (("r" . "Magit rebase") . magit-rebase)
         (("e" . "Magit merge") . magit-merge)
@@ -175,6 +176,11 @@
           (margin-face . magit-blame-margin)
           (margin-body-face magit-blame-dimmed)))
   (magit-blame))
+
+(defun magit-delete-remote-branch ()
+  (interactive)
+  (when (y-or-n-p (format "Delete remote branch (%s): " (magit-get-current-branch)))
+    (magit-run-git-async "push" "origin" (format ":%s" (magit-get-current-branch)))))
 
 (provide 'init-git)
 
