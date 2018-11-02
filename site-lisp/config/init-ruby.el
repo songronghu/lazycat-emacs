@@ -92,5 +92,101 @@
              (ruby-end-mode 1)
              ))
 
+;; Re-implement `ruby-smile-rules' avoid too deep indent.
+(defun ruby-smie-rules (kind token)
+  (pcase (cons kind token)
+    (`(:elem . basic) ruby-indent-level)
+    ;; "foo" "bar" is the concatenation of the two strings, so the second
+    ;; should be aligned with the first.
+    (`(:elem . args) (if (looking-at "\\s\"") 0))
+    ;; (`(:after . ",") (smie-rule-separator kind))
+    (`(:before . ";")
+     (cond
+      ((smie-rule-parent-p "def" "begin" "do" "class" "module" "for"
+                           "while" "until" "unless"
+                           "if" "then" "elsif" "else" "when"
+                           "rescue" "ensure" "{")
+       (smie-rule-parent ruby-indent-level))
+      ;; For (invalid) code between switch and case.
+      ;; (if (smie-parent-p "switch") 4)
+      ))
+    (`(:before . ,(or `"(" `"[" `"{"))
+     (cond
+      ((and (equal token "{")
+            (not (smie-rule-prev-p "(" "{" "[" "," "=>" "=" "return" ";"))
+            (save-excursion
+              (forward-comment -1)
+              (not (eq (preceding-char) ?:))))
+       ;; Curly block opener.
+       (ruby-smie--indent-to-stmt))
+      ((smie-rule-hanging-p)
+       ;; Treat purely syntactic block-constructs as being part of their parent,
+       ;; when the opening token is hanging and the parent is not an
+       ;; open-paren.
+       (cond
+        ((eq (car (smie-indent--parent)) t) nil)
+        ;; When after `.', let's always de-indent,
+        ;; because when `.' is inside the line, the
+        ;; additional indentation from it looks out of place.
+        ((smie-rule-parent-p ".")
+         ;; Traverse up the call chain until the parent is not `.',
+         ;; or `.' at indentation, or at eol.
+         (while (and (not (ruby-smie--bosp))
+                     (equal (nth 2 (smie-backward-sexp ".")) ".")
+                     (not (ruby-smie--bosp)))
+           (forward-char -1))
+         (smie-indent-virtual))
+        (t (smie-rule-parent))))))
+    (`(:after . ,(or `"(" "[" "{"))
+     ;; Use `smile-rule-parent' instead implementation of `ruby-mode.el'
+     ;; To make code indent like below:
+     ;; 
+     ;; long_long_long_example ({
+     ;;     right_indent
+     ;;   })
+     ;;
+     ;;
+     ;; Not damn deep indent like:
+     ;; 
+     ;; long_long_long_example ({
+     ;;                           right_indent
+     ;;   })
+     ;; 
+     (save-excursion
+       (smie-rule-parent)))
+    (`(:before . " @ ")
+     (save-excursion
+       (skip-chars-forward " \t")
+       (cons 'column (current-column))))
+    (`(:before . "do") (ruby-smie--indent-to-stmt))
+    (`(:before . ".")
+     (if (smie-rule-sibling-p)
+         (and ruby-align-chained-calls 0)
+       (smie-backward-sexp ".")
+       (cons 'column (+ (current-column)
+                        ruby-indent-level))))
+    (`(:before . ,(or `"else" `"then" `"elsif" `"rescue" `"ensure"))
+     (smie-rule-parent))
+    (`(:before . "when")
+     ;; Align to the previous `when', but look up the virtual
+     ;; indentation of `case'.
+     (if (smie-rule-sibling-p) 0 (smie-rule-parent)))
+    (`(:after . ,(or "=" "+" "-" "*" "/" "&&" "||" "%" "**" "^" "&"
+                     "<=>" ">" "<" ">=" "<=" "==" "===" "!=" "<<" ">>"
+                     "+=" "-=" "*=" "/=" "%=" "**=" "&=" "|=" "^=" "|"
+                     "<<=" ">>=" "&&=" "||=" "and" "or"))
+     (and (smie-rule-parent-p ";" nil)
+          (smie-indent--hanging-p)
+          ruby-indent-level))
+    (`(:after . ,(or "?" ":")) ruby-indent-level)
+    (`(:before . ,(guard (memq (intern-soft token) ruby-alignable-keywords)))
+     (when (not (ruby--at-indentation-p))
+       (if (ruby-smie--indent-to-stmt-p token)
+           (ruby-smie--indent-to-stmt)
+         (cons 'column (current-column)))))
+    (`(:before . "iuwu-mod")
+     (smie-rule-parent ruby-indent-level))
+    ))
+
 (provide 'init-ruby)
 ;;; init-ruby.el ends here
