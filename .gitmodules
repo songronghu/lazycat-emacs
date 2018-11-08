@@ -115,6 +115,15 @@
 [submodule "helm-ls-git"]
 	path = site-lisp/extensions/helm-ls-git
 	url = https://github.com/emacs-helm/helm-ls-git.git
+[submodule "flycheck-swift"]
+	path = site-lisp/extensions/flycheck-swift
+	url = http://github.com/swift-emacs/flycheck-swift.git
+[submodule "rcodetools"]
+	path = site-lisp/extensions/rcodetools
+	url = http://github.com/rcodetools/rcodetools
 [submodule "flycheck-pycheckers"]
-	path = site-lisp/extension/flycheck-pycheckers
-	url = http://github.com/msherryflycheck-pycheckers.git
+	path = site-lisp/extensions/flycheck-pycheckers
+	url = http://github.com/msherry/flycheck-pycheckers
+[submodule "swift-mode"]
+	path = site-lisp/extensions/swift-mode
+	url = http://github.com/swift-emacs/swift-mode
