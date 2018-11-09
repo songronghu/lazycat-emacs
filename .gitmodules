@@ -62,56 +62,68 @@
 	path = site-lisp/extensions/web-mode
 	url = https://github.com/fxbois/web-mode
 [submodule "iedit"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/iedit
+	path = site-lisp/extensions/iedit
 	url = https://github.com/victorhge/iedit
 [submodule "Indium"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/Indium
+	path = site-lisp/extensions/Indium
 	url = https://github.com/NicolasPetton/Indium
 [submodule "awesome-tab"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/awesome-tab
+	path = site-lisp/extensions/awesome-tab
 	url = https://github.com/manateelazycat/awesome-tab.git
 [submodule "tide"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/tide
+	path = site-lisp/extensions/tide
 	url = https://github.com/ananthakumaran/tide.git
 [submodule "js2-refactor"]
 	path = site-lisp/extensions/js2-refactor
 	url = https://github.com/magnars/js2-refactor.el.git
 [submodule "cache-path-from-shell"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/cache-path-from-shell
+	path = site-lisp/extensions/cache-path-from-shell
 	url = https://github.com/manateelazycat/cache-path-from-shell.git
 [submodule "pyim"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/pyim
+	path = site-lisp/extensions/pyim
 	url = https://github.com/tumashu/pyim.git
 [submodule "emacs-rails"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/emacs-rails
+	path = site-lisp/extensions/emacs-rails
 	url = https://github.com/manateelazycat/emacs-rails.git
 [submodule "insert-translated-name"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/insert-translated-name
+	path = site-lisp/extensions/insert-translated-name
 	url = https://github.com/manateelazycat/insert-translated-name.git
 [submodule "vi-navigate"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/vi-navigate
+	path = site-lisp/extensions/vi-navigate
 	url = https://github.com/manateelazycat/vi-navigate.git
 [submodule "flex"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/flex
+	path = site-lisp/extensions/flex
 	url = https://github.com/manateelazycat/flex.git
 [submodule "bison"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/bison
+	path = site-lisp/extensions/bison
 	url = https://github.com/manateelazycat/bison.git
 [submodule "awesome-tray"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/awesome-tray
+	path = site-lisp/extensions/awesome-tray
 	url = https://github.com/manateelazycat/awesome-tray.git
 [submodule "grep-dired"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/grep-dired
+	path = site-lisp/extensions/grep-dired
 	url = https://github.com/manateelazycat/grep-dired.git
 [submodule "json-reformat"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/json-reformat
+	path = site-lisp/extensions/json-reformat
 	url = https://github.com/gongo/json-reformat.git
 [submodule "restclient.el"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/restclient.el
+	path = site-lisp/extensions/restclient.el
 	url = https://github.com/pashky/restclient.el.git
 [submodule "helm-projectile"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/helm-projectile
+	path = site-lisp/extensions/helm-projectile
 	url = https://github.com/bbatsov/helm-projectile.git
 [submodule "helm-ls-git"]
-	path = /Users/andy/lazycat-emacs/site-lisp/extensions/helm-ls-git
+	path = site-lisp/extensions/helm-ls-git
 	url = https://github.com/emacs-helm/helm-ls-git.git
+[submodule "flycheck-swift"]
+	path = site-lisp/extensions/flycheck-swift
+	url = http://github.com/swift-emacs/flycheck-swift.git
+[submodule "rcodetools"]
+	path = site-lisp/extensions/rcodetools
+	url = http://github.com/rcodetools/rcodetools
+[submodule "flycheck-pycheckers"]
+	path = site-lisp/extensions/flycheck-pycheckers
+	url = http://github.com/msherry/flycheck-pycheckers
+[submodule "swift-mode"]
+	path = site-lisp/extensions/swift-mode
+	url = http://github.com/swift-emacs/swift-mode
