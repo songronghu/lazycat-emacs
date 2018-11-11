@@ -90,18 +90,6 @@
   (interactive)
   (shell-command (concat "go run " (buffer-name))))
 
-(defun go-kill()
-  (interactive)
-  (if (go-mode-in-string)
-      (paredit-kill-line-in-string)
-    (paredit-kill)))
-
-(defun go-backward-delete()
-  (interactive)
-  (if (go-mode-in-string)
-      (paredit-backward-delete-in-string)
-    (paredit-backward-delete)))
-
 ;;; ### Golang ###
 (lazy-unset-key
  '("C-k" "M-o")
@@ -114,8 +102,6 @@
    ("C-c C-a" . go-import-add)
    ("C-8" . godef-jump)
    ("C-u C-8" . godef-jump-other-window)
-   ("C-k" . go-kill)
-   ("M-o" . go-backward-delete)
    ("C-c t" . go-test-current-test)
    ("C-c f" . go-test-current-file)
    ("C-c p" . go-test-current-project)

@@ -69,7 +69,7 @@
 ;;      * Add `js2-refactor'.
 ;;
 ;; 2018/07/11
-;;      * Use function `paredit-kill+' in paredit-extension.el 0.5 instead `tagedit-kill' to build better kill experience for `web-mode' and `ruby-mode'.
+;;      * Use function `paredit-pair-kill+' in awesome-pair-extension.el 0.5 instead `tagedit-kill' to build better kill experience for `web-mode' and `ruby-mode'.
 ;;
 ;; 2018/06/12
 ;;      * Add config for `web-mode-markup-indent-offset'.
@@ -78,7 +78,7 @@
 ;;
 ;; 2018/06/11
 ;;      * Set `web-mode-tag-auto-close-style' with 2, make auto close tag more smart.
-;;      * Binding Ctrl + k to `tagedit-kill', it's much better than paredit-kill for web-mode.
+;;      * Binding Ctrl + k to `tagedit-kill', it's much better than paredit-pair-kill for web-mode.
 ;;      * Add some frequent commands in web-mode-map.
 ;;
 ;; 2014/03/06
@@ -100,8 +100,7 @@
 (require 'web-mode)
 (require 'emmet-mode)
 (require 'emmet-extension)
-(require 'paredit-extension)
-(require 'indium)
+;; (require 'indium)
 
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; OS Config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -123,33 +122,33 @@
                    (emmet-mode)
                    )))
 ;; Indium.
-(add-hook 'js-mode-hook #'indium-interaction-mode)
-(define-key indium-interaction-mode-map (kbd "C-c C-l") 'indium-reload)
+;; (add-hook 'js-mode-hook #'indium-interaction-mode)
+;; (define-key indium-interaction-mode-map (kbd "C-c C-l") 'indium-reload)
 
-(defvar one-key-menu-indium-alist nil
-  "The `one-key' menu alist for JS-REFACOTRY.")
+;; (defvar one-key-menu-indium-alist nil
+;;   "The `one-key' menu alist for JS-REFACOTRY.")
 
-(setq one-key-menu-indium-alist
-      '(
-        (("c" . "Indium connect") . indium-connect)
-        (("C" . "Indium launch") . indium-launch)
-        (("i" . "Indium switch REPL buffer") . indium-switch-to-repl-buffer)
-        (("a" . "Indium add breakpoint") . indium-add-breakpoint)
-        (("A" . "Indium add condition breakpoint") . indium-add-conditional-breakpoint)
-        (("e" . "Indium edit condition breakpoint") . indium-edit-breakpoint-condition)
-        (("l" . "Indium list breakpoints") . indium-list-breakpoints)
-        (("r" . "Indium remove breakpoint") . indium-remove-breakpoint)
-        (("R" . "Indium remove all breakpoints") . indium-remove-all-breakpoints-from-buffer)
-        (("t" . "Indium toggle breakpoint") . indium-toggle-breakpoint)
-        ))
+;; (setq one-key-menu-indium-alist
+;;       '(
+;;         (("c" . "Indium connect") . indium-connect)
+;;         (("C" . "Indium launch") . indium-launch)
+;;         (("i" . "Indium switch REPL buffer") . indium-switch-to-repl-buffer)
+;;         (("a" . "Indium add breakpoint") . indium-add-breakpoint)
+;;         (("A" . "Indium add condition breakpoint") . indium-add-conditional-breakpoint)
+;;         (("e" . "Indium edit condition breakpoint") . indium-edit-breakpoint-condition)
+;;         (("l" . "Indium list breakpoints") . indium-list-breakpoints)
+;;         (("r" . "Indium remove breakpoint") . indium-remove-breakpoint)
+;;         (("R" . "Indium remove all breakpoints") . indium-remove-all-breakpoints-from-buffer)
+;;         (("t" . "Indium toggle breakpoint") . indium-toggle-breakpoint)
+;;         ))
 
-(defun one-key-menu-indium ()
-  "The `one-key' menu for JS-REFACOTRY."
-  (interactive)
-  (one-key-menu "INDIUM" one-key-menu-indium-alist t))
+;; (defun one-key-menu-indium ()
+;;   "The `one-key' menu for JS-REFACOTRY."
+;;   (interactive)
+;;   (one-key-menu "INDIUM" one-key-menu-indium-alist t))
 
 ;; We-mode.
-(lazy-set-key paredit-key-alist web-mode-map)
+(lazy-set-key awesome-pair-key-alist web-mode-map)
 (lazy-set-mode-autoload-key
  '(
    ("M-(" . web-mode-element-wrap+)
@@ -160,7 +159,6 @@
    ("C-M-SPC" . web-mode-mark-and-expand)
    ("%" . web-mode-match-paren)
    ("C-:" . web-mode-comment-or-uncomment)
-   ("C-k" . paredit-kill+)
    ("M-i" . emmet-expand-yas)
    ("C-c M-i" . emmet-preview-current-line)
    )

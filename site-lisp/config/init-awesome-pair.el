@@ -1,7 +1,7 @@
-;;; init-paredit.el --- Paredit configuration
+;;; init-awesome-pair.el --- Awesome-Pair configuration
 
-;; Filename: init-paredit.el
-;; Description: Paredit configuration
+;; Filename: init-awesome-pair.el
+;; Description: Awesome-Pair configuration
 ;; Author: Andy Stewart lazycat.manatee@gmail.com
 ;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
 ;; Copyright (C) 2008, 2009, Andy Stewart, all rights reserved.
@@ -10,7 +10,7 @@
 ;; Last-Updated: 2008-10-20 09:41:55
 ;;           By: Andy Stewart
 ;; URL:
-;; Keywords: paredit
+;; Keywords: awesome-pair
 ;; Compatibility: GNU Emacs 23.0.60.1
 ;;
 ;; Features that might be required by this library:
@@ -39,19 +39,19 @@
 
 ;;; Commentary:
 ;;
-;; Paredit configuration
+;; Awesome-Pair configuration
 ;;
 
 ;;; Installation:
 ;;
-;; Put init-paredit.el to your load-path.
+;; Put init-awesome-pair.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'init-paredit)
+;; (require 'init-awesome-pair)
 ;;
 ;; No need more.
 
@@ -103,39 +103,8 @@
                'lua-mode-hook
                'swift-mode-hook
                ))
-  (add-hook hook '(lambda () (paredit-mode 1))))
+  (add-hook hook '(lambda () (awesome-pair-mode 1))))
 
-(defvar one-key-menu-paredit-alist nil
-  "The `one-key' menu alist for PAREDIT.")
+(provide 'init-awesome-pair)
 
-(setq one-key-menu-paredit-alist
-      '(
-        ;; Wrap.
-        (("h" . "Wrap Left Object") . paredit-backward-slurp-sexp)
-        (("l" . "Wrap Right Object") . paredit-forward-slurp-sexp)
-        ;; Free.
-        (("," . "Free Left Object") . paredit-backward-barf-sexp)
-        (("." . "Free Right Object") . paredit-forward-barf-sexp)
-        ;; Remove.
-        (("<" . "Remove Paren And Left Object") . paredit-splice-sexp-killing-backward)
-        ((">" . "Remove Paren And Right Object") . paredit-splice-sexp-killing-forward)
-        ;; Join or Split.
-        (("j" . "Join Sexps") . paredit-join-sexps)
-        (("k" . "Split Sexps") . paredit-split-sexp)
-        (("n" . "Join next list") . paredit-join-with-next-list)
-        (("p" . "Join previous list") . paredit-join-with-previous-list)
-        (("N" . "Add next list") . paredit-add-to-next-list)
-        (("P" . "Add previous list") . paredit-add-to-previous-list)
-        ;; Move.
-        (("u" . "Move list forward") . paredit-move-list-forward)
-        (("i" . "Move list backward") . paredit-move-list-backward)
-        ))
-
-(defun one-key-menu-paredit ()
-  "The `one-key' menu for PAREDIT."
-  (interactive)
-  (one-key-menu "PAREDIT" one-key-menu-paredit-alist t t nil nil t))
-
-(provide 'init-paredit)
-
-;;; init-paredit.el ends here
+;;; init-awesome-pair.el ends here
