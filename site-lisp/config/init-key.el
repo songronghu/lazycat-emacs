@@ -111,8 +111,6 @@
    ("C-l" . open-newline-below)         ;在下面一行新建一行
    ("C-z k" . beginning-of-buffer)      ;缓存开始
    ("C-z j" . end-of-buffer)            ;缓存结尾
-   ("M-p" . go-to-next-pair-right) ;在( ),' ', " ", [ ], { }中跳到匹配符号的右边
-   ("M-n" . go-to-next-pair-left) ;在( ), ' ', " ", [ ], { }中跳到匹配符号的左边
    ("s-g" . goto-percent)    ;跳转到当前Buffer的文本百分比, 单位为字符
    ("M-G" . goto-column)     ;到指定列
    ("C-M-f" . forward-paragraph)        ;下一个段落
@@ -319,6 +317,9 @@
 (defvar awesome-pair-key-alist nil)
 (setq awesome-pair-key-alist
       '(
+        ;; 移动
+        ("M-n" . awesome-pair-jump-left)
+        ("M-p" . awesome-pair-jump-right)
         ;; 符号插入
         ("%" . awesome-pair-match-paren)       ;括号跳转
         ("(" . awesome-pair-open-round)        ;智能 (
@@ -336,7 +337,7 @@
         ("M-[" . awesome-pair-wrap-bracket)       ;用 [ ] 包围对象
         ("M-{" . awesome-pair-wrap-curly)         ;用 { } 包围对象
         ("M-(" . awesome-pair-wrap-round)         ;用 ( ) 包围对象
-        ("M-)" . awesome-pair-unwrap)		  ;去掉包围对象
+        ("M-)" . awesome-pair-unwrap)             ;去掉包围对象
         ;; 跳出并换行缩进
         ("M-:" . awesome-pair-jump-out-pair-and-newline) ;跳出括号并换行
         ))

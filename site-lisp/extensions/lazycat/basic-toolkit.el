@@ -708,18 +708,6 @@ use function `completion-delete'."
          (save-buffer))
         (t (message "Current mode is not supported, so not reload"))))
 
-(defun go-to-next-pair-right()
-  "To right of next match parentheses."
-  (interactive)
-  (while (not (looking-at "\\(['\">)}]\\|]\\)")) (forward-char 1))
-  (forward-char 1))
-
-(defun go-to-next-pair-left()
-  "To left of previous match parentheses."
-  (interactive)
-  (backward-char 1)
-  (while (not (looking-at "\\(['\"<({]\\|[[]\\)")) (backward-char 1)))
-
 (defun cycle-buffer-in-special-mode (special-mode)
   "Cycle in special mode."
   (catch 'done
