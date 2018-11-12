@@ -92,15 +92,6 @@
 
 ;;; Code:
 
-(defun web-mode-match-paren (arg)
-  "Go to the matching tag if on tag, otherwise insert %."
-  (interactive "p")
-  (cond ((looking-at "<")
-         (sgml-skip-tag-forward 1))
-        ((looking-back ">")
-         (sgml-skip-tag-backward 1))
-        (t (self-insert-command (or arg 1)))))
-
 (defun web-mode-element-wrap+ ()
   "Like `web-mode-element-wrap', but jump after tag for continue edit."
   (interactive)

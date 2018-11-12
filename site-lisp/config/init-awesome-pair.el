@@ -102,6 +102,7 @@
                'qmake-mode-hook
                'lua-mode-hook
                'swift-mode-hook
+               'minibuffer-inactive-mode-hook
                ))
   (add-hook hook '(lambda () (awesome-pair-mode 1))))
 

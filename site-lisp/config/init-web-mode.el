@@ -157,7 +157,6 @@
    ("M-s-SPC" . web-mode-element-content-select)
    ("C-s-l" . web-mode-element-clone)
    ("C-M-SPC" . web-mode-mark-and-expand)
-   ("%" . web-mode-match-paren)
    ("C-:" . web-mode-comment-or-uncomment)
    ("M-i" . emmet-expand-yas)
    ("C-c M-i" . emmet-preview-current-line)
