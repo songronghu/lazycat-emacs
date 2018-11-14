@@ -181,6 +181,7 @@
    ("M->" . helm-scroll-other-window-down)
    ("M-<" . helm-scroll-other-window)
    ("M-o" . backward-delete-char-untabify)
+   ("M-m" . move-beginning-of-line)
    )
  helm-map)
 
