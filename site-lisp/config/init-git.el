@@ -139,7 +139,7 @@
 (setq one-key-menu-magithub-alist
       '(
         (("h" . "Browse") . magithub-browse)
-        (("H" . "Browse") . magithub-browse-file)
+        (("H" . "Browse file") . magithub-browse-file)
         (("i" . "Create issue") . magithub-issue-new)
         (("b" . "Browse issue") . magithub-issue-browse)
         (("B" . "Browse pull") . magithub-pull-browse)
