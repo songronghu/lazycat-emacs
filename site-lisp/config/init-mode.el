@@ -129,6 +129,7 @@
                     ("\\.html?\\'" . web-mode)
                     ("\\.coffee\\'" . coffee-mode)
                     ("\\.coffee.erb\\'" . coffee-mode)
+                    ("\\.js.erb\\'" . js-mode)
                     ("\\.iced\\'" . coffee-mode)
                     ("\\.css\\'" . css-mode)
                     ("Cakefile\\'" . coffee-mode)
