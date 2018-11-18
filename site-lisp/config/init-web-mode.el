@@ -100,6 +100,7 @@
 (require 'web-mode)
 (require 'emmet-mode)
 (require 'emmet-extension)
+(require 'js)
 ;; (require 'indium)
 
 ;;; Code:

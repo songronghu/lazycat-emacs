@@ -135,6 +135,7 @@
                'web-mode-hook
                'scss-mode-hook
                'coffee-mode-hook
+               'js-mode-hook
                ))
   (add-hook hook '(lambda ()
                     (setq indent-tabs-mode nil)
