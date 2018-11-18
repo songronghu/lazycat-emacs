@@ -153,10 +153,11 @@
 
 (defun magit-submodule-add+ (url)
   (interactive "sURL: ")
-  (magit-submodule-add
-   url
-   (concat (file-name-as-directory lazycat-emacs-extension-dir) (file-name-base url))
-   (file-name-base url)))
+  (let ((parent-dir (cadr (split-string (file-name-as-directory lazycat-emacs-extension-dir) (expand-file-name (cdr (project-current)))))))
+    (magit-submodule-add
+     url
+     (concat parent-dir (file-name-base url))
+     (file-name-base url))))
 
 (defun magit-submodule-remove+ ()
   (interactive)
