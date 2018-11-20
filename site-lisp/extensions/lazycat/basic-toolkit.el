@@ -706,6 +706,9 @@ use function `completion-delete'."
         ((member major-mode '(haskell-mode sh-mode))
          (indent-comment-buffer)
          (save-buffer))
+        ((derived-mode-p 'scss-mode)
+         (require 'css-sort)
+         (css-sort))
         (t (message "Current mode is not supported, so not reload"))))
 
 (defun cycle-buffer-in-special-mode (special-mode)

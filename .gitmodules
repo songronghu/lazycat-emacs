@@ -130,3 +130,6 @@
 [submodule "awesome-pair"]
 	path = site-lisp/extensions/awesome-pair
 	url = git@github.com:manateelazycat/awesome-pair.git
+[submodule "css-sort"]
+	path = site-lisp/extensions/css-sort
+	url = https://github.com/manateelazycat/css-sort.git
