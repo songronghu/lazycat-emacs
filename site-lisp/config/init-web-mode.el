@@ -101,7 +101,7 @@
 (require 'emmet-mode)
 (require 'emmet-extension)
 (require 'js)
-;; (require 'indium)
+(require 'indium)
 
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; OS Config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -123,30 +123,30 @@
                    (emmet-mode)
                    )))
 ;; Indium.
-;; (add-hook 'js-mode-hook #'indium-interaction-mode)
-;; (define-key indium-interaction-mode-map (kbd "C-c C-l") 'indium-reload)
+(add-hook 'js-mode-hook #'indium-interaction-mode)
+(define-key indium-interaction-mode-map (kbd "C-c C-l") 'indium-reload)
 
-;; (defvar one-key-menu-indium-alist nil
-;;   "The `one-key' menu alist for JS-REFACOTRY.")
+(defvar one-key-menu-indium-alist nil
+  "The `one-key' menu alist for JS-REFACOTRY.")
 
-;; (setq one-key-menu-indium-alist
-;;       '(
-;;         (("c" . "Indium connect") . indium-connect)
-;;         (("C" . "Indium launch") . indium-launch)
-;;         (("i" . "Indium switch REPL buffer") . indium-switch-to-repl-buffer)
-;;         (("a" . "Indium add breakpoint") . indium-add-breakpoint)
-;;         (("A" . "Indium add condition breakpoint") . indium-add-conditional-breakpoint)
-;;         (("e" . "Indium edit condition breakpoint") . indium-edit-breakpoint-condition)
-;;         (("l" . "Indium list breakpoints") . indium-list-breakpoints)
-;;         (("r" . "Indium remove breakpoint") . indium-remove-breakpoint)
-;;         (("R" . "Indium remove all breakpoints") . indium-remove-all-breakpoints-from-buffer)
-;;         (("t" . "Indium toggle breakpoint") . indium-toggle-breakpoint)
-;;         ))
+(setq one-key-menu-indium-alist
+      '(
+        (("c" . "Indium connect") . indium-connect)
+        (("C" . "Indium launch") . indium-launch)
+        (("i" . "Indium switch REPL buffer") . indium-switch-to-repl-buffer)
+        (("a" . "Indium add breakpoint") . indium-add-breakpoint)
+        (("A" . "Indium add condition breakpoint") . indium-add-conditional-breakpoint)
+        (("e" . "Indium edit condition breakpoint") . indium-edit-breakpoint-condition)
+        (("l" . "Indium list breakpoints") . indium-list-breakpoints)
+        (("r" . "Indium remove breakpoint") . indium-remove-breakpoint)
+        (("R" . "Indium remove all breakpoints") . indium-remove-all-breakpoints-from-buffer)
+        (("t" . "Indium toggle breakpoint") . indium-toggle-breakpoint)
+        ))
 
-;; (defun one-key-menu-indium ()
-;;   "The `one-key' menu for JS-REFACOTRY."
-;;   (interactive)
-;;   (one-key-menu "INDIUM" one-key-menu-indium-alist t))
+(defun one-key-menu-indium ()
+  "The `one-key' menu for JS-REFACOTRY."
+  (interactive)
+  (one-key-menu "INDIUM" one-key-menu-indium-alist t))
 
 ;; We-mode.
 (lazy-set-key awesome-pair-key-alist web-mode-map)
