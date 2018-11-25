@@ -83,6 +83,9 @@
 
 ;;; Code:
 
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
 (defun adjust-languages-indent (n)
   (setq-local c-basic-offset n)
 

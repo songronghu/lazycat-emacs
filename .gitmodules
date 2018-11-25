@@ -133,3 +133,9 @@
 [submodule "css-sort"]
 	path = site-lisp/extensions/css-sort
 	url = https://github.com/manateelazycat/css-sort.git
+[submodule "go-mode"]
+	path = site-lisp/extensions/go-mode
+	url = https://github.com/dominikh/go-mode.el.git
+[submodule "lsp-go"]
+	path = site-lisp/extensions/lsp-go
+	url = https://github.com/emacs-lsp/lsp-go.git

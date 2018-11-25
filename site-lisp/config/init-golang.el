@@ -100,15 +100,11 @@
    ("C-c C-f" . gofmt)
    ("C-c C-d" . godoc)
    ("C-c C-a" . go-import-add)
-   ("C-8" . godef-jump)
-   ("C-u C-8" . godef-jump-other-window)
    ("C-c t" . go-test-current-test)
    ("C-c f" . go-test-current-file)
    ("C-c p" . go-test-current-project)
-   ("C-c b" . go-test-current-benchmark)
-   )
- go-mode-map
- )
+   ("C-c b" . go-test-current-benchmark))
+ go-mode-map)
 
 (provide 'init-golang)
 

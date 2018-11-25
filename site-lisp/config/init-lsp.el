@@ -87,6 +87,7 @@
 (require 'lsp-ruby)
 (require 'lsp-python)
 (require 'lsp-typescript)
+(require 'lsp-go)
 (require 'company-lsp)
 
 ;;; Code:
@@ -121,6 +122,8 @@
 ;; sudo pip install .
 ;;
 (add-hook 'python-mode-hook #'lsp-python-enable)
+
+(add-hook 'go-mode-hook #'lsp-go-enable)
 
 ;; Ruby support for lsp-mode using the solargraph gem.
 ;;
