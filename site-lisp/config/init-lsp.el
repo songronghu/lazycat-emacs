@@ -99,6 +99,7 @@
   (exec-path-from-shell-initialize))
 
 ;; Enable LSP backend.
+(setq company-lsp-enable-snippet nil) ;it's buggy of go-langserver, so disable snippet temp
 (push 'company-lsp company-backends)
 
 ;; Configuration to fix LSP errors.
