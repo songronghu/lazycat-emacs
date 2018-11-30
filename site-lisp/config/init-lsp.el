@@ -85,6 +85,7 @@
 ;;; Require
 (require 'lsp-mode)
 (require 'lsp-ruby)
+(require 'lsp-vue)
 (require 'lsp-python)
 (require 'lsp-typescript)
 (require 'lsp-go)
@@ -125,6 +126,10 @@
 (add-hook 'python-mode-hook #'lsp-python-enable)
 
 (add-hook 'go-mode-hook #'lsp-go-enable)
+
+(add-hook 'web-mode-hook '(lambda ()
+                            (when (string-equal "vue" (file-name-extension (buffer-file-name)))
+                              (lsp-vue-enable))))
 
 ;; Ruby support for lsp-mode using the solargraph gem.
 ;;

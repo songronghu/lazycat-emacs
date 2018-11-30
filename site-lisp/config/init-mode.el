@@ -118,6 +118,7 @@
                     ("CMakeLists\\.txt\\'" . cmake-mode)
                     ("\\.cmake\\'" . cmake-mode)
                     ("\\.php\\'" . php-mode)
+                    ("\\.vue" . web-mode)
                     ("\\.blade\\.php\\'" . web-mode)
                     ("\\.phtml\\'" . web-mode)
                     ("\\.tpl\\.php\\'" . web-mode)

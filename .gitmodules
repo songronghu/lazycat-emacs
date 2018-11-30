@@ -139,3 +139,6 @@
 [submodule "lsp-go"]
 	path = site-lisp/extensions/lsp-go
 	url = https://github.com/emacs-lsp/lsp-go.git
+[submodule "lsp-vue"]
+	path = site-lisp/extensions/lsp-vue
+	url = https://github.com/emacs-lsp/lsp-vue.git
