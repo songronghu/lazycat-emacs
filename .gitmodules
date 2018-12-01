@@ -142,3 +142,6 @@
 [submodule "lsp-vue"]
 	path = site-lisp/extensions/lsp-vue
 	url = https://github.com/emacs-lsp/lsp-vue.git
+[submodule "find-define"]
+	path = site-lisp/extensions/find-define
+	url = https://github.com/manateelazycat/find-define.git

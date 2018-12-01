@@ -305,8 +305,7 @@
 (lazy-set-autoload-key
  '(
    ("C-7" . find-define-back)           ;返回查找符号的定义之前的位置
-   ("C-8" . find-define-go)             ;查找符号的定义
-   ("C-9" . find-define-prompt)         ;手动输入查询的定义
+   ("C-8" . find-define)                ;查找符号的定义
    )
  "find-define")
 ;;; ### Awesome-Pair ###
