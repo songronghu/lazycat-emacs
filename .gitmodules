@@ -142,3 +142,6 @@
 [submodule "find-define"]
 	path = site-lisp/extensions/find-define
 	url = https://github.com/manateelazycat/find-define.git
+[submodule "color-rg"]
+	path = site-lisp/extensions/color-rg
+	url = https://github.com/manateelazycat/color-rg.git
