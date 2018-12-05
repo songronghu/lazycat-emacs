@@ -13,33 +13,12 @@
 [submodule "emacs-application-framework"]
 	path = site-lisp/extensions/emacs-application-framework
 	url = https://github.com/manateelazycat/emacs-application-framework.git
-[submodule "lsp-python"]
-	path = site-lisp/extensions/lsp-python
-	url = https://github.com/emacs-lsp/lsp-python.git
-[submodule "company-lsp"]
-	path = site-lisp/extensions/company-lsp
-	url = https://github.com/tigersoldier/company-lsp.git
-[submodule "lsp-ruby"]
-	path = site-lisp/extensions/lsp-ruby
-	url = https://github.com/emacs-lsp/lsp-ruby.git
-[submodule "lsp-css"]
-	path = site-lisp/extensions/lsp-css
-	url = https://github.com/emacs-lsp/lsp-css.git
-[submodule "lsp-html"]
-	path = site-lisp/extensions/lsp-html
-	url = https://github.com/emacs-lsp/lsp-html.git
-[submodule "lsp-javascript"]
-	path = site-lisp/extensions/lsp-javascript
-	url = https://github.com/emacs-lsp/lsp-javascript.git
 [submodule "typescript"]
 	path = site-lisp/extensions/typescript
 	url = https://github.com/ananthakumaran/typescript.el.git
 [submodule "eglot"]
 	path = site-lisp/extensions/eglot
 	url = https://github.com/joaotavora/eglot.git
-[submodule "lsp-mode"]
-	path = site-lisp/extensions/lsp-mode
-	url = https://github.com/emacs-lsp/lsp-mode.git
 [submodule "watch-other-window"]
 	path = site-lisp/extensions/watch-other-window
 	url = https://github.com/manateelazycat/watch-other-window.git
@@ -133,12 +112,6 @@
 [submodule "go-mode"]
 	path = site-lisp/extensions/go-mode
 	url = https://github.com/dominikh/go-mode.el.git
-[submodule "lsp-go"]
-	path = site-lisp/extensions/lsp-go
-	url = https://github.com/emacs-lsp/lsp-go.git
-[submodule "lsp-vue"]
-	path = site-lisp/extensions/lsp-vue
-	url = https://github.com/emacs-lsp/lsp-vue.git
 [submodule "find-define"]
 	path = site-lisp/extensions/find-define
 	url = https://github.com/manateelazycat/find-define.git
