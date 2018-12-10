@@ -142,6 +142,7 @@
                     ("\\.rs$" . rust-mode)
                     ("\\.pro$" . qmake-mode)
                     ("\\.js$" . js-mode)
+                    ("\\.jsx$" . rjsx-mode)
                     ("\\.lua$" . lua-mode)
                     ("\\.swift$" . swift-mode)
                     ("\\.l$" . flex-mode)
@@ -172,6 +173,7 @@
 (autoload 'swift-mode "swift-mode")
 (autoload 'haskell-mode "init-haskell")
 (autoload 'js-mode "init-web-mode")
+(autoload 'rjsx-mode "rjsx-mode")
 (autoload 'flex-mode "flex")
 (autoload 'bison-mode "bison")
 
