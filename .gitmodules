@@ -121,3 +121,6 @@
 [submodule "rjsx-mode"]
 	path = site-lisp/extensions/rjsx-mode
 	url = https://github.com/felipeochoa/rjsx-mode.git
+[submodule "auto-save"]
+	path = site-lisp/extensions/auto-save
+	url = https://github.com/manateelazycat/auto-save.git
