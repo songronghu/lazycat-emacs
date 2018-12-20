@@ -166,7 +166,6 @@
  '(
    ("M-(" . web-mode-element-wrap+)
    ("M-)" . web-mode-element-unwrap)
-   ("M-R" . web-mode-element-rename)
    ("M-s-SPC" . web-mode-element-content-select)
    ("C-s-l" . web-mode-element-clone)
    ("C-M-SPC" . web-mode-mark-and-expand)
