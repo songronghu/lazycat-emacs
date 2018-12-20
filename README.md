@@ -14,6 +14,17 @@ All my extensions under [extensions](https://github.com/manateelazycat/lazycat-e
 
 All my configuration files under [config](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions).
 
+## Download
+1. Download lazycat-emacs source code:
+```
+git clone https://github.com/manateelazycat/lazycat-emacs.git
+```
+
+2. Fetch all submodules in lazycat-emacs:
+```
+git submodule update --init --recursive
+```
+
 ## Installation
 
 ### Mac OS High Sierra
