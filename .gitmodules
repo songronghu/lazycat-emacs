@@ -127,3 +127,6 @@
 [submodule "auto-rename-tag"]
 	path = site-lisp/extensions/auto-rename-tag
 	url = https://github.com/jcs090218/auto-rename-tag.git
+[submodule "thing-edit"]
+	path = site-lisp/extensions/thing-edit
+	url = https://github.com/manateelazycat/thing-edit.git
