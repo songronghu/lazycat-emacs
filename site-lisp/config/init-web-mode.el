@@ -102,6 +102,7 @@
 (require 'emmet-extension)
 (require 'js)
 (require 'indium)
+(require 'auto-rename-tag)
 
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; OS Config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -110,6 +111,7 @@
   (require 'exec-path-from-shell)
   (exec-path-from-shell-initialize))
 
+;; Emmit.
 (setq web-mode-tag-auto-close-style 2) ;2 mean auto-close with > and </.
 (setq web-mode-markup-indent-offset 2)
 (dolist (hook (list
@@ -122,6 +124,16 @@
                    (setq emmet-preview-default nil)
                    (emmet-mode)
                    )))
+
+;; Rename tag.
+(dolist (hook (list
+               'sgml-mode-hook
+               'web-mode-hook
+               ))
+  (add-hook hook (lambda ()
+                   (auto-rename-tag-mode t)
+                   )))
+
 ;; Indium.
 (add-hook 'js-mode-hook #'indium-interaction-mode)
 (define-key indium-interaction-mode-map (kbd "C-c C-l") 'indium-reload)

@@ -124,3 +124,6 @@
 [submodule "auto-save"]
 	path = site-lisp/extensions/auto-save
 	url = https://github.com/manateelazycat/auto-save.git
+[submodule "auto-rename-tag"]
+	path = site-lisp/extensions/auto-rename-tag
+	url = https://github.com/jcs090218/auto-rename-tag.git
