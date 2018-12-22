@@ -130,3 +130,9 @@
 [submodule "thing-edit"]
 	path = site-lisp/extensions/thing-edit
 	url = https://github.com/manateelazycat/thing-edit.git
+[submodule "lsp-mode"]
+	path = site-lisp/extensions/lsp-mode
+	url = https://github.com/emacs-lsp/lsp-mode.git
+[submodule "company-lsp"]
+	path = site-lisp/extensions/company-lsp
+	url = https://github.com/tigersoldier/company-lsp.git
