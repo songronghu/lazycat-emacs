@@ -233,24 +233,6 @@ If not select any area, then strip current buffer"
         (forward-line (- n))
         (if cmt-another (comment-indent))))))
 
-(defun comment-copy (arg)
-  "Copy the first comment on this line, if any.
-With prefix ARG, copy comments on that many lines starting with this one."
-  (interactive "P")
-  (comment-normalize-vars)
-  (dotimes (_ (prefix-numeric-value arg))
-    (save-excursion
-      (beginning-of-line)
-      (let ((cs (comment-search-forward (line-end-position) t)))
-        (when cs
-          (goto-char cs)
-          (skip-syntax-backward " ")
-          (setq cs (point))
-          (comment-forward)
-          (kill-ring-save cs (if (bolp) (1- (point)) (point)))
-          (indent-according-to-mode))))
-    (if arg (forward-line 1))))
-
 (defun comment-paste ()
   "Paste comment part of current line.
 If have return comment, otherwise return nil."
