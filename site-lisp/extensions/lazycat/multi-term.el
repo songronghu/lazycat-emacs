@@ -834,7 +834,7 @@ to display buffer, even when the option `pop-up-windows' is enabled.
 And the example function that can induce the problem is `pop-to-buffer'.
 
 This advice will fix this problem when current frame just have one `non-dedicated' window."
-  (when (and pop-up-windows                           ;`pop-up-windows' is enable
+  (when (and pop-up-windows             ;`pop-up-windows' is enable
              (multi-term-window-dedicated-only-one-p) ;just have one `non-dedicated' window.
              (multi-term-window-exist-p multi-term-dedicated-window)
              (not (multi-term-dedicated-window-p))) ;not in `sr-speedbar' window
