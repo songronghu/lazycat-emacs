@@ -129,9 +129,9 @@
    ))
 (lazy-set-autoload-key
  '(
-   ("M-s" . lazy-search-menu)           ;懒惰搜索
+   ("M-s" . lazy-search)                ;懒惰搜索
    )
- "lazy-search-extension")
+ "lazy-search")
 (lazy-set-autoload-key
  '(
    ("s-N" . move-text-down)      ;把光标所在的整行文字(或标记)下移一行

@@ -136,3 +136,6 @@
 [submodule "company-lsp"]
 	path = site-lisp/extensions/company-lsp
 	url = https://github.com/tigersoldier/company-lsp.git
+[submodule "lazy-search"]
+	path = site-lisp/extensions/lazy-search
+	url = https://github.com/manateelazycat/lazy-search.git
