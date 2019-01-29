@@ -330,7 +330,8 @@
         ("\"" . awesome-pair-double-quote)     ;智能 "
         ;; 删除
         ("M-o" . awesome-pair-backward-delete) ;向后删除
-        ("C-k" . awesome-pair-kill)            ;向前删除
+        ("C-d" . awesome-pair-forward-delete)  ;向前删除
+        ("C-k" . awesome-pair-kill)            ;向前kill
         ;; 包围
         ("M-\"" . awesome-pair-wrap-double-quote) ;用 " " 包围对象, 或跳出字符串
         ("M-[" . awesome-pair-wrap-bracket)       ;用 [ ] 包围对象
