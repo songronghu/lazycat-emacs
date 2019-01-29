@@ -84,6 +84,7 @@
 
 ;;; Code:
 (dimmer-mode)
+(setq dimmer-exclusion-regexp "\\s-.*pyim-page-tooltip-posframe-buffer.*")
 
 (provide 'init-dimmer)
 
