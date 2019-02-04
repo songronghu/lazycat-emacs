@@ -108,6 +108,7 @@
 (setq-default pyim-english-input-switch-functions
               '(pyim-probe-isearch-mode))
 (setq pyim-page-length 9)
+(setq pyim-posframe-min-width 0)
 
 (provide 'init-pyim)
 
