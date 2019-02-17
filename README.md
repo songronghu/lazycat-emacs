@@ -31,7 +31,11 @@ git submodule update --init --recursive
 
 1. Install compile dependencies
 ```
-$ brew install autoconf automake texinfo gnutls pkg-config --debug --verbose
+$ brew install autoconf automake texinfo gnutls pkg-config libxml2 --debug --verbose
+
+$ export LDFLAGS="-L/usr/local/opt/libxml2/lib"
+$ export CPPFLAGS="-I/usr/local/opt/libxml2/include"
+$ export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
 ```
     Note, you need install pkg-config before compile emacs git, otherwise ./configure emacs will throw error "can't found gnutls"
 
