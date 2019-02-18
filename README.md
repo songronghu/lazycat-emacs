@@ -25,7 +25,28 @@ git clone https://github.com/manateelazycat/lazycat-emacs.git
 git submodule update --init --recursive
 ```
 
-## Installation
+## Installation Release version
+
+### Mac OS High Sierra
+
+1. Install Emacs
+```
+brew cask install emacs
+```
+
+2. Add config in ~/.emacs
+```Elisp
+(defun add-subdirs-to-load-path (dir)
+  "Recursive add directories to `load-path'."
+  (let ((default-directory (file-name-as-directory dir)))
+    (add-to-list 'load-path dir)
+    (normal-top-level-add-subdirs-to-load-path)))
+(add-subdirs-to-load-path "~/lazycat-emacs/site-lisp/")
+
+(require 'init)
+```
+
+## Installation Git version
 
 ### Mac OS High Sierra
 
