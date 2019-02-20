@@ -25,49 +25,26 @@ git clone https://github.com/manateelazycat/lazycat-emacs.git
 git submodule update --init --recursive
 ```
 
-## Installation Release version
-
 ### Mac OS High Sierra
 
-1. Install Emacs
-```
-brew cask install emacs
-```
-
-2. Add config in ~/.emacs
-```Elisp
-(defun add-subdirs-to-load-path (dir)
-  "Recursive add directories to `load-path'."
-  (let ((default-directory (file-name-as-directory dir)))
-    (add-to-list 'load-path dir)
-    (normal-top-level-add-subdirs-to-load-path)))
-(add-subdirs-to-load-path "~/lazycat-emacs/site-lisp/")
-
-(require 'init)
-```
-
-## Installation Git version
-
-### Mac OS High Sierra
-
-1. Install compile dependencies
-```
-$ brew install autoconf automake texinfo gnutls pkg-config libxml2 --debug --verbose
-
-$ export LDFLAGS="-L/usr/local/opt/libxml2/lib"
-$ export CPPFLAGS="-I/usr/local/opt/libxml2/include"
-$ export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
-```
-    Note, you need install pkg-config before compile emacs git, otherwise ./configure emacs will throw error "can't found gnutls"
-
-2. Download emacs git code
+1. Download emacs git code
 ```
 $ git clone --depth 1 git://git.savannah.gnu.org/emacs.git
+```
+
+2. Install compile dependencies
+```
+$ brew install autoconf automake texinfo gnutls pkg-config libxml2 --debug --verbose
 ```
 
 3. Compile emacs git
 ```
 $ cd ./emacs && ./autogen.sh
+
+$ export LDFLAGS="-L/usr/local/opt/libxml2/lib"
+$ export CPPFLAGS="-I/usr/local/opt/libxml2/include"
+$ export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
+
 $ ./configure && make && make install
 ```
 
