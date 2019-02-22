@@ -101,6 +101,7 @@
 (setq mouse-yank-at-point t)            ;粘贴于光标处,而不是鼠标指针处
 (setq x-select-enable-clipboard t)      ;支持emacs和外部程序的粘贴
 (setq split-width-threshold nil)        ;分屏的时候使用上下分屏
+(setq inhibit-compacting-font-caches t) ;使用字体缓存，避免卡顿
 (add-hook 'find-file-hook 'highlight-parentheses-mode t) ;增强的括号高亮
 
 ;; Don't ask me when close emacs with process is running
