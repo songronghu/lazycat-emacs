@@ -38,6 +38,7 @@
     (require 'init-key)
     (require 'init-vi-navigate)
     (require 'init-generic)
+    (require 'init-performance)
     (require 'init-pyim)
     (require 'init-sdcv)
     (require 'init-insert-translated-name)

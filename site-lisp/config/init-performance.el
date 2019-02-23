@@ -1,15 +1,15 @@
-;;; init-dimmer.el --- configure file for dimmer.el
+;;; init-performance.el --- Configure to improve performance
 
-;; Filename: init-dimmer.el
-;; Description: configure file for dimmer.el
+;; Filename: init-performance.el
+;; Description: Configure to improve performance
 ;; Author: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2019, Andy Stewart, all rights reserved.
-;; Created: 2019-01-24 20:17:16
+;; Created: 2019-02-23 15:42:59
 ;; Version: 0.1
-;; Last-Updated: 2019-01-24 20:17:16
+;; Last-Updated: 2019-02-23 15:42:59
 ;;           By: Andy Stewart
-;; URL: http://www.emacswiki.org/emacs/download/init-dimmer.el
+;; URL: http://www.emacswiki.org/emacs/download/init-performance.el
 ;; Keywords:
 ;; Compatibility: GNU Emacs 27.0.50
 ;;
@@ -39,19 +39,19 @@
 
 ;;; Commentary:
 ;;
-;; configure file for dimmer.el
+;; Configure to improve performance
 ;;
 
 ;;; Installation:
 ;;
-;; Put init-dimmer.el to your load-path.
+;; Put init-performance.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'init-dimmer)
+;; (require 'init-performance)
 ;;
 ;; No need more.
 
@@ -60,12 +60,12 @@
 ;;
 ;;
 ;; All of the above can customize by:
-;;      M-x customize-group RET init-dimmer RET
+;;      M-x customize-group RET init-performance RET
 ;;
 
 ;;; Change log:
 ;;
-;; 2019/01/24
+;; 2019/02/23
 ;;      * First released.
 ;;
 
@@ -80,12 +80,18 @@
 ;;
 
 ;;; Require
-(require 'dimmer)
+
 
 ;;; Code:
-(dimmer-mode)
-(setq dimmer-exclusion-regexp "\\s-.*pyim-page-tooltip-posframe-buffer.*")
+(defun max-gc-limit ()
+  (setq gc-cons-threshold most-positive-fixnum))
 
-(provide 'init-dimmer)
+(defun reset-gc-limit ()
+  (setq gc-cons-threshold 800000))
 
-;;; init-dimmer.el ends here
+(add-hook 'minibuffer-setup-hook #'max-gc-limit)
+(add-hook 'minibuffer-exit-hook #'reset-gc-limit)
+
+(provide 'init-performance)
+
+;;; init-performance.el ends here
