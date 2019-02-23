@@ -11,9 +11,16 @@
 
   (with-temp-message ""                 ;抹掉插件启动的输出
     ;; 必须加载的
-    (require 'cache-path-from-shell)
-    (require 'lazycat-theme)
+
+    ;; 先设置背景，避免闪烁。
+    (custom-set-faces
+     '(default ((t (:background "black" :foreground "#137D11"))))
+     )
     (require 'init-startup)
+
+    (require 'init-generic)
+    (require 'lazycat-theme)
+    (require 'cache-path-from-shell)
     (require 'init-flycheck)
     (require 'lazy-set-key)
     (require 'one-key)
@@ -40,7 +47,6 @@
     (require 'init-visual-regexp)
     (require 'init-key)
     (require 'init-vi-navigate)
-    (require 'init-generic)
     (require 'init-performance)
     (require 'init-pyim)
     (require 'init-sdcv)
