@@ -63,7 +63,6 @@
        (require 'init-auto-sudoedit)
        (require 'init-pdf-tools)
        (require 'init-atomic-chrome)
-       (require 'init-dimmer)
 
        (require 'init-idle)
 
