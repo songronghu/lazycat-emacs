@@ -84,6 +84,10 @@
 
 ;;; Code:
 
+;; Line numbers are not displayed when large files are used.
+(setq line-number-display-limit large-file-warning-threshold)
+(setq line-number-display-limit-width 1000)
+
 (dolist (hook (list
                'c-mode-common-hook
                'c-mode-hook
