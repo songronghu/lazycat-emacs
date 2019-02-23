@@ -1,3 +1,8 @@
+;; Mac平台下交换 Option 和 Command 键。
+(when (featurep 'cocoa)
+  (setq mac-option-modifier 'super)
+  (setq mac-command-modifier 'meta))
+
 ;;; ### Unset key ###
 ;;; --- 卸载按键
 (lazy-unset-key                         ;全局按键的卸载
