@@ -106,15 +106,13 @@
       (setq ns-use-native-fullscreen nil)
       (setq ns-use-fullscreen-animation nil)
 
+      ;; 默认先最大化。
       (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
-      ;; (run-at-time "5sec" nil
-      ;;              (lambda ()
-      ;;                (let ((fullscreen (frame-parameter (selected-frame) 'fullscreen)))
-      ;;                  ;; If emacs has in fullscreen status, maximized window first, drag emacs window from Mac's single space.
-      ;;                  (when (memq fullscreen '(fullscreen fullboth))
-      ;;                    (set-frame-parameter (selected-frame) 'fullscreen 'maximized))
-      ;;                  ;; Call `toggle-frame-fullscreen' to fullscreen emacs.
-      ;;                  (toggle-frame-fullscreen))))
+
+      (run-at-time "2sec" nil
+                   (lambda ()
+                     (toggle-frame-fullscreen)
+                     ))
       )
 
   ;; 非Mac平台直接全屏
