@@ -83,6 +83,8 @@
 
 
 ;;; Code:
+
+;; Disable garbage collection when entering commands.
 (defun max-gc-limit ()
   (setq gc-cons-threshold most-positive-fixnum))
 
