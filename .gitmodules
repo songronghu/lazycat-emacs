@@ -136,3 +136,6 @@
 [submodule "lazy-search"]
 	path = site-lisp/extensions/lazy-search
 	url = https://github.com/manateelazycat/lazy-search.git
+[submodule "awesome-tab"]
+	path = site-lisp/extensions/awesome-tab
+	url = https://github.com/manateelazycat/awesome-tab.git
