@@ -43,9 +43,6 @@
 [submodule "Indium"]
 	path = site-lisp/extensions/Indium
 	url = https://github.com/NicolasPetton/Indium
-[submodule "awesome-tab"]
-	path = site-lisp/extensions/awesome-tab
-	url = https://github.com/manateelazycat/awesome-tab.git
 [submodule "tide"]
 	path = site-lisp/extensions/tide
 	url = https://github.com/ananthakumaran/tide.git
