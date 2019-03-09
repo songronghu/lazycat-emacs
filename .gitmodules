@@ -139,3 +139,6 @@
 [submodule "awesome-tab"]
 	path = site-lisp/extensions/awesome-tab
 	url = https://github.com/manateelazycat/awesome-tab.git
+[submodule "goto-line-preview"]
+	path = site-lisp/extensions/goto-line-preview
+	url = https://github.com/jcs090218/goto-line-preview.git

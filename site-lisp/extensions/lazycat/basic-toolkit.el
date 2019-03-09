@@ -723,19 +723,6 @@ use function `completion-delete'."
             (kill-buffer buf))
         ))))
 
-(defun goto-line-with-feedback ()
-  "Show line numbers temporarily, while prompting for the line number input.
-This function will detect current display-line-numbers-mode status, it won't disable display-line-numbers-mode if current buffer has enable it."
-  (interactive)
-  (let ((display-line-numbers-mode-p display-line-numbers-mode))
-    (unwind-protect
-        (progn
-          (display-line-numbers-mode 1)
-          (goto-line (read-number "Goto line: ")))
-      (unless display-line-numbers-mode-p
-        (display-line-numbers-mode -1))
-      )))
-
 (provide 'basic-toolkit)
 
 ;;; basic-toolkit.el ends here

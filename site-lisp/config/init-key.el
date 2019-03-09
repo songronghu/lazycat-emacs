@@ -93,9 +93,13 @@
 (lazy-set-autoload-key
  '(
    ("C-z l" . display-line-numbers-mode) ;行号模式切换
-   ("M-g" . goto-line-with-feedback)     ;可视化条转行
    )
  "basic-toolkit")
+
+(lazy-set-autoload-key
+ '(
+   ("M-g" . goto-line-preview))
+ "goto-line-preview")
 ;;; ### Watch other window ###
 ;;; --- 滚动其他窗口
 (lazy-set-autoload-key
