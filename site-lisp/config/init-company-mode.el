@@ -119,8 +119,12 @@
 (setq company-show-numbers nil)   ; do not display numbers on the left
 (setq company-require-match nil) ; allow input string that do not match candidate words
 
-;; ;; Customize company backends.
+;; Customize company backends.
 (push 'company-files company-backends)
+
+;; Don't downcase the returned candidates.
+(setq company-dabbrev-downcase nil)
+(setq company-dabbrev-ignore-case t)
 
 ;; Let desktop.el not record the company-posframe-mode
 (company-posframe-mode 1)
