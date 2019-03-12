@@ -337,6 +337,7 @@
         ("]" . awesome-pair-close-bracket)     ;智能 ]
         ("}" . awesome-pair-close-curly)       ;智能 }
         ("\"" . awesome-pair-double-quote)     ;智能 "
+        ("=" . awesome-pair-equal)             ;智能 =
         ;; 删除
         ("M-o" . awesome-pair-backward-delete) ;向后删除
         ("C-d" . awesome-pair-forward-delete)  ;向前删除
