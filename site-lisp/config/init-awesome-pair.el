@@ -102,7 +102,6 @@
                'qmake-mode-hook
                'lua-mode-hook
                'swift-mode-hook
-               'web-mode-hook
                ))
   (add-hook hook '(lambda () (awesome-pair-mode 1))))
 

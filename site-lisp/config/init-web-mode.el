@@ -103,6 +103,7 @@
 (require 'js)
 (require 'indium)
 (require 'auto-rename-tag)
+(require 'awesome-pair)
 
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; OS Config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -112,6 +113,8 @@
   (exec-path-from-shell-initialize))
 
 (setq web-mode-enable-auto-quoting nil) ;disable automatic insertion of double quotes, not easy to use if cursor in string
+
+(define-key web-mode-map (kbd "=") 'awesome-pair-equal)
 
 ;; Emmit.
 (setq web-mode-tag-auto-close-style 2) ;2 mean auto-close with > and </.
