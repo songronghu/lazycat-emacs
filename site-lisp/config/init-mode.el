@@ -144,6 +144,7 @@
                     ("\\.rs$" . rust-mode)
                     ("\\.pro$" . qmake-mode)
                     ("\\.js$" . js-mode)
+                    ("\\.wxs$" . js-mode)
                     ("\\.jsx$" . rjsx-mode)
                     ("\\.lua$" . lua-mode)
                     ("\\.swift$" . swift-mode)

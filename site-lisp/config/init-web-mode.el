@@ -102,7 +102,7 @@
 (require 'emmet-extension)
 (require 'js)
 (require 'indium)
-(require 'auto-rename-tag)
+;; (require 'auto-rename-tag)
 (require 'awesome-pair)
 
 ;;; Code:
@@ -113,8 +113,6 @@
   (exec-path-from-shell-initialize))
 
 (setq web-mode-enable-auto-quoting nil) ;disable automatic insertion of double quotes, not easy to use if cursor in string
-
-(define-key web-mode-map (kbd "=") 'awesome-pair-equal)
 
 ;; Emmit.
 (setq web-mode-tag-auto-close-style 2) ;2 mean auto-close with > and </.
@@ -131,13 +129,13 @@
                    )))
 
 ;; Rename tag.
-(dolist (hook (list
-               'sgml-mode-hook
-               'web-mode-hook
-               ))
-  (add-hook hook (lambda ()
-                   (auto-rename-tag-mode t)
-                   )))
+;; (dolist (hook (list
+;;                'sgml-mode-hook
+;;                'web-mode-hook
+;;                ))
+;;   (add-hook hook (lambda ()
+;;                    (auto-rename-tag-mode t)
+;;                    )))
 
 ;; Indium.
 (add-hook 'js-mode-hook #'indium-interaction-mode)
@@ -169,8 +167,6 @@
 (lazy-set-key awesome-pair-key-alist web-mode-map)
 (lazy-set-mode-autoload-key
  '(
-   ("M-(" . web-mode-element-wrap+)
-   ("M-)" . web-mode-element-unwrap)
    ("M-s-SPC" . web-mode-element-content-select)
    ("C-s-l" . web-mode-element-clone)
    ("C-M-SPC" . web-mode-mark-and-expand)
