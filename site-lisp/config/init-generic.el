@@ -104,6 +104,12 @@
 (setq inhibit-compacting-font-caches t) ;使用字体缓存，避免卡顿
 (add-hook 'find-file-hook 'highlight-parentheses-mode t) ;增强的括号高亮
 
+;; 不显示 *scratch*
+(defun remove-scratch-buffer ()
+  (if (get-buffer "*scratch*")
+      (kill-buffer "*scratch*")))
+(add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
+
 ;; Don't ask me when close emacs with process is running
 (require 'noflet)
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
