@@ -134,7 +134,6 @@
    ("C-<" . remember-jump)              ;记忆跳转函数
    ("M-s-," . point-stack-pop)          ;buffer索引跳转
    ("M-s-." . point-stack-push)         ;buffer索引标记
-   ("s-{" . current-line-move-to-top)   ;移动当前行到最上面一行
    ))
 (lazy-set-autoload-key
  '(
@@ -170,8 +169,6 @@
    ("M-s-p" . comment-part-move-up)        ;向上移动注释
    ("C-x C-x" . exchange-point-and-mark)   ;交换当前点和标记点
    ("M-o" . backward-delete-char-untabify) ;向前删除字符
-   ;; ("M-z" . zap-to-char)                      ;向前删除到第一个相符的字符
-   ;; ("C-M-z" . zap-back-to-char)               ;向后删除到第一个相符的字符
    ("C-/" . undo)                             ;撤销
    ("C-?" . redo)                             ;重做
    ("s-k" . kill-and-join-forward)            ;在缩进的行之间删除
@@ -244,10 +241,6 @@
    ("C-x O" . toggle-window-split)
    )
  "window-extension")
-;; (lazy-set-autoload-key
-;;  '(
-;;    ("C-x o" . ace-window))
-;;  "ace-window")
 ;;; ### Awesome-Tab ###
 ;;; --- 多标签浏览
 (lazy-set-key
@@ -270,7 +263,7 @@
    ("s-w" . awesome-tab-keep-match-buffers-in-current-group)
    ("s-W" . awesome-tab-kill-match-buffers-in-current-group)
    )
- "awesome-tab-extension")
+ "awesome-tab")
 ;;; ### Functin key ###
 ;;; --- 功能函数
 (lazy-set-key
