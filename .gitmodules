@@ -142,3 +142,6 @@
 [submodule "goto-line-preview"]
 	path = site-lisp/extensions/goto-line-preview
 	url = https://github.com/jcs090218/goto-line-preview.git
+[submodule "move-text"]
+	path = site-lisp/extensions/move-text
+	url = git@github.com:manateelazycat/move-text.git
