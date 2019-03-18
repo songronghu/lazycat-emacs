@@ -55,11 +55,6 @@
    ("s-r" . find-file-smb)                  ;访问sambao
    ("<print>" . save-screenshots)           ;截屏
    ("<M-s-return>" . toggle-debug-on-error) ;切换调试模式
-   ("s-1" . sort-lines)                     ;排序
-   ("s-2" . hanconvert-region)              ;转换简体或繁体中文
-   ("s-3" . uniquify-all-lines-buffer)      ;删除重复的行
-   ("s-4" . elisp-depend-insert-comment)    ;插入 `...' 注释代码
-   ("s-5" . elisp-depend-insert-require)    ;插入 (require '...) 语句
    ("s-[" . eval-expression)                ;执行表达式
    ("s-\\" . artist-mode)                   ;绘制模式
    ("C-s-q" . quoted-insert)                ;读取系一个输入字符并插入
@@ -160,15 +155,15 @@
 ;;; --- 缓存编辑
 (lazy-set-key
  '(
-   ("M-N" . kill-syntax-backward+)         ;向后进行语法删除
-   ("M-M" . kill-syntax-forward+)          ;向前进行语法删除
-   ("C-:" . comment-or-uncomment-region+)  ;注释当前行
-   ("C-s-n" . comment-dwim-next-line)      ;移动到上一行并注释
-   ("C-s-p" . comment-dwim-prev-line)      ;移动到下一行并注释
-   ("M-s-n" . comment-part-move-down)      ;向下移动注释
-   ("M-s-p" . comment-part-move-up)        ;向上移动注释
-   ("C-x C-x" . exchange-point-and-mark)   ;交换当前点和标记点
-   ("M-o" . backward-delete-char-untabify) ;向前删除字符
+   ("M-N" . kill-syntax-backward+)            ;向后进行语法删除
+   ("M-M" . kill-syntax-forward+)             ;向前进行语法删除
+   ("C-:" . comment-or-uncomment-region+)     ;注释当前行
+   ("C-s-n" . comment-dwim-next-line)         ;移动到上一行并注释
+   ("C-s-p" . comment-dwim-prev-line)         ;移动到下一行并注释
+   ("M-s-n" . comment-part-move-down)         ;向下移动注释
+   ("M-s-p" . comment-part-move-up)           ;向上移动注释
+   ("C-x C-x" . exchange-point-and-mark)      ;交换当前点和标记点
+   ("M-o" . backward-delete-char-untabify)    ;向前删除字符
    ("C-/" . undo)                             ;撤销
    ("C-?" . redo)                             ;重做
    ("s-k" . kill-and-join-forward)            ;在缩进的行之间删除
@@ -262,6 +257,16 @@
    ("s-A" . awesome-tab-kill-all-buffers-in-current-group)
    ("s-w" . awesome-tab-keep-match-buffers-in-current-group)
    ("s-W" . awesome-tab-kill-match-buffers-in-current-group)
+   ("s-1" . awesome-tab-select-visible-tab)
+   ("s-2" . awesome-tab-select-visible-tab)
+   ("s-3" . awesome-tab-select-visible-tab)
+   ("s-4" . awesome-tab-select-visible-tab)
+   ("s-5" . awesome-tab-select-visible-tab)
+   ("s-6" . awesome-tab-select-visible-tab)
+   ("s-7" . awesome-tab-select-visible-tab)
+   ("s-8" . awesome-tab-select-visible-tab)
+   ("s-9" . awesome-tab-select-visible-tab)
+   ("s-0" . awesome-tab-select-visible-tab)
    )
  "awesome-tab")
 ;;; ### Functin key ###
@@ -548,8 +553,6 @@
 (lazy-set-autoload-key
  '(
    ("M-s-i" . ielm-toggle)              ;切换ielm
-   ("s-6" . insert-standard-date)       ;插入标准时间
-   ("s-7" . insert-changelog-date)      ;插入Changlog时间
    )
  "lazycat-toolkit")
 (eval-after-load 'ielm-mode
