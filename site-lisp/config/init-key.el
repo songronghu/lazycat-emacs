@@ -273,17 +273,8 @@
 ;;; --- 功能函数
 (lazy-set-key
  '(
-   ("<f1>" . sh-show-help)              ;elisp help
    ("<f2>" . refresh-file)              ;自动刷新文件
-   ("<f3>" . visit-tags-table)          ;查找TAGS文件 (更新TAGS表)
-   ("<f4>" . generate-gtags-files)      ;生成gtags引用文件
    ("<f5>" . emacs-session-save)        ;退出emacs
-   ("C-x C-c" . emacs-session-save)     ;退出emacs
-   ("<f6>" . lock-screen)               ;锁屏
-   ("<f8>" . dired-jump)                ;文件管理起
-   ("<f9>" . list-load-path-shadows)    ;显示重复加载的库
-   ("<f10>" . open-current-log-keyboard-command) ;打开命令日志
-   ("<f12>" . hibernate-disk)                    ;休眠
    ("M-1" . strip-blank-lines)          ;删除选中区域的所有空行
    ("M-2" . indent-buffer)              ;自动格式化当前Buffer
    ("M-3" . delete-trailing-whitespace) ;删除行末空格
