@@ -66,10 +66,6 @@
    ("s-R" . re-builder)                 ;可视化构建正则表达式
    )
  "init-rebuilder")
-(lazy-set-autoload-key                  ;快速运行
- '(
-   ("M-!" . quickrun))
- "quickrun")
 ;;; ### Color-Rg ###
 ;;; --- 搜索重构
 (lazy-set-autoload-key
@@ -137,9 +133,6 @@
 ;;; --- 缓存名字
 (lazy-set-autoload-key
  '(
-   ("s-c r" . rename-file-and-buffer)        ;更改当前文件的名字
-   ("s-c g" . move-buffer-file)              ;更改当前文件的目录
-   ("s-c n" . copy-buffer-file-name-as-kill) ;拷贝buffer名字
    ("C-M-;" . kill-other-window-buffer)      ;关闭其他窗口的buffer
    )
  "buffer-extension")
@@ -222,8 +215,6 @@
    ("C-c H" . delete-other-windows-horizontally+) ;关闭左右的其他窗口
    ("C-'" . delete-current-buffer-and-window) ;关闭当前buffer, 并关闭窗口
    ("C-\"" . delete-current-buffer-window)    ;删除当前buffer的窗口
-   ("C-s-7" . select-next-window)             ;选择下一个窗口
-   ("C-s-8" . select-prev-window)             ;选择上一个窗口
    ("M-s-o" . toggle-one-window)              ;切换一个窗口
    ("C-x O" . toggle-window-split)
    )
@@ -278,20 +269,6 @@
    ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
    ("M-I" . backward-indent)            ;向后移动4个字符
    ))
-(lazy-set-autoload-key
- '(
-   ("C-S-s" . swiper))
- "swiper")                              ;super regex search
-(lazy-set-autoload-key
- '(
-   ("<f11>" . fullscreen-toggle)        ;全屏切换
-   )
- "fullscreen")
-(lazy-set-autoload-key
- '(
-   ("<f7>" . one-key-menu-ui)           ;用户界面菜单
-   )
- "init-one-key")
 (lazy-set-autoload-key
  '(
    ("C-7" . find-define-back)           ;返回查找符号的定义之前的位置
@@ -612,15 +589,6 @@
    )
  emacs-lisp-mode-map
  )
-;;; ### Wget ###
-;;; --- 下载程序
-(lazy-set-autoload-key
- '(
-   ("s-c dd" . wget-show)               ;显示下载信息
-   ("s-c dh" . wget-hide)               ;隐藏下载信息
-   ("s-c dq" . wget-quit-and-exit)      ;停止下载
-   )
- "wget-extension")
 ;;; ### EMMS ###
 ;;; --- Emacs 多媒体系统
 (lazy-set-autoload-key
