@@ -42,21 +42,14 @@
 ;;; --- 工具函数
 (lazy-set-key
  '(
-   ("C-c ns" . notes-search)                ;便签搜索
-   ("C-c nn" . notes-new)                   ;新建便签
-   ("s-c h" . ff-find-other-file)           ;打开头文件或者实现文件
    ("s-c o" . one-key-menu-directory)       ;目录打开菜单
    ("s-," . bury-buffer)                    ;隐藏当前buffer
    ("s-." . unbury-buffer)                  ;反隐藏当前buffer
    ("s-&" . killall)                        ;杀掉进程
-   ("C-x w" . count-words)                  ;计算单词的数量
-   ("C-x f" . find-file-at-point)           ;文件跳转
    ("s-f" . find-file-root)                 ;用root打开文件
    ("s-r" . find-file-smb)                  ;访问sambao
-   ("<print>" . save-screenshots)           ;截屏
    ("<M-s-return>" . toggle-debug-on-error) ;切换调试模式
    ("s-[" . eval-expression)                ;执行表达式
-   ("s-\\" . artist-mode)                   ;绘制模式
    ("C-s-q" . quoted-insert)                ;读取系一个输入字符并插入
    ("M-h" . set-mark-command) ;Instead C-Space for Chinese input method
    ("M-H" . set-mark-command) ;Instead C-Space for Chinese input method
@@ -90,7 +83,6 @@
    ("C-z l" . display-line-numbers-mode) ;行号模式切换
    )
  "basic-toolkit")
-
 (lazy-set-autoload-key
  '(
    ("M-g" . goto-line-preview))
