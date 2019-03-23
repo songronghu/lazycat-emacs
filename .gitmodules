@@ -142,3 +142,9 @@
 [submodule "goto-line-preview"]
 	path = site-lisp/extensions/goto-line-preview
 	url = https://github.com/jcs090218/goto-line-preview.git
+[submodule "duplicate-line"]
+	path = site-lisp/extensions/duplicate-line
+	url = https://github.com/manateelazycat/duplicate-line.git
+[submodule "move-text"]
+	path = site-lisp/extensions/move-text
+	url = https://github.com/manateelazycat/move-text.git

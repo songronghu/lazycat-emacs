@@ -58,11 +58,6 @@
    ))
 (lazy-set-autoload-key
  '(
-   ("s-*" . one-key-menu-backup-file)   ;备份资料
-   )
- "init-shell-command")
-(lazy-set-autoload-key
- '(
    ("s-R" . re-builder)                 ;可视化构建正则表达式
    )
  "init-rebuilder")
@@ -129,36 +124,40 @@
    ("s-P" . move-text-up)        ;把光标所在的整行文字(或标记)上移一行
    )
  "move-text")
+(lazy-set-autoload-key
+ '(
+   ("C-S-o" . duplicate-line-or-region-above) ;向上复制当前行或区域
+   ("C-S-l" . duplicate-line-or-region-below) ;向下复制当前行或区域
+   ("C-S-s-o" . duplicate-line-above-comment) ;复制当前行到上一行, 并注释当前行
+   ("C-S-s-l" . duplicate-line-below-comment) ;复制当前行到下一行, 并注释当前行
+   )
+ "duplicate-line")
 ;;; ### Buffer Name ###
 ;;; --- 缓存名字
 (lazy-set-autoload-key
  '(
-   ("C-M-;" . kill-other-window-buffer)      ;关闭其他窗口的buffer
+   ("C-M-;" . kill-other-window-buffer) ;关闭其他窗口的buffer
    )
  "buffer-extension")
 ;;; ### Buffer Edit ###
 ;;; --- 缓存编辑
 (lazy-set-key
  '(
-   ("M-N" . kill-syntax-backward+)            ;向后进行语法删除
-   ("M-M" . kill-syntax-forward+)             ;向前进行语法删除
-   ("C-:" . comment-or-uncomment-region+)     ;注释当前行
-   ("C-s-n" . comment-dwim-next-line)         ;移动到上一行并注释
-   ("C-s-p" . comment-dwim-prev-line)         ;移动到下一行并注释
-   ("M-s-n" . comment-part-move-down)         ;向下移动注释
-   ("M-s-p" . comment-part-move-up)           ;向上移动注释
-   ("C-x C-x" . exchange-point-and-mark)      ;交换当前点和标记点
-   ("M-o" . backward-delete-char-untabify)    ;向前删除字符
-   ("C-/" . undo)                             ;撤销
-   ("C-?" . redo)                             ;重做
-   ("s-k" . kill-and-join-forward)            ;在缩进的行之间删除
-   ("C-x u" . mark-line)                      ;选中整行
-   ("C-M-S-h" . mark-paragraph)               ;选中段落
-   ("C-S-o" . duplicate-line-or-region-above) ;向上复制当前行或区域
-   ("C-S-l" . duplicate-line-or-region-below) ;向下复制当前行或区域
-   ("C-S-s-o" . duplicate-line-above-comment) ;复制当前行到上一行, 并注释当前行
-   ("C-S-s-l" . duplicate-line-below-comment) ;复制当前行到下一行, 并注释当前行
-   ("M-SPC" . just-one-space)                 ;只有一个空格在光标处
+   ("M-N" . kill-syntax-backward+)         ;向后进行语法删除
+   ("M-M" . kill-syntax-forward+)          ;向前进行语法删除
+   ("C-:" . comment-or-uncomment-region+)  ;注释当前行
+   ("C-s-n" . comment-dwim-next-line)      ;移动到上一行并注释
+   ("C-s-p" . comment-dwim-prev-line)      ;移动到下一行并注释
+   ("M-s-n" . comment-part-move-down)      ;向下移动注释
+   ("M-s-p" . comment-part-move-up)        ;向上移动注释
+   ("C-x C-x" . exchange-point-and-mark)   ;交换当前点和标记点
+   ("M-o" . backward-delete-char-untabify) ;向前删除字符
+   ("C-/" . undo)                          ;撤销
+   ("C-?" . redo)                          ;重做
+   ("s-k" . kill-and-join-forward)         ;在缩进的行之间删除
+   ("C-x u" . mark-line)                   ;选中整行
+   ("C-M-S-h" . mark-paragraph)            ;选中段落
+   ("M-SPC" . just-one-space)              ;只有一个空格在光标处
    ))
 ;;; ### Rect ###
 ;;; --- 矩形操作
