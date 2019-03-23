@@ -115,25 +115,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
       (set alist-var (cons elt-cons (symbol-value alist-var)))))
   (symbol-value alist-var))
 
-(defun open-newline-above (arg)
-  "Move to the previous line (like vi) and then opens a line."
-  (interactive "p")
-  (beginning-of-line)
-  (open-line arg)
-  (if (not (member major-mode '(haskell-mode org-mode literate-haskell-mode)))
-      (indent-according-to-mode)
-    (beginning-of-line)))
-
-(defun open-newline-below (arg)
-  "Move to the next line (like vi) and then opens a line."
-  (interactive "p")
-  (end-of-line)
-  (open-line arg)
-  (call-interactively 'next-line arg)
-  (if (not (member major-mode '(haskell-mode org-mode literate-haskell-mode)))
-      (indent-according-to-mode)
-    (beginning-of-line)))
-
 (defun insert-line-number (beg end &optional start-line)
   "Insert line numbers into buffer."
   (interactive "r")
@@ -440,54 +421,6 @@ Otherwise return nil."
                    (back-to-indentation)
                    (point))))
       nil)))
-
-(defun zap-back-to-char (arg char)
-  "No need to enter C-- to zap back."
-  (interactive "p\ncZap back to char: ")
-  (zap-to-char (- arg) char))
-
-(defun region-or-buffer-limits ()
-  "Return the start and end of the region as a list, smallest first.
-If the region is not active or empty, then bob and eob are used."
-  (if (or (not mark-active) (null (mark)) (= (point) (mark)))
-      (list (point-min) (point-max))
-    (if (< (point) (mark)) (list (point) (mark)) (list (mark) (point)))))
-
-(defun goto-longest-line (beg end)
-  "Goto the longest line of current buffer."
-  (interactive `,(region-or-buffer-limits))
-  (when (= beg end) (error "The buffer is empty"))
-  (when (eq this-command last-command) (forward-line 1) (setq beg (point)))
-  (goto-char beg)
-  (let* ((start-line (line-number-at-pos))
-         (max-width 0)
-         (line start-line)
-         long-lines col)
-    (when (eobp) (error "End of buffer"))
-    (while (and (not (eobp)) (or (not mark-active) (< (point) end)))
-      (end-of-line)
-      (setq col (current-column))
-      (when (>= col max-width)
-        (if (= col max-width)
-            (setq long-lines (cons line long-lines))
-          (setq long-lines (list line)))
-        (setq max-width col))
-      (forward-line 1)
-      (setq line (1+ line)))
-    (setq long-lines (nreverse long-lines))
-    (let ((lines long-lines))
-      (while (and lines (> start-line (car lines))) (pop lines))
-      (goto-line (or (car lines) start-line)))
-    (when (interactive-p)
-      (let ((others (cdr long-lines)))
-        (message
-         "Line %d: %d chars%s (%d lines measured)"
-         (car long-lines) max-width
-         (concat (and others (format ", Others: {%s}"
-                                     (mapconcat (lambda (line) (format "%d" line))
-                                                (cdr long-lines) ", "))))
-         (- line start-line))))
-    (list (car long-lines) max-width (cdr long-lines) (- line start-line))))
 
 (defun current-line-move-to-top()
   "Move current line to top of buffer."

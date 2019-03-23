@@ -148,3 +148,6 @@
 [submodule "move-text"]
 	path = site-lisp/extensions/move-text
 	url = https://github.com/manateelazycat/move-text.git
+[submodule "open-newline"]
+	path = site-lisp/extensions/open-newline
+	url = https://github.com/manateelazycat/open-newline.git

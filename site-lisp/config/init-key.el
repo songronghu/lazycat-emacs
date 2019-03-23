@@ -94,8 +94,6 @@
  '(
    ("s-J" . scroll-up-one-line)         ;向上滚动一行
    ("s-K" . scroll-down-one-line)       ;向下滚动一行
-   ("C-o" . open-newline-above)         ;在上面一行新建一行
-   ("C-l" . open-newline-below)         ;在下面一行新建一行
    ("C-z k" . beginning-of-buffer)      ;缓存开始
    ("C-z j" . end-of-buffer)            ;缓存结尾
    ("s-g" . goto-percent)    ;跳转到当前Buffer的文本百分比, 单位为字符
@@ -132,6 +130,12 @@
    ("C-S-s-l" . duplicate-line-below-comment) ;复制当前行到下一行, 并注释当前行
    )
  "duplicate-line")
+(lazy-set-autoload-key
+ '(
+   ("C-o" . open-newline-above)         ;在上面一行新建一行
+   ("C-l" . open-newline-below)         ;在下面一行新建一行
+   )
+ "open-newline")
 ;;; ### Buffer Name ###
 ;;; --- 缓存名字
 (lazy-set-autoload-key
