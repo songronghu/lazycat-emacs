@@ -80,6 +80,7 @@
 (require 'dired-details)                ;Dired详细信息
 (require 'dired-details+)               ;Dired详细消息切换
 (require 'grep-dired)                   ;Dired详细消息切换
+(require 'buffer-extension)
 
 ;;; Code:
 
