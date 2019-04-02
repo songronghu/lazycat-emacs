@@ -128,6 +128,7 @@
    ("C-S-l" . duplicate-line-or-region-below) ;向下复制当前行或区域
    ("C-S-s-o" . duplicate-line-above-comment) ;复制当前行到上一行, 并注释当前行
    ("C-S-s-l" . duplicate-line-below-comment) ;复制当前行到下一行, 并注释当前行
+   ("C-:" . comment-or-uncomment-region+)     ;注释当前行
    )
  "duplicate-line")
 (lazy-set-autoload-key
@@ -149,7 +150,6 @@
  '(
    ("M-N" . kill-syntax-backward+)         ;向后进行语法删除
    ("M-M" . kill-syntax-forward+)          ;向前进行语法删除
-   ("C-:" . comment-or-uncomment-region+)  ;注释当前行
    ("C-s-n" . comment-dwim-next-line)      ;移动到上一行并注释
    ("C-s-p" . comment-dwim-prev-line)      ;移动到下一行并注释
    ("M-s-n" . comment-part-move-down)      ;向下移动注释
