@@ -67,6 +67,8 @@
  '(
    ("s-x g" . color-rg-search-symbol)   ;递归搜索当前目录下的文件
    ("s-x h" . color-rg-search-input)    ;手动递归搜索当前目录下的文件
+   ("s-x j" . color-rg-search-symbol-in-project) ;递归搜索当前项目下的文件
+   ("s-x k" . color-rg-search-input-in-project) ;手动递归搜索当前项目下的文件
    )
  "color-rg")
 (lazy-set-autoload-key
@@ -163,9 +165,9 @@
    ))
 (lazy-set-autoload-key
  '(
-   ("C-/" . undo-tree-undo)                          ;撤销
-   ("C-?" . undo-tree-redo)                          ;重做)
- )
+   ("C-/" . undo-tree-undo)             ;撤销
+   ("C-?" . undo-tree-redo)             ;重做)
+   )
  "undo-tree")
 ;;; ### Rect ###
 ;;; --- 矩形操作
