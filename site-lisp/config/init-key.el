@@ -156,13 +156,17 @@
    ("M-s-p" . comment-part-move-up)        ;向上移动注释
    ("C-x C-x" . exchange-point-and-mark)   ;交换当前点和标记点
    ("M-o" . backward-delete-char-untabify) ;向前删除字符
-   ("C-/" . undo)                          ;撤销
-   ("C-?" . redo)                          ;重做
    ("s-k" . kill-and-join-forward)         ;在缩进的行之间删除
    ("C-x u" . mark-line)                   ;选中整行
    ("C-M-S-h" . mark-paragraph)            ;选中段落
    ("M-SPC" . just-one-space)              ;只有一个空格在光标处
    ))
+(lazy-set-autoload-key
+ '(
+   ("C-/" . undo-tree-undo)                          ;撤销
+   ("C-?" . undo-tree-redo)                          ;重做)
+ )
+ "undo-tree")
 ;;; ### Rect ###
 ;;; --- 矩形操作
 (lazy-set-autoload-key
