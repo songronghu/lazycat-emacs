@@ -102,6 +102,10 @@
 (setq x-select-enable-clipboard t)      ;支持emacs和外部程序的粘贴
 (setq split-width-threshold nil)        ;分屏的时候使用上下分屏
 (setq inhibit-compacting-font-caches t) ;使用字体缓存，避免卡顿
+(setq profiler-report-cpu-line-format ;让 profiler-report 第一列宽一点
+      '((100 left)
+        (24 right ((19 right)
+                   (5 right)))))
 (add-hook 'find-file-hook 'highlight-parentheses-mode t) ;增强的括号高亮
 
 ;; 不显示 *scratch*
