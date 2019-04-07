@@ -106,6 +106,10 @@
       '((100 left)
         (24 right ((19 right)
                    (5 right)))))
+(setq profiler-report-memory-line-format
+      '((100 left)
+        (19 right ((14 right profiler-format-number)
+                   (5 right)))))
 (add-hook 'find-file-hook 'highlight-parentheses-mode t) ;增强的括号高亮
 
 ;; 不显示 *scratch*
