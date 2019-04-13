@@ -83,12 +83,9 @@
 ;;
 
 ;;; Require
-(require 'eglot)
+(require 'lsp-mode)
 
 ;;; Code:
-
-;; It is forbidden to display help files in minibuffer, too annoying.
-(setq eglot-ignored-server-capabilites '(:hoverProvider))
 
 (dolist (hook (list
                'js-mode-hook
@@ -97,8 +94,7 @@
                'go-mode-hook
                ))
   (add-hook hook '(lambda ()
-                    (run-with-timer "5sec" nil (lambda () (flymake-mode -1)))
-                    (eglot-ensure)
+                    (lsp)
                     )))
 
 (provide 'init-lsp)
