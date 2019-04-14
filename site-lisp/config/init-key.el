@@ -9,35 +9,35 @@
  '("C-x C-f" "C-z" "C-q" "s-W" "s-z" "M-h" "C-x C-c" "C-\\" "s-c" "s-x" "s-v"))
 ;;; ### Sdcv ###
 ;;; --- 星际译王命令行
-(defvar sdcv-key-alist nil
-  "The key alist that sdcv.")
-(setq sdcv-key-alist
-      '(("p" . sdcv-search-pointer)     ;光标处的单词, buffer显示
-        ("y" . sdcv-search-pointer+)    ;光标处的单词, tooltip显示
-        ("i" . sdcv-search-input)       ;输入的单词, buffer显示
-        (";" . sdcv-search-input+)))    ;输入的单词, tooltip显示
-(lazy-set-prefix-autoload-key sdcv-key-alist nil "C-z" "init-sdcv")
+(lazy-set-prefix-autoload-key
+ '(("p" . sdcv-search-pointer)          ;光标处的单词, buffer显示
+   ("y" . sdcv-search-pointer+)         ;光标处的单词, tooltip显示
+   ("i" . sdcv-search-input)            ;输入的单词, buffer显示
+   (";" . sdcv-search-input+))
+ nil
+ "C-z"
+ "init-sdcv")
 ;;; ### Insert translated name ###
-(defvar insert-translated-name-key-alist nil
-  "The key alist that insert-translated-name.")
-(setq insert-translated-name-key-alist
-      '(
-        ("," . insert-translated-name-insert-with-underline)
-        ("." . insert-translated-name-insert-with-camel)
-        ))
-(lazy-set-prefix-autoload-key insert-translated-name-key-alist nil "C-z" "init-insert-translated-name")
+(lazy-set-prefix-autoload-key
+ '(
+   ("," . insert-translated-name-insert-with-underline)
+   ("." . insert-translated-name-insert-with-camel)
+   )
+ nil
+ "C-z"
+ "init-insert-translated-name")
 (lazy-set-autoload-key
  '(
    ("s-i" . insert-translated-name-insert)
    )
  "init-insert-translated-name")
 ;; Dash.
-(defvar dash-key-alist nil
-  "The key alist that dash.")
-(setq dash-key-alist
-      '(("y" . dash-at-point)
-        ))                              ;输入的单词, tooltip显示
-(lazy-set-prefix-autoload-key dash-key-alist nil "C-x" "dash-at-point")
+(lazy-set-prefix-autoload-key
+ '(("y" . dash-at-point)
+   )
+ nil
+ "C-x"
+ "dash-at-point")
 ;;; ### Toolkit ###
 ;;; --- 工具函数
 (lazy-set-key
