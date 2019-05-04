@@ -173,6 +173,7 @@
    ("C-:" . web-mode-comment-or-uncomment)
    ("M-i" . emmet-expand-yas)
    ("C-c M-i" . emmet-preview-current-line)
+   ("C-M-SPC" . mark-sexp)
    )
  web-mode-map nil "web-mode-extension")
 
