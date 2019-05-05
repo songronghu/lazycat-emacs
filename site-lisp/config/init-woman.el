@@ -82,11 +82,11 @@
 ;;; Require
 
 (require 'woman)
-(require 'lazy-set-key)
+(require 'lazy-load)
 
 ;;; Code:
 
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("J" . scroll-up-one-line)           ;向上滚动一行
    ("K" . scroll-down-one-line)         ;向下滚动一行

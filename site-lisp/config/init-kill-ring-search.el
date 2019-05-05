@@ -10,12 +10,12 @@
 ;; Last-Updated: 2013-12-30 09:48:49
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-kill-ring-search.el
-;; Keywords: 
+;; Keywords:
 ;; Compatibility: GNU Emacs 24.3.50.1
 ;;
 ;; Features that might be required by this library:
 ;;
-;; 
+;;
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
 ;; Floor, Boston, MA 02110-1301, USA.
 
-;;; Commentary: 
-;; 
+;;; Commentary:
+;;
 ;; Init for kill ring search
-;; 
+;;
 
 ;;; Installation:
 ;;
@@ -57,26 +57,26 @@
 
 ;;; Customize:
 ;;
-;; 
+;;
 ;;
 ;; All of the above can customize by:
 ;;      M-x customize-group RET init-kill-ring-search RET
 ;;
 
 ;;; Change log:
-;;	
+;;
 ;; 2013/12/30
 ;;      * First released.
-;; 
+;;
 
 ;;; Acknowledgements:
 ;;
-;; 
+;;
 ;;
 
 ;;; TODO
 ;;
-;; 
+;;
 ;;
 
 ;;; Require
@@ -85,7 +85,7 @@
 
 ;;; Code:
 
-(lazy-set-mode-autoload-key
+(lazy-load-local-keys
  '(
    ("C-s" . kill-ring-search-prev))     ;下一个匹配
  kill-ring-search-keymap nil "kill-ring-search"

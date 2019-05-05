@@ -5,11 +5,11 @@
 
 ;;; ### Unset key ###
 ;;; --- 卸载按键
-(lazy-unset-key                         ;全局按键的卸载
+(lazy-load-unset-keys                         ;全局按键的卸载
  '("C-x C-f" "C-z" "C-q" "s-W" "s-z" "M-h" "C-x C-c" "C-\\" "s-c" "s-x" "s-v"))
 ;;; ### Sdcv ###
 ;;; --- 星际译王命令行
-(lazy-set-prefix-autoload-key
+(lazy-load-local-keys
  '(("p" . sdcv-search-pointer)          ;光标处的单词, buffer显示
    ("y" . sdcv-search-pointer+)         ;光标处的单词, tooltip显示
    ("i" . sdcv-search-input)            ;输入的单词, buffer显示
@@ -18,7 +18,7 @@
  "C-z"
  "init-sdcv")
 ;;; ### Insert translated name ###
-(lazy-set-prefix-autoload-key
+(lazy-load-local-keys
  '(
    ("," . insert-translated-name-insert-with-underline)
    ("." . insert-translated-name-insert-with-camel)
@@ -26,13 +26,13 @@
  nil
  "C-z"
  "init-insert-translated-name")
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-i" . insert-translated-name-insert)
    )
  "init-insert-translated-name")
 ;; Dash.
-(lazy-set-prefix-autoload-key
+(lazy-load-local-keys
  '(("y" . dash-at-point)
    )
  nil
@@ -40,7 +40,7 @@
  "dash-at-point")
 ;;; ### Toolkit ###
 ;;; --- 工具函数
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("s-c o" . one-key-menu-directory)       ;目录打开菜单
    ("s-," . bury-buffer)                    ;隐藏当前buffer
@@ -56,14 +56,14 @@
    ("M-z" . upcase-char)      ;Upcase char handly with capitalize-word
    ("s-p" . insert-standard-date)
    ))
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-R" . re-builder)                 ;可视化构建正则表达式
    )
  "init-rebuilder")
 ;;; ### Color-Rg ###
 ;;; --- 搜索重构
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-x g" . color-rg-search-symbol)   ;递归搜索当前目录下的文件
    ("s-x h" . color-rg-search-input)    ;手动递归搜索当前目录下的文件
@@ -71,18 +71,18 @@
    ("s-x k" . color-rg-search-input-in-project) ;手动递归搜索当前项目下的文件
    )
  "color-rg")
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-z l" . display-line-numbers-mode) ;行号模式切换
    )
  "basic-toolkit")
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-g" . goto-line-preview))
  "goto-line-preview")
 ;;; ### Watch other window ###
 ;;; --- 滚动其他窗口
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-J" . watch-other-window-up)        ;向下滚动其他窗口
    ("M-K" . watch-other-window-down)      ;向上滚动其他窗口
@@ -92,7 +92,7 @@
  "watch-other-window")
 ;;; ### Buffer Move ###
 ;;; --- 缓存移动
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("s-J" . scroll-up-one-line)         ;向上滚动一行
    ("s-K" . scroll-down-one-line)       ;向下滚动一行
@@ -113,18 +113,18 @@
    ("M-s-," . point-stack-pop)          ;buffer索引跳转
    ("M-s-." . point-stack-push)         ;buffer索引标记
    ))
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-s" . lazy-search)                ;懒惰搜索
    )
  "lazy-search")
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-N" . move-text-down)      ;把光标所在的整行文字(或标记)下移一行
    ("s-P" . move-text-up)        ;把光标所在的整行文字(或标记)上移一行
    )
  "move-text")
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-S-o" . duplicate-line-or-region-above) ;向上复制当前行或区域
    ("C-S-l" . duplicate-line-or-region-below) ;向下复制当前行或区域
@@ -133,7 +133,7 @@
    ("C-:" . comment-or-uncomment-region+)     ;注释当前行
    )
  "duplicate-line")
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-o" . open-newline-above)         ;在上面一行新建一行
    ("C-l" . open-newline-below)         ;在下面一行新建一行
@@ -141,14 +141,14 @@
  "open-newline")
 ;;; ### Buffer Name ###
 ;;; --- 缓存名字
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-M-;" . kill-other-window-buffer) ;关闭其他窗口的buffer
    )
  "buffer-extension")
 ;;; ### Buffer Edit ###
 ;;; --- 缓存编辑
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("M-N" . kill-syntax-backward+)         ;向后进行语法删除
    ("M-M" . kill-syntax-forward+)          ;向前进行语法删除
@@ -163,7 +163,7 @@
    ("C-M-S-h" . mark-paragraph)            ;选中段落
    ("M-SPC" . just-one-space)              ;只有一个空格在光标处
    ))
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-/" . undo-tree-undo)             ;撤销
    ("C-?" . undo-tree-redo)             ;重做)
@@ -171,7 +171,7 @@
  "undo-tree")
 ;;; ### Rect ###
 ;;; --- 矩形操作
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-M" . rm-set-mark)                ;矩形标记
    ("s-X" . rm-exchange-point-and-mark) ;矩形对角交换
@@ -189,7 +189,7 @@
  "rect-extension")
 ;;; ### Font ###
 ;;; --- 字体命令
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("s--" . text-scale-decrease)        ;减小字体大小
    ("s-=" . text-scale-increase)        ;增加字体大小
@@ -199,7 +199,7 @@
    ))
 ;;; ### Window Operation ###
 ;;; --- 窗口操作
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("C-c v" . split-window-vertically)   ;纵向分割窗口
    ("C-c h" . split-window-horizontally) ;横向分割窗口
@@ -207,18 +207,18 @@
    ("C-x ;" . delete-other-windows)      ;关闭其它窗口
    ))
 ;;; ### Multi-Scratch
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-Q" . multi-scratch-new)
    ("C-S-s-q" . multi-scratch-new)
    )
  "multi-scratch")
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-;" . one-key-menu-window-navigation) ;快速窗口导航
    )
  "init-window")
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-c V" . delete-other-windows-vertically+)   ;关闭上下的其他窗口
    ("C-c H" . delete-other-windows-horizontally+) ;关闭左右的其他窗口
@@ -230,7 +230,7 @@
  "window-extension")
 ;;; ### Awesome-Tab ###
 ;;; --- 多标签浏览
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("M-7" . awesome-tab-backward-tab)              ;移动到后一个标签
    ("M-8" . awesome-tab-forward-tab)               ;移动到前一个标签
@@ -239,7 +239,7 @@
    ("<C-tab>" . awesome-tab-backward-tab)          ;移动到后一个标签
    ("<C-S-iso-lefttab>" . awesome-tab-forward-tab) ;移动到前一个标签
    ))
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-&" . awesome-tab-backward-tab-other-window)
    ("M-*" . awesome-tab-forward-tab-other-window)
@@ -263,7 +263,7 @@
  "awesome-tab")
 ;;; ### Functin key ###
 ;;; --- 功能函数
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("<f2>" . refresh-file)              ;自动刷新文件
    ("<f5>" . emacs-session-save)        ;退出emacs
@@ -278,7 +278,7 @@
    ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
    ("M-I" . backward-indent)            ;向后移动4个字符
    ))
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-7" . find-define-back)           ;返回查找符号的定义之前的位置
    ("C-8" . find-define)                ;查找符号的定义
@@ -286,7 +286,7 @@
  "find-define")
 ;;; ### Awesome-Pair ###
 ;;; --- 结构化编程
-(lazy-unset-key
+(lazy-load-unset-keys
  '("M-J" "M-r" "M-s" "M-;" "C-M-f" "C-M-b" "M-)")
  awesome-pair-mode-map)                 ;卸载按键
 (defvar awesome-pair-key-alist nil)
@@ -319,16 +319,16 @@
         ;; 跳出并换行缩进
         ("M-:" . awesome-pair-jump-out-pair-and-newline) ;跳出括号并换行
         ))
-(lazy-set-key awesome-pair-key-alist awesome-pair-mode-map)
+(lazy-load-set-keys awesome-pair-key-alist awesome-pair-mode-map)
 ;;; ### Ruby-Extension ###
 ;;; --- Ruby useful functions.
-(lazy-set-mode-autoload-key
+(lazy-load-local-keys
  '(
    ("C-c t" . ruby-hash-syntax-toggle))
  ruby-mode-map nil "ruby-extension")
 ;;; ### Thingh-edit ###
 ;;; --- 增强式编辑当前光标的对象
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-s-h" . one-key-menu-thing-edit)  ;thing-edit 菜单
    )
@@ -336,7 +336,7 @@
  )
 ;;; ### Aweshell ###
 ;;; --- 多标签式的shell
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-n" . aweshell-new)
    ("s-h" . aweshell-toggle)
@@ -344,12 +344,12 @@
  "aweshell")
 ;;; ### W3m ###
 ;;; --- 网页浏览器
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-z C-z" . w3m)                    ;启动W3M
    )
  "init-w3m")
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-z z" . w3m-startup-background)         ;启动W3M, 后台
    ("C-x C-z" . toggle-w3m-with-other-buffer) ;在W3M和buffer间切换
@@ -357,7 +357,7 @@
  "w3m-extension")
 ;;; ### Dired ###
 ;;; --- Dired
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("<f8>" . dired-jump)
    ("C-x C-f" . find-file)
@@ -365,7 +365,7 @@
  "init-dired")
 ;;; ### Helm ###
 ;;; --- 快速buffer切换
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-y" . helm-dwim)
    )
@@ -373,13 +373,13 @@
 ;;; ### EAF ###
 ;;; EAF
 (unless (featurep 'cocoa)
-  (lazy-set-autoload-key
+  (lazy-load-global-keys
    '(
      ("s-'" . eaf-open)
      ("s-/" . eaf-stop-process)
      )
    "init-eaf")
-  (lazy-set-mode-autoload-key
+  (lazy-load-local-keys
    '(
      ("K" . eaf-dired-open-file)
      )
@@ -387,14 +387,14 @@
    nil
    "init-eaf"))
 ;; Cycle buffer
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-C" . one-key-menu-cycle-buffer)  ;特定模式切换
    )
  "init-cycle-buffer")
 ;;; ### Isearch ###
 ;;; --- 交互式搜索
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("TAB" . isearch-complete)           ;isearch补全
    ("C-s" . isearch-repeat-forward) ;重复向前搜索, 第一次可以用来搜索上一次的历史哟
@@ -420,21 +420,21 @@
    )
  isearch-mode-map
  )
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-L" . isearch-to-lazy-search)     ;切换到lazy-search
    )
  "lazy-search-extension")
 ;; ### Helm Packman ###
 ;;; --- Pacman 管理工具
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-x z" . helm-system-packages)
    )
  "helm-system-packages-pacman")
 ;;; ### Flycheck ###
 ;;; --- 及时拼写检查
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-s-j" . flycheck-next-error)      ;显示下一个错误
    ("M-s-k" . flycheck-previous-error)  ;显示上一个错误
@@ -443,49 +443,49 @@
  )
 ;;; ### kill-ring-search ###
 ;;; --- 删除环的递增式搜索
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-s-y" . kill-ring-search)         ;kill ring 搜索
    )
  "init-kill-ring-search")
 ;;; ### Help ###
 ;;; --- 帮助模式
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-h". one-key-menu-help)           ;帮助菜单
    )
  "init-help-mode")
 ;;; ### IRC ###
 ;;; --- 聊天
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-U" . one-key-menu-irc-channel)   ;跳转到IRC频道
    )
  "init-irc")
 ;;; ### Yoaddmuse ###
 ;;; --- Yet another oddmuse mode
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-s-;" . one-key-menu-yaoddmuse)   ;yaoddmuse 菜单
    )
  "init-yaoddmuse")
 ;;; ### Festival ###
 ;;; --- 语音阅读
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-x r" . one-key-menu-festival)    ;语音阅读菜单
    )
  "init-festival")
 ;;; ### Less ###
 ;;; --- 快速浏览模式
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-s-l" . less-minor-mode)          ;打开less模式
    )
  "init-less")
 ;;; ### Speedbar ###
 ;;; --- 快速访问文件和tags
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-z s-z" . sr-speedbar-toggle)        ;显示/隐藏speedbar
    ("s-z s-x" . sr-speedbar-select-window) ;选中speedbar窗口
@@ -493,13 +493,13 @@
  "init-speedbar")
 ;;; ### iedit ###
 ;;; --- iedit
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-o" . iedit-mode)
    )
  "iedit")
 ;;; ### Ace jump ###
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-<" . ace-jump-word-mode)
    ("s->" . ace-jump-char-mode)
@@ -510,7 +510,7 @@
 ;;; --- Python mode
 (eval-after-load 'python-mode
   '(lambda ()
-     (lazy-set-mode-autoload-key
+     (lazy-load-local-keys
       '(
         ("C-S-j" . jump-to-import)
         )
@@ -519,7 +519,7 @@
 ;;; ### Ielm ###
 ;;; --- Emacs Lisp 解释模式
 (autoload 'ielm-map "ielm")
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-s-i" . ielm-toggle)              ;切换ielm
    )
@@ -527,10 +527,10 @@
 (eval-after-load 'ielm-mode
   '(lambda ()
      (progn
-       (lazy-unset-key
+       (lazy-load-unset-keys
         '("M-p" "M-n")
         ielm-map)                       ;卸载按键
-       (lazy-set-key
+       (lazy-load-set-keys
         '(
           ("C-s-p" . comint-previous-input) ;上一个输入
           ("C-s-n" . comint-next-input)     ;下一个输入
@@ -540,25 +540,25 @@
        )))
 ;;; ### Man ###
 ;;; --- Man
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-<f1>" . woman))
  "init-woman")
 ;;; ### Company en words ###
 ;;; --- 英文助手
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-r" . toggle-company-english-helper) ;英文助手
    )
  "company-english-helper")
 ;;; ### Ispell ###
 ;;; --- 拼写检查
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(("s-v s-v" . ispell-buffer))
  "init-ispell")                         ;检查当前buffer
 ;;; ### Ido ###
 ;;; --- 交互式管理文件和缓存
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("C-x C-f" . ido-find-file)          ;交互式查找文件
    ("C-x b" . ido-switch-buffer)        ;交互式切换buffer
@@ -571,7 +571,7 @@
              (ido-my-keys ido-completion-map)))
 (defun ido-my-keys (keymap)
   "Add my keybindings for ido."
-  (lazy-set-key
+  (lazy-load-set-keys
    '(
      ("M-s-p" . ido-prev-match)              ;上一个匹配
      ("M-s-n" . ido-next-match)              ;下一个匹配
@@ -584,7 +584,7 @@
    ))
 ;;; ### IRC ###
 ;;; --- 聊天
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-c i" . switch-to-erc)            ;切换到IRC或自动登录IRC
    ("C-c I" . erc-nick-notify-jump-last-channel) ;自动跳转到最后收到消息的频道
@@ -592,7 +592,7 @@
    )
  "init-erc")
 ;;; Elisp
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("RET" . comment-indent-new-line)    ;自动换行并注释
    )
@@ -600,7 +600,7 @@
  )
 ;;; ### EMMS ###
 ;;; --- Emacs 多媒体系统
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-c p" . one-key-menu-emms)        ;播放器菜单
    ("<up>" . emms-volume-mode-plus)     ;增加音量
@@ -614,7 +614,7 @@
  "init-emms")
 ;;; ### Org ###
 ;;; --- 笔记管理和组织
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-s" . one-key-menu-org-file)      ;Org 文件
    ("C-c r" . org-remember)             ;Org-remeber
@@ -622,28 +622,28 @@
  "init-org-mode")
 ;;; ### String Inflection ###
 ;; --- 单词语法风格快速转换
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-c C-u" . one-key-string-inflection)
    )
  "init-string-inflection")
 ;;; ### Projectile Rails ###
 ;; Rails 文件快速导航
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-c p" . one-key-projectile-rails) ;projectile rails
    )
  "init-projectile-rails")
 ;;; ### Top ###
 ;;; --- 进程管理器
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("<s-f8>" . top)                     ;TOP
    )
  "init-top")
 ;;; ### Doc-view ###
 ;;; --- 文档阅读器
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-M-j" . pdf-view-scroll-up-or-next-page+) ;翻另一个窗口中图书的下一页
    ("C-M-k" . pdf-view-scroll-down-or-previous-page+) ;翻另一个窗口中图书的上一页
@@ -651,7 +651,7 @@
  "init-pdf-tools")
 ;;; ### Keyboard Macro ###
 ;;; --- 键盘宏
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-s-s" . kmacro-start-macro-or-insert-counter) ;开始键盘宏或插入
    ("M-s-d" . kmacro-end-or-call-macro)             ;结束键盘宏或调用
@@ -665,34 +665,34 @@
    )
  "macros+")
 ;;; ### auto-install ###
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-s-x" . auto-install-from-emacswiki))
  "init-auto-install")
 ;;; ### expand-region ###
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("C-=" . er/expand-region))
  "expand-region")
 ;; ### vdiff ###
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("M-s-u" . vdiff-buffers))
  "vdiff")
 ;;; ### Magit ###
 ;;
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-x f" . one-key-menu-magit))
  "init-git")
 
 ;;; ### Magit ###
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-x i" . one-key-menu-indium))
  "init-web-mode")
 
-(lazy-set-autoload-key
+(lazy-load-global-keys
  '(
    ("s-m" . toggle-input-method))
  "init-pyim")

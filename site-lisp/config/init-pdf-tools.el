@@ -155,19 +155,19 @@
 
   (add-hook 'pdf-view-mode-hook 'pdf-midnite-colour-schemes)
 
-  (lazy-unset-key
+  (lazy-load-unset-keys
    '(".")
    pdf-view-mode-map)                     ;卸载按键
-  (lazy-unset-key
+  (lazy-load-unset-keys
    '("x" "M-<" "M->")
    pdf-view-mode-map)                     ;卸载一些按键
-  (lazy-set-key
+  (lazy-load-set-keys
    '(
      ([remap scroll-up] . pdf-view-next-line-or-next-page) ;重新定向按键, 支持 auto-scroll
      )
    pdf-view-mode-map
    )
-  (lazy-set-key
+  (lazy-load-set-keys
    '(
      ("N" . pdf-view-next-page)                      ;下一页
      ("P" . pdf-view-previous-page)                  ;上一页

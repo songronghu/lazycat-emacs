@@ -174,7 +174,7 @@
             ))
     (helm-other-buffer helm-source-list "*helm search*")))
 
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("M-s-j" . helm-next-source)
    ("M-s-k" . helm-previous-source)

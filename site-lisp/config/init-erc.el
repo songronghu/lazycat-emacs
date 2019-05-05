@@ -148,14 +148,14 @@
         ;; "PART"                          ;离开
         ;; "QUIT"                          ;退出
         ))
-(lazy-set-mode-autoload-key
+(lazy-load-local-keys
  '(
    ("C-c C-y" . paste2-buffer-create)   ;粘贴大段内容
    ("/" . doi-erc-command)              ;erc命令
    )
  erc-mode-map nil "init-erc"
  )
-(lazy-set-mode-autoload-key doi-key-alist erc-mode-map nil "init-erc") ;doi 的局部按键
+(lazy-load-local-keys doi-key-alist erc-mode-map nil "init-erc") ;doi 的局部按键
 
 (provide 'init-erc)
 

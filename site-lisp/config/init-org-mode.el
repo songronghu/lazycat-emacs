@@ -10,12 +10,12 @@
 ;; Last-Updated: 2013-12-30 09:56:41
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-org-mode.el
-;; Keywords: 
+;; Keywords:
 ;; Compatibility: GNU Emacs 24.3.50.1
 ;;
 ;; Features that might be required by this library:
 ;;
-;; 
+;;
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
 ;; Floor, Boston, MA 02110-1301, USA.
 
-;;; Commentary: 
-;; 
+;;; Commentary:
+;;
 ;; Init org mode
-;; 
+;;
 
 ;;; Installation:
 ;;
@@ -57,26 +57,26 @@
 
 ;;; Customize:
 ;;
-;; 
+;;
 ;;
 ;; All of the above can customize by:
 ;;      M-x customize-group RET init-org-mode RET
 ;;
 
 ;;; Change log:
-;;	
+;;
 ;; 2013/12/30
 ;;      * First released.
-;; 
+;;
 
 ;;; Acknowledgements:
 ;;
-;; 
+;;
 ;;
 
 ;;; TODO
 ;;
-;; 
+;;
 ;;
 
 ;;; Require
@@ -186,7 +186,7 @@
   (interactive)
   (one-key-menu "ORG-FILE" one-key-menu-org-file-alist t))
 
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("s-u" . one-key-menu-org-mode)           ;Org-mode 菜单
    ("s-U" . one-key-menu-org-mode-recursive) ;Org-mode 菜单, 但是递归的

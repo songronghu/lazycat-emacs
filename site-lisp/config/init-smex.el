@@ -86,7 +86,7 @@
 ;;; Code:
 
 (smex-initialize)
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("M-x" . smex)
    ("C-c C-c M-x" . execute-extended-command)

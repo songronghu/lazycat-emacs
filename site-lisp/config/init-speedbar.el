@@ -10,12 +10,12 @@
 ;; Last-Updated: 2013-12-30 15:49:35
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-speedbar.el
-;; Keywords: 
+;; Keywords:
 ;; Compatibility: GNU Emacs 24.3.50.1
 ;;
 ;; Features that might be required by this library:
 ;;
-;; 
+;;
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
 ;; Floor, Boston, MA 02110-1301, USA.
 
-;;; Commentary: 
-;; 
+;;; Commentary:
+;;
 ;; Init speedbar
-;; 
+;;
 
 ;;; Installation:
 ;;
@@ -57,26 +57,26 @@
 
 ;;; Customize:
 ;;
-;; 
+;;
 ;;
 ;; All of the above can customize by:
 ;;      M-x customize-group RET init-speedbar RET
 ;;
 
 ;;; Change log:
-;;	
+;;
 ;; 2013/12/30
 ;;      * First released.
-;; 
+;;
 
 ;;; Acknowledgements:
 ;;
-;; 
+;;
 ;;
 
 ;;; TODO
 ;;
-;; 
+;;
 ;;
 
 ;;; Require
@@ -91,7 +91,7 @@
 (setq sr-speedbar-right-side nil)
 (setq speedbar-buffers-key-map nil)     ;卸载一些按键
 (setq speedbar-file-key-map nil)
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ;; 导航操作
    ("f" . speedbar-edit-line)             ;进入当前条目

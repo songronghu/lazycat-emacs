@@ -137,10 +137,10 @@
 
 ;;; ### W3m ###
 ;;; --- 网页浏览器
-(lazy-unset-key
+(lazy-load-unset-keys
  '("s")
  w3m-mode-map)                          ;卸载按键
-(lazy-set-key
+(lazy-load-set-keys
  '(("1" . emms-play-online)                ;在线听音乐
    ("2" . kill-google-define-windows)      ;关闭Google定义窗口
    ("3" . google-define)                   ;查找输入单词的Google定义
@@ -180,12 +180,12 @@
    )
  w3m-mode-map
  )
-(lazy-set-mode-autoload-key
+(lazy-load-local-keys
  '(
    ("Y" . wget-web-page)                ;网页下载
    )
  w3m-mode-map nil "wget")
-(lazy-set-mode-autoload-key
+(lazy-load-local-keys
  '(
    ("5" . w3m-open-rcirc-window)                        ;打开RCIRC窗口
    ("9" . w3m-auto-install-elisp)                       ;自动安装elisp文件
@@ -207,7 +207,7 @@
    ("M-o" . w3m-open-link-file-under-current-directory) ;open link file under current directory
    )
  w3m-mode-map nil "w3m-extension")
-(lazy-set-mode-autoload-key
+(lazy-load-local-keys
  '(
    ("&" . yaoddmuse-w3m-edit-emacswiki-page) ;编辑 emacswiki 页面
    )

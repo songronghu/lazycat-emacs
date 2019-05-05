@@ -86,10 +86,10 @@
 ;;; Code:
 
 (setq apt-utils-automatic-update t)     ;总是自动重建包列表， 不用询问
-(lazy-unset-key
+(lazy-load-unset-keys
  '("s")
  apt-utils-mode-map)                    ;卸载按键
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("#" . apt-utils-rebuild-package-lists)    ;重建包列表
    ("*" . apt-utils-list-package-files)       ;列出包文件

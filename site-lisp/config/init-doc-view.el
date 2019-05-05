@@ -90,19 +90,19 @@
 (setq doc-view-image-width (- (display-pixel-width) 16))
 (setq doc-view-resolution 200)
 
-(lazy-unset-key
+(lazy-load-unset-keys
  '(".")
  doc-view-mode-map)                     ;卸载按键
-(lazy-unset-key
+(lazy-load-unset-keys
  '("x" "M-<" "M->")
  doc-view-mode-map)                     ;卸载一些按键
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ([remap scroll-up] . doc-view-next-line-or-next-page) ;重新定向按键, 支持 auto-scroll
    )
  doc-view-mode-map
  )
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("N" . doc-view-next-page)                      ;下一页
    ("P" . doc-view-previous-page)                  ;上一页

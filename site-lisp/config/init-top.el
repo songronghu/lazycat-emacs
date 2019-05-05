@@ -85,7 +85,7 @@
 
 ;;; Code:
 
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("s" . isearch-forward)				;搜索
    ("g" . top)							;刷新

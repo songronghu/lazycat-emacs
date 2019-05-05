@@ -129,7 +129,7 @@
 
 ;;; ### Dired ###
 ;;; --- 文件浏览器
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("h" . dired-next-subdir)            ;下一个子目录
    ("l" . dired-prev-subdir)            ;上一个子目录
@@ -158,17 +158,17 @@
    )
  dired-mode-map
  )
-(lazy-set-mode-autoload-key
+(lazy-load-local-keys
  '(
    (";" . dired-view-minor-mode-toggle) ;字母输入导航模式
    )
  dired-mode-map nil "dired-view")
-(lazy-set-mode-autoload-key
+(lazy-load-local-keys
  '(
    ("T" . dired-tar-pack-unpack)
    )
  dired-mode-map nil "dired-tar")
-(lazy-set-mode-autoload-key
+(lazy-load-local-keys
  '(
    ("M-o" . dired-toggle-omit)          ;切换忽略状态
    ("?" . dired-get-size)               ;得到文件的大小
@@ -186,12 +186,12 @@
    ("C-m" . dired-find-file+)           ;打开当前文件或目录
    )
  dired-mode-map nil "dired-extension")
-(lazy-set-mode-autoload-key
+(lazy-load-local-keys
  '(
    ("K" . dired-open-file)              ;批量打开文件
    )
  dired-mode-map nil "dired-open")
-(lazy-set-mode-autoload-key
+(lazy-load-local-keys
  '(
    ("]" . dired-show-file-qrcode))
  dired-mode-map nil "eaf.el")
@@ -201,7 +201,7 @@
   '(lambda ()
      (progn
        (require 'wdired-extension)
-       (lazy-set-key
+       (lazy-load-set-keys
         '(
           ("C-c C-e" . wdired-format-filename) ;格式化文件名
           )

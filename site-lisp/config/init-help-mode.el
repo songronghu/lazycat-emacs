@@ -173,7 +173,7 @@
 
 ;;; ### Apropos ###
 ;;; --- 程序员命令查询
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("C-m" . apropos-follow)                ;进入
    ("N" . forward-button-with-line-begin)  ;下一个条目

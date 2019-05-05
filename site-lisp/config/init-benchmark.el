@@ -82,7 +82,7 @@
 ;;; Require
 
 (require 'benchmark-init-modes)
-(require 'lazy-set-key)
+(require 'lazy-load)
 
 ;;; Code:
 

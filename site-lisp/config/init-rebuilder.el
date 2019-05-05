@@ -10,12 +10,12 @@
 ;; Last-Updated: 2014-01-04 13:16:57
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-rebuilder.el
-;; Keywords: 
+;; Keywords:
 ;; Compatibility: GNU Emacs 24.3.50.1
 ;;
 ;; Features that might be required by this library:
 ;;
-;; 
+;;
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
 ;; Floor, Boston, MA 02110-1301, USA.
 
-;;; Commentary: 
-;; 
+;;; Commentary:
+;;
 ;; Init for re-builder
-;; 
+;;
 
 ;;; Installation:
 ;;
@@ -57,26 +57,26 @@
 
 ;;; Customize:
 ;;
-;; 
+;;
 ;;
 ;; All of the above can customize by:
 ;;      M-x customize-group RET init-rebuilder RET
 ;;
 
 ;;; Change log:
-;;	
+;;
 ;; 2014/01/04
 ;;      * First released.
-;; 
+;;
 
 ;;; Acknowledgements:
 ;;
-;; 
+;;
 ;;
 
 ;;; TODO
 ;;
-;; 
+;;
 ;;
 
 ;;; Require
@@ -86,7 +86,7 @@
 
 ;;; Code:
 
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("C-c b" . reb-change-target-buffer) ;改变目标buffer
    ("C-c c" . reb-toggle-case)          ;切换大小写

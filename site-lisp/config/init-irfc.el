@@ -88,7 +88,7 @@
 (setq irfc-directory "/space/data/Book/Network_Programming/RFC-all") ;设置存储目录
 (custom-set-variables                                                ;自动关联 `irfc-mode'
  '(irfc-assoc-mode t))
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("c" . kill-this-buffer)                         ;关闭当前buffer
    ("C" . kill-current-mode-buffers-except-current) ;关闭所有后台标签

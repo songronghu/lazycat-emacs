@@ -164,8 +164,8 @@
   (one-key-menu "INDIUM" one-key-menu-indium-alist t))
 
 ;; We-mode.
-(lazy-set-key awesome-pair-key-alist web-mode-map)
-(lazy-set-mode-autoload-key
+(lazy-load-set-keys awesome-pair-key-alist web-mode-map)
+(lazy-load-local-keys
  '(
    ("M-s-SPC" . web-mode-element-content-select)
    ("C-s-l" . web-mode-element-clone)

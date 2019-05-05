@@ -91,10 +91,10 @@
   (shell-command (concat "go run " (buffer-name))))
 
 ;;; ### Golang ###
-(lazy-unset-key
+(lazy-load-unset-keys
  '("C-k" "M-o")
  go-mode-map)
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("C-c C-c" . go-run-buffer)
    ("C-c C-f" . gofmt)

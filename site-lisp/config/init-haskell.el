@@ -92,7 +92,7 @@
   )
 (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
 
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("M-;" . comment-dwim-with-haskell-style) ;注释
    )

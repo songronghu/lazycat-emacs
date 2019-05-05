@@ -282,10 +282,10 @@
 
 ;;; ### Emms Playlist ###
 ;;; --- EMMS 播放列表
-(lazy-unset-key
+(lazy-load-unset-keys
  '("s" "m" "u" "M-<" "M->")
  emms-playlist-mode-map)                ;卸载按键
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("C-x C-s" . emms-playlist-save)             ;保存播放列表
    ("C-y" . emms-playlist-mode-yank)            ;剪切
@@ -330,7 +330,7 @@
  )
 ;;; ### Emms Tag Editor ###
 ;;; --- Emms 标签编辑器
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("C-c C-j" . emms-tag-editor-next-same-field)  ;下一个相同的区域
    ("C-c C-k" . emms-tag-editor-prev-same-field)  ;上一个相同的区域
@@ -342,7 +342,7 @@
  )
 ;;; ### EMMS Browser ###
 ;;; --- EMMS 浏览器
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("J" . emms-browser-next-non-track)      ;下一个节点
    ("K" . emms-browser-prev-non-track)      ;上一个节点
@@ -354,7 +354,7 @@
  )
 ;;; ### EMMS Stream ###
 ;;; --- EMMS 流媒体
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("a" . emms-stream-add-bookmark)          ;添加
    ("d" . emms-stream-delete-bookmark)       ;删除

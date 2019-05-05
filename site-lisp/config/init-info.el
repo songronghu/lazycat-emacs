@@ -89,7 +89,7 @@
 ;;; --- Info 模式
 (ace-link-setup-default)
 
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("f" . Info-follow-nearest-node)     ;进入当前节点
    ("<tab>" . Info-next-reference)      ;下一个引用

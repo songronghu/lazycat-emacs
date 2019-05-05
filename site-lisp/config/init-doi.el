@@ -108,7 +108,7 @@
         ("," . doi-end-of-buffer)          ;移动到buffer末尾
         ("." . doi-beginning-of-buffer)    ;移动到buffer开头
         ))
-(lazy-set-mode-autoload-key doi-key-alist custom-mode-map nil "doi")
+(lazy-load-local-keys doi-key-alist custom-mode-map nil "doi")
 
 (provide 'init-doi)
 

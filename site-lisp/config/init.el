@@ -22,7 +22,7 @@
     (require 'lazycat-theme)
     (require 'cache-path-from-shell)
     (require 'init-flycheck)
-    (require 'lazy-set-key)
+    (require 'lazy-load)
     (require 'one-key)
     (require 'awesome-pair)
     (require 'basic-toolkit)

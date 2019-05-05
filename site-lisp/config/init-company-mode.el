@@ -102,7 +102,7 @@
 
 ;;; Require
 
-(require 'lazy-set-key)
+(require 'lazy-load)
 (require 'company)
 (require 'company-posframe)
 (require 'company-yasnippet)
@@ -138,11 +138,11 @@
              (push 'company-elisp company-backends)))
 
 ;; Key settings.
-(lazy-unset-key
+(lazy-load-unset-keys
  '("TAB")
  company-mode-map)                      ;unset default keys
 
-(lazy-unset-key
+(lazy-load-unset-keys
  '("M-p" "M-n" "M-1"
    "M-2" "M-3" "M-4"
    "M-5" "M-6" "M-7"
@@ -150,7 +150,7 @@
    "C-m")
  company-active-map)
 
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("TAB" . company-complete-selection)
    ("M-h" . company-complete-selection)

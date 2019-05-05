@@ -1,6 +1,6 @@
-;;; lazy-set-key.el --- Lazy set keystroke.
+;;; lazy-load.el --- Lazy load keys for speed ​​up Emacs startup.
 
-;; Filename: lazy-set-key.el
+;; Filename: lazy-load.el
 ;; Description: Lazy set keystroke.
 ;; Author: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
@@ -9,7 +9,7 @@
 ;; Version: 0.1
 ;; Last-Updated: 2009-02-07 22:32:50
 ;;           By: Andy Stewart
-;; URL: http://www.emacswiki.org/emacs/download/lazy-set-key.el
+;; URL: http://www.emacswiki.org/emacs/download/lazy-load.el
 ;; Keywords:
 ;; Compatibility: GNU Emacs 23.0.60.1
 ;;
@@ -44,18 +44,21 @@
 
 ;;; Installation:
 ;;
-;; Put lazy-set-key.el to your load-path.
+;; Put lazy-load.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'lazy-set-key)
+;; (require 'lazy-load)
 ;;
 ;; No need more.
 
 ;;; Change log:
+;;
+;; 2019/05/05
+;;      * Refactory code.
 ;;
 ;; 2009/02/07
 ;;      * First released.
@@ -76,27 +79,19 @@
 
 ;;; Code:
 
-(defun lazy-set-autoload-key (key-alist filename)
-  (lazy-set-key key-alist)
-  (dolist (element key-alist)
-    (setq fun (cdr element))
-    (autoload fun filename))
-  )
-
-(defun lazy-set-prefix-autoload-key (key-alist keymap key-prefix filename)
-  (lazy-set-key key-alist keymap key-prefix)
+(defun lazy-load-global-keys (key-alist filename)
+  (lazy-load-set-keys key-alist)
   (dolist (element key-alist)
     (setq fun (cdr element))
     (autoload fun filename)))
 
-(defun lazy-set-mode-autoload-key (key-alist keymap key-prefix filename)
-  (lazy-set-key key-alist keymap key-prefix)
+(defun lazy-load-local-keys (key-alist keymap key-prefix filename)
+  (lazy-load-set-keys key-alist keymap key-prefix)
   (dolist (element key-alist)
     (setq fun (cdr element))
-    (autoload fun filename))
-  )
+    (autoload fun filename)))
 
-(defun lazy-set-key (key-alist &optional keymap key-prefix)
+(defun lazy-load-set-keys (key-alist &optional keymap key-prefix)
   "This function is to little type when define key binding.
 `KEYMAP' is a add keymap for some binding, default is `current-global-map'.
 `KEY-ALIST' is a alist contain main-key and command.
@@ -114,7 +109,7 @@
             (t (signal 'wrong-type-argument (list 'array key))))
       (define-key keymap key def))))
 
-(defun lazy-unset-key (key-list &optional keymap)
+(defun lazy-load-unset-keys (key-list &optional keymap)
   "This function is to little type when unset key binding.
 `KEYMAP' is add keymap for some binding, default is `current-global-map'
 `KEY-LIST' is list contain key."
@@ -126,6 +121,6 @@
             (t (signal 'wrong-type-argument (list 'array key))))
       (define-key keymap key nil))))
 
-(provide 'lazy-set-key)
+(provide 'lazy-load)
 
-;;; lazy-set-key.el ends here
+;;; lazy-load.el ends here

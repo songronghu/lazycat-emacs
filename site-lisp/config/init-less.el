@@ -85,7 +85,7 @@
 
 ;;; Code:
 
-(lazy-set-key
+(lazy-load-set-keys
  '(
    ("J" . less-scroll-up-one-line)      ;向下浏览
    ("K" . less-scroll-down-one-line)    ;向上浏览

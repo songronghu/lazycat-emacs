@@ -115,7 +115,7 @@
             minibuffer-local-filename-completion-map ;文件名补全
             ))
     (when icicle-mode
-      (lazy-set-key
+      (lazy-load-set-keys
        '(
          ("s-o" . icicle-insert-history-element) ;插入历史元素
          )
@@ -123,7 +123,7 @@
        )
       (ido-my-keys map)))
   (when icicle-mode
-    (lazy-set-key
+    (lazy-load-set-keys
      '(
        ("TAB" . isearch-complete-edit)
        ("M-k" . isearch-delete-ring-element))
