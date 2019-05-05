@@ -184,7 +184,8 @@
  '(
    ("Y" . wget-web-page)                ;网页下载
    )
- w3m-mode-map nil "wget")
+ w3m-mode-map
+ "wget")
 (lazy-load-local-keys
  '(
    ("5" . w3m-open-rcirc-window)                        ;打开RCIRC窗口
@@ -206,12 +207,14 @@
    ("M" . w3m-open-link-in-chromium)                    ;Open link in chromium browser
    ("M-o" . w3m-open-link-file-under-current-directory) ;open link file under current directory
    )
- w3m-mode-map nil "w3m-extension")
+ w3m-mode-map
+ "w3m-extension")
 (lazy-load-local-keys
  '(
    ("&" . yaoddmuse-w3m-edit-emacswiki-page) ;编辑 emacswiki 页面
    )
- w3m-mode-map nil "yaoddmuse-extension")
+ w3m-mode-map
+ "yaoddmuse-extension")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; W3m Search ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defvar one-key-menu-w3m-search-alist nil

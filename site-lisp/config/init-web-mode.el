@@ -175,7 +175,8 @@
    ("C-c M-i" . emmet-preview-current-line)
    ("C-M-SPC" . mark-sexp)
    )
- web-mode-map nil "web-mode-extension")
+ web-mode-map
+ "web-mode-extension")
 
 (provide 'init-web-mode)
 

@@ -88,7 +88,8 @@
  '(
    ("C-S-j" . jump-to-import)
    )
- python-mode-map nil "python-extension")
+ python-mode-map
+ "python-extension")
 
 (provide 'init-python)
 

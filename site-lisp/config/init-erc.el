@@ -153,9 +153,10 @@
    ("C-c C-y" . paste2-buffer-create)   ;粘贴大段内容
    ("/" . doi-erc-command)              ;erc命令
    )
- erc-mode-map nil "init-erc"
+ erc-mode-map
+ "init-erc"
  )
-(lazy-load-local-keys doi-key-alist erc-mode-map nil "init-erc") ;doi 的局部按键
+(lazy-load-local-keys doi-key-alist erc-mode-map "init-erc") ;doi 的局部按键
 
 (provide 'init-erc)
 

@@ -88,7 +88,8 @@
 (lazy-load-local-keys
  '(
    ("C-s" . kill-ring-search-prev))     ;下一个匹配
- kill-ring-search-keymap nil "kill-ring-search"
+ kill-ring-search-keymap
+ "kill-ring-search"
  )
 
 (provide 'init-kill-ring-search)

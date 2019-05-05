@@ -9,35 +9,34 @@
  '("C-x C-f" "C-z" "C-q" "s-W" "s-z" "M-h" "C-x C-c" "C-\\" "s-c" "s-x" "s-v"))
 ;;; ### Sdcv ###
 ;;; --- 星际译王命令行
-(lazy-load-local-keys
+(lazy-load-global-keys
  '(("p" . sdcv-search-pointer)          ;光标处的单词, buffer显示
    ("y" . sdcv-search-pointer+)         ;光标处的单词, tooltip显示
    ("i" . sdcv-search-input)            ;输入的单词, buffer显示
    (";" . sdcv-search-input+))
- nil
- "C-z"
- "init-sdcv")
+ "init-sdcv"
+ "C-z")
 ;;; ### Insert translated name ###
-(lazy-load-local-keys
+(lazy-load-global-keys
  '(
    ("," . insert-translated-name-insert-with-underline)
    ("." . insert-translated-name-insert-with-camel)
    )
- nil
+ "init-insert-translated-name"
  "C-z"
- "init-insert-translated-name")
+ )
 (lazy-load-global-keys
  '(
    ("s-i" . insert-translated-name-insert)
    )
  "init-insert-translated-name")
 ;; Dash.
-(lazy-load-local-keys
+(lazy-load-global-keys
  '(("y" . dash-at-point)
    )
- nil
+ "dash-at-point"
  "C-x"
- "dash-at-point")
+ )
 ;;; ### Toolkit ###
 ;;; --- 工具函数
 (lazy-load-set-keys
@@ -325,7 +324,8 @@
 (lazy-load-local-keys
  '(
    ("C-c t" . ruby-hash-syntax-toggle))
- ruby-mode-map nil "ruby-extension")
+ ruby-mode-map
+ "ruby-extension")
 ;;; ### Thingh-edit ###
 ;;; --- 增强式编辑当前光标的对象
 (lazy-load-global-keys
@@ -384,7 +384,6 @@
      ("K" . eaf-dired-open-file)
      )
    dired-mode-map
-   nil
    "init-eaf"))
 ;; Cycle buffer
 (lazy-load-global-keys
@@ -514,7 +513,8 @@
       '(
         ("C-S-j" . jump-to-import)
         )
-      python-mode-map nil "python-mode-utils")
+      python-mode-map
+      "python-mode-utils")
      ))
 ;;; ### Ielm ###
 ;;; --- Emacs Lisp 解释模式

@@ -162,12 +162,14 @@
  '(
    (";" . dired-view-minor-mode-toggle) ;字母输入导航模式
    )
- dired-mode-map nil "dired-view")
+ dired-mode-map
+ "dired-view")
 (lazy-load-local-keys
  '(
    ("T" . dired-tar-pack-unpack)
    )
- dired-mode-map nil "dired-tar")
+ dired-mode-map
+ "dired-tar")
 (lazy-load-local-keys
  '(
    ("M-o" . dired-toggle-omit)          ;切换忽略状态
@@ -185,16 +187,19 @@
    ("\"" . grep-dired-dwim)             ;查找特定的lisp文件
    ("C-m" . dired-find-file+)           ;打开当前文件或目录
    )
- dired-mode-map nil "dired-extension")
+ dired-mode-map
+ "dired-extension")
 (lazy-load-local-keys
  '(
    ("K" . dired-open-file)              ;批量打开文件
    )
- dired-mode-map nil "dired-open")
+ dired-mode-map
+ "dired-open")
 (lazy-load-local-keys
  '(
    ("]" . dired-show-file-qrcode))
- dired-mode-map nil "eaf.el")
+ dired-mode-map
+ "eaf.el")
 ;;; ### Wdired ###
 ;;; --- Dired 的编辑模式
 (eval-after-load 'wdired
