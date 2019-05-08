@@ -85,7 +85,7 @@
 ;;; Code:
 
 (require 'magit)
-(require 'with-editor)
+(load-file (concat lazycat-emacs-extension-dir "/with-editor/with-editor.el"))
 
 ;; Magit configuration.
 (setq magit-commit-ask-to-stage nil)    ;don't ask stage question

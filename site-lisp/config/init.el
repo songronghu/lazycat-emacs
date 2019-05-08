@@ -10,8 +10,6 @@
   (defvar lazycat-emacs-sdcv-data-dir (concat lazycat-emacs-root-dir "/sdcv-dict"))
 
   (with-temp-message ""                 ;抹掉插件启动的输出
-    ;; 必须加载的
-
     ;; 先设置背景，避免闪烁。
     (custom-set-faces
      '(default ((t (:background "black" :foreground "#137D11"))))
