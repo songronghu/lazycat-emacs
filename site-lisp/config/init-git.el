@@ -85,6 +85,7 @@
 ;;; Code:
 
 (require 'magit)
+(require 'with-editor)
 
 ;; Magit configuration.
 (setq magit-commit-ask-to-stage nil)    ;don't ask stage question

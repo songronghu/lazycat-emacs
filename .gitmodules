@@ -154,3 +154,9 @@
 [submodule "lazy-load"]
 	path = site-lisp/extensions/lazy-load
 	url = https://github.com/manateelazycat/lazy-load.git
+[submodule "site-lisp/extensions/transient"]
+	path = site-lisp/extensions/transient
+	url = https://github.com/magit/transient.git
+[submodule "site-lisp/extensions/with-editor"]
+	path = site-lisp/extensions/with-editor
+	url = https://github.com/magit/with-editor.git
