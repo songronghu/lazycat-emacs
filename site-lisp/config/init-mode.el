@@ -150,6 +150,7 @@
                     ("\\.swift$" . swift-mode)
                     ("\\.l$" . flex-mode)
                     ("\\.y$" . bison-mode)
+                    ("\\.pdf$" . pdf-view-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -179,6 +180,7 @@
 (autoload 'rjsx-mode "rjsx-mode")
 (autoload 'flex-mode "flex")
 (autoload 'bison-mode "bison")
+(autoload 'pdf-view-mode "init-pdf-tools")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行

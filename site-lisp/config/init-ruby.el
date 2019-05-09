@@ -83,6 +83,7 @@
 (require 'robe)
 (require 'inf-ruby-extension)
 (require 'ruby-end)
+(require 'ruby-extension)
 
 (setq ruby-insert-encoding-magic-comment nil) ; don't insert utf-8 comment in first line
 
@@ -91,6 +92,11 @@
              (robe-mode 1)
              (ruby-end-mode 1)
              ))
+
+(lazy-load-set-keys
+ '(
+   ("C-c t" . ruby-hash-syntax-toggle))
+ ruby-mode-map)
 
 ;; Re-implement `ruby-smile-rules' avoid too deep indent.
 (defun ruby-smie-rules (kind token)
@@ -140,18 +146,18 @@
     (`(:after . ,(or `"(" "[" "{"))
      ;; Use `smile-rule-parent' instead implementation of `ruby-mode.el'
      ;; To make code indent like below:
-     ;; 
+     ;;
      ;; long_long_long_example ({
      ;;     right_indent
      ;;   })
      ;;
      ;;
      ;; Not damn deep indent like:
-     ;; 
+     ;;
      ;; long_long_long_example ({
      ;;                           right_indent
      ;;   })
-     ;; 
+     ;;
      (save-excursion
        (smie-rule-parent)))
     (`(:before . " @ ")

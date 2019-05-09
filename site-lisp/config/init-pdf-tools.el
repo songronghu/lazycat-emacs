@@ -100,11 +100,10 @@
           (executable-find "epdfinfo"))
 ;;; Require
   (require 'pdf-tools)
-  (require 'pdf-occur)
   (require 'pdf-history)
+  (require 'pdf-occur)
   (require 'pdf-links)
   (require 'pdf-outline)
-  (require 'pdf-annot)
   (require 'pdf-sync)
   (require 'pdf-tools-extension)
 
@@ -157,10 +156,10 @@
 
   (lazy-load-unset-keys
    '(".")
-   pdf-view-mode-map)                     ;卸载按键
+   pdf-view-mode-map)                   ;卸载按键
   (lazy-load-unset-keys
    '("x" "M-<" "M->")
-   pdf-view-mode-map)                     ;卸载一些按键
+   pdf-view-mode-map)                   ;卸载一些按键
   (lazy-load-set-keys
    '(
      ([remap scroll-up] . pdf-view-next-line-or-next-page) ;重新定向按键, 支持 auto-scroll

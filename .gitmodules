@@ -160,3 +160,6 @@
 [submodule "site-lisp/extensions/with-editor"]
 	path = site-lisp/extensions/with-editor
 	url = https://github.com/magit/with-editor.git
+[submodule "benchmark-init-el"]
+	path = site-lisp/extensions/benchmark-init-el
+	url = https://github.com/dholm/benchmark-init-el.git

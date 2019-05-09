@@ -319,13 +319,6 @@
         ("M-:" . awesome-pair-jump-out-pair-and-newline) ;跳出括号并换行
         ))
 (lazy-load-set-keys awesome-pair-key-alist awesome-pair-mode-map)
-;;; ### Ruby-Extension ###
-;;; --- Ruby useful functions.
-(lazy-load-local-keys
- '(
-   ("C-c t" . ruby-hash-syntax-toggle))
- ruby-mode-map
- "ruby-extension")
 ;;; ### Thingh-edit ###
 ;;; --- 增强式编辑当前光标的对象
 (lazy-load-global-keys
