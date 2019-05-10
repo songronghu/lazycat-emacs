@@ -5,7 +5,7 @@
 
 ;;; ### Unset key ###
 ;;; --- 卸载按键
-(lazy-load-unset-keys                         ;全局按键的卸载
+(lazy-load-unset-keys                   ;全局按键的卸载
  '("C-x C-f" "C-z" "C-q" "s-W" "s-z" "M-h" "C-x C-c" "C-\\" "s-c" "s-x" "s-v"))
 ;;; ### Sdcv ###
 ;;; --- 星际译王命令行
@@ -70,31 +70,31 @@
 (lazy-load-global-keys
  '(
    ("C-z l" . display-line-numbers-mode) ;行号模式切换
-   ("M-5" . insert-line-number+)        ;自动在行首添加行号
-   ("M-1" . strip-blank-lines)          ;删除选中区域的所有空行
-   ("M-6" . strip-line-number)          ;删除选中区域的行号
-   ("M-s-n" . comment-part-move-down)      ;向下移动注释
-   ("M-s-p" . comment-part-move-up)        ;向上移动注释
-   ("C-s-n" . comment-dwim-next-line)      ;移动到上一行并注释
-   ("C-s-p" . comment-dwim-prev-line)      ;移动到下一行并注释
-   ("M-2" . indent-buffer)              ;自动格式化当前Buffer
+   ("M-5" . insert-line-number+)         ;自动在行首添加行号
+   ("M-1" . strip-blank-lines)           ;删除选中区域的所有空行
+   ("M-6" . strip-line-number)           ;删除选中区域的行号
+   ("M-s-n" . comment-part-move-down)    ;向下移动注释
+   ("M-s-p" . comment-part-move-up)      ;向上移动注释
+   ("C-s-n" . comment-dwim-next-line)    ;移动到上一行并注释
+   ("C-s-p" . comment-dwim-prev-line)    ;移动到下一行并注释
+   ("M-2" . indent-buffer)               ;自动格式化当前Buffer
    ("M-z" . upcase-char)      ;Upcase char handly with capitalize-word
-   ("M-N" . kill-syntax-backward+)         ;向后进行语法删除
-   ("M-M" . kill-syntax-forward+)          ;向前进行语法删除
-   ("C-x u" . mark-line)                   ;选中整行
-   ("s-k" . kill-and-join-forward)         ;在缩进的行之间删除
-   ("M-G" . goto-column)     ;到指定列
+   ("M-N" . kill-syntax-backward+)      ;向后进行语法删除
+   ("M-M" . kill-syntax-forward+)       ;向前进行语法删除
+   ("C-x u" . mark-line)                ;选中整行
+   ("s-k" . kill-and-join-forward)      ;在缩进的行之间删除
+   ("M-G" . goto-column)                ;到指定列
    ("C->" . remember-init)              ;记忆初始函数
    ("C-<" . remember-jump)              ;记忆跳转函数
    ("M-s-," . point-stack-pop)          ;buffer索引跳转
    ("M-s-." . point-stack-push)         ;buffer索引标记
    ("s-g" . goto-percent)    ;跳转到当前Buffer的文本百分比, 单位为字符
-   ("M-I" . backward-indent)            ;向后移动4个字符
+   ("M-I" . backward-indent) ;向后移动4个字符
    ("s-J" . scroll-up-one-line)         ;向上滚动一行
    ("s-K" . scroll-down-one-line)       ;向下滚动一行
    ("<f2>" . refresh-file)              ;自动刷新文件
-   ("s-f" . find-file-root)                 ;用root打开文件
-   ("s-r" . find-file-smb)                  ;访问sambao
+   ("s-f" . find-file-root)             ;用root打开文件
+   ("s-r" . find-file-smb)              ;访问sambao
    )
  "basic-toolkit")
 (lazy-load-global-keys
@@ -696,5 +696,10 @@
    ("C-c C-c M-x" . execute-extended-command)
    )
  "init-smex")
+
+(lazy-load-global-keys
+ '(
+   ("C-M-%" . vr/query-replace))
+ "init-visual-regexp")
 
 (provide 'init-key)

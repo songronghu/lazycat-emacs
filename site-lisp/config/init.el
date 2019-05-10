@@ -42,13 +42,11 @@
     (require 'init-awesome-pair)
     (require 'init-indent)
     (require 'init-one-key)
-    (require 'init-visual-regexp)
     (require 'init-key)
     (require 'init-vi-navigate)
     (require 'init-performance)
     (require 'init-pyim)
     (require 'init-sdcv)
-    (require 'init-insert-translated-name)
 
     ;; 可以延后加载的
     (run-with-idle-timer

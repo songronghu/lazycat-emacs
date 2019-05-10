@@ -81,8 +81,6 @@
 
 ;;; Require
 
-(require 'tempbuf)
-
 ;;; Code:
 
 (setq tempbuf-kill-message nil)         ;不在Mode-line显示删除临时buffer提示消息
@@ -97,7 +95,12 @@
                'gnus-article-mode-hook    ;Gnus 文章模式
                'gnus-kill-file-mode       ;Gnus 删除文件模糊
                ))
-  (add-hook hook 'turn-on-tempbuf-mode)) ;加载自动清理临时buffer
+  (add-hook
+   hook
+   '(lambda ()
+      (require 'tempbuf)
+      (turn-on-tempbuf-mode))))         ;加载自动清理临时buffer
+
 
 (provide 'init-tempbuf)
 
