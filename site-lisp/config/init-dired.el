@@ -79,7 +79,6 @@
 (require 'dired+)                       ;增强dired
 (require 'dired-details)                ;Dired详细信息
 (require 'dired-details+)               ;Dired详细消息切换
-(require 'grep-dired)                   ;Dired详细消息切换
 (require 'buffer-extension)
 
 ;;; Code:
@@ -184,11 +183,16 @@
    ("{" . dired-gnome-open-file)        ;用GNOME方式打开文件
    ("E" . dired-touch-now)              ;Touch命令
    ("f" . dired-find-file+)             ;打开当前文件或目录
-   ("\"" . grep-dired-dwim)             ;查找特定的lisp文件
    ("C-m" . dired-find-file+)           ;打开当前文件或目录
    )
  dired-mode-map
  "dired-extension")
+(lazy-load-local-keys
+ '(
+   ("\"" . grep-dired-dwim)             ;查找特定的lisp文件
+   )
+ dired-mode-map
+ "grep-dired")
 (lazy-load-local-keys
  '(
    ("K" . dired-open-file)              ;批量打开文件

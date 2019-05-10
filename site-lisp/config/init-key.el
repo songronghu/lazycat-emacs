@@ -22,7 +22,7 @@
    ("," . insert-translated-name-insert-with-underline)
    ("." . insert-translated-name-insert-with-camel)
    )
- "init-insert-translated-name"
+ "insert-translated-name"
  "C-z"
  )
 (lazy-load-global-keys
@@ -45,14 +45,11 @@
    ("s-," . bury-buffer)                    ;隐藏当前buffer
    ("s-." . unbury-buffer)                  ;反隐藏当前buffer
    ("s-&" . killall)                        ;杀掉进程
-   ("s-f" . find-file-root)                 ;用root打开文件
-   ("s-r" . find-file-smb)                  ;访问sambao
    ("<M-s-return>" . toggle-debug-on-error) ;切换调试模式
    ("s-[" . eval-expression)                ;执行表达式
    ("C-s-q" . quoted-insert)                ;读取系一个输入字符并插入
    ("M-h" . set-mark-command) ;Instead C-Space for Chinese input method
    ("M-H" . set-mark-command) ;Instead C-Space for Chinese input method
-   ("M-z" . upcase-char)      ;Upcase char handly with capitalize-word
    ("s-p" . insert-standard-date)
    ))
 (lazy-load-global-keys
@@ -73,6 +70,31 @@
 (lazy-load-global-keys
  '(
    ("C-z l" . display-line-numbers-mode) ;行号模式切换
+   ("M-5" . insert-line-number+)        ;自动在行首添加行号
+   ("M-1" . strip-blank-lines)          ;删除选中区域的所有空行
+   ("M-6" . strip-line-number)          ;删除选中区域的行号
+   ("M-s-n" . comment-part-move-down)      ;向下移动注释
+   ("M-s-p" . comment-part-move-up)        ;向上移动注释
+   ("C-s-n" . comment-dwim-next-line)      ;移动到上一行并注释
+   ("C-s-p" . comment-dwim-prev-line)      ;移动到下一行并注释
+   ("M-2" . indent-buffer)              ;自动格式化当前Buffer
+   ("M-z" . upcase-char)      ;Upcase char handly with capitalize-word
+   ("M-N" . kill-syntax-backward+)         ;向后进行语法删除
+   ("M-M" . kill-syntax-forward+)          ;向前进行语法删除
+   ("C-x u" . mark-line)                   ;选中整行
+   ("s-k" . kill-and-join-forward)         ;在缩进的行之间删除
+   ("M-G" . goto-column)     ;到指定列
+   ("C->" . remember-init)              ;记忆初始函数
+   ("C-<" . remember-jump)              ;记忆跳转函数
+   ("M-s-," . point-stack-pop)          ;buffer索引跳转
+   ("M-s-." . point-stack-push)         ;buffer索引标记
+   ("s-g" . goto-percent)    ;跳转到当前Buffer的文本百分比, 单位为字符
+   ("M-I" . backward-indent)            ;向后移动4个字符
+   ("s-J" . scroll-up-one-line)         ;向上滚动一行
+   ("s-K" . scroll-down-one-line)       ;向下滚动一行
+   ("<f2>" . refresh-file)              ;自动刷新文件
+   ("s-f" . find-file-root)                 ;用root打开文件
+   ("s-r" . find-file-smb)                  ;访问sambao
    )
  "basic-toolkit")
 (lazy-load-global-keys
@@ -93,12 +115,8 @@
 ;;; --- 缓存移动
 (lazy-load-set-keys
  '(
-   ("s-J" . scroll-up-one-line)         ;向上滚动一行
-   ("s-K" . scroll-down-one-line)       ;向下滚动一行
    ("C-z k" . beginning-of-buffer)      ;缓存开始
    ("C-z j" . end-of-buffer)            ;缓存结尾
-   ("s-g" . goto-percent)    ;跳转到当前Buffer的文本百分比, 单位为字符
-   ("M-G" . goto-column)     ;到指定列
    ("C-M-f" . forward-paragraph)        ;下一个段落
    ("C-M-b" . backward-paragraph)       ;上一个段落
    ("C-M-y" . backward-up-list)         ;向左跳出 LIST
@@ -107,10 +125,6 @@
    ("C-M-i" . down-list)                ;向右跳进 LIST
    ("C-M-a" . beginning-of-defun)       ;函数开头
    ("C-M-e" . end-of-defun)             ;函数末尾
-   ("C->" . remember-init)              ;记忆初始函数
-   ("C-<" . remember-jump)              ;记忆跳转函数
-   ("M-s-," . point-stack-pop)          ;buffer索引跳转
-   ("M-s-." . point-stack-push)         ;buffer索引标记
    ))
 (lazy-load-global-keys
  '(
@@ -149,16 +163,8 @@
 ;;; --- 缓存编辑
 (lazy-load-set-keys
  '(
-   ("M-N" . kill-syntax-backward+)         ;向后进行语法删除
-   ("M-M" . kill-syntax-forward+)          ;向前进行语法删除
-   ("C-s-n" . comment-dwim-next-line)      ;移动到上一行并注释
-   ("C-s-p" . comment-dwim-prev-line)      ;移动到下一行并注释
-   ("M-s-n" . comment-part-move-down)      ;向下移动注释
-   ("M-s-p" . comment-part-move-up)        ;向上移动注释
    ("C-x C-x" . exchange-point-and-mark)   ;交换当前点和标记点
    ("M-o" . backward-delete-char-untabify) ;向前删除字符
-   ("s-k" . kill-and-join-forward)         ;在缩进的行之间删除
-   ("C-x u" . mark-line)                   ;选中整行
    ("C-M-S-h" . mark-paragraph)            ;选中段落
    ("M-SPC" . just-one-space)              ;只有一个空格在光标处
    ))
@@ -264,18 +270,12 @@
 ;;; --- 功能函数
 (lazy-load-set-keys
  '(
-   ("<f2>" . refresh-file)              ;自动刷新文件
    ("<f5>" . emacs-session-save)        ;退出emacs
-   ("M-1" . strip-blank-lines)          ;删除选中区域的所有空行
-   ("M-2" . indent-buffer)              ;自动格式化当前Buffer
    ("M-3" . delete-trailing-whitespace) ;删除行末空格
    ("M-4" . whitespace-cleanup)         ;清理空格
-   ("M-5" . insert-line-number+)        ;自动在行首添加行号
-   ("M-6" . strip-line-number)          ;删除选中区域的行号
    ("C-4" . insert-changelog-date)      ;插入日志时间 (%Y/%m/%d)
    ("C-5" . insert-standard-date)       ;插入标准时间 (%Y-%m-%d %T)
    ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
-   ("M-I" . backward-indent)            ;向后移动4个字符
    ))
 (lazy-load-global-keys
  '(
@@ -489,7 +489,7 @@
  '(
    ("s-o" . iedit-mode)
    )
- "iedit")
+ "init-iedit")
 ;;; ### Ace jump ###
 (lazy-load-global-keys
  '(
@@ -689,5 +689,12 @@
  '(
    ("s-m" . toggle-input-method))
  "init-pyim")
+
+(lazy-load-global-keys
+ '(
+   ("M-x" . smex)
+   ("C-c C-c M-x" . execute-extended-command)
+   )
+ "init-smex")
 
 (provide 'init-key)

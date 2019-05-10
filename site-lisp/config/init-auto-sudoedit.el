@@ -80,10 +80,12 @@
 ;;
 
 ;;; Require
-(require 'auto-sudoedit)
 
 ;; Just hook on `find-file-hook', don't hook `dired-mode-hook', it's unnecessary.
-(add-hook 'find-file-hook  'auto-sudoedit)
+(add-hook 'find-file-hook
+          '(lambda ()
+             (require 'auto-sudoedit)
+             (auto-sudoedit))) ;默认打开忽略模式
 
 (provide 'init-auto-sudoedit)
 ;;; init-auto-sudoedit.el ends here

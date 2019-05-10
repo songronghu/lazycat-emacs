@@ -81,14 +81,11 @@
 
 ;;; Require
 (require 'info)
-(require 'ace-link)
 
 ;;; Code:
 
 ;;; ### Info ###
 ;;; --- Info 模式
-(ace-link-setup-default)
-
 (lazy-load-set-keys
  '(
    ("f" . Info-follow-nearest-node)     ;进入当前节点
