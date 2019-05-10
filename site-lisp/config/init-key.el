@@ -50,7 +50,6 @@
    ("C-s-q" . quoted-insert)                ;读取系一个输入字符并插入
    ("M-h" . set-mark-command) ;Instead C-Space for Chinese input method
    ("M-H" . set-mark-command) ;Instead C-Space for Chinese input method
-   ("s-p" . insert-standard-date)
    ))
 (lazy-load-global-keys
  '(
@@ -274,7 +273,6 @@
    ("M-3" . delete-trailing-whitespace) ;删除行末空格
    ("M-4" . whitespace-cleanup)         ;清理空格
    ("C-4" . insert-changelog-date)      ;插入日志时间 (%Y/%m/%d)
-   ("C-5" . insert-standard-date)       ;插入标准时间 (%Y-%m-%d %T)
    ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
    ))
 (lazy-load-global-keys
@@ -515,6 +513,7 @@
 (lazy-load-global-keys
  '(
    ("M-s-i" . ielm-toggle)              ;切换ielm
+   ("s-p" . insert-standard-date)
    )
  "lazycat-toolkit")
 (eval-after-load 'ielm-mode
