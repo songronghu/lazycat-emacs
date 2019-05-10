@@ -10,6 +10,7 @@
   (defvar lazycat-emacs-sdcv-data-dir (concat lazycat-emacs-root-dir "/sdcv-dict"))
 
   (with-temp-message ""                 ;抹掉插件启动的输出
+    (require 'benchmark-init-modes)
     (require 'benchmark-init)
     (benchmark-init/activate)
 
@@ -60,15 +61,12 @@
 
          (require 'init-tempbuf)
          (require 'init-eldoc)
-         (require 'init-doxymacs)
          (require 'init-yasnippet)
          (require 'init-company-mode)
-         ;; (require 'init-lsp)
          (require 'init-package)
          (require 'init-smooth-scrolling)
          (require 'init-cursor-chg)
          (require 'init-winpoint)
-         (require 'init-benchmark)
          (require 'init-info)
          (require 'init-auto-sudoedit)
          (require 'init-atomic-chrome)

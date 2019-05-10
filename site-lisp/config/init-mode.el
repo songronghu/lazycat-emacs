@@ -145,7 +145,7 @@
                     ("\\.pro$" . qmake-mode)
                     ("\\.js$" . js-mode)
                     ("\\.wxs$" . js-mode)
-                    ("\\.jsx$" . rjsx-mode)
+                    ("\\.jsx$" . web-mode)
                     ("\\.lua$" . lua-mode)
                     ("\\.swift$" . swift-mode)
                     ("\\.l$" . flex-mode)
