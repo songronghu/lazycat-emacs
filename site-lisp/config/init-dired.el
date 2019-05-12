@@ -73,6 +73,7 @@
 
 ;;; Require
 (require 'dired)
+(require 'dired-x)
 (require 'dired-details)                ;Dired详细信息
 (require 'dired-details+)
 
