@@ -127,9 +127,9 @@
    ))
 (lazy-load-global-keys
  '(
-   ("M-s" . lazy-search)                ;懒惰搜索
+   ("M-s" . symbol-overlay-put)         ;懒惰搜索
    )
- "lazy-search")
+ "init-symbol-overlay")
 (lazy-load-global-keys
  '(
    ("s-N" . move-text-down)      ;把光标所在的整行文字(或标记)下移一行
