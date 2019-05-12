@@ -119,9 +119,9 @@
 (add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
 
 ;; Don't ask me when close emacs with process is running
-(require 'noflet)
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
+  (require 'noflet)
   (noflet ((process-list ())) ad-do-it))
 
 ;; Don't ask me when kill process buffer
