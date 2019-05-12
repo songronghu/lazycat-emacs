@@ -97,6 +97,8 @@
    ("r" . symbol-overlay-rename)
    ("R" . symbol-overlay-query-replace)
    ("q" . symbol-overlay-remove-all)
+   ("<" . symbol-overlay-jump-first)
+   (">" . symbol-overlay-jump-last)
    ("M-n" . symbol-overlay-switch-forward)
    ("M-p" . symbol-overlay-switch-backward)
    )
