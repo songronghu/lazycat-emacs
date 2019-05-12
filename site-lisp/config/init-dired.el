@@ -75,7 +75,6 @@
 (require 'dired)
 (require 'dired-details)                ;Dired详细信息
 (require 'dired-details+)
-(require 'buffer-extension)
 
 ;;; Code:
 
@@ -167,6 +166,11 @@
    )
  dired-mode-map
  "dired-isearch")
+(lazy-load-local-keys
+ '(
+   ("/" . copy-buffer-file-name-as-kill))
+ dired-mode-map
+ "buffer-extension")
 (lazy-load-local-keys
  '(
    (";" . dired-view-minor-mode-toggle) ;字母输入导航模式
