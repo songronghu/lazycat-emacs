@@ -14,7 +14,6 @@
 ;;; Code:
 
 (require 'f)
-(require 'tramp)
 
 (defun auto-sudoedit-tramp-path (s)
   "Argument S is tramp sudo path."
@@ -38,6 +37,7 @@
 
 (defun auto-sudoedit ()
   "`auto-sudoedit' hook."
+  (require 'tramp)
   (unless (or
            (f-writable? (auto-sudoedit-current-path))
            (tramp-tramp-file-p (auto-sudoedit-current-path)))
