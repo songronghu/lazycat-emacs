@@ -73,9 +73,8 @@
 
 ;;; Require
 (require 'dired)
-(require 'dired+)                       ;增强dired
 (require 'dired-details)                ;Dired详细信息
-(require 'dired-details+)               ;Dired详细消息切换
+(require 'dired-details+)
 (require 'buffer-extension)
 
 ;;; Code:
@@ -84,9 +83,8 @@
 (setq dired-recursive-deletes t)        ;可以递归的删除目录
 (setq dired-recursive-deletes 'always)  ;删除东西时不提示
 (setq dired-recursive-copies 'always)   ;拷贝东西时不提示
-(toggle-dired-find-file-reuse-dir 1)    ;使用单一模式浏览Dired
+(setq dired-listing-switches "-aluh")   ;传给 ls 的参数
 (setq dired-details-hidden-string "") ;设置隐藏dired里面详细信息的字符串
-(setq dired-listing-switches "-aluh") ;传给 ls 的参数
 (setq directory-free-space-args "-Pkh") ;目录空间选项
 (setq dired-omit-size-limit nil)        ;dired忽略的上限
 (setq dired-dwim-target t)              ;Dired试着猜处默认的目标目录
@@ -97,10 +95,15 @@
                                       (progn
                                         (require 'dired-extension)
                                         (dired-sort-method)))) ;先显示目录, 然后显示文件
-(add-hook 'dired-mode-hook '(lambda ()
-                              (progn
-                                (require 'dired-extension)
-                                (dired-omit-method)))) ;隐藏文件的方法
+(add-hook
+ 'dired-mode-hook
+ '(lambda ()
+    (require 'dired-extension)
+    (dired-omit-method)                 ;隐藏文件的方法
+
+    (require 'dired+)
+    (toggle-dired-find-file-reuse-dir 1) ;使用单一模式浏览Dired
+    ))
 (setq dired-guess-shell-alist-user      ;设置文件默认打开的模式
       '(
         ;; 图书
