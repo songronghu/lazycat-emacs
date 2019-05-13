@@ -410,11 +410,6 @@
    )
  isearch-mode-map
  )
-(lazy-load-global-keys
- '(
-   ("M-L" . isearch-to-lazy-search)     ;切换到lazy-search
-   )
- "lazy-search-extension")
 ;; ### Helm Packman ###
 ;;; --- Pacman 管理工具
 (lazy-load-global-keys
@@ -473,14 +468,6 @@
    ("M-s-l" . less-minor-mode)          ;打开less模式
    )
  "init-less")
-;;; ### Speedbar ###
-;;; --- 快速访问文件和tags
-(lazy-load-global-keys
- '(
-   ("s-z s-z" . sr-speedbar-toggle)        ;显示/隐藏speedbar
-   ("s-z s-x" . sr-speedbar-select-window) ;选中speedbar窗口
-   )
- "init-speedbar")
 ;;; ### iedit ###
 ;;; --- iedit
 (lazy-load-global-keys
@@ -534,7 +521,7 @@
 ;;; --- Man
 (lazy-load-global-keys
  '(
-   ("C-<f1>" . woman))
+   ("<f1>" . woman))
  "init-woman")
 ;;; ### Company en words ###
 ;;; --- 英文助手
@@ -543,11 +530,6 @@
    ("M-r" . toggle-company-english-helper) ;英文助手
    )
  "company-english-helper")
-;;; ### Ispell ###
-;;; --- 拼写检查
-(lazy-load-global-keys
- '(("s-v s-v" . ispell-buffer))
- "init-ispell")                         ;检查当前buffer
 ;;; ### Ido ###
 ;;; --- 交互式管理文件和缓存
 (lazy-load-set-keys
