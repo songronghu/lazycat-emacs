@@ -60,10 +60,12 @@
 ;;; --- 搜索重构
 (lazy-load-global-keys
  '(
-   ("s-x g" . color-rg-search-symbol)   ;递归搜索当前目录下的文件
-   ("s-x h" . color-rg-search-input)    ;手动递归搜索当前目录下的文件
-   ("s-x j" . color-rg-search-symbol-in-project) ;递归搜索当前项目下的文件
-   ("s-x k" . color-rg-search-input-in-project) ;手动递归搜索当前项目下的文件
+   ("s-x g" . color-rg-search-symbol)
+   ("s-x h" . color-rg-search-input)
+   ("s-x j" . color-rg-search-symbol-in-project)
+   ("s-x k" . color-rg-search-input-in-project)
+   ("s-x ," . color-rg-search-symbol-in-current-file)
+   ("s-x ." . color-rg-search-input-in-current-file)
    )
  "color-rg")
 (lazy-load-global-keys
