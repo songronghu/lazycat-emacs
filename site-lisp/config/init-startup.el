@@ -91,7 +91,6 @@
 (tool-bar-mode -1)                      ;禁用工具栏
 (menu-bar-mode -1)                      ;禁用菜单栏
 (scroll-bar-mode -1)                    ;禁用滚动条
-(setq vc-handled-backends nil)          ;禁止版本控制工具，加速启动
 
 (if (featurep 'cocoa)
     (progn
