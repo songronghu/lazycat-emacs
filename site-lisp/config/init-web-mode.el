@@ -102,7 +102,7 @@
 (require 'emmet-extension)
 (require 'js)
 (require 'indium)
-;; (require 'auto-rename-tag)
+(require 'auto-rename-tag)
 (require 'awesome-pair)
 
 ;;; Code:
@@ -129,13 +129,13 @@
                    )))
 
 ;; Rename tag.
-;; (dolist (hook (list
-;;                'sgml-mode-hook
-;;                'web-mode-hook
-;;                ))
-;;   (add-hook hook (lambda ()
-;;                    (auto-rename-tag-mode t)
-;;                    )))
+(dolist (hook (list
+               'sgml-mode-hook
+               'web-mode-hook
+               ))
+  (add-hook hook (lambda ()
+                   (auto-rename-tag-mode t)
+                   )))
 
 ;; Indium.
 (add-hook 'js-mode-hook #'indium-interaction-mode)
