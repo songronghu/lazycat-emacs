@@ -169,3 +169,6 @@
 [submodule "swiper"]
 	path = site-lisp/extensions/swiper
 	url = https://github.com/abo-abo/swiper.git
+[submodule "site-lisp/extensions/shift-number"]
+	path = site-lisp/extensions/shift-number
+	url = https://github.com/alezost/shift-number.el.git
