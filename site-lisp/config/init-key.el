@@ -199,10 +199,14 @@
  '(
    ("s--" . text-scale-decrease)        ;减小字体大小
    ("s-=" . text-scale-increase)        ;增加字体大小
-   ("M--" . text-scale-decrease-global) ;减少字体大小, 全局
-   ("M-+" . text-scale-increase-global) ;增加字体大小, 全局
-   ("M-=" . text-scale-default-global)  ;恢复字体大小, 全局
    ))
+;;; ### 调整数字 ###
+;;; --- 调整光标处数字
+(lazy-load-global-keys
+ '(
+   ("M--" . shift-number-down)
+   ("M-=" . shift-number-up))
+ "shift-number")
 ;;; ### Window Operation ###
 ;;; --- 窗口操作
 (lazy-load-set-keys
