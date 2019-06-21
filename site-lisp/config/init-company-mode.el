@@ -104,11 +104,11 @@
 
 (require 'lazy-load)
 (require 'company)
-(require 'company-posframe)
 (require 'company-yasnippet)
 (require 'company-dabbrev)
 (require 'company-files)
-(require 'desktop)
+;; (require 'company-posframe)
+;; (require 'desktop)
 
 ;;; Code:
 
@@ -134,9 +134,9 @@
 (setq company-dabbrev-ignore-case t)
 
 ;; Let desktop.el not record the company-posframe-mode
-(company-posframe-mode 1)
-(push '(company-posframe-mode . nil)
-      desktop-minor-mode-table)
+;; (company-posframe-mode 1)
+;; (push '(company-posframe-mode . nil)
+;;       desktop-minor-mode-table)
 
 ;; Add `company-elisp' backend for elisp.
 (add-hook 'emacs-lisp-mode-hook
