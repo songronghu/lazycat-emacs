@@ -80,9 +80,7 @@
    ("C-s-p" . comment-dwim-prev-line)    ;移动到下一行并注释
    ("M-2" . indent-buffer)               ;自动格式化当前Buffer
    ("M-z" . upcase-char)      ;Upcase char handly with capitalize-word
-   ("M-N" . kill-syntax-backward+)      ;向后进行语法删除
-   ("M-M" . kill-syntax-forward+)       ;向前进行语法删除
-   ("C-x u" . mark-line)                ;选中整行
+   ("C-x u" . mark-line)      ;选中整行
    ("s-k" . kill-and-join-forward)      ;在缩进的行之间删除
    ("M-G" . goto-column)                ;到指定列
    ("C->" . remember-init)              ;记忆初始函数
@@ -102,6 +100,13 @@
  '(
    ("M-g" . goto-line-preview))
  "goto-line-preview")
+;;; ### Delete block ###
+;;; --- 快速删除光标左右的内容
+(lazy-load-global-keys
+ '(
+   ("M-N" . delete-block-backward)
+   ("M-M" . delete-block-forward))
+ "delete-block")
 ;;; ### Watch other window ###
 ;;; --- 滚动其他窗口
 (lazy-load-global-keys

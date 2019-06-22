@@ -172,3 +172,6 @@
 [submodule "site-lisp/extensions/shift-number"]
 	path = site-lisp/extensions/shift-number
 	url = https://github.com/alezost/shift-number.el.git
+[submodule "delete-block"]
+	path = site-lisp/extensions/delete-block
+	url = https://github.com/manateelazycat/delete-block.git
