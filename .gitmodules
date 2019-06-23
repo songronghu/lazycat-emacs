@@ -175,3 +175,6 @@
 [submodule "delete-block"]
 	path = site-lisp/extensions/delete-block
 	url = https://github.com/manateelazycat/delete-block.git
+[submodule "smart-align"]
+	path = site-lisp/extensions/smart-align
+	url = https://github.com/manateelazycat/smart-align.git

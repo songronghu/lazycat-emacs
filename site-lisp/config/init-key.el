@@ -451,13 +451,11 @@
    ("C-h". one-key-menu-help)           ;帮助菜单
    )
  "init-help-mode")
-;;; ### IRC ###
-;;; --- 聊天
 (lazy-load-global-keys
  '(
-   ("M-U" . one-key-menu-irc-channel)   ;跳转到IRC频道
+   ("M-U" . smart-align)
    )
- "init-irc")
+ "smart-align")
 ;;; ### Yoaddmuse ###
 ;;; --- Yet another oddmuse mode
 (lazy-load-global-keys
@@ -573,7 +571,6 @@
  '(
    ("C-c i" . switch-to-erc)            ;切换到IRC或自动登录IRC
    ("C-c I" . erc-nick-notify-jump-last-channel) ;自动跳转到最后收到消息的频道
-   ("M-U" . one-key-menu-irc-channel)            ;跳转到IRC频道
    )
  "init-erc")
 ;;; Elisp
