@@ -178,3 +178,6 @@
 [submodule "smart-align"]
 	path = site-lisp/extensions/smart-align
 	url = https://github.com/manateelazycat/smart-align.git
+[submodule "multi-term"]
+	path = site-lisp/extensions/multi-term
+	url = https://github.com/manateelazycat/multi-term.git
