@@ -102,8 +102,8 @@
 (require 'emmet-extension)
 (require 'js)
 (require 'indium)
-;; (require 'auto-rename-tag)
 (require 'awesome-pair)
+(require 'instant-rename-tag)
 
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; OS Config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -127,15 +127,6 @@
                    (setq emmet-preview-default nil)
                    (emmet-mode)
                    )))
-
-;; Rename tag.
-;; (dolist (hook (list
-;;                'sgml-mode-hook
-;;                'web-mode-hook
-;;                ))
-;;   (add-hook hook (lambda ()
-;;                    (auto-rename-tag-mode t)
-;;                    )))
 
 ;; Indium.
 (add-hook 'js-mode-hook #'indium-interaction-mode)
@@ -174,6 +165,7 @@
    ("M-i" . emmet-expand-yas)
    ("C-c M-i" . emmet-preview-current-line)
    ("C-M-SPC" . mark-sexp)
+   ("M-R" . instant-rename-tag)
    )
  web-mode-map
  "web-mode-extension")

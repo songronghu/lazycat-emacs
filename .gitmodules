@@ -181,3 +181,6 @@
 [submodule "multi-term"]
 	path = site-lisp/extensions/multi-term
 	url = https://github.com/manateelazycat/multi-term.git
+[submodule "instant-rename-tag"]
+	path = site-lisp/extensions/instant-rename-tag
+	url = https://github.com/manateelazycat/instant-rename-tag.git
