@@ -104,6 +104,7 @@
 (require 'indium)
 (require 'awesome-pair)
 (require 'instant-rename-tag)
+(require 'highlight-matching-tag)
 
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; OS Config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -113,6 +114,8 @@
   (exec-path-from-shell-initialize))
 
 (setq web-mode-enable-auto-quoting nil) ;disable automatic insertion of double quotes, not easy to use if cursor in string
+
+(highlight-matching-tag 1)
 
 ;; Emmit.
 (setq web-mode-tag-auto-close-style 2) ;2 mean auto-close with > and </.

@@ -181,3 +181,6 @@
 [submodule "instant-rename-tag"]
 	path = site-lisp/extensions/instant-rename-tag
 	url = https://github.com/manateelazycat/instant-rename-tag.git
+[submodule "highlight-matching-tag"]
+	path = site-lisp/extensions/highlight-matching-tag
+	url = https://github.com/manateelazycat/highlight-matching-tag.git
