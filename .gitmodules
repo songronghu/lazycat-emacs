@@ -184,3 +184,6 @@
 [submodule "highlight-indent-guides"]
 	path = site-lisp/extensions/highlight-indent-guides
 	url = https://github.com/DarthFennec/highlight-indent-guides.git
+[submodule "awesome-tab"]
+	path = site-lisp/extensions/awesome-tab
+	url = https://github.com/manateelazycat/awesome-tab.git
