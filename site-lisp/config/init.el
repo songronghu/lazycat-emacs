@@ -71,6 +71,7 @@
          (require 'init-idle)
 
          (require 'init-auto-sudoedit)
+         (require 'init-highlight-indent-guides)
 
          ;; Restore session at last.
          (emacs-session-restore)

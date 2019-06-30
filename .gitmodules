@@ -184,3 +184,6 @@
 [submodule "highlight-matching-tag"]
 	path = site-lisp/extensions/highlight-matching-tag
 	url = https://github.com/manateelazycat/highlight-matching-tag.git
+[submodule "highlight-indent-guides"]
+	path = site-lisp/extensions/highlight-indent-guides
+	url = https://github.com/DarthFennec/highlight-indent-guides.git
