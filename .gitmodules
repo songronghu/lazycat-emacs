@@ -187,3 +187,6 @@
 [submodule "awesome-tab"]
 	path = site-lisp/extensions/awesome-tab
 	url = https://github.com/manateelazycat/awesome-tab.git
+[submodule "olivetti"]
+	path = site-lisp/extensions/olivetti
+	url = https://github.com/rnkn/olivetti.git
