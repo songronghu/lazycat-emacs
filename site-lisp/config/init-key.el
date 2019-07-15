@@ -342,6 +342,7 @@
  '(
    ("s-n" . aweshell-new)
    ("s-h" . aweshell-toggle)
+   ("s-x s-x" . aweshell-dedicated-toggle)
    )
  "aweshell")
 ;;; ### W3m ###
