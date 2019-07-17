@@ -107,8 +107,8 @@
 (require 'company-yasnippet)
 (require 'company-dabbrev)
 (require 'company-files)
-;; (require 'company-posframe)
-;; (require 'desktop)
+(require 'company-tabnine)
+(require 'company-tng)
 
 ;;; Code:
 
@@ -127,16 +127,29 @@
 (setq company-backends (delete 'company-oddmuse company-backends))
 (add-to-list 'company-backends 'company-files)
 
+;; TabNine
+(add-to-list 'company-backends #'company-tabnine)
+
+;; Trigger completion immediately.
+(setq company-idle-delay 0)
+
+;; Number the candidates (use M-1, M-2 etc to select completions).
+(setq company-show-numbers t)
+
+;; Use the tab-and-go frontend.
+;; Allows TAB to select and complete at the same time.
+(company-tng-configure-default)
+(setq company-frontends
+      '(company-tng-frontend
+        company-pseudo-tooltip-frontend
+        company-echo-metadata-frontend))
+
+;; Enable global.
 (global-company-mode)
 
 ;; Don't downcase the returned candidates.
 (setq company-dabbrev-downcase nil)
 (setq company-dabbrev-ignore-case t)
-
-;; Let desktop.el not record the company-posframe-mode
-;; (company-posframe-mode 1)
-;; (push '(company-posframe-mode . nil)
-;;       desktop-minor-mode-table)
 
 ;; Add `company-elisp' backend for elisp.
 (add-hook 'emacs-lisp-mode-hook

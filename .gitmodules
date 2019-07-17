@@ -190,3 +190,12 @@
 [submodule "olivetti"]
 	path = site-lisp/extensions/olivetti
 	url = https://github.com/rnkn/olivetti.git
+[submodule "names"]
+	path = site-lisp/extensions/names
+	url = https://github.com/Malabarba/names.git
+[submodule "company-tabnine"]
+	path = site-lisp/extensions/company-tabnine
+	url = https://github.com/TommyX12/company-tabnine.git
+[submodule "site-lisp/extensions/unicode-escape"]
+	path = site-lisp/extensions/unicode-escape
+	url = https://github.com/kosh04/unicode-escape.el.git
