@@ -361,13 +361,6 @@
    ("C-x C-f" . find-file)
    )
  "init-dired")
-;;; ### Helm ###
-;;; --- 快速buffer切换
-(lazy-load-global-keys
- '(
-   ("s-y" . helm-dwim)
-   )
- "init-helm")
 ;;; ### EAF ###
 ;;; EAF
 (unless (featurep 'cocoa)
@@ -686,5 +679,12 @@
  '(
    ("C-M-%" . vr/query-replace))
  "init-visual-regexp")
+
+(lazy-load-global-keys
+ '(
+   ("s-y" . snails)
+   )
+ "snails")
+
 
 (provide 'init-key)

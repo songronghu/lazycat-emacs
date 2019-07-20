@@ -199,3 +199,6 @@
 [submodule "site-lisp/extensions/unicode-escape"]
 	path = site-lisp/extensions/unicode-escape
 	url = https://github.com/kosh04/unicode-escape.el.git
+[submodule "snails"]
+	path = site-lisp/extensions/snails
+	url = https://github.com/manateelazycat/snails.git
