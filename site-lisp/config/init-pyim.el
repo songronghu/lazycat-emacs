@@ -82,24 +82,10 @@
 ;;; Require
 (require 'posframe)
 (require 'pyim)
+(require 'liberime)
 
 ;;; Code:
 
-(defun pyim-bigdict-enable ()
-  "Add bigdict to pyim."
-  (interactive)
-  (let* ((file (concat (file-name-as-directory lazycat-emacs-root-dir) (file-name-as-directory "pyim-dict") "pyim-bigdict.pyim.gz")))
-    (when (file-exists-p file)
-      (if (featurep 'pyim)
-          (pyim-extra-dicts-add-dict
-           `(:name "Bigdict-elpa"
-                   :file ,file
-                   :coding utf-8-unix
-                   :dict-type pinyin-dict
-                   :elpa t))
-        (message "pyim 没有安装，pyim-bigdict 启用失败。")))))
-
-(pyim-bigdict-enable)
 (setq default-input-method "pyim")
 (setq pyim-page-tooltip 'posframe)
 (setq pyim-fuzzy-pinyin-alist
@@ -109,6 +95,11 @@
               '(pyim-probe-isearch-mode))
 (setq pyim-page-length 9)
 (setq pyim-posframe-min-width 0)
+
+;; Rime配置
+(liberime-start "/Library/Input Methods/Squirrel.app/Contents/SharedSupport" (file-truename "~/.emacs.d/pyim/rime/"))
+(liberime-select-schema "luna_pinyin_simp")
+(setq pyim-default-scheme 'rime-quanpin)
 
 (provide 'init-pyim)
 

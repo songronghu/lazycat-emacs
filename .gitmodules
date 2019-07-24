@@ -202,3 +202,6 @@
 [submodule "snails"]
 	path = site-lisp/extensions/snails
 	url = https://github.com/manateelazycat/snails.git
+[submodule "posframe"]
+	path = site-lisp/extensions/posframe
+	url = https://github.com/tumashu/posframe.git
