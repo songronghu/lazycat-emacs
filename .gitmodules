@@ -205,3 +205,6 @@
 [submodule "posframe"]
 	path = site-lisp/extensions/posframe
 	url = https://github.com/tumashu/posframe.git
+[submodule "site-lisp/extensions/fuz"]
+	path = site-lisp/extensions/fuz
+	url = https://github.com/cireu/fuz.el.git
