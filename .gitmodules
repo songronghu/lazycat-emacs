@@ -208,3 +208,6 @@
 [submodule "site-lisp/extensions/fuz"]
 	path = site-lisp/extensions/fuz
 	url = https://github.com/cireu/fuz.el.git
+[submodule "emacs-async"]
+	path = site-lisp/extensions/emacs-async
+	url = https://github.com/jwiegley/emacs-async.git
