@@ -410,13 +410,6 @@
    )
  isearch-mode-map
  )
-;; ### Helm Packman ###
-;;; --- Pacman 管理工具
-(lazy-load-global-keys
- '(
-   ("s-x z" . helm-system-packages)
-   )
- "helm-system-packages-pacman")
 ;;; ### Flycheck ###
 ;;; --- 及时拼写检查
 (lazy-load-global-keys
