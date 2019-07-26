@@ -683,6 +683,7 @@
 (lazy-load-global-keys
  '(
    ("s-y" . snails)
+   ("s-u" . snails-search-point)
    )
  "snails")
 
