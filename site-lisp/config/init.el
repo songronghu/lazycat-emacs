@@ -67,6 +67,7 @@
          (require 'init-atomic-chrome)
          (require 'init-c)
          (require 'init-flycheck)
+         (require 'init-cnfonts)
 
          (require 'init-idle)
 
