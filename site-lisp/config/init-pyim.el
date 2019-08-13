@@ -95,6 +95,7 @@
               '(pyim-probe-isearch-mode))
 (setq pyim-page-length 9)
 (setq pyim-posframe-min-width 0)
+(setq pyim-dcache-backend 'pyim-dregcache)
 
 ;; Rime配置
 (liberime-start "/Library/Input Methods/Squirrel.app/Contents/SharedSupport" (file-truename "~/.emacs.d/pyim/rime/"))
