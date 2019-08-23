@@ -90,7 +90,7 @@
 (setq pyim-page-tooltip 'posframe)
 (setq pyim-fuzzy-pinyin-alist
       '(("en" "eng") ("in" "ing") ("l" "n") ("z" "zh") ("c" "ch")))
-(setq pyim-punctuation-translate-p '(no yes auto))
+(setq pyim-punctuation-translate-p '(auto yes no))
 (setq-default pyim-english-input-switch-functions
               '(pyim-probe-isearch-mode))
 (setq pyim-page-length 9)
