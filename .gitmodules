@@ -214,3 +214,6 @@
 [submodule "cnfonts"]
 	path = site-lisp/extensions/cnfonts
 	url = https://github.com/tumashu/cnfonts.git
+[submodule "projectile"]
+	path = site-lisp/extensions/projectile
+	url = https://github.com/bbatsov/projectile.git
