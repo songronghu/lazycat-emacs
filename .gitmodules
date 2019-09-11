@@ -154,9 +154,6 @@
 [submodule "site-lisp/extensions/with-editor"]
 	path = site-lisp/extensions/with-editor
 	url = https://github.com/magit/with-editor.git
-[submodule "benchmark-init-el"]
-	path = site-lisp/extensions/benchmark-init-el
-	url = https://github.com/dholm/benchmark-init-el.git
 [submodule "symbol-overlay"]
 	path = site-lisp/extensions/symbol-overlay
 	url = https://github.com/wolray/symbol-overlay.git
