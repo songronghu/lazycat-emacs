@@ -98,7 +98,12 @@
 (setq pyim-dcache-backend 'pyim-dregcache)
 
 ;; Rime配置
-(liberime-start "/Library/Input Methods/Squirrel.app/Contents/SharedSupport" (file-truename "~/.emacs.d/pyim/rime/"))
+(liberime-start
+ (if (featurep 'cocoa)
+     "/Library/Input Methods/Squirrel.app/Contents/SharedSupport"
+   "/usr/share/rime-data")
+ (file-truename "~/.emacs.d/pyim/rime/"))
+
 (liberime-select-schema "luna_pinyin_simp")
 (setq pyim-default-scheme 'rime-quanpin)
 
