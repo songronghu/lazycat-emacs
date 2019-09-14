@@ -16,8 +16,8 @@
 
     ;; 先设置背景，避免闪烁。
     (custom-set-faces
-     '(default ((t (:background "black" :foreground "#137D11"))))
-     )
+     '(default ((t (:background "black" :foreground "#137D11")))))
+
     (require 'init-startup)
 
     (require 'init-generic)
@@ -38,7 +38,6 @@
     (require 'init-auto-save)
     (require 'init-mode)
     (require 'init-dired)
-    (require 'init-session)
     (require 'init-awesome-pair)
     (require 'init-indent)
     (require 'init-one-key)
@@ -75,7 +74,10 @@
          (require 'init-highlight-indent-guides)
 
          ;; Restore session at last.
+         (require 'init-session)
          (emacs-session-restore)
+
+         (server-start)                  ;为emacsclient准备使用场景，比如git
          ))))
 
 (provide 'init)
