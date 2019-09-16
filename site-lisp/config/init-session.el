@@ -105,7 +105,7 @@
     (desktop-read "~/.emacs.d/")
     ))
 
-(defun emacs-session-save (arg)
+(defun emacs-session-save (&optional arg)
   "Save emacs session."
   (interactive "p")
   (ignore-errors
