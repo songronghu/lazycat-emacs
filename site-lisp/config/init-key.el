@@ -359,7 +359,7 @@
   (lazy-load-global-keys
    '(
      ("s-'" . eaf-open)
-     ("s-\"" . eaf-open-url)
+     ("s-\"" . eaf-open-browser)
      ("s-/" . eaf-stop-process)
      )
    "init-eaf")
