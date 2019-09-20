@@ -167,6 +167,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.cpp$" . c++-mode)
                     ("\\.h$" . c++-mode)
                     ("\\.ll$" . llvm-mode)
+                    ("\\.bc$" . hexl-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
