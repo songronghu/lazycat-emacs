@@ -127,6 +127,7 @@
                'qmake-mode-hook
                'lua-mode-hook
                'swift-mode-hook
+               'llvm-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 

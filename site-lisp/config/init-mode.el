@@ -166,6 +166,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.pdf$" . pdf-view-mode)
                     ("\\.cpp$" . c++-mode)
                     ("\\.h$" . c++-mode)
+                    ("\\.ll$" . llvm-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -196,6 +197,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'flex-mode "flex")
 (autoload 'bison-mode "bison")
 (autoload 'pdf-view-mode "init-pdf-tools")
+(autoload 'llvm-mode "llvm-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行
