@@ -128,6 +128,7 @@
                'lua-mode-hook
                'swift-mode-hook
                'llvm-mode-hook
+               'conf-toml-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 
