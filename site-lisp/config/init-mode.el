@@ -177,7 +177,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 ;;; Mode load.
 (autoload 'cmake-mode "cmake-mode")
 (autoload 'qml-mode "qml-mode")
-(autoload 'markdown-mode "markdown-mode")
+(autoload 'markdown-mode "init-markdown-mode")
 (autoload 'php-mode "php-mode")
 (autoload 'web-mode "init-web-mode")
 (autoload 'coffee-mode "coffee-mode")
@@ -211,24 +211,23 @@ The test for presence of the car of ELT-CONS is done with `equal'."
   (add-hook hook '(lambda () (auto-fill-mode 1))))
 
 (dolist (hook (list
-               'markdown-mode-hook
                'org-mode-hook
                ))
   (add-hook hook
             '(lambda ()
-               (require 'olivetti)
-               (olivetti-mode 1)
-               (olivetti-set-width 120)
-               )))
+              (require 'olivetti)
+              (olivetti-mode 1)
+              (olivetti-set-width 120)
+              )))
 
 (dolist (hook (list
                'emacs-lisp-mode-hook
                ))
   (add-hook hook
             '(lambda ()
-               (require 'sly-el-indent)
-               (sly-el-indent-setup)
-               )))
+              (require 'sly-el-indent)
+              (sly-el-indent-setup)
+              )))
 
 (provide 'init-mode)
 
