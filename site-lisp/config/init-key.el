@@ -332,19 +332,6 @@
    ("s-x s-x" . aweshell-dedicated-toggle)
    )
  "aweshell")
-;;; ### W3m ###
-;;; --- 网页浏览器
-(lazy-load-global-keys
- '(
-   ("C-z C-z" . w3m)                    ;启动W3M
-   )
- "init-w3m")
-(lazy-load-global-keys
- '(
-   ("C-z z" . w3m-startup-background)         ;启动W3M, 后台
-   ("C-x C-z" . toggle-w3m-with-other-buffer) ;在W3M和buffer间切换
-   )
- "w3m-extension")
 ;;; ### Dired ###
 ;;; --- Dired
 (lazy-load-global-keys
