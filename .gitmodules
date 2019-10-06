@@ -220,3 +220,6 @@
 [submodule "sly-el-indent"]
 	path = site-lisp/extensions/sly-el-indent
 	url = https://github.com/cireu/sly-el-indent.git
+[submodule "elispfl"]
+	path = site-lisp/extensions/elispfl
+	url = https://github.com/cireu/elispfl.git

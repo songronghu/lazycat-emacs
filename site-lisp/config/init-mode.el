@@ -229,6 +229,14 @@ The test for presence of the car of ELT-CONS is done with `equal'."
               (sly-el-indent-setup)
               )))
 
+(with-eval-after-load 'elisp-mode
+  (require 'elispfl)
+  (elispfl-mode))
+
+(with-eval-after-load  'ielm
+  (require 'elispfl)
+  (elispfl-ielm-mode))
+
 (provide 'init-mode)
 
 ;;; init-mode.el ends here
