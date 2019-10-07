@@ -86,16 +86,9 @@
 
 ;;; Code:
 
-(setq default-input-method "pyim")
 (setq pyim-page-tooltip 'posframe)
-(setq pyim-fuzzy-pinyin-alist
-      '(("en" "eng") ("in" "ing") ("l" "n") ("z" "zh") ("c" "ch")))
-(setq pyim-punctuation-translate-p '(auto yes no))
-(setq-default pyim-english-input-switch-functions
-              '(pyim-probe-isearch-mode))
 (setq pyim-page-length 9)
 (setq pyim-posframe-min-width 0)
-(setq pyim-dcache-backend 'pyim-dregcache)
 
 ;; Rime配置
 (liberime-start
@@ -106,6 +99,14 @@
 
 (liberime-select-schema "luna_pinyin_simp")
 (setq pyim-default-scheme 'rime-quanpin)
+
+(setq default-input-method "pyim")
+(setq pyim-fuzzy-pinyin-alist
+      '(("en" "eng") ("in" "ing") ("l" "n") ("z" "zh") ("c" "ch")))
+(setq pyim-punctuation-translate-p '(auto yes no))
+(setq-default pyim-english-input-switch-functions
+              '(pyim-probe-isearch-mode))
+(setq pyim-dcache-backend 'pyim-dregcache)
 
 (provide 'init-pyim)
 

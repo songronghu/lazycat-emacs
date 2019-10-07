@@ -88,11 +88,16 @@
 
 ;;; Code:
 
-(setq sdcv-say-word-p t)	     ;say word after search
+(setq sdcv-say-word-p t)                ;say word after search
+
+(setq sdcv-dictionary-data-dir
+      (concat lazycat-emacs-root-dir "/sdcv-dict")) ;设置星际译王本地词典的目录
+
 (setq sdcv-dictionary-simple-list    ;星际译王屏幕取词词典, 简单, 快速
       '("懒虫简明英汉词典"
         "懒虫简明汉英词典"
         "KDic11万英汉词典"))
+
 (setq sdcv-dictionary-complete-list     ;星际译王的词典, 完全, 详细
       '(
         "懒虫简明英汉词典"
@@ -113,7 +118,6 @@
         "21世纪双语科技词典"
         "quick_eng-zh_CN"
         ))
-(setq sdcv-dictionary-data-dir lazycat-emacs-sdcv-data-dir) ;设置星际译王本地词典的目录
 
 (provide 'init-sdcv)
 

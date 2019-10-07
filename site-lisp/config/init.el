@@ -7,7 +7,6 @@
   (defvar lazycat-emacs-root-dir (file-truename "~/lazycat-emacs/site-lisp"))
   (defvar lazycat-emacs-config-dir (concat lazycat-emacs-root-dir "/config"))
   (defvar lazycat-emacs-extension-dir (concat lazycat-emacs-root-dir "/extensions"))
-  (defvar lazycat-emacs-sdcv-data-dir (concat lazycat-emacs-root-dir "/sdcv-dict"))
 
   (with-temp-message ""                 ;抹掉插件启动的输出
     (require 'benchmark-init-modes)
@@ -45,8 +44,6 @@
     (require 'init-key)
     (require 'init-vi-navigate)
     (require 'init-performance)
-    (require 'init-pyim)
-    (require 'init-sdcv)
 
     ;; 可以延后加载的
     (run-with-idle-timer
@@ -73,6 +70,7 @@
 
          (require 'init-auto-sudoedit)
          (require 'init-highlight-indent-guides)
+         (require 'init-pyim)
 
          ;; Restore session at last.
          (require 'init-session)
