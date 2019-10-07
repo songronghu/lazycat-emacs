@@ -22,7 +22,8 @@
 
     (require 'init-generic)
     (require 'lazycat-theme)
-    (require 'cache-path-from-shell)
+    (when (featurep 'cocoa)
+      (require 'cache-path-from-shell))
     (require 'lazy-load)
     (require 'one-key)
     (require 'awesome-pair)
@@ -77,7 +78,7 @@
          (require 'init-session)
          (emacs-session-restore)
 
-         (server-start)                  ;为emacsclient准备使用场景，比如git
+         (server-start)            ;为emacsclient准备使用场景，比如git
          ))))
 
 (provide 'init)
