@@ -37,6 +37,7 @@
     (require 'init-line-number)
     (require 'init-auto-save)
     (require 'init-mode)
+    (require 'init-sdcv)
     (require 'init-dired)
     (require 'init-awesome-pair)
     (require 'init-indent)
