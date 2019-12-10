@@ -72,6 +72,7 @@
          (require 'init-auto-sudoedit)
          (require 'init-highlight-indent-guides)
          (require 'init-pyim)
+         (require 'init-eaf)
 
          ;; Restore session at last.
          (require 'init-session)
