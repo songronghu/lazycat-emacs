@@ -547,10 +547,6 @@
 (lazy-load-global-keys
  '(
    ("C-c p" . one-key-menu-emms)        ;播放器菜单
-   ("<up>" . emms-volume-mode-plus)     ;增加音量
-   ("<down>" . emms-volume-mode-minus)  ;减少音量
-   ("<left>" . emms-seek-backward)      ;后退
-   ("<right>" . emms-seek-forward)      ;前进
    ("M-A" . emms-pause)                 ;暂停/播放
    ("M-X" . emms-random)                ;随机播放
    ("M-Z" . emms-stop)                  ;停止
