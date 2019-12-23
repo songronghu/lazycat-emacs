@@ -220,15 +220,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
               (olivetti-set-width 120)
               )))
 
-(dolist (hook (list
-               'emacs-lisp-mode-hook
-               ))
-  (add-hook hook
-            '(lambda ()
-              (require 'sly-el-indent)
-              (sly-el-indent-setup)
-              )))
-
 (with-eval-after-load  'ielm
   (require 'elispfl)
   (elispfl-ielm-mode))
