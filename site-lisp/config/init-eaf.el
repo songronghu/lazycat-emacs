@@ -91,6 +91,9 @@
 (setq eaf-http-proxy-host "127.0.0.1")
 (setq eaf-http-proxy-port "1080")
 
+(eaf-bind-key undo_action "C-/" eaf-browser-keybinding)
+(eaf-bind-key redo_action "C-?" eaf-browser-keybinding)
+
 (provide 'init-eaf)
 
 ;;; init-eaf.el ends here
