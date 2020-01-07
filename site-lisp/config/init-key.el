@@ -6,7 +6,7 @@
 ;;; ### Unset key ###
 ;;; --- 卸载按键
 (lazy-load-unset-keys                   ;全局按键的卸载
-                      '("C-x C-f" "C-z" "C-q" "s-W" "s-z" "M-h" "C-x C-c" "C-\\" "s-c" "s-x" "s-v"))
+ '("C-x C-f" "C-z" "C-q" "s-W" "s-z" "M-h" "C-x C-c" "C-\\" "s-c" "s-x" "s-v"))
 ;;; ### Sdcv ###
 ;;; --- 星际译王命令行
 (lazy-load-global-keys
@@ -91,7 +91,7 @@
    ("<f2>" . refresh-file)              ;自动刷新文件
    ("s-f" . find-file-root)             ;用root打开文件
    ("s-r" . find-file-smb)              ;访问sambao
-   ("M-j" . join-lines)                 
+   ("M-j" . join-lines)
    )
  "basic-toolkit")
 (lazy-load-global-keys
@@ -353,7 +353,7 @@
    "init-eaf")
   (lazy-load-local-keys
    '(
-     ("K" . eaf-file-open-in-dired)
+     ("K" . eaf-open-this-from-dired)
      )
    dired-mode-map
    "init-eaf"))
@@ -459,13 +459,13 @@
 ;;; --- Python mode
 (eval-after-load 'python-mode
   '(lambda ()
-    (lazy-load-local-keys
-     '(
-       ("C-S-j" . jump-to-import)
-       )
-     python-mode-map
-     "python-mode-utils")
-    ))
+     (lazy-load-local-keys
+      '(
+        ("C-S-j" . jump-to-import)
+        )
+      python-mode-map
+      "python-mode-utils")
+     ))
 ;;; ### Ielm ###
 ;;; --- Emacs Lisp 解释模式
 (autoload 'ielm-map "ielm")
@@ -477,18 +477,18 @@
  "lazycat-toolkit")
 (eval-after-load 'ielm-mode
   '(lambda ()
-    (progn
-      (lazy-load-unset-keys
-       '("M-p" "M-n")
-       ielm-map)                        ;卸载按键
-      (lazy-load-set-keys
-       '(
-         ("C-s-p" . comint-previous-input) ;上一个输入
-         ("C-s-n" . comint-next-input)     ;下一个输入
-         )
-       ielm-map
-       )
-      )))
+     (progn
+       (lazy-load-unset-keys
+        '("M-p" "M-n")
+        ielm-map)                       ;卸载按键
+       (lazy-load-set-keys
+        '(
+          ("C-s-p" . comint-previous-input) ;上一个输入
+          ("C-s-n" . comint-next-input)     ;下一个输入
+          )
+        ielm-map
+        )
+       )))
 ;;; ### Man ###
 ;;; --- Man
 (lazy-load-global-keys
@@ -513,8 +513,8 @@
    ))
 (add-hook 'ido-setup-hook
           '(lambda ()
-            (interactive)
-            (ido-my-keys ido-completion-map)))
+             (interactive)
+             (ido-my-keys ido-completion-map)))
 (defun ido-my-keys (keymap)
   "Add my keybindings for ido."
   (lazy-load-set-keys
