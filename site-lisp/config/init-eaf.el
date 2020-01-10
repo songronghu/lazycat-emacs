@@ -97,6 +97,8 @@
 (eaf-bind-key scroll_down "M-k" eaf-browser-keybinding)
 (eaf-bind-key scroll_up_page "M-n" eaf-browser-keybinding)
 (eaf-bind-key scroll_down_page "M-p" eaf-browser-keybinding)
+(eaf-bind-key scroll_to_begin "M->" eaf-browser-keybinding)
+(eaf-bind-key scroll_to_bottom "M-<" eaf-browser-keybinding)
 (eaf-bind-key open_link "M-h" eaf-browser-keybinding)
 (eaf-bind-key open_link_new_buffer "M-H" eaf-browser-keybinding)
 
