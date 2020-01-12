@@ -103,6 +103,8 @@
 (eaf-bind-key open_link "M-h" eaf-browser-keybinding)
 (eaf-bind-key open_link_new_buffer "M-H" eaf-browser-keybinding)
 
+(eaf-setq eaf-browser-default-zoom "1.25")
+
 (provide 'init-eaf)
 
 ;;; init-eaf.el ends here
