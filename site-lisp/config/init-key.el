@@ -245,13 +245,13 @@
 ;;; --- 多标签浏览
 (lazy-load-set-keys
  '(
-   ("s-j" . awesome-tab-ace-jump)                  ;Ace jump
-   ("M-7" . awesome-tab-backward-tab)              ;移动到后一个标签
-   ("M-8" . awesome-tab-forward-tab)               ;移动到前一个标签
-   ("M-9" . awesome-tab-backward-group)            ;移动到后一个标签组
-   ("M-0" . awesome-tab-forward-group)             ;移动到前一个标签组
-   ("<C-tab>" . awesome-tab-backward-tab)          ;移动到后一个标签
-   ("<C-S-iso-lefttab>" . awesome-tab-forward-tab) ;移动到前一个标签
+   ("s-j" . awesome-tab-ace-jump)        ;Ace jump
+   ("M-7" . awesome-tab-backward-tab)    ;移动到后一个标签
+   ("M-8" . awesome-tab-forward-tab)     ;移动到前一个标签
+   ("M-9" . awesome-tab-backward-group)  ;移动到后一个标签组
+   ("M-0" . awesome-tab-forward-group)   ;移动到前一个标签组
+   ("<C-tab>" . awesome-tab-forward-tab) ;移动到后一个标签
+   ("<C-S-iso-lefttab>" . awesome-tab-backward-tab) ;移动到前一个标签
    ))
 (lazy-load-global-keys
  '(
