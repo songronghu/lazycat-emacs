@@ -144,7 +144,6 @@
              (summary .35 point)
              (article 1.0))))
 ;; 显示设置
-(setq mm-text-html-renderer 'w3m)                     ;用W3M显示HTML格式的邮件
 (setq mm-inline-large-images t)                       ;显示内置图片
 (auto-image-file-mode)                                ;自动加载图片
 (add-to-list 'mm-attachment-override-types "image/*") ;附件显示图片

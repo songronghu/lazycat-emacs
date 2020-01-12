@@ -106,19 +106,6 @@
     ))
 (setq dired-guess-shell-alist-user      ;设置文件默认打开的模式
       '(
-        ;; 图书
-        (list "\\.chm$" '(concat
-                          "firefox chm:"            ;执行特定的命令
-                          (replace-regexp-in-string ;替换空格为%20
-                           " " "%20" (w3m-expand-file-name-as-url (dired-get-filename))) ;用URL的模式解析文件名
-                          " -q"))
-        (list "\\.pdf$" "wine /data/Backup/WindowsTools/FoxitReader/FoxitReader.exe")
-        (list "\\.pdg$" "wine /data/Backup/WindowsTools/MiniPDG/pdgreader.exe")
-        ;; 多媒体
-        (list (format "\\(%s\\)$" (emms-player-get emms-player-mplayer 'regex)) "mplayer")
-        (list "\\.\\(jpe?g\\|png\\)$" "eog" " -q")
-        ;; 网页
-        (list "\\.html?$" "firefox")
         ;; 压缩包
         (list "\\.rar$" "unrar e -ad")
         (list "\\.tar.bz2$" "tar jxvf")

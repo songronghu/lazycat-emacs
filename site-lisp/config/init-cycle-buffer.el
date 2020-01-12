@@ -99,7 +99,6 @@
         (("d" . "Dired") . (lambda () (interactive) (cycle-buffer-in-special-mode 'dired-mode)))
         (("o" . "Org") . (lambda () (interactive) (cycle-buffer-in-special-mode 'org-mode)))
         (("H" . "Haskell") . (lambda () (interactive) (cycle-buffer-in-special-mode 'haskell-mode)))
-        (("w" . "W3m") . (lambda () (interactive) (cycle-buffer-in-special-mode 'w3m-mode)))
         (("t" . "Term") . (lambda () (interactive) (cycle-buffer-in-special-mode 'term-mode)))
         (("y" . "Yaoddmuse") . (lambda () (interactive) (cycle-buffer-in-special-mode 'yaoddmuse-mode)))
         (("r" . "Ruby") . (lambda () (interactive) (cycle-buffer-in-special-mode 'ruby-mode)))

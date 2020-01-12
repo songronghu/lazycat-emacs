@@ -83,7 +83,6 @@
 
 (require 'org)                          ;个人信息管理
 (require 'org-extension)                ;Org增强
-(require 'org-w3m)                      ;Org w3m 交互转换
 (require 'org-oddmuse)                  ;转换 Org-mode 到 Oddmuse 模式
 
 ;;; Code:

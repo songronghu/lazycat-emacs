@@ -81,7 +81,6 @@
 (setq newsticker-automatically-mark-items-as-old t)          ;自动标记项目为已经检索的项目
 (setq newsticker-automatically-mark-visited-items-as-old t)  ;自动标记已经访问过的项目
 (setq newsticker-retrieval-interval 600)                     ;newsticker更新的时间周期(second)
-(setq newsticker-html-renderer 'w3m-region)                  ;用w3m处理HTML格式的信息
 (setq newsticker-retrieval-method 'extern)                   ;用wget抓取
 (setq newsticker-treeview-treewindow-width 40)               ;树列表宽度
 (setq newsticker-treeview-listwindow-height 30)              ;消息窗口高度
