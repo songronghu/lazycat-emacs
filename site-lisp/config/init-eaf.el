@@ -88,7 +88,7 @@
 (setq eaf-grip-token "2a8ffd3a265e8da29e208e2da5a6636a7940c540")
 
 ;; You need configuration your own local proxy program first.
-(setq eaf-proxy-type "http")
+(setq eaf-proxy-type "socks5")
 (setq eaf-proxy-host "127.0.0.1")
 (setq eaf-proxy-port "1080")
 
