@@ -21,10 +21,13 @@ git clone https://github.com/manateelazycat/lazycat-emacs.git
 ```
 
 2. Fetch all submodules in lazycat-emacs:
+
 ```
 git submodule update --init --recursive
 
 git submodule foreach git reset --hard
+
+git submodule foreach git checkout master
 ```
 
 ### Mac OS High Sierra
