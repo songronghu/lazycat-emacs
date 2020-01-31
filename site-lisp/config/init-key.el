@@ -348,7 +348,7 @@
    '(
      ("s-'" . eaf-open)
      ("s-\"" . eaf-open-browser)
-     ("s-/" . eaf-stop-process)
+     ("s-/" . eaf-open-terminal)
      )
    "init-eaf")
   (lazy-load-local-keys
