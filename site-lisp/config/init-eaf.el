@@ -102,6 +102,8 @@
 (eaf-bind-key scroll_to_bottom "M-<" eaf-browser-keybinding)
 (eaf-bind-key open_link "M-h" eaf-browser-keybinding)
 (eaf-bind-key open_link_new_buffer "M-H" eaf-browser-keybinding)
+(eaf-bind-key insert_or_open_link_new_buffer "D" eaf-browser-keybinding)
+(eaf-bind-key insert_or_open_link_background_buffer "F" eaf-browser-keybinding)
 
 (eaf-setq eaf-browser-default-zoom "1.25")
 
