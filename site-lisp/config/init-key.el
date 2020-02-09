@@ -404,7 +404,7 @@
 ;;; --- 删除环的递增式搜索
 (lazy-load-global-keys
  '(
-   ("M-s-y" . kill-ring-search)         ;kill ring 搜索
+   ("M-s-y" . kill-ring-search+)        ;kill ring 搜索
    )
  "init-kill-ring-search")
 ;;; ### Help ###
