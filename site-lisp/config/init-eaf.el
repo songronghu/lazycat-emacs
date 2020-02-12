@@ -106,6 +106,7 @@
 (eaf-bind-key insert_or_open_link_background_buffer "F" eaf-browser-keybinding)
 
 (eaf-setq eaf-browser-default-zoom "1.25")
+(eaf-setq eaf-browser-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 
 (provide 'init-eaf)
 
