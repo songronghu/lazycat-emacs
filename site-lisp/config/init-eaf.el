@@ -106,7 +106,7 @@
 (eaf-bind-key watch-other-window-down-line "M-<" eaf-browser-keybinding)
 
 (eaf-setq eaf-browser-default-zoom "1.25")
-(eaf-setq eaf-browser-marker-letters "JKHLNMUIOYPFDSAVCRREW")
+(eaf-setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 
 (provide 'init-eaf)
 
