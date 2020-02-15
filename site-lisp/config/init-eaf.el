@@ -106,6 +106,9 @@
 (eaf-bind-key watch-other-window-down-line "M->" eaf-browser-keybinding)
 
 (eaf-setq eaf-browser-default-zoom "1.25")
+(eaf-setq eaf-browser-aria2-proxy-host "127.0.0.1")
+(eaf-setq eaf-browser-aria2-proxy-port "9888")
+
 (eaf-setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 
 (provide 'init-eaf)
