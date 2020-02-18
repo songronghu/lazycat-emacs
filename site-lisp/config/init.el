@@ -1,3 +1,7 @@
+;; 加速配置。
+(setq frame-inhibit-implied-resize t)
+(setq initial-major-mode 'fundamental-mode)
+
 (let (
       ;; 加载的时候临时增大`gc-cons-threshold'以加速启动速度。
       (gc-cons-threshold most-positive-fixnum)
