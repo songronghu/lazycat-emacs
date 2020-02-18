@@ -1,10 +1,17 @@
 ;; 加速配置。
-(setq frame-inhibit-implied-resize t)
-(setq initial-major-mode 'fundamental-mode)
+(setq
+ ;; 不要缩放frame.
+ frame-inhibit-implied-resize t
+ ;; 默认用最简单的模式
+ initial-major-mode 'fundamental-mode
+ ;; 不要自动启用package
+ package-enable-at-startup nil
+ package--init-file-ensured t)
 
 (let (
       ;; 加载的时候临时增大`gc-cons-threshold'以加速启动速度。
       (gc-cons-threshold most-positive-fixnum)
+      (gc-cons-percentage 0.6)
       ;; 清空避免加载远程文件的时候分析文件。
       (file-name-handler-alist nil))
   ;; 定义一些启动目录，方便下次迁移修改
