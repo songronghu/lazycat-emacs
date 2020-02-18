@@ -80,16 +80,15 @@
 ;;
 
 ;;; Require
-(require 'highlight-indent-guides)
 
 ;;; Code:
 (add-hook 'prog-mode-hook
           '(lambda ()
+             (require 'highlight-indent-guides)
+             (setq highlight-indent-guides-method 'character)
+             (setq highlight-indent-guides-auto-enabled t)
+             (setq highlight-indent-guides-responsive 'top)
              (highlight-indent-guides-mode)))
-(setq highlight-indent-guides-method 'character)
-
-(setq highlight-indent-guides-auto-enabled t)
-(setq highlight-indent-guides-responsive 'top)
 
 (provide 'init-highlight-indent-guides)
 

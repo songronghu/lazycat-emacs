@@ -49,7 +49,6 @@
     (require 'init-line-number)
     (require 'init-auto-save)
     (require 'init-mode)
-    (require 'init-sdcv)
     (require 'init-dired)
     (require 'init-awesome-pair)
     (require 'init-indent)
@@ -74,7 +73,6 @@
          (require 'init-cursor-chg)
          (require 'init-winpoint)
          (require 'init-info)
-         (require 'init-atomic-chrome)
          (require 'init-c)
          (require 'init-flycheck)
          (require 'init-cnfonts)
@@ -84,7 +82,6 @@
          (require 'init-auto-sudoedit)
          (require 'init-highlight-indent-guides)
          (require 'init-pyim)
-         (require 'init-eaf)
 
          ;; Restore session at last.
          (require 'init-session)

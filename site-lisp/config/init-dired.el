@@ -100,9 +100,6 @@
  '(lambda ()
     (require 'dired-extension)
     (dired-omit-method)                 ;隐藏文件的方法
-
-    (require 'dired+)
-    (toggle-dired-find-file-reuse-dir 1) ;使用单一模式浏览Dired
     ))
 (setq dired-guess-shell-alist-user      ;设置文件默认打开的模式
       '(

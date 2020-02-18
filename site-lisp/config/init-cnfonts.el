@@ -80,12 +80,11 @@
 ;;
 
 ;;; Require
-(require 'cnfonts)
 
 ;;; Code:
-
 (add-hook 'org-mode-hook
           '(lambda ()
+             (require 'cnfonts)
              (setq fontset-orgtable
                    (create-fontset-from-ascii-font "Monaco 14"))
              (dolist (charset '(han symbol cjk-misc))

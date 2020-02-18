@@ -80,49 +80,49 @@
 ;;
 
 ;;; Require
-(require 'info)
 
 ;;; Code:
 
 ;;; ### Info ###
 ;;; --- Info 模式
-(lazy-load-set-keys
- '(
-   ("f" . Info-follow-nearest-node)     ;进入当前节点
-   ("<tab>" . Info-next-reference)      ;下一个引用
-   ("<backtab>" . Info-prev-reference)  ;上一个引用
-   ("E" . Info-edit)                    ;编辑
-   ("?" . Info-summary)                 ;帮助
-   ("N" . Info-next)                    ;下一个同级节点
-   ("P" . Info-prev)                    ;上一个同级节点
-   ("J" . scroll-up-one-line)           ;向下滚动一行
-   ("K" . scroll-down-one-line)         ;向上滚动一行
-   ("." . go-to-char-forward)           ;向后查找某一个字符
-   ("," . go-to-char-backward)          ;向前查找某一个字符
-   ("<" . Info-forward-node)            ;下一个节点
-   (">" . Info-backward-node)           ;上一个节点
-   ("C-<" . Info-final-node)            ;最后一个节点
-   ("C->" . Info-top-node)              ;最前一个节点
-   ("s" . Info-search)                  ;搜索
-   ("S" . Info-search-case-sensitively) ;区分大小写搜索
-   ("g" . Info-goto-node)               ;跳到指定的节点
-   ("q" . Info-exit)                    ;退出
-   ("m" . Info-menu)                    ;菜单补全
-   ("d" . Info-directory)               ;总目录
-   ("I" . Info-index)                   ;索引
-   ("H" . Info-history)                 ;历史
-   ("F" . Info-history-forward)         ;历史向前
-   ("B" . Info-history-back)            ;历史向后
-   ("M-s" . Info-search)                ;节点搜索
-   ("C" . clone-buffer)                 ;克隆当前buffer
-   ("c" . Info-copy-current-node-name)  ;拷贝当前节点名字
-   ("u" . Info-up)                      ;跳到上一级
-   ("T" . Info-toc)                     ;内容索引
-   ("e" . Info-scroll-down)             ;向上滚动, vi-move 的后面重新加载
-   (" " . Info-fscroll-up)              ;向下滚动
-   )
- Info-mode-map
- )
+(add-hook 'Info-mode-hook
+          '(lambda ()
+             (lazy-load-set-keys
+              '(
+                ("f" . Info-follow-nearest-node)    ;进入当前节点
+                ("<tab>" . Info-next-reference)     ;下一个引用
+                ("<backtab>" . Info-prev-reference) ;上一个引用
+                ("E" . Info-edit)                   ;编辑
+                ("?" . Info-summary)                ;帮助
+                ("N" . Info-next)                   ;下一个同级节点
+                ("P" . Info-prev)                   ;上一个同级节点
+                ("J" . scroll-up-one-line)          ;向下滚动一行
+                ("K" . scroll-down-one-line)        ;向上滚动一行
+                ("." . go-to-char-forward)  ;向后查找某一个字符
+                ("," . go-to-char-backward) ;向前查找某一个字符
+                ("<" . Info-forward-node)   ;下一个节点
+                (">" . Info-backward-node)  ;上一个节点
+                ("C-<" . Info-final-node)   ;最后一个节点
+                ("C->" . Info-top-node)     ;最前一个节点
+                ("s" . Info-search)         ;搜索
+                ("S" . Info-search-case-sensitively) ;区分大小写搜索
+                ("g" . Info-goto-node)               ;跳到指定的节点
+                ("q" . Info-exit)                    ;退出
+                ("m" . Info-menu)                    ;菜单补全
+                ("d" . Info-directory)               ;总目录
+                ("I" . Info-index)                   ;索引
+                ("H" . Info-history)                 ;历史
+                ("F" . Info-history-forward)         ;历史向前
+                ("B" . Info-history-back)            ;历史向后
+                ("M-s" . Info-search)                ;节点搜索
+                ("C" . clone-buffer)                 ;克隆当前buffer
+                ("c" . Info-copy-current-node-name)  ;拷贝当前节点名字
+                ("u" . Info-up)                      ;跳到上一级
+                ("T" . Info-toc)                     ;内容索引
+                ("e" . Info-scroll-down) ;向上滚动, vi-move 的后面重新加载
+                (" " . Info-fscroll-up)  ;向下滚动
+                )
+              Info-mode-map)))
 
 (provide 'init-info)
 
