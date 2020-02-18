@@ -1,3 +1,8 @@
+;; 先设置背景，避免闪烁。
+(custom-set-faces
+ '(default ((t (:background "black" :foreground "#137D11"))))
+ '(mode-line ((t (:height 0.1)))))
+
 ;; 加速配置。
 (setq
  ;; 不要缩放frame.
@@ -23,10 +28,6 @@
     (require 'benchmark-init-modes)
     (require 'benchmark-init)
     (benchmark-init/activate)
-
-    ;; 先设置背景，避免闪烁。
-    (custom-set-faces
-     '(default ((t (:background "black" :foreground "#137D11")))))
 
     (require 'init-startup)
 
