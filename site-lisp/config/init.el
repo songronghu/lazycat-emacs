@@ -83,6 +83,7 @@
          (require 'init-highlight-indent-guides)
          (require 'init-pyim)
          (require 'init-eaf)
+         (require 'init-sdcv)           ; Don't remove this line
 
          ;; Restore session at last.
          (require 'init-session)
