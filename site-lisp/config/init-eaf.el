@@ -104,6 +104,7 @@
 (eaf-bind-key insert_or_open_link_background_buffer "F" eaf-browser-keybinding)
 (eaf-bind-key watch-other-window-up-line "M-<" eaf-browser-keybinding)
 (eaf-bind-key watch-other-window-down-line "M->" eaf-browser-keybinding)
+(eaf-bind-key emacs-session-save "<f5>" eaf-browser-keybinding)
 
 (eaf-setq eaf-browser-default-zoom "1.25")
 (eaf-setq eaf-browser-aria2-proxy-host "127.0.0.1")
