@@ -115,7 +115,6 @@
 
 (setq ad-redefinition-action 'accept)   ;不要烦人的 redefine warning
 (setq frame-resize-pixelwise t) ;设置缩放的模式,避免Mac平台最大化窗口以后右边和下边有空隙
-(setq resize-mini-windows nil)  ;保持minibuffer window固定高度，不会随着内容变长而增长，方便EAF.
 
 ;; 不显示 *scratch*
 (defun remove-scratch-buffer ()

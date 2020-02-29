@@ -85,13 +85,6 @@
 
 ;;; Code:
 
-(defun kill-ring-search+ ()
-  (interactive)
-  (let ((resize-flag resize-mini-windows))
-    (setq resize-mini-windows t)
-    (kill-ring-search)
-    (setq resize-mini-windows resize-flag)))
-
 (lazy-load-local-keys
  '(
    ("C-s" . kill-ring-search-prev))     ;下一个匹配
