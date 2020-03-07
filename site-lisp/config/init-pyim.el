@@ -104,9 +104,52 @@
 (setq pyim-fuzzy-pinyin-alist
       '(("en" "eng") ("in" "ing") ("l" "n") ("z" "zh") ("c" "ch")))
 (setq pyim-punctuation-translate-p '(auto yes no))
-(setq-default pyim-english-input-switch-functions
-              '(pyim-probe-isearch-mode))
+(setq-default pyim-english-input-switch-functions '(pyim-probe-isearch-mode))
 (setq pyim-dcache-backend 'pyim-dregcache)
+
+(setq pyim-punctuation-dict
+      '(("'" "‘" "’")
+        ("\"" "“" "”")
+        ("_" "——")
+        ("^" "…")
+        ("]" "】")
+        ("[" "【")
+        ("@" "◎")
+        ("?" "？")
+        (">" "》")
+        ("=" "＝")
+        ("<" "《")
+        (";" "；")
+        (":" "：")
+        ("\\" "、")
+        ("." "。")
+        ("-" "－")
+        ("," "，")
+        ("+" "＋")
+        ("*" "×")
+        (")" "）")
+        ("(" "（")
+        ("&" "※")
+        ("%" "％")
+        ("$" "￥")
+        ("#" "＃")
+        ("!" "！")
+        ("`" "・")
+        ("~" "～")
+        ("}" "』")
+        ("|" "÷")
+        ("{" "『")))
+
+(lazy-load-set-keys
+ '(
+   ("," . pyim-page-next-page)
+   ("." . pyim-page-previous-page)
+   ("M-f" . pyim-page-next-word)
+   ("M-b" . pyim-page-previous-word)
+   ("M-c" . pyim-quit-clear)
+   )
+ pyim-mode-map
+ )
 
 (provide 'init-pyim)
 
