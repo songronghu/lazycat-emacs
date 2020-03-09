@@ -636,7 +636,7 @@
 (lazy-load-global-keys
  '(
    ("s-m" . toggle-input-method)
-   ("s-M" . pyim-punctuation-toggle)
+   ("s-M" . pyim-convert-code-at-point)
    )
  "init-pyim")
 
