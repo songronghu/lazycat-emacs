@@ -113,6 +113,14 @@
 
 (eaf-setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 
+(defun jekyll-start-server ()
+  (interactive)
+  (eaf-run-command-in-terminal "cd /home/andy/manateelazycat.github.io && jekyll serve --livereload"))
+
+(defun jekyll-open-local ()
+  (interactive)
+  (eaf-open-browser "http://127.0.0.1:4000"))
+
 (provide 'init-eaf)
 
 ;;; init-eaf.el ends here
