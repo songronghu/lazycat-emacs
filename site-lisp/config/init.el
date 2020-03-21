@@ -1,8 +1,3 @@
-;; 先设置背景，避免闪烁。
-(custom-set-faces
- '(default ((t (:background "black" :foreground "#137D11"))))
- '(mode-line ((t (:height 0.1)))))
-
 ;; 加速配置。
 (setq
  ;; 不要缩放frame.
@@ -12,6 +7,21 @@
  ;; 不要自动启用package
  package-enable-at-startup nil
  package--init-file-ensured t)
+
+;; 字体设置
+(defun init-font ()
+  (let ((emacs-font-size 14)
+        emacs-font-name)
+    (cond
+     ((featurep 'cocoa)
+      (setq emacs-font-name "Monaco"))
+     ((string-equal system-type "gnu/linux")
+      (setq emacs-font-name "WenQuanYi Micro Hei Mono")))
+    (when (display-grayscale-p)
+      (set-frame-font (format "%s-%s" (eval emacs-font-name) (eval emacs-font-size)))
+      (set-fontset-font (frame-parameter nil 'font) 'unicode (eval emacs-font-name)))))
+
+(init-font)
 
 (let (
       ;; 加载的时候临时增大`gc-cons-threshold'以加速启动速度。
@@ -33,6 +43,7 @@
 
     (require 'init-generic)
     (require 'lazycat-theme)
+    (load-theme 'lazycat-dark t)
     (when (featurep 'cocoa)
       (require 'cache-path-from-shell))
     (require 'lazy-load)
