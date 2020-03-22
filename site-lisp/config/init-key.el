@@ -41,15 +41,14 @@
 ;;; --- 工具函数
 (lazy-load-set-keys
  '(
-   ("s-c o" . one-key-menu-directory)       ;目录打开菜单
-   ("s-," . bury-buffer)                    ;隐藏当前buffer
-   ("s-." . unbury-buffer)                  ;反隐藏当前buffer
-   ("s-&" . killall)                        ;杀掉进程
-   ("<M-s-return>" . toggle-debug-on-error) ;切换调试模式
-   ("s-[" . eval-expression)                ;执行表达式
-   ("C-s-q" . quoted-insert)                ;读取系一个输入字符并插入
+   ("s-c o" . one-key-menu-directory)   ;目录打开菜单
+   ("s-," . bury-buffer)                ;隐藏当前buffer
+   ("s-." . unbury-buffer)              ;反隐藏当前buffer
+   ("s-[" . eval-expression)            ;执行表达式
+   ("C-s-q" . quoted-insert)            ;读取系一个输入字符并插入
    ("M-h" . set-mark-command) ;Instead C-Space for Chinese input method
    ("M-H" . set-mark-command) ;Instead C-Space for Chinese input method
+   ("<f9>" . lazycat-theme-toggle)
    ))
 (lazy-load-global-keys
  '(
