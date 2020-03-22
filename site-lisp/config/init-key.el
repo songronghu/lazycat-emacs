@@ -637,7 +637,7 @@
  '(
    ("s-m" . toggle-input-method)
    )
- "init-pyim")
+ "init-rime")
 
 (lazy-load-global-keys
  '(

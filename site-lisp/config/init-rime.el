@@ -1,15 +1,15 @@
-;;; init-markdown-mode.el --- Configure for markdown mode.
+;;; init-rime.el --- Configuration for emacs-rime
 
-;; Filename: init-markdown-mode.el
-;; Description: Configure for markdown mode.
+;; Filename: init-rime.el
+;; Description: Configuration for emacs-rime
 ;; Author: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
-;; Copyright (C) 2019, Andy Stewart, all rights reserved.
-;; Created: 2019-09-22 08:25:25
+;; Copyright (C) 2020, Andy Stewart, all rights reserved.
+;; Created: 2020-03-22 14:52:23
 ;; Version: 0.1
-;; Last-Updated: 2019-09-22 08:25:25
+;; Last-Updated: 2020-03-22 14:52:23
 ;;           By: Andy Stewart
-;; URL: http://www.emacswiki.org/emacs/download/init-markdown-mode.el
+;; URL: http://www.emacswiki.org/emacs/download/init-rime.el
 ;; Keywords:
 ;; Compatibility: GNU Emacs 26.3
 ;;
@@ -39,19 +39,19 @@
 
 ;;; Commentary:
 ;;
-;; Configure for markdown mode.
+;; Configuration for emacs-rime
 ;;
 
 ;;; Installation:
 ;;
-;; Put init-markdown-mode.el to your load-path.
+;; Put init-rime.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'init-markdown-mode)
+;; (require 'init-rime)
 ;;
 ;; No need more.
 
@@ -60,12 +60,12 @@
 ;;
 ;;
 ;; All of the above can customize by:
-;;      M-x customize-group RET init-markdown-mode RET
+;;      M-x customize-group RET init-rime RET
 ;;
 
 ;;; Change log:
 ;;
-;; 2019/09/22
+;; 2020/03/22
 ;;      * First released.
 ;;
 
@@ -80,20 +80,27 @@
 ;;
 
 ;;; Require
-(require 'markdown-mode)
+(require 'rime)
 
 ;;; Code:
+(setq rime-user-data-dir "/home/andy/.config/fcitx/rime")
 
-(dolist (hook (list
-               'markdown-mode-hook
-               ))
-  (add-hook hook
-            '(lambda ()
-              (require 'olivetti)
-              (olivetti-mode 1)
-              (olivetti-set-width 120)
-              )))
+(setq rime-posframe-properties
+      (list :background-color "#333333"
+            :foreground-color "#dcdccc"
+            :font "WenQuanYi Micro Hei Mono-14"
+            :internal-border-width 10))
 
-(provide 'init-markdown-mode)
+(setq default-input-method "rime"
+      rime-show-candidate 'posframe)
 
-;;; init-markdown-mode.el ends here
+(lazy-load-set-keys
+ '(
+   ("M-o" . rime--backspace)
+   ("M-m" . rime--return)
+   ("M-h" . rime--escape))
+ rime-active-mode-map)
+
+(provide 'init-rime)
+
+;;; init-rime.el ends here
