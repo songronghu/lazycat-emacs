@@ -1,27 +1,8 @@
 ;; 加速配置。
-(setq
- ;; 不要缩放frame.
- frame-inhibit-implied-resize t
- ;; 默认用最简单的模式
- initial-major-mode 'fundamental-mode
- ;; 不要自动启用package
- package-enable-at-startup nil
- package--init-file-ensured t)
+(require 'init-accelerate)
 
 ;; 字体设置
-(defun init-font ()
-  (let ((emacs-font-size 14)
-        emacs-font-name)
-    (cond
-     ((featurep 'cocoa)
-      (setq emacs-font-name "Monaco"))
-     ((string-equal system-type "gnu/linux")
-      (setq emacs-font-name "WenQuanYi Micro Hei Mono")))
-    (when (display-grayscale-p)
-      (set-frame-font (format "%s-%s" (eval emacs-font-name) (eval emacs-font-size)))
-      (set-fontset-font (frame-parameter nil 'font) 'unicode (eval emacs-font-name)))))
-
-(init-font)
+(require 'init-font)
 
 (let (
       ;; 加载的时候临时增大`gc-cons-threshold'以加速启动速度。
@@ -29,6 +10,7 @@
       (gc-cons-percentage 0.6)
       ;; 清空避免加载远程文件的时候分析文件。
       (file-name-handler-alist nil))
+
   ;; 定义一些启动目录，方便下次迁移修改
   (defvar lazycat-emacs-root-dir (file-truename "~/lazycat-emacs/site-lisp"))
   (defvar lazycat-emacs-config-dir (concat lazycat-emacs-root-dir "/config"))
