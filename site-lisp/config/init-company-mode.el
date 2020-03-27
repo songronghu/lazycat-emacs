@@ -107,10 +107,10 @@
              (require 'lazy-load)
              (require 'company)
              (require 'company-yasnippet)
-             (require 'company-dabbrev)
+             ;; (require 'company-dabbrev)
              (require 'company-files)
              ;; (require 'company-tabnine)
-             (require 'company-tng)
+             ;; (require 'company-tng)
 
 ;;; Code:
 
@@ -150,11 +150,11 @@
 
              ;; Use the tab-and-go frontend.
              ;; Allows TAB to select and complete at the same time.
-             (company-tng-configure-default)
-             (setq company-frontends
-                   '(company-tng-frontend
-                     company-pseudo-tooltip-frontend
-                     company-echo-metadata-frontend))
+             ;; (company-tng-configure-default)
+             ;; (setq company-frontends
+             ;;       '(company-tng-frontend
+             ;;         company-pseudo-tooltip-frontend
+             ;;         company-echo-metadata-frontend))
 
              ;; Enable global.
              (global-company-mode)
