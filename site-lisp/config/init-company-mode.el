@@ -110,6 +110,7 @@
              (require 'company-yasnippet)
              (require 'company-dabbrev)
              (require 'company-files)
+             (require 'company-tng)
 
              ;; Config for company mode.
              (setq company-idle-delay 0.2) ; set the completion menu pop-up delay
@@ -125,6 +126,14 @@
              (setq company-backends (delete 'company-etags company-backends))
              (setq company-backends (delete 'company-oddmuse company-backends))
              (add-to-list 'company-backends 'company-files)
+
+             ;; Use the tab-and-go frontend.
+             ;; Allows TAB to select and complete at the same time.
+             (company-tng-configure-default)
+             (setq company-frontends
+                   '(company-tng-frontend
+                     company-pseudo-tooltip-frontend
+                     company-echo-metadata-frontend))
 
              ;; Trigger completion immediately.
              (setq company-idle-delay 0)

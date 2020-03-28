@@ -81,7 +81,6 @@
 
 ;;; Require
 (require 'company-tabnine)
-(require 'company-tng)
 
 ;;; Code:
 
@@ -94,14 +93,6 @@
                (stringp (funcall company-message-func)))
       (unless (string-match "The free version of TabNine only indexes up to" (funcall company-message-func))
         ad-do-it))))
-
-;; Use the tab-and-go frontend.
-;; Allows TAB to select and complete at the same time.
-(company-tng-configure-default)
-(setq company-frontends
-      '(company-tng-frontend
-        company-pseudo-tooltip-frontend
-        company-echo-metadata-frontend))
 
 ;; TabNine
 (add-to-list 'company-backends #'company-tabnine)
