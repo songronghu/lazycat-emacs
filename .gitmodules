@@ -227,6 +227,3 @@
 [submodule "emacs-rime"]
 	path = site-lisp/extensions/emacs-rime
 	url = https://github.com/DogLooksGood/emacs-rime.git
-[submodule "nox"]
-	path = site-lisp/extensions/nox
-	url = https://github.com/manateelazycat/nox.git
