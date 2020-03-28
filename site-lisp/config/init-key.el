@@ -90,7 +90,6 @@
    ("<f2>" . refresh-file)              ;自动刷新文件
    ("s-f" . find-file-root)             ;用root打开文件
    ("s-r" . find-file-smb)              ;访问sambao
-   ("M-j" . join-lines)
    )
  "basic-toolkit")
 (lazy-load-global-keys
@@ -273,12 +272,6 @@
    ("C-4" . insert-changelog-date)      ;插入日志时间 (%Y/%m/%d)
    ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
    ))
-(lazy-load-global-keys
- '(
-   ("C-7" . find-define-back)           ;返回查找符号的定义之前的位置
-   ("C-8" . find-define)                ;查找符号的定义
-   )
- "find-define")
 ;;; ### Awesome-Pair ###
 ;;; --- 结构化编程
 (lazy-load-unset-keys
@@ -657,5 +650,15 @@
    )
  "snails")
 
+(lazy-load-global-keys
+ '(
+   ("C-7" . xref-pop-marker-stack)
+   ("C-8" . xref-find-definitions)
+   ("C-9" . xref-find-definitions-other-window)
+   ("M-k" . xref-find-references)
+   ("M-," . nox-rename)
+   ("M-." . nox-show-doc)
+   )
+ "init-nox.el")
 
 (provide 'init-key)

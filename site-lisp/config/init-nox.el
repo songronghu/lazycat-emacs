@@ -99,6 +99,14 @@
                ))
   (add-hook hook '(lambda () (nox-ensure))))
 
+(lazy-load-set-keys
+ '(
+   ("j" . xref-next-line)
+   ("k" . xref-prev-line)
+   )
+ xref--xref-buffer-mode-map
+ )
+
 (provide 'init-nox)
 
 ;;; init-nox.el ends here
