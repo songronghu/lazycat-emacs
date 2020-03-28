@@ -10,9 +10,6 @@
 [submodule "typescript"]
 	path = site-lisp/extensions/typescript
 	url = https://github.com/ananthakumaran/typescript.el.git
-[submodule "eglot"]
-	path = site-lisp/extensions/eglot
-	url = https://github.com/joaotavora/eglot.git
 [submodule "watch-other-window"]
 	path = site-lisp/extensions/watch-other-window
 	url = https://github.com/manateelazycat/watch-other-window.git
