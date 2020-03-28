@@ -110,8 +110,6 @@
              (require 'company-yasnippet)
              (require 'company-dabbrev)
              (require 'company-files)
-             ;; (require 'nox)
-
 
              ;; Config for company mode.
              (setq company-idle-delay 0.2) ; set the completion menu pop-up delay
@@ -127,9 +125,6 @@
              (setq company-backends (delete 'company-etags company-backends))
              (setq company-backends (delete 'company-oddmuse company-backends))
              (add-to-list 'company-backends 'company-files)
-
-             ;; Nox.
-             ;; (add-to-list 'company-backends 'company-nox)
 
              ;; Trigger completion immediately.
              (setq company-idle-delay 0)
