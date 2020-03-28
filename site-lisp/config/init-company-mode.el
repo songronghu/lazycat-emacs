@@ -110,9 +110,7 @@
              (require 'company-yasnippet)
              (require 'company-dabbrev)
              (require 'company-files)
-             (require 'nox)
-             ;; (require 'company-tabnine)
-             ;; (require 'company-tng)
+             ;; (require 'nox)
 
 
              ;; Config for company mode.
@@ -131,28 +129,7 @@
              (add-to-list 'company-backends 'company-files)
 
              ;; Nox.
-             (add-to-list 'company-backends 'company-nox)
-
-             ;; TabNine
-             ;; (add-to-list 'company-backends #'company-tabnine)
-
-             ;; The free version of TabNine is good enough,
-             ;; and below code is recommended that TabNine not always
-             ;; prompt me to purchase a paid version in a large project.
-             ;; (defadvice company-echo-show (around disable-tabnine-upgrade-message activate)
-             ;;   (let ((company-message-func (ad-get-arg 0)))
-             ;;     (when (and company-message-func
-             ;;                (stringp (funcall company-message-func)))
-             ;;       (unless (string-match "The free version of TabNine only indexes up to" (funcall company-message-func))
-             ;;         ad-do-it))))
-
-             ;; Use the tab-and-go frontend.
-             ;; Allows TAB to select and complete at the same time.
-             ;; (company-tng-configure-default)
-             ;; (setq company-frontends
-             ;;       '(company-tng-frontend
-             ;;         company-pseudo-tooltip-frontend
-             ;;         company-echo-metadata-frontend))
+             ;; (add-to-list 'company-backends 'company-nox)
 
              ;; Trigger completion immediately.
              (setq company-idle-delay 0)
