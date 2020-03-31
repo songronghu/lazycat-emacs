@@ -1,17 +1,17 @@
-;;; init-org.el --- Org configuration
+;;; init-org.el --- Configure for org-mode
 
 ;; Filename: init-org.el
-;; Description: Org configuration
-;; Author: Andy Stewart lazycat.manatee@gmail.com
-;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
-;; Copyright (C) 2008, 2009, Andy Stewart, all rights reserved.
-;; Created: 2008-10-20 09:39:30
+;; Description: Configure for org-mode
+;; Author: Andy Stewart <lazycat.manatee@gmail.com>
+;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
+;; Copyright (C) 2020, Andy Stewart, all rights reserved.
+;; Created: 2020-03-31 22:32:49
 ;; Version: 0.1
-;; Last-Updated: 2008-10-20 09:39:30
+;; Last-Updated: 2020-03-31 22:32:49
 ;;           By: Andy Stewart
-;; URL:
-;; Keywords: org-mode
-;; Compatibility: GNU Emacs 23.0.60.1
+;; URL: http://www.emacswiki.org/emacs/download/init-org.el
+;; Keywords:
+;; Compatibility: GNU Emacs 28.0.50
 ;;
 ;; Features that might be required by this library:
 ;;
@@ -39,7 +39,7 @@
 
 ;;; Commentary:
 ;;
-;; Org configuration
+;; Configure for org-mode
 ;;
 
 ;;; Installation:
@@ -55,10 +55,18 @@
 ;;
 ;; No need more.
 
+;;; Customize:
+;;
+;;
+;;
+;; All of the above can customize by:
+;;      M-x customize-group RET init-org RET
+;;
+
 ;;; Change log:
 ;;
-;; 2008/10/20
-;;      First released.
+;; 2020/03/31
+;;      * First released.
 ;;
 
 ;;; Acknowledgements:
@@ -76,23 +84,22 @@
 
 ;;; Code:
 
-(setq org-hide-leading-stars t)         ;使星号不可见
-(setq org-enable-table-editor 1)        ;启用内建的电子表格
-(setq org-log-done t)                   ;日志记录
-(setq org-log-done '(done))             ;日志记录类型
-(setq org-agenda-include-diary t)       ;集成日历
-(add-hook 'org-mode-hook
-          '(lambda ()
-             (smiley-buffer (current-buffer)) ;自动转换笑脸
-             ))
-(org-remember-insinuate)                ;Org-remeber 初始化
-(setq org-directory "/usr/share/deepin-emacs/Org/")   ;设置默认的目录
-(setq org-default-notes-file            ;设置默认的笔记文件
-      (concat org-directory "Dream.org"))
-(setq org-remember-templates            ;设置 Remeber 模板信息
-      '(
-        ("Todo" ?o "* TODO %?\n  %i\n  %a" "/usr/share/deepin-emacs/Org/Dream.org" "Other")
-        ))
+(setq org-odt-preferred-output-format "docx") ;ODT转换格式默认为docx
+(setq org-startup-folded nil)                 ;默认展开内容
+(setq org-startup-indented t)                 ;默认缩进内容
+
+(defun org-export-docx ()
+  (interactive)
+  (let ((docx-file (concat (file-name-sans-extension (buffer-file-name)) ".docx"))
+        (template-file (concat (file-name-as-directory lazycat-emacs-root-dir)
+                               (file-name-as-directory "template")
+                               "template.docx")))
+    (shell-command (format "pandoc %s -o %s --reference-doc=%s"
+                           (buffer-file-name)
+                           docx-file
+                           template-file
+                           ))
+    (message "Convert finish: %s" docx-file)))
 
 (provide 'init-org)
 
