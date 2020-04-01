@@ -220,10 +220,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
               (olivetti-set-width 120)
               )))
 
-(with-eval-after-load  'ielm
-  (require 'elispfl)
-  (elispfl-ielm-mode))
-
 (provide 'init-mode)
 
 ;;; init-mode.el ends here

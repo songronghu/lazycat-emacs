@@ -68,7 +68,7 @@
          (require 'init-info)
          (require 'init-c)
          (require 'init-flycheck)
-         (require 'init-cnfonts)
+         (require 'init-org)
 
          (require 'init-idle)
 

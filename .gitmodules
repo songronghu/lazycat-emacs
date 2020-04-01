@@ -43,9 +43,6 @@
 [submodule "cache-path-from-shell"]
 	path = site-lisp/extensions/cache-path-from-shell
 	url = https://github.com/manateelazycat/cache-path-from-shell.git
-[submodule "pyim"]
-	path = site-lisp/extensions/pyim
-	url = https://github.com/tumashu/pyim.git
 [submodule "emacs-rails"]
 	path = site-lisp/extensions/emacs-rails
 	url = https://github.com/manateelazycat/emacs-rails.git
@@ -100,9 +97,6 @@
 [submodule "go-mode"]
 	path = site-lisp/extensions/go-mode
 	url = https://github.com/dominikh/go-mode.el.git
-[submodule "find-define"]
-	path = site-lisp/extensions/find-define
-	url = https://github.com/manateelazycat/find-define.git
 [submodule "color-rg"]
 	path = site-lisp/extensions/color-rg
 	url = https://github.com/manateelazycat/color-rg.git
@@ -202,9 +196,6 @@
 [submodule "emacs-async"]
 	path = site-lisp/extensions/emacs-async
 	url = https://github.com/jwiegley/emacs-async.git
-[submodule "cnfonts"]
-	path = site-lisp/extensions/cnfonts
-	url = https://github.com/tumashu/cnfonts.git
 [submodule "projectile"]
 	path = site-lisp/extensions/projectile
 	url = https://github.com/bbatsov/projectile.git
@@ -214,10 +205,6 @@
 [submodule "sly-el-indent"]
 	path = site-lisp/extensions/sly-el-indent
 	url = https://github.com/cireu/sly-el-indent.git
-[submodule "elispfl"]
-	path = site-lisp/extensions/elispfl
-	url = https://github.com/cireu/elispfl.git
-
 [submodule "site-lisp/extensions/emacs-application-framework"]
 	path = site-lisp/extensions/emacs-application-framework
 	url = https://github.com/manateelazycat/emacs-application-framework.git

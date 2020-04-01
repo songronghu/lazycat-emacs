@@ -85,15 +85,28 @@
 ;;; Code:
 
 (let ((emacs-font-size 14)
-        emacs-font-name)
-    (cond
-     ((featurep 'cocoa)
-      (setq emacs-font-name "Monaco"))
-     ((string-equal system-type "gnu/linux")
-      (setq emacs-font-name "WenQuanYi Micro Hei Mono")))
-    (when (display-grayscale-p)
-      (set-frame-font (format "%s-%s" (eval emacs-font-name) (eval emacs-font-size)))
-      (set-fontset-font (frame-parameter nil 'font) 'unicode (eval emacs-font-name))))
+      emacs-font-name)
+  (cond
+   ((featurep 'cocoa)
+    (setq emacs-font-name "Monaco"))
+   ((string-equal system-type "gnu/linux")
+    (setq emacs-font-name "WenQuanYi Micro Hei Mono")))
+  (when (display-grayscale-p)
+    (set-frame-font (format "%s-%s" (eval emacs-font-name) (eval emacs-font-size)))
+    (set-fontset-font (frame-parameter nil 'font) 'unicode (eval emacs-font-name))))
+
+(with-eval-after-load 'org
+  (defun org-buffer-face-mode-variable ()
+    (interactive)
+    ;; 创建一个自己的face
+    (make-face 'my-org-face)
+    ;; 配置这个face
+    (set-face-attribute 'my-org-face nil :font "等距更纱黑体 SC 15")
+    ;; 指定buffer-face的face为自己定义的那个face
+    (setq buffer-face-mode-face 'my-org-face)
+    (buffer-face-mode))
+
+  (add-hook 'org-mode-hook 'org-buffer-face-mode-variable))
 
 (provide 'init-font)
 

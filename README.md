@@ -1,20 +1,8 @@
 # Lazycat Emacs
 
-**What is lazycat emacs can do?**
+[AndyStewart](http://www.emacswiki.org/emacs/AndyStewart)'s Emacs, include [configs](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions) and [extensions](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions).
 
-This is video show: [Video](https://www.youtube.com/watch?v=ZA3uuflGtk8)
-
-**Description**:
-
-Emacs is hackable OS for top hackers, most of emacs extensions are written in elisp.
-
-My EmacsWiki hompage at [AndyStewart](http://www.emacswiki.org/emacs/AndyStewart),
-
-All my extensions under [extensions](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions).
-
-All my configuration files under [config](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions).
-
-## Download
+## Download Source Code
 1. Download lazycat-emacs source code:
 ```
 git clone https://github.com/manateelazycat/lazycat-emacs.git
@@ -29,7 +17,7 @@ git submodule foreach git reset --hard
 git submodule foreach git checkout master
 ```
 
-### Mac OS High Sierra
+## Install On Mac
 
 1. Download emacs git code
 ```
@@ -70,29 +58,33 @@ $ ./configure && make && make install
 (require 'init)
 ```
 
-### ArchLinux
+## Install On Arch Linux
 1. Install emacs git version:
 ```
 sudo pacman -S emacs-git
 ```
+2. Install Font:
 
-2. Install necessary dependency for plugins:
 ```
-sudo pacman -S python-xlib python-pyqt5 python-pip
-sudo pip install jedi epc pyflakes
+sudo pacman -S ttf-sarasa-gothic wqy-microhei
 ```
 
-3. Build my config symlink to emacs directory:
+3. Install dependency for [EAF](https://github.com/manateelazycat/emacs-application-framework):
+```
+sudo pacman -S python-pyqt5 python-pyqt5-sip python-pyqtwebengine python-xlib python-qrcode python-feedparser python-dbus python-pyinotify python-markdown
+yay -S python-pymupdf python-grip
+```
+4. Build my config symlink to emacs directory:
 ```
 sudo ln -s /home/username/lazycat-emacs/site-lisp /usr/share/emacs/lazycat
 ```
 
-4. Copy site-start.el in emacs directory to start my config:
+5. Copy site-start.el in emacs directory to start my config:
 ```
 sudo cp /home/username/lazycat-emacs/site-start.el /usr/share/emacs/site-lisp/
 ```
 
-5. Start emacs:
+6. Start emacs:
 ```
 emacs
 ```
