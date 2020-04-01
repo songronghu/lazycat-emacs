@@ -345,7 +345,7 @@
    "init-eaf")
   (lazy-load-local-keys
    '(
-     ("K" . eaf-open-this-from-dired)
+     ("H" . eaf-open-this-from-dired)
      )
    dired-mode-map
    "init-eaf"))
