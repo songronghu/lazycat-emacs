@@ -206,7 +206,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (dolist (hook (list
                'after-text-mode-hook
                'message-mode-hook
-               'org-mode-hook
                ))
   (add-hook hook '(lambda () (auto-fill-mode 1))))
 
