@@ -85,7 +85,6 @@
 ;;; Code:
 
 (dolist (hook (list
-               'js-mode-hook
                'rust-mode-hook
                'python-mode-hook
                'ruby-mode-hook
