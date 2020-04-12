@@ -209,16 +209,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                ))
   (add-hook hook '(lambda () (auto-fill-mode 1))))
 
-(dolist (hook (list
-               'org-mode-hook
-               ))
-  (add-hook hook
-            '(lambda ()
-              (require 'olivetti)
-              (olivetti-mode 1)
-              (olivetti-set-width 120)
-              )))
-
 (provide 'init-mode)
 
 ;;; init-mode.el ends here
