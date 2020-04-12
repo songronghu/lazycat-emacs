@@ -110,11 +110,6 @@
                     (org-table-auto-align-mode)
 
                     (setq truncate-lines nil) ;自动折行
-
-                    ;; 居中显示
-                    (require 'olivetti)
-                    (olivetti-mode 1)
-                    (olivetti-set-width 160)
                     )))
 
 (provide 'init-org)
