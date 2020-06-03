@@ -106,10 +106,8 @@
                'org-mode-hook
                ))
   (add-hook hook '(lambda ()
-                    (require 'org-table-auto-align)
-                    (org-table-auto-align-mode)
-
-                    (setq truncate-lines nil) ;自动折行
+                    (require 'valign)
+                    (valign-mode)
                     )))
 
 (provide 'init-org)
