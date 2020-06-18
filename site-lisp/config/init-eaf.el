@@ -92,6 +92,9 @@
 (setq eaf-proxy-host "127.0.0.1")
 (setq eaf-proxy-port "1080")
 
+;; Make `eaf-browser-restore-buffers' restore last close browser buffers.
+(setq eaf-browser-continue-where-left-off t)
+
 (eaf-bind-key undo_action "C-/" eaf-browser-keybinding)
 (eaf-bind-key redo_action "C-?" eaf-browser-keybinding)
 (eaf-bind-key scroll_up "M-j" eaf-browser-keybinding)
