@@ -114,6 +114,7 @@
 (eaf-setq eaf-browser-aria2-proxy-host "127.0.0.1")
 (eaf-setq eaf-browser-aria2-proxy-port "9888")
 (eaf-setq eaf-terminal-font-size "18")
+(eaf-setq eaf-browser-enable-adblocker "true")
 
 (eaf-setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 
