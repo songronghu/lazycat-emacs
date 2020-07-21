@@ -89,8 +89,6 @@
   (setq org-startup-folded nil)                 ;默认展开内容
   (setq org-startup-indented t)                 ;默认缩进内容
 
-  (toggle-truncate-lines -1)
-
   (defun org-export-docx ()
     (interactive)
     (let ((docx-file (concat (file-name-sans-extension (buffer-file-name)) ".docx"))
@@ -110,6 +108,8 @@
   (add-hook hook '(lambda ()
                     (require 'valign)
                     (valign-mode)
+
+                    (setq truncate-lines nil) ;默认换行
                     )))
 
 (provide 'init-org)
