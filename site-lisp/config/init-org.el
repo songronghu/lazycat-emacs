@@ -110,14 +110,14 @@
                     (valign-mode)
 
                     (setq truncate-lines nil) ;默认换行
-                    )))
 
-(lazy-load-set-keys
- '(
-   ("M-h" . set-mark-command)           ;选中激活
-   )
- org-mode-map
- )
+                    (lazy-load-set-keys
+                     '(
+                       ("M-h" . set-mark-command) ;选中激活
+                       )
+                     org-mode-map
+                     )
+                    )))
 
 (provide 'init-org)
 
