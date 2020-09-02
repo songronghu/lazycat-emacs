@@ -205,9 +205,6 @@
 [submodule "sly-el-indent"]
 	path = site-lisp/extensions/sly-el-indent
 	url = https://github.com/cireu/sly-el-indent.git
-[submodule "site-lisp/extensions/emacs-application-framework"]
-	path = site-lisp/extensions/emacs-application-framework
-	url = https://github.com/manateelazycat/emacs-application-framework.git
 [submodule "xr"]
 	path = site-lisp/extensions/xr
 	url = https://github.com/mattiase/xr.git
