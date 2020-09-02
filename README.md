@@ -66,14 +66,11 @@ sudo pacman -S emacs-git
 2. Install Font:
 
 ```
-sudo pacman -S ttf-sarasa-gothic wqy-microhei
+sudo pacman -S wqy-microhei
 ```
 
-3. Install dependency for [EAF](https://github.com/manateelazycat/emacs-application-framework):
-```
-sudo pacman -S python-pyqt5 python-pyqt5-sip python-pyqtwebengine python-xlib python-qrcode python-feedparser python-dbus python-pyinotify python-markdown
-yay -S python-pymupdf python-grip
-```
+3. Install dependency for from [EAF](https://github.com/manateelazycat/emacs-application-framework)
+
 4. Build my config symlink to emacs directory:
 ```
 sudo ln -s /home/username/lazycat-emacs/site-lisp /usr/share/emacs/lazycat
