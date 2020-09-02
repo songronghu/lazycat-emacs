@@ -110,7 +110,7 @@
 (eaf-bind-key emacs-session-save "<f5>" eaf-browser-keybinding)
 (eaf-bind-key refresh_page "M-r" eaf-browser-keybinding)
 
-(eaf-setq eaf-browser-default-zoom "1.25")
+(eaf-setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) "2.5" "1.25"))
 (eaf-setq eaf-browser-aria2-proxy-host "127.0.0.1")
 (eaf-setq eaf-browser-aria2-proxy-port "9888")
 (eaf-setq eaf-terminal-font-size "18")
