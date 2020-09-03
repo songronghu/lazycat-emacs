@@ -220,3 +220,6 @@
 [submodule "site-lisp/extensions/emacs-application-framework"]
 	path = site-lisp/extensions/emacs-application-framework
 	url = https://github.com/manateelazycat/emacs-application-framework.git
+[submodule "site-lisp/extensions/magit-popup"]
+	path = site-lisp/extensions/magit-popup
+	url = https://github.com/magit/magit-popup.git
