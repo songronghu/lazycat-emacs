@@ -62,6 +62,7 @@
          (require 'init-eldoc)
          (require 'init-yasnippet)
          (require 'init-company-mode)
+         (require 'init-company-tabnine)
          (require 'init-smooth-scrolling)
          (require 'init-cursor-chg)
          (require 'init-winpoint)
