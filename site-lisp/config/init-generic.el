@@ -105,6 +105,7 @@
 (setq inhibit-compacting-font-caches t) ;使用字体缓存，避免卡顿
 (setq confirm-kill-processes nil)       ;退出自动杀掉进程
 (setq async-bytecomp-allowed-packages nil) ;避免magit报错
+(setq word-wrap-by-category t)             ;按照中文折行
 (setq profiler-report-cpu-line-format ;让 profiler-report 第一列宽一点
       '((100 left)
         (24 right ((19 right)
