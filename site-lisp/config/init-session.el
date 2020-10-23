@@ -99,6 +99,8 @@
   "Restore emacs session."
   (interactive)
   (ignore-errors
+    ;; Kill other windows.
+    (delete-other-windows)
     ;; Kill unused buffers.
     (kill-unused-buffers)
     ;; Restore session.
