@@ -217,18 +217,6 @@
    ("C-;" . kill-this-buffer)            ;关闭当前buffer
    ("C-x ;" . delete-other-windows)      ;关闭其它窗口
    ))
-;;; ### Multi-Scratch
-(lazy-load-global-keys
- '(
-   ("s-Q" . multi-scratch-new)
-   ("C-S-s-q" . multi-scratch-new)
-   )
- "multi-scratch")
-(lazy-load-global-keys
- '(
-   ("s-;" . one-key-menu-window-navigation) ;快速窗口导航
-   )
- "init-window")
 (lazy-load-global-keys
  '(
    ("C-c V" . delete-other-windows-vertically+)   ;关闭上下的其他窗口
@@ -258,8 +246,8 @@
    ("M-s-7" . awesome-tab-select-beg-tab)
    ("M-s-8" . awesome-tab-select-end-tab)
    ("M-s-9" . awesome-tab-move-current-tab-to-beg)
-   ("s-a" . awesome-tab-kill-other-buffers-in-current-group)
-   ("s-A" . awesome-tab-kill-all-buffers-in-current-group)
+   ("s-q" . awesome-tab-kill-other-buffers-in-current-group)
+   ("s-Q" . awesome-tab-kill-all-buffers-in-current-group)
    ("s-w" . awesome-tab-keep-match-buffers-in-current-group)
    ("s-W" . awesome-tab-kill-match-buffers-in-current-group)
    )
