@@ -90,7 +90,7 @@
    ((featurep 'cocoa)
     (setq emacs-font-name "Monaco"))
    ((string-equal system-type "gnu/linux")
-    (setq emacs-font-name "WenQuanYi Micro Hei Mono")))
+    (setq emacs-font-name "JetBrains Mono")))
   (when (display-grayscale-p)
     (set-frame-font (format "%s-%s" (eval emacs-font-name) (eval emacs-font-size)))
     (set-fontset-font (frame-parameter nil 'font) 'unicode (eval emacs-font-name))
