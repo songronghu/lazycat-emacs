@@ -652,7 +652,7 @@
 ;; Elfeed.
 (lazy-load-global-keys
  '(
-   ("s-b" . elfeed)
+   ("s-b" . elfeed-search-show)
    )
  "init-elfeed")
 

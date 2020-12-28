@@ -85,13 +85,32 @@
 
 ;;; Code:
 (setq elfeed-feeds
-      '(("https://manateelazycat.github.io/feed.xml" ManateeLazyCat)))
+      '(("https://sachachua.com/blog/feed/" SachaChua)
+        ("http://www.solidot.org/index.rss" Solidot)
+        ))
+
+(defvar elfeed-search-window-configuration nil)
+
+(defun elfeed-search-show ()
+  (interactive)
+  (setq elfeed-search-window-configuration (current-window-configuration))
+  (elfeed))
+
+(defun elfeed-search-quit ()
+  (interactive)
+  (delete-other-windows)
+  (elfeed-search-quit-window)
+  (when elfeed-search-window-configuration
+    (set-window-configuration elfeed-search-window-configuration)))
 
 (lazy-load-local-keys
  '(
    ("RET" . eaf-elfeed-open-url)
    ("C-m" . eaf-elfeed-open-url)
    ("m" . eaf-elfeed-open-url)
+   ("q" . elfeed-search-quit)
+   ("j" . next-line)
+   ("k" . previous-line)
    )
  elfeed-search-mode-map
  "init-elfeed")
