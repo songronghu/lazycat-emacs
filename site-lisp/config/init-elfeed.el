@@ -91,6 +91,7 @@
  '(
    ("RET" . eaf-elfeed-open-url)
    ("C-m" . eaf-elfeed-open-url)
+   ("m" . eaf-elfeed-open-url)
    )
  elfeed-search-mode-map
  "init-elfeed")
