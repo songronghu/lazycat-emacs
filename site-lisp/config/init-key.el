@@ -647,6 +647,21 @@
    ("M-," . nox-rename)
    ("M-." . nox-show-doc)
    )
- "init-nox.el")
+ "init-nox")
+
+;; Elfeed.
+(lazy-load-global-keys
+ '(
+   ("s-b" . elfeed)
+   )
+ "init-elfeed")
+(eval-after-load 'elfeed-search-mode
+  (lazy-load-local-keys
+   '(
+     ("RET" . eaf-elfeed-open-url)
+     ("C-m" . eaf-elfeed-open-url)
+     )
+   elfeed-search-mode-map
+   "init-elfeed"))
 
 (provide 'init-key)
