@@ -84,6 +84,47 @@
 (require 'eaf)
 
 ;;; Code:
+
+;; Temp function before https://github.com/skeeto/elfeed/pull/404 patch apply.
+(defun elfeed-search-print-entry--default (entry)
+  "Print ENTRY to the buffer."
+  (let* ((date (elfeed-search-format-date (elfeed-entry-date entry)))
+         (title (or (elfeed-meta entry :title) (elfeed-entry-title entry) ""))
+         (title-faces (elfeed-search--faces (elfeed-entry-tags entry)))
+         (feed (elfeed-entry-feed entry))
+         (feed-title
+          (when feed
+            (or (elfeed-meta feed :title) (elfeed-feed-title feed))))
+         (tags (mapcar #'symbol-name (elfeed-entry-tags entry)))
+         (tags-str (mapconcat
+                    (lambda (s) (propertize s 'face 'elfeed-search-tag-face))
+                    tags ","))
+         (title-width (- (window-width) 10 elfeed-search-trailing-width))
+         (title-column (elfeed-format-column
+                        title (elfeed-clamp
+                               elfeed-search-title-min-width
+                               title-width
+                               elfeed-search-title-max-width)
+                        :left)))
+    (insert (propertize date 'face 'elfeed-search-date-face) " ")
+    (insert (propertize title-column 'face title-faces 'kbd-help title) " ")
+
+    ;; Use property `align-to' indent title pixel width, otherwise CJK title not alignment like expect.
+    (put-text-property
+     (point) (- (point) 1)
+     'display
+     (elfeed-indent-pixel (* title-width (window-font-width))))
+
+    (when feed-title
+      (insert (propertize feed-title 'face 'elfeed-search-feed-face) " "))
+    (when tags
+      (insert "(" tags-str ")"))
+    ))
+
+(defsubst elfeed-indent-pixel (xpos)
+  "Return a display property that aligns to XPOS."
+  `(space :align-to (,xpos)))
+
 (setq elfeed-feeds
       '(("https://sachachua.com/blog/feed/" SachaChua)
         ("http://www.solidot.org/index.rss" Solidot)
