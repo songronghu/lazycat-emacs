@@ -87,6 +87,14 @@
 (setq elfeed-feeds
       '(("https://manateelazycat.github.io/feed.xml" ManateeLazyCat)))
 
+(lazy-load-local-keys
+ '(
+   ("RET" . eaf-elfeed-open-url)
+   ("C-m" . eaf-elfeed-open-url)
+   )
+ elfeed-search-mode-map
+ "init-elfeed")
+
 (provide 'init-elfeed)
 
 ;;; init-elfeed.el ends here
