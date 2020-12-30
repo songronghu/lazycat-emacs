@@ -144,6 +144,32 @@
   (when elfeed-search-window-configuration
     (set-window-configuration elfeed-search-window-configuration)))
 
+(defvar elfeed-update-interval (* 15 60)
+  "Interval time between two updates.
+Default value is 15min.")
+
+(defvar elfeed-update-timer nil
+  "Timer defined by elfeed-update-background-start.")
+
+(defun elfeed-update-background-start ()
+  "Start an automatic update.
+elfeed-update-timer is defined in this function."
+  (interactive)
+  (if elfeed-update-timer
+      (warn "elfeed background update is already started")
+    (setq elfeed-update-timer (run-with-timer 0 elfeed-update-interval 'elfeed-update))))
+
+(defun elfeed-update-background-stop ()
+  "Stop the automatic update."
+  (interactive)
+  (if elfeed-update-timer
+      (progn
+        (cancel-timer elfeed-update-timer)
+        (setq elfeed-update-timer nil))
+    (warn "elfeed background update is alread stopped")))
+
+(elfeed-update-background-start)
+
 (lazy-load-local-keys
  '(
    ("RET" . eaf-elfeed-open-url)
