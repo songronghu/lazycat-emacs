@@ -158,6 +158,16 @@ elfeed-update-timer is defined in this function."
       (warn "elfeed background update is already started")
     (setq elfeed-update-timer (run-with-timer 0 elfeed-update-interval 'elfeed-update))))
 
+(defun elfeed-mark-all-items-as-read ()
+  (interactive)
+  (save-excursion
+    (beginning-of-buffer)
+    (while (not (equal (point) (point-max)))
+      (let ((entry (elfeed-search-selected :ignore-region)))
+        (elfeed-untag entry 'unread)
+        (elfeed-search-update-entry entry)
+        (forward-line)))))
+
 (defun elfeed-update-background-stop ()
   "Stop the automatic update."
   (interactive)
@@ -177,6 +187,7 @@ elfeed-update-timer is defined in this function."
    ("q" . elfeed-search-quit)
    ("j" . next-line)
    ("k" . previous-line)
+   ("U" . elfeed-mark-all-items-as-read)
    )
  elfeed-search-mode-map
  "init-elfeed")
