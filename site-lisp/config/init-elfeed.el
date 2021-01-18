@@ -106,7 +106,7 @@
                               elfeed-search-title-max-width))
          (title-column (elfeed-format-column title title-format-width :left))
          (align-width (if (> (window-width) (/ (* 2 (frame-width)) 3))
-                          (- (window-width) (string-width date) (string-width feed-title) (string-width tags-str))
+                          title-width
                         (+ (string-width date) 5 title-format-width)))
          )
     (insert (propertize date 'face 'elfeed-search-date-face) " ")
