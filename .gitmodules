@@ -226,3 +226,12 @@
 [submodule "site-lisp/extensions/elfeed"]
 	path = site-lisp/extensions/elfeed
 	url = https://github.com/skeeto/elfeed.git
+[submodule "site-lisp/extensions/emacs-ctable"]
+	path = site-lisp/extensions/emacs-ctable
+	url = https://github.com/kiwanami/emacs-ctable.git
+[submodule "site-lisp/extensions/emacs-deferred"]
+	path = site-lisp/extensions/emacs-deferred
+	url = https://github.com/kiwanami/emacs-deferred.git
+[submodule "site-lisp/extensions/emacs-epc"]
+	path = site-lisp/extensions/emacs-epc
+	url = https://github.com/kiwanami/emacs-epc.git
