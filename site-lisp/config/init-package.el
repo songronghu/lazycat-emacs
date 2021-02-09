@@ -86,7 +86,7 @@
 ;;; Code:
 
 (package-initialize)
-(add-to-list 'package-archives
+(add-to-list 'package-archives          
              '("melpa" . "http://melpa.milkbox.net/packages/")
              'APPEND)
 
