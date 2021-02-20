@@ -114,14 +114,21 @@
                'haskell-cabal-mode-hook
                'ruby-mode-hook
                'qml-mode-hook
-               'web-mode-hook
                'scss-mode-hook
                'coffee-mode-hook
-               'js-mode-hook
                ))
   (add-hook hook '(lambda ()
                     (setq indent-tabs-mode nil)
                     (adjust-languages-indent 4)
+                    )))
+
+(dolist (hook (list
+               'web-mode-hook
+               'js-mode-hook
+               ))
+  (add-hook hook '(lambda ()
+                    (setq indent-tabs-mode nil)
+                    (adjust-languages-indent 2)
                     )))
 
 (provide 'init-indent)
