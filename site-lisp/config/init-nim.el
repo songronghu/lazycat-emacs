@@ -81,6 +81,10 @@
 
 ;;; Require
 (require 'nim-mode)
+(require 'nim-compile)
+(require 'nim-suggest)
+(require 'nim-capf)
+(require 'nim-fill)
 
 ;;; Code:
 
