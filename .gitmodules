@@ -235,3 +235,9 @@
 [submodule "site-lisp/extensions/emacs-epc"]
 	path = site-lisp/extensions/emacs-epc
 	url = https://github.com/kiwanami/emacs-epc.git
+[submodule "site-lisp/extensions/nim-mode"]
+	path = site-lisp/extensions/nim-mode
+	url = https://github.com/nim-lang/nim-mode.git
+[submodule "site-lisp/extensions/commenter"]
+	path = site-lisp/extensions/commenter
+	url = https://github.com/yuutayamada/commenter.git

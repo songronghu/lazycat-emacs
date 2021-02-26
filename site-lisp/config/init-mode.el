@@ -168,6 +168,10 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.h$" . c++-mode)
                     ("\\.ll$" . llvm-mode)
                     ("\\.bc$" . hexl-mode)
+                    ("\\.nim$" . nim-mode)
+                    ("\\.nims$" . nim-mode)
+                    ("\\.nimble$" . nim-mode)
+                    ("\\.nim.cfg$" . nim-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -199,6 +203,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'bison-mode "bison")
 (autoload 'pdf-view-mode "init-pdf-tools")
 (autoload 'llvm-mode "llvm-mode")
+(autoload 'nim-mode "init-nim")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行
