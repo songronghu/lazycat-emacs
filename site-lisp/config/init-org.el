@@ -106,6 +106,8 @@
                'org-mode-hook
                ))
   (add-hook hook '(lambda ()
+                    (require 'eaf)
+                    
                     (require 'valign)
                     (valign-mode)
 
@@ -114,6 +116,7 @@
                     (lazy-load-set-keys
                      '(
                        ("M-h" . set-mark-command) ;选中激活
+                       ("C-c C-o" . eaf-open-url-at-point)
                        )
                      org-mode-map
                      )
