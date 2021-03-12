@@ -74,7 +74,6 @@
          (require 'init-idle)
 
          (require 'init-auto-sudoedit)
-         (require 'init-highlight-indent-guides)
          (require 'init-rime)
          (require 'init-eaf)
          (require 'init-nox)
