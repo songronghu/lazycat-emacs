@@ -117,19 +117,19 @@
                'scss-mode-hook
                'coffee-mode-hook
                ))
-  (add-hook hook '(lambda ()
-                    (setq indent-tabs-mode nil)
-                    (adjust-languages-indent 4)
-                    )))
+  (add-hook hook #'(lambda ()
+                     (setq indent-tabs-mode nil)
+                     (adjust-languages-indent 4)
+                     )))
 
 (dolist (hook (list
                'web-mode-hook
                'js-mode-hook
                ))
-  (add-hook hook '(lambda ()
-                    (setq indent-tabs-mode nil)
-                    (adjust-languages-indent 2)
-                    )))
+  (add-hook hook #'(lambda ()
+                     (setq indent-tabs-mode nil)
+                     (adjust-languages-indent 2)
+                     )))
 
 (provide 'init-indent)
 

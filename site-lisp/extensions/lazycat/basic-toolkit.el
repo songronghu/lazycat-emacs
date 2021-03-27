@@ -109,8 +109,8 @@
       (while (<= counter max)
         (insert (format "%0d " line))
         (beginning-of-line 2)
-        (incf line)
-        (incf counter)))))
+        (cl-incf line)
+        (cl-incf counter)))))
 
 (defun insert-line-number+ ()
   "Insert line number into buffer."

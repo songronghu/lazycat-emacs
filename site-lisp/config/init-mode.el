@@ -212,7 +212,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                'after-text-mode-hook
                'message-mode-hook
                ))
-  (add-hook hook '(lambda () (auto-fill-mode 1))))
+  (add-hook hook #'(lambda () (auto-fill-mode 1))))
 
 (provide 'init-mode)
 

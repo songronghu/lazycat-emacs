@@ -492,9 +492,9 @@
    ("C-x I" . ido-insert-file)          ;插入文件
    ))
 (add-hook 'ido-setup-hook
-          '(lambda ()
-             (interactive)
-             (ido-my-keys ido-completion-map)))
+          #'(lambda ()
+              (interactive)
+              (ido-my-keys ido-completion-map)))
 (defun ido-my-keys (keymap)
   "Add my keybindings for ido."
   (lazy-load-set-keys

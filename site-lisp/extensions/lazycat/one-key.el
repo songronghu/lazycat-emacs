@@ -493,20 +493,20 @@ last command when it miss match in key alist."
           (cond
            ;; Match user keystrokes.
            ((catch 'match
-              (loop for ((k . desc) . command) in info-alist do
-                    ;; Get match key.
-                    (setq match-key k)
-                    ;; Call function when match keystroke.
-                    (when (one-key-match-keystroke key match-key)
-                      ;; Close help window first.
-                      (one-key-help-window-close)
-                      ;; Set `one-key-menu-call-first-time' with "t" for recursion execute.
-                      (setq one-key-menu-call-first-time t)
-                      ;; Execute.
-                      (call-interactively command)
-                      ;; Set `one-key-menu-call-first-time' with "nil".
-                      (setq one-key-menu-call-first-time nil)
-                      (throw 'match t)))
+              (cl-loop for ((k . desc) . command) in info-alist do
+                       ;; Get match key.
+                       (setq match-key k)
+                       ;; Call function when match keystroke.
+                       (when (one-key-match-keystroke key match-key)
+                         ;; Close help window first.
+                         (one-key-help-window-close)
+                         ;; Set `one-key-menu-call-first-time' with "t" for recursion execute.
+                         (setq one-key-menu-call-first-time t)
+                         ;; Execute.
+                         (call-interactively command)
+                         ;; Set `one-key-menu-call-first-time' with "nil".
+                         (setq one-key-menu-call-first-time nil)
+                         (throw 'match t)))
               nil)
             ;; Handle last.
             (one-key-handle-last alternate-function self recursion-p))
@@ -567,7 +567,7 @@ last command when it miss match in key alist."
 
 (defun one-key-execute-binding-command (key)
   "Execute the command binding KEY."
-  (let ( ;; Try to get function corresponding `KEY'.
+  (let (;; Try to get function corresponding `KEY'.
         (function (key-binding key)))
     ;; Execute corresponding command, except `keyboard-quit'.
     (when (and (not (eq function 'keyboard-quit))
@@ -689,21 +689,21 @@ Argument INFO-ALIST is help information as format ((key . describe) . command)."
 (defun one-key-help-format (info-alist)
   "Format `one-key' help information.
 Argument INFO-ALIST is help information as format ((key . describe) . command)."
-  (let* ((max-length (loop for ((key . desc) . command) in info-alist
-                           maximize (+ (string-width key) (string-width desc))))
+  (let* ((max-length (cl-loop for ((key . desc) . command) in info-alist
+                              maximize (+ (string-width key) (string-width desc))))
          (current-length 0)
          (items-per-line (or one-key-items-per-line
                              (floor (/ (- (window-width) 3)
                                        (+ max-length 4)))))
          keystroke-msg)
-    (loop for ((key . desc) . command) in info-alist
-          for counter from 1  do
-          (push (format "[%s] %s " key desc) keystroke-msg)
-          (setq current-length (+ (string-width key) (string-width desc)))
-          (push (if (zerop (% counter items-per-line))
-                    "\n"
-                  (make-string (- max-length current-length) ? ))
-                keystroke-msg))
+    (cl-loop for ((key . desc) . command) in info-alist
+             for counter from 1  do
+             (push (format "[%s] %s " key desc) keystroke-msg)
+             (setq current-length (+ (string-width key) (string-width desc)))
+             (push (if (zerop (% counter items-per-line))
+                       "\n"
+                     (make-string (- max-length current-length) ? ))
+                   keystroke-msg))
     (mapconcat 'identity (nreverse keystroke-msg) "")))
 
 (defun one-key-make-template (keymap title)
@@ -729,7 +729,7 @@ TITLE is title name that any string you like."
       ;; Insert (("key" . "desc") . command).
       (while (not (eobp))
         (unless (eq (point-at-bol) (point-at-eol))
-          (destructuring-bind (key cmd)
+          (cl-destructuring-bind (key cmd)
               (split-string (buffer-substring (point-at-bol) (point-at-eol)) "\t+")
             (delete-region (point-at-bol) (point-at-eol))
             (insert (format "((\"%s\" . \"%s\") . %s)"

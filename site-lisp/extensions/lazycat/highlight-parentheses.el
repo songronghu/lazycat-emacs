@@ -94,10 +94,10 @@ This is used to prevent analyzing the same context over and over.")
                 (when (setq pos (cadr (syntax-ppss pos)))
                   (ignore-errors (scan-sexps pos 1))))
           (when match-pos
-            (hl-paren-put-overlay (incf level) pos 'hl-paren-face)
-            (hl-paren-put-overlay (incf level) (1- match-pos) 'hl-paren-face)))
+            (hl-paren-put-overlay (cl-incf level) pos 'hl-paren-face)
+            (hl-paren-put-overlay (cl-incf level) (1- match-pos) 'hl-paren-face)))
         (while (< level max)
-          (hl-paren-put-overlay (incf level) nil nil))))
+          (hl-paren-put-overlay (cl-incf level) nil nil))))
     (setq hl-paren-last-point (point))))
 
 (defun hl-paren-put-overlay (n pos face)
