@@ -108,7 +108,7 @@
                'conf-toml-mode-hook
                'nim-mode-hook
                ))
-  (add-hook hook '(lambda () (awesome-pair-mode 1))))
+  (add-hook hook #'(lambda () (awesome-pair-mode 1))))
 
 (provide 'init-awesome-pair)
 
