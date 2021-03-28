@@ -87,9 +87,9 @@
                'atomic-chrome-edit-mode-hook
                'markdown-mode-hook
                ))
-  (add-hook hook '(lambda ()
-                    (require 'insert-translated-name)
-                    (insert-translated-name-use-original-translation))))
+  (add-hook hook #'(lambda ()
+                     (require 'insert-translated-name)
+                     (insert-translated-name-use-original-translation))))
 
 (provide 'init-insert-translated-name)
 

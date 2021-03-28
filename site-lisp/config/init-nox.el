@@ -96,7 +96,7 @@
                'c++-mode-hook
                'haskell-mode-hook
                ))
-  (add-hook hook '(lambda ()
+  (add-hook hook #'(lambda ()
                     (require 'nox)
                     (nox-ensure))))
 

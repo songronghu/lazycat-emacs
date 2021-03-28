@@ -93,7 +93,7 @@
                'python-mode-hook
                'go-mode-hook
                ))
-  (add-hook hook '(lambda ()
+  (add-hook hook #'(lambda ()
                     (lsp)
                     )))
 

@@ -111,8 +111,8 @@
   (pdf-tools-install)
 
   ;; midnite mode hook
-  (add-hook 'pdf-view-mode-hook (lambda ()
-                                  (pdf-view-midnight-minor-mode))) ; automatically turns on midnight-mode for pdfs
+  (add-hook 'pdf-view-mode-hook #'(lambda ()
+                                    (pdf-view-midnight-minor-mode))) ; automatically turns on midnight-mode for pdfs
 
   (setq pdf-view-midnight-colors '("#00B800" . "#000000" )) ; set the green profile as default (see below)
 

@@ -83,7 +83,7 @@
 
 ;;; Code:
 (add-hook 'prog-mode-hook
-          '(lambda ()
+          #'(lambda ()
              (require 'highlight-indent-guides)
              (setq highlight-indent-guides-method 'character)
              (setq highlight-indent-guides-auto-enabled t)

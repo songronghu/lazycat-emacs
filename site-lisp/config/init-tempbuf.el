@@ -83,7 +83,7 @@
 
 ;;; Code:
 
-(setq tempbuf-kill-message nil)         ;不在Mode-line显示删除临时buffer提示消息
+(setq tempbuf-kill-message nil) ;不在Mode-line显示删除临时buffer提示消息
 (setq tempbuf-minimum-timeout 30)       ;删除 buffer 的最低期限
 (dolist (hook (list
                'compilation-mode-hook     ;编译模式
@@ -97,9 +97,9 @@
                ))
   (add-hook
    hook
-   '(lambda ()
-      (require 'tempbuf)
-      (turn-on-tempbuf-mode))))         ;加载自动清理临时buffer
+   #'(lambda ()
+       (require 'tempbuf)
+       (turn-on-tempbuf-mode))))        ;加载自动清理临时buffer
 
 
 (provide 'init-tempbuf)

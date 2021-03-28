@@ -79,20 +79,20 @@
 (setq rcirc-default-full-name (eval my-full-name)) ;设置全名
 (setq rcirc-default-nick (eval my-irc-nick))       ;设置昵称
 (setq rcirc-default-user-name (eval my-name))      ;名字
-(setq rcirc-server-alist                           ;rcirc服务器和加入频道
+(setq rcirc-server-alist                ;rcirc服务器和加入频道
       `(("irc.freenode.net" :channels ,my-irc-channel-list)))
 (setq rcirc-log-directory "~/.emacs.d/lazycat-emacs/Configure-File/Rcirc/logs") ;rcirc聊天记录
-(setq rcirc-notify-open t)                                       ;默认打开消息提醒模式
-(setq rcirc-notify-timeout 1)           ;同一个人发信息给我的延迟 (单位: 秒)
-(setq rcirc-authinfo                    ;rcirc用户名和密码
+(setq rcirc-notify-open t)        ;默认打开消息提醒模式
+(setq rcirc-notify-timeout 1)     ;同一个人发信息给我的延迟 (单位: 秒)
+(setq rcirc-authinfo              ;rcirc用户名和密码
       '(("freenode" nickserv (eval my-irc-nick) (eval my-irc-passwd))))
 (setq rcirc-omit-responses              ;设置忽略的响应类型
       (quote ("JOIN" "PART" "QUIT" "NICK" "AWAY" "MODE")))
-(setq rcirc-prompt "> ")                                   ;提示的符号
-(setq rcirc-time-format "[%H:%M] ")                        ;时间格式
-(setq rcirc-track-minor-mode nil)                          ;关闭mode-line提示
-(add-hook 'rcirc-mode-hook '(lambda () (rcirc-omit-mode))) ;默认打开忽略模式
-(add-hook 'rcirc-print-hooks 'rcirc-write-log)             ;写入日志
+(setq rcirc-prompt "> ")                ;提示的符号
+(setq rcirc-time-format "[%H:%M] ")     ;时间格式
+(setq rcirc-track-minor-mode nil)       ;关闭mode-line提示
+(add-hook 'rcirc-mode-hook #'(lambda () (rcirc-omit-mode))) ;默认打开忽略模式
+(add-hook 'rcirc-print-hooks 'rcirc-write-log)          ;写入日志
 
 (provide 'init-rcirc)
 

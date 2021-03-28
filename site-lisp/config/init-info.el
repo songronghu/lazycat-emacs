@@ -86,7 +86,7 @@
 ;;; ### Info ###
 ;;; --- Info 模式
 (add-hook 'Info-mode-hook
-          '(lambda ()
+          #'(lambda ()
              (lazy-load-set-keys
               '(
                 ("f" . Info-follow-nearest-node)    ;进入当前节点

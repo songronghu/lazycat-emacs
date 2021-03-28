@@ -99,39 +99,39 @@
                ))
   (add-hook
    hook
-   '(lambda ()
-      ;; OS Config
-      (when (featurep 'cocoa)
-        ;; Initialize environment from user's shell to make eshell know every PATH by other shell.
-        (require 'exec-path-from-shell)
-        (setq exec-path-from-shell-variables '("PATH" "MANPATH" "GEM_PATH"))
-        (exec-path-from-shell-initialize))
+   #'(lambda ()
+       ;; OS Config
+       (when (featurep 'cocoa)
+         ;; Initialize environment from user's shell to make eshell know every PATH by other shell.
+         (require 'exec-path-from-shell)
+         (setq exec-path-from-shell-variables '("PATH" "MANPATH" "GEM_PATH"))
+         (exec-path-from-shell-initialize))
 
-      (require 'flycheck)
+       (require 'flycheck)
 
-      (setq-default flycheck-disabled-checkers ;disable json-jsonlist checking for json files
-                    (append flycheck-disabled-checkers
-                            '(json-jsonlist)))
+       (setq-default flycheck-disabled-checkers ;disable json-jsonlist checking for json files
+                     (append flycheck-disabled-checkers
+                             '(json-jsonlist)))
 
-      (setq-default flycheck-disabled-checkers ;disable jshint since we prefer eslint checking
-                    (append flycheck-disabled-checkers
-                            '(javascript-jshint)))
+       (setq-default flycheck-disabled-checkers ;disable jshint since we prefer eslint checking
+                     (append flycheck-disabled-checkers
+                             '(javascript-jshint)))
 
-      (flycheck-add-mode 'javascript-eslint 'web-mode) ;use eslint with web-mode for jsx files
+       (flycheck-add-mode 'javascript-eslint 'web-mode) ;use eslint with web-mode for jsx files
 
-      (setq-default flycheck-temp-prefix ".flycheck")
+       (setq-default flycheck-temp-prefix ".flycheck")
 
-      (with-eval-after-load 'flycheck
-        (require 'flycheck-posframe)
-        (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode))
-      (flycheck-mode 1))))
+       (with-eval-after-load 'flycheck
+         (require 'flycheck-posframe)
+         (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode))
+       (flycheck-mode 1))))
 
 ;; Add flycheck for swift.
 (add-hook 'swift-mode-hook
-          (lambda ()
-            (require 'flycheck-swift)
-            (flycheck-swift-setup)
-            ))
+          #'(lambda ()
+              (require 'flycheck-swift)
+              (flycheck-swift-setup)
+              ))
 
 (provide 'init-flycheck)
 

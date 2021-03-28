@@ -125,11 +125,11 @@
                'css-mode-hook
                'web-mode-hook
                ))
-  (add-hook hook (lambda ()
-                   ;; Make `emmet-expand-yas' not conflict with yas/mode
-                   (setq emmet-preview-default nil)
-                   (emmet-mode)
-                   )))
+  (add-hook hook #'(lambda ()
+                     ;; Make `emmet-expand-yas' not conflict with yas/mode
+                     (setq emmet-preview-default nil)
+                     (emmet-mode)
+                     )))
 
 ;; Indium.
 (add-hook 'js-mode-hook #'indium-interaction-mode)
