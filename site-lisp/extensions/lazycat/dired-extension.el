@@ -208,13 +208,13 @@ In a repertory DIR with the name name + the start number start."
       (if (< start 10)
           (push (concat dir name (format "0%s" start) "." ext) new-ls-dir)
         (push (concat dir name (format "%s" start) "." ext) new-ls-dir))
-      (incf start)
-      (incf n))
+      (cl-incf start)
+      (cl-incf n))
     (setq ls-dir (reverse ls-dir))
     (setq c 0)
     (dolist (i ls-dir)
       (rename-file i (nth c new-ls-dir))
-      (incf c))))
+      (cl-incf c))))
 
 (defun dired-next-file-line ()
   "Move to the next dired line that have a file or directory name on it."
