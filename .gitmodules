@@ -241,3 +241,6 @@
 [submodule "site-lisp/extensions/commenter"]
 	path = site-lisp/extensions/commenter
 	url = https://github.com/yuutayamada/commenter.git
+[submodule "site-lisp/extensions/c-eldoc"]
+	path = site-lisp/extensions/c-eldoc
+	url = https://github.com/nflath/c-eldoc
