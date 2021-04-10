@@ -257,7 +257,7 @@ When QUIET is non-nil, don't show report message."
       (let ((remove-count 0))
         (goto-char (point-min))
         (while (re-search-forward "$" (point-max) t)
-          (incf remove-count)
+          (cl-incf remove-count)
           (replace-match "" nil nil))
         (or quiet (message (format "%d ^M removed from buffer." remove-count)))))))
 
@@ -473,8 +473,8 @@ To use this extension, you need install xtrlock in your system."
     ;; Lock screen.
     (set-process-sentinel
      (start-process "xtrlock" nil "xtrlock")
-     '(lambda (process event)
-        (zone-leave-me-alone)))
+     #'(lambda (process event)
+         (zone-leave-me-alone)))
     (zone)))
 
 (defun blank-line-p ()
