@@ -109,7 +109,6 @@
                'java-mode-hook
                'haskell-mode-hook
                'asm-mode-hook
-               'emms-tag-editor-mode-hook
                'sh-mode-hook
                'haskell-cabal-mode-hook
                'ruby-mode-hook

@@ -112,7 +112,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.l[hg]s\\'" . literate-haskell-mode)
                     ("\\.inc\\'" . asm-mode)
                     ("\\.max\\'" . maxima-mode)
-                    ("\\.lrc\\'" . emms-lyrics-mode)
                     ("\\.org\\'" . org-mode)
                     ("\\.cron\\(tab\\)?\\'" . crontab-mode)
                     ("cron\\(tab\\)?\\." . crontab-mode)

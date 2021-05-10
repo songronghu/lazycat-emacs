@@ -522,16 +522,6 @@
    )
  emacs-lisp-mode-map
  )
-;;; ### EMMS ###
-;;; --- Emacs 多媒体系统
-(lazy-load-global-keys
- '(
-   ("C-c p" . one-key-menu-emms)        ;播放器菜单
-   ("M-A" . emms-pause)                 ;暂停/播放
-   ("M-X" . emms-random)                ;随机播放
-   ("M-Z" . emms-stop)                  ;停止
-   )
- "init-emms")
 ;;; ### Org ###
 ;;; --- 笔记管理和组织
 (lazy-load-global-keys
