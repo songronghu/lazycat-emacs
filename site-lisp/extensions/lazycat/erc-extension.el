@@ -259,18 +259,6 @@ buffer."
                        (erc-default-target)
                        (erc-current-nick)) nil))
 
-(defun erc-cmd-EMMS (&rest ignore)
-  "Display the current EMMS track to the current ERC buffer."
-  (let ((music-string (if emms-player-playing-p
-                          (let ((track (emms-playlist-current-selected-track)))
-                            (format "%s <<%s>> -- %s"
-                                    (or (emms-track-get track 'info-artist) "")
-                                    (or (emms-track-get track 'info-album) "")
-                                    (or (emms-track-get track 'info-title) "")))
-                        "Nothing playing right now")))
-    (when music-string
-      (erc-send-action (erc-default-target) music-string))))
-
 (provide 'erc-extension)
 
 ;;; erc-extension.el ends here

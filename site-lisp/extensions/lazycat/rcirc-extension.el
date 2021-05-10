@@ -241,7 +241,6 @@ will be part of the list returned."
       (move-beginning-of-line 1)
       (kill-line))
     (when current-message
-      (emms-stop)
       (festival-say current-message))))
 
 (defun rcirc-cmd-talk-to (nick)
@@ -256,4 +255,4 @@ will be part of the list returned."
 ;;; rcirc-extension.el ends here
 
 ;;; LocalWords:  cmd zzzz buf login aad RPL NAMREPLY ENDOFNAMES opme args deop
-;;; LocalWords:  ChanServ de deopme mapatoms sym PRIVMSG emms
+;;; LocalWords:  ChanServ de deopme mapatoms sym PRIVMSG

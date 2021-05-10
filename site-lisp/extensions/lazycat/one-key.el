@@ -58,35 +58,6 @@
 ;;
 ;; * Quick use:
 ;;
-;; Setup below variable and function in your ~/.emacs
-;;
-;; (defvar one-key-menu-emms-alist nil
-;;   "`One-Key' menu list for EMMS.")
-;;
-;; (setq one-key-menu-emms-alist
-;;       '(
-;;         (("g" . "Playlist Go") . emms-playlist-mode-go)
-;;         (("d" . "Play Directory Tree") . emms-play-directory-tree)
-;;         (("f" . "Play File") . emms-play-file)
-;;         (("i" . "Play Playlist") . emms-play-playlist)
-;;         (("t" . "Add Directory Tree") . emms-add-directory-tree)
-;;         (("c" . "Toggle Repeat Track") . emms-toggle-repeat-track)
-;;         (("w" . "Toggle Repeat Playlist") . emms-toggle-repeat-playlist)
-;;         (("u" . "Play Now") . emms-play-now)
-;;         (("z" . "Show") . emms-show)
-;;         (("s" . "Emms Streams") . emms-streams)
-;;         (("b" . "Emms Browser") . emms-browser)))
-;;
-;; (defun one-key-menu-emms ()
-;;   "`One-Key' menu for EMMS."
-;;   (interactive)
-;;   (one-key-menu "EMMS" one-key-menu-emms-alist t))
-;;
-;; Bind any you like keystroke with function `one-key-menu-emms'.
-;; Like me,
-;;
-;;      (global-set-key (kbd "C-c p") 'one-key-menu-emms)
-;;
 ;; When type "C-c p" will popup window and list keystroke menu.
 ;; Then you just type special keystroke that list in menu,
 ;; you will execute corresponding command.
@@ -759,6 +730,6 @@ TITLE is title name that any string you like."
 
 ;;; one-key.el ends here
 
-;;; LocalWords:  emms specpdl minish DarkRed msg FUNCITN num str decf elt args
+;;; LocalWords:  specpdl minish DarkRed msg FUNCITN num str decf elt args
 ;;; LocalWords:  rubikitch's desc SPC bmenu sKeymap nsTitle fontify funcname
 ;;; LocalWords:  bol eol destructuring cmd PageUp PageDown

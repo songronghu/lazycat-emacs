@@ -15,7 +15,7 @@
 ;;
 ;; Features that might be required by this library:
 ;;
-;; `emms' `chm-view' `w3m' `doc-view'
+;; `chm-view' `w3m' `doc-view'
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -72,7 +72,6 @@
 ;;
 
 ;;; Require
-(require 'emms)
 (require 'chm-view)
 (require 'doc-view)
 
