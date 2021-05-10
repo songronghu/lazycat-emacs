@@ -48,7 +48,6 @@
    ("C-s-q" . quoted-insert)            ;读取系一个输入字符并插入
    ("M-h" . set-mark-command) ;Instead C-Space for Chinese input method
    ("M-H" . set-mark-command) ;Instead C-Space for Chinese input method
-   ("<f12>" . lazycat-theme-toggle)
    ))
 (lazy-load-global-keys
  '(
