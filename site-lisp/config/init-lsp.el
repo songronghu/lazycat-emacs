@@ -83,19 +83,100 @@
 ;;
 
 ;;; Require
-(require 'lsp-mode)
 
 ;;; Code:
+
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024))
+
+(with-eval-after-load 'lsp-mode
+  ;; enable log only for debug
+  (setq lsp-log-io nil)
+
+  ;; Disable folding.
+  (setq lsp-enable-folding nil)
+
+  ;; No real time syntax check
+  (setq lsp-diagnostic-package :none)
+
+  ;; handle yasnippet by myself
+  (setq lsp-enable-snippet nil)
+
+  ;; Disable completion at point.
+  (setq lsp-enable-completion-at-point nil)
+
+  ;; Turn off for better performance
+  (setq lsp-enable-symbol-highlighting nil)
+
+  ;; Turn off hover doc.
+  (setq lsp-ui-doc-enable nil)
+
+  ;; Turn off lens.
+  (setq lsp-lens-enable nil)
+
+  ;; Disable headerline.
+  (setq lsp-headerline-breadcrumb-enable nil)
+
+  ;; Disable sideline.
+  (setq lsp-ui-sideline-enable nil)
+
+  ;; Disable modeline.
+  (setq lsp-modeline-code-actions-enable nil)
+  (setq lsp-modeline-diagnostics-enable nil)
+
+  ;; Disable help.
+  (setq lsp-signature-auto-activate nil)
+  (setq lsp-signature-render-documentation nil)
+
+  ;; Disable flycheck.
+  (setq lsp-diagnostics-provider :none)
+
+  ;; Disable eldoc.
+  (setq lsp-eldoc-enable-hover nil)
+
+  ;; Disable link.
+  (setq lsp-enable-links nil)
+
+  ;; Auto restart LSP.
+  (setq lsp-restart 'auto-restart)
+
+  ;; Don't scan 3rd party javascript libraries.
+  (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\)$" lsp-file-watch-ignored)
+
+  ;; Don't ping LSP lanaguage server too frequently.
+  (defvar lsp-on-touch-time 0)
+  (defadvice lsp-on-change (around lsp-on-change-hack activate)
+    ;; don't run `lsp-on-change' too frequently
+    (when (> (- (float-time (current-time))
+                lsp-on-touch-time) 30) ;; 30 seconds
+      (setq lsp-on-touch-time (float-time (current-time)))
+      ad-do-it)))
 
 (dolist (hook (list
                'js-mode-hook
                'ruby-mode-hook
-               'python-mode-hook
                'go-mode-hook
                ))
   (add-hook hook #'(lambda ()
-                    (lsp)
-                    )))
+                     (require 'lsp-mode)
+                     (require 'lsp-modeline)
+                     (require 'lsp-headerline)
+                     (lsp)
+                     )))
+
+(dolist (hook (list
+               'python-mode-hook
+               ))
+  (add-hook hook #'(lambda ()
+                     (require 'lsp-mode)
+                     (require 'lsp-modeline)
+                     (require 'lsp-headerline)
+
+                     (require 'lsp-python-ms)
+                     (setq lsp-python-ms-executable "~/mspyls/Microsoft.Python.LanguageServer")
+
+                     (lsp)
+                     )))
 
 (provide 'init-lsp)
 

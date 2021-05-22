@@ -244,3 +244,12 @@
 [submodule "site-lisp/extensions/c-eldoc"]
 	path = site-lisp/extensions/c-eldoc
 	url = https://github.com/nflath/c-eldoc
+[submodule "site-lisp/extensions/dash"]
+	path = site-lisp/extensions/dash
+	url = https://github.com/magnars/dash.el.git
+[submodule "site-lisp/extensions/lsp-pyright"]
+	path = site-lisp/extensions/lsp-pyright
+	url = https://github.com/emacs-lsp/lsp-pyright.git
+[submodule "site-lisp/extensions/lsp-python-ms"]
+	path = site-lisp/extensions/lsp-python-ms
+	url = https://github.com/emacs-lsp/lsp-python-ms.git
