@@ -268,3 +268,6 @@
 [submodule "site-lisp/extensions/treepy"]
 	path = site-lisp/extensions/treepy
 	url = https://github.com/volrath/treepy.el.git
+[submodule "site-lisp/extensions/one-key"]
+	path = site-lisp/extensions/one-key
+	url = https://github.com/manateelazycat/one-key
