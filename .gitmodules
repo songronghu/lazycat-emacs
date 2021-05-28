@@ -271,3 +271,9 @@
 [submodule "site-lisp/extensions/one-key"]
 	path = site-lisp/extensions/one-key
 	url = https://github.com/manateelazycat/one-key
+[submodule "site-lisp/extensions/tree-sitter"]
+	path = site-lisp/extensions/tree-sitter
+	url = https://github.com/ubolonton/emacs-tree-sitter
+[submodule "site-lisp/extensions/tree-sitter-langs"]
+	path = site-lisp/extensions/tree-sitter-langs
+	url = https://github.com/ubolonton/tree-sitter-langs.git
