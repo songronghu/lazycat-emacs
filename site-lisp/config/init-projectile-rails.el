@@ -94,34 +94,28 @@
 
 ;;; Code:
 
-(defvar one-key-projectile-rails-alist nil
-  "The `one-key' menu alist for DIRECTORY.")
-
-(setq one-key-projectile-rails-alist
-      '(
-        (("f" . "Ruby File") . (lambda () (interactive) (projectile-rails-ruby-goto-file-at-point)))
-        (("d" . "File DWIM") . (lambda () (interactive) (projectile-find-file-dwim)))
-        (("r" . "Routes") . (lambda () (interactive) (projectile-rails-goto-routes)))
-        (("g" . "Gemfile") . (lambda () (interactive) (projectile-rails-goto-gemfile)))
-        (("t" . "Template") . (lambda () (interactive) (projectile-rails-goto-template-at-point)))
-        (("j" . "Visit Javascript") . (lambda () (interactive) (projectile-rails-goto-app-javascript-dir)))
-        (("s" . "Seeds") . (lambda () (interactive) (projectile-rails-goto-seeds)))
-        (("h" . "Helper") . (lambda () (interactive) (projectile-rails-find-current-helper)))
-        (("v" . "Current View") . (lambda () (interactive) (projectile-rails-find-current-view)))
-        (("c" . "Current Controller") . (lambda () (interactive) (projectile-rails-find-current-controller)))
-        (("m" . "Current Model") . (lambda () (interactive) (projectile-rails-find-current-model)))
-        (("V" . "View") . (lambda () (interactive) (projectile-rails-find-view)))
-        (("C" . "Controller") . (lambda () (interactive) (projectile-rails-find-controller)))
-        (("M" . "Model") . (lambda () (interactive) (projectile-rails-find-model)))
-        (("k" . "Kill Buffers") . (lambda () (interactive) (projectile-kill-buffers)))
-        (("p" . "Grep Project") . (lambda () (interactive) (color-rg-search-project-rails)))
-        (("P" . "Visit Project") . (lambda () (interactive) (projectile-dired)))
-        ))
-
-(defun one-key-projectile-rails ()
-  "The `one-key' menu for DIRECTORY."
-  (interactive)
-  (one-key-menu "PROJECTILE RAILS" one-key-projectile-rails-alist t))
+(one-key-create-menu
+ "PROJECTILE-RAILS"
+ '(
+   (("f" . "Ruby File") . (lambda () (interactive) (projectile-rails-ruby-goto-file-at-point)))
+   (("d" . "File DWIM") . (lambda () (interactive) (projectile-find-file-dwim)))
+   (("r" . "Routes") . (lambda () (interactive) (projectile-rails-goto-routes)))
+   (("g" . "Gemfile") . (lambda () (interactive) (projectile-rails-goto-gemfile)))
+   (("t" . "Template") . (lambda () (interactive) (projectile-rails-goto-template-at-point)))
+   (("j" . "Visit Javascript") . (lambda () (interactive) (projectile-rails-goto-app-javascript-dir)))
+   (("s" . "Seeds") . (lambda () (interactive) (projectile-rails-goto-seeds)))
+   (("h" . "Helper") . (lambda () (interactive) (projectile-rails-find-current-helper)))
+   (("v" . "Current View") . (lambda () (interactive) (projectile-rails-find-current-view)))
+   (("c" . "Current Controller") . (lambda () (interactive) (projectile-rails-find-current-controller)))
+   (("m" . "Current Model") . (lambda () (interactive) (projectile-rails-find-current-model)))
+   (("V" . "View") . (lambda () (interactive) (projectile-rails-find-view)))
+   (("C" . "Controller") . (lambda () (interactive) (projectile-rails-find-controller)))
+   (("M" . "Model") . (lambda () (interactive) (projectile-rails-find-model)))
+   (("k" . "Kill Buffers") . (lambda () (interactive) (projectile-kill-buffers)))
+   (("p" . "Grep Project") . (lambda () (interactive) (color-rg-search-project-rails)))
+   (("P" . "Visit Project") . (lambda () (interactive) (projectile-dired)))
+   )
+ t)
 
 (defun projectile-rails-goto-app-javascript-dir ()
   "Visit Javascript directory."

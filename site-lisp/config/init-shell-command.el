@@ -10,12 +10,12 @@
 ;; Last-Updated: 2013-12-30 14:56:08
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-shell-command.el
-;; Keywords: 
+;; Keywords:
 ;; Compatibility: GNU Emacs 24.3.50.1
 ;;
 ;; Features that might be required by this library:
 ;;
-;; 
+;;
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
 ;; Floor, Boston, MA 02110-1301, USA.
 
-;;; Commentary: 
-;; 
+;;; Commentary:
+;;
 ;; Init shell command
-;; 
+;;
 
 ;;; Installation:
 ;;
@@ -57,26 +57,26 @@
 
 ;;; Customize:
 ;;
-;; 
+;;
 ;;
 ;; All of the above can customize by:
 ;;      M-x customize-group RET init-shell-command RET
 ;;
 
 ;;; Change log:
-;;	
+;;
 ;; 2013/12/30
 ;;      * First released.
-;; 
+;;
 
 ;;; Acknowledgements:
 ;;
-;; 
+;;
 ;;
 
 ;;; TODO
 ;;
-;; 
+;;
 ;;
 
 ;;; Require
@@ -85,28 +85,22 @@
 
 ;;; Code:
 
-(defvar one-key-menu-backup-file-alist nil
-  "The `one-key' menu alist for BACKUP-FILE.")
-
-(setq one-key-menu-backup-file-alist
-      '(
-        (("e" . "Emacs") . (lambda () (interactive) (shell-aliase "bake")))
-        (("x" . "XMonad") . (lambda () (interactive) (shell-aliase "bakx")))
-        (("q" . "Qemu") . (lambda () (interactive) (shell-aliase "bakq")))
-        (("v" . "VirtualBox") . (lambda () (interactive) (shell-aliase "bakv")))
-        (("s" . "Stardict") . (lambda () (interactive) (shell-aliase "baks")))
-        (("c" . "Configure File") . (lambda () (interactive) (shell-aliase "bakc")))
-        (("p" . "Projects") . (lambda () (interactive) (shell-aliase "bakp")))
-        (("l" . "Package List") . (lambda () (interactive) (shell-aliase "bakl")))
-        (("h" . "Hanatee") . (lambda () (interactive) (shell-aliase "bakh")))
-        (("d" . "Deepin Emacs") . (lambda () (interactive) (shell-aliase "bakd")))
-        (("a" . "All") . (lambda () (interactive) (shell-aliase "bak")))
-        ))
-
-(defun one-key-menu-backup-file ()
-  "The `one-key' menu for BACKUP-FILE."
-  (interactive)
-  (one-key-menu "BACKUP-FILE" one-key-menu-backup-file-alist t))
+(one-key-create-menu
+ "BACKUP-FILE"
+ '(
+   (("e" . "Emacs") . (lambda () (interactive) (shell-aliase "bake")))
+   (("x" . "XMonad") . (lambda () (interactive) (shell-aliase "bakx")))
+   (("q" . "Qemu") . (lambda () (interactive) (shell-aliase "bakq")))
+   (("v" . "VirtualBox") . (lambda () (interactive) (shell-aliase "bakv")))
+   (("s" . "Stardict") . (lambda () (interactive) (shell-aliase "baks")))
+   (("c" . "Configure File") . (lambda () (interactive) (shell-aliase "bakc")))
+   (("p" . "Projects") . (lambda () (interactive) (shell-aliase "bakp")))
+   (("l" . "Package List") . (lambda () (interactive) (shell-aliase "bakl")))
+   (("h" . "Hanatee") . (lambda () (interactive) (shell-aliase "bakh")))
+   (("d" . "Deepin Emacs") . (lambda () (interactive) (shell-aliase "bakd")))
+   (("a" . "All") . (lambda () (interactive) (shell-aliase "bak")))
+   )
+ t)
 
 (provide 'init-shell-command)
 

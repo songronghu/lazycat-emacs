@@ -10,12 +10,12 @@
 ;; Last-Updated: 2013-12-30 14:57:59
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-festival.el
-;; Keywords: 
+;; Keywords:
 ;; Compatibility: GNU Emacs 24.3.50.1
 ;;
 ;; Features that might be required by this library:
 ;;
-;; 
+;;
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
 ;; Floor, Boston, MA 02110-1301, USA.
 
-;;; Commentary: 
-;; 
+;;; Commentary:
+;;
 ;; Init festival
-;; 
+;;
 
 ;;; Installation:
 ;;
@@ -57,26 +57,26 @@
 
 ;;; Customize:
 ;;
-;; 
+;;
 ;;
 ;; All of the above can customize by:
 ;;      M-x customize-group RET init-festival RET
 ;;
 
 ;;; Change log:
-;;	
+;;
 ;; 2013/12/30
 ;;      * First released.
-;; 
+;;
 
 ;;; Acknowledgements:
 ;;
-;; 
+;;
 ;;
 
 ;;; TODO
 ;;
-;; 
+;;
 ;;
 
 ;;; Require
@@ -86,22 +86,16 @@
 
 ;;; Code:
 
-(defvar one-key-menu-festival-alist nil
-  "The `one-key' menu alist for FESTIVAL.")
-
-(setq one-key-menu-festival-alist
-      '(
-        (("s" . "Stop") . festival-stop)
-        (("a" . "Say") . festival-say)
-        (("f" . "Read File") . festival-read-file)
-        (("b" . "Read Buffer") . festival-read-buffer)
-        (("r" . "Read Region") . festival-read-region)
-        (("w" . "Read Word") . festival-read-word)))
-
-(defun one-key-menu-festival ()
-  "The `one-key' menu for FESTIVAL."
-  (interactive)
-  (one-key-menu "FESTIVAL" one-key-menu-festival-alist t))
+(one-key-create-menu
+ "FESTIVAL."
+ '(
+   (("s" . "Stop") . festival-stop)
+   (("a" . "Say") . festival-say)
+   (("f" . "Read File") . festival-read-file)
+   (("b" . "Read Buffer") . festival-read-buffer)
+   (("r" . "Read Region") . festival-read-region)
+   (("w" . "Read Word") . festival-read-word))
+ t)
 
 (provide 'init-festival)
 

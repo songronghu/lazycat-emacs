@@ -90,41 +90,35 @@
 (setq yaoddmuse-wikis                   ;只更新 EmacsWiki
       '(("EmacsWiki" "http://www.emacswiki.org/cgi-bin/emacs" utf-8 "uihnscuskc=1;")))
 
-(defvar one-key-menu-yaoddmuse-alist nil
-  "The `one-key' menu alist for YAODDMUSE.")
-
-(setq one-key-menu-yaoddmuse-alist
-      '(
-        ;; Edit.
-        (("e" . "Edit Default") . yaoddmuse-edit-default)
-        (("E" . "Edit") . yaoddmuse-edit)
-        (("o" . "Follow") . yaoddmuse-follow)
-        ;; Post
-        (("b" . "Post Current Buffer") . yaoddmuse-post-current-buffer)
-        (("B" . "Post Buffer") . yaoddmuse-post-buffer)
-        (("l" . "Post Library Default") . yaoddmuse-post-library-default)
-        (("L" . "Post Library") . yaoddmuse-post-library)
-        (("f" . "post File Default") . yaoddmuse-post-file-default)
-        (("F" . "Post File") . yaoddmuse-post-file)
-        (("y" . "Post Screenshot Default") . yaoddmuse-post-screenshot-default)
-        (("Y" . "Post Screenshot") . yaoddmuse-post-screenshot)
-        ;; View.
-        (("v" . "Browse Page Default") . yaoddmuse-browse-page-default)
-        (("V" . "Browse Page") . yaoddmuse-browse-page)
-        (("s" . "Brose This Page") . yaoddmuse-browse-current-page)
-        ;; Misc
-        (("d" . "Delete Page") . yaoddmuse-delete)
-        (("D" . "Redirect Page") . yaoddmuse-redirect)
-        (("r" . "Revert") . yaoddmuse-revert)
-        (("i" . "Insert Pagename") . yaoddmuse-insert-pagename)
-        (("x" . "Insert File Content") . yaoddmuse-insert-file-content)
-        (("K" . "Kill Url") . yaoddmuse-kill-url)
-        ))
-
-(defun one-key-menu-yaoddmuse ()
-  "The `one-key' menu for YAODDMUSE."
-  (interactive)
-  (one-key-menu "YAODDMUSE" one-key-menu-yaoddmuse-alist t))
+(one-key-create-menu
+ "YAODDMUSE"
+ '(
+   ;; Edit.
+   (("e" . "Edit Default") . yaoddmuse-edit-default)
+   (("E" . "Edit") . yaoddmuse-edit)
+   (("o" . "Follow") . yaoddmuse-follow)
+   ;; Post
+   (("b" . "Post Current Buffer") . yaoddmuse-post-current-buffer)
+   (("B" . "Post Buffer") . yaoddmuse-post-buffer)
+   (("l" . "Post Library Default") . yaoddmuse-post-library-default)
+   (("L" . "Post Library") . yaoddmuse-post-library)
+   (("f" . "post File Default") . yaoddmuse-post-file-default)
+   (("F" . "Post File") . yaoddmuse-post-file)
+   (("y" . "Post Screenshot Default") . yaoddmuse-post-screenshot-default)
+   (("Y" . "Post Screenshot") . yaoddmuse-post-screenshot)
+   ;; View.
+   (("v" . "Browse Page Default") . yaoddmuse-browse-page-default)
+   (("V" . "Browse Page") . yaoddmuse-browse-page)
+   (("s" . "Brose This Page") . yaoddmuse-browse-current-page)
+   ;; Misc
+   (("d" . "Delete Page") . yaoddmuse-delete)
+   (("D" . "Redirect Page") . yaoddmuse-redirect)
+   (("r" . "Revert") . yaoddmuse-revert)
+   (("i" . "Insert Pagename") . yaoddmuse-insert-pagename)
+   (("x" . "Insert File Content") . yaoddmuse-insert-file-content)
+   (("K" . "Kill Url") . yaoddmuse-kill-url)
+   )
+ t)
 
 (provide 'init-yaoddmuse)
 

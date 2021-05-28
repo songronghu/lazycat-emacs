@@ -10,12 +10,12 @@
 ;; Last-Updated: 2013-12-30 15:00:16
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-ecb.el
-;; Keywords: 
+;; Keywords:
 ;; Compatibility: GNU Emacs 24.3.50.1
 ;;
 ;; Features that might be required by this library:
 ;;
-;; 
+;;
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
 ;; Floor, Boston, MA 02110-1301, USA.
 
-;;; Commentary: 
-;; 
+;;; Commentary:
+;;
 ;; Init ecb
-;; 
+;;
 
 ;;; Installation:
 ;;
@@ -57,26 +57,26 @@
 
 ;;; Customize:
 ;;
-;; 
+;;
 ;;
 ;; All of the above can customize by:
 ;;      M-x customize-group RET init-ecb RET
 ;;
 
 ;;; Change log:
-;;	
+;;
 ;; 2013/12/30
 ;;      * First released.
-;; 
+;;
 
 ;;; Acknowledgements:
 ;;
-;; 
+;;
 ;;
 
 ;;; TODO
 ;;
-;; 
+;;
 ;;
 
 ;;; Require
@@ -85,21 +85,15 @@
 ;;; Code:
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ECB ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defvar one-key-menu-ecb-alist nil
-  "The `one-key' menu alist for ECB.")
-
-(setq one-key-menu-ecb-alist
+(one-key-create-menu
+ "ECB"
       '(
         (("s" . "Sources") . ecb-goto-window-sources)
         (("h" . "History") . ecb-goto-window-history)
         (("d" . "Directory") . ecb-goto-window-directories)
         (("m" . "Methods") . ecb-goto-window-methods)
-        (("e" . "Edit") . ecb-goto-window-edit1)))
-
-(defun one-key-menu-ecb ()
-  "The `one-key' menu for ECB."
-  (interactive)
-  (one-key-menu "ECB" one-key-menu-ecb-alist t))
+        (("e" . "Edit") . ecb-goto-window-edit1))
+      t)
 
 (provide 'init-ecb)
 

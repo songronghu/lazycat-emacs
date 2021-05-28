@@ -211,45 +211,34 @@
         wdired-mode-map
         ))))
 
-(defvar one-key-menu-dired-sort-alist nil
-  "The `one-key' menu alist for DIRED-SORT.")
+(require 'one-key)
+(require 'dired-sort)                 ;排序 dired 文件
+(require 'dired-filter)
 
-(setq one-key-menu-dired-sort-alist
+(one-key-create-menu
+ "DIRED-SORT"
       '(
         (("s" . "Size") . dired-sort-size)
         (("x" . "Extension") . dired-sort-extension)
         (("n" . "Name") . dired-sort-name)
         (("t" . "Modified Time") . dired-sort-time)
         (("u" . "Access Time") . dired-sort-utime)
-        (("c" . "Create Time") . dired-sort-ctime)))
+        (("c" . "Create Time") . dired-sort-ctime))
+      t)
 
-(defun one-key-menu-dired-sort ()
-  "The `one-key' menu for DIRED-SORT."
-  (interactive)
-  (require 'one-key)
-  (require 'dired-sort)                 ;排序 dired 文件
-  (one-key-menu "DIRED-SORT" one-key-menu-dired-sort-alist t))
-
-(defvar one-key-menu-dired-filter-alist nil
-  "The `one-key' menu alist for DIRED-FILTER.")
-
-(setq one-key-menu-dired-filter-alist
-      '(
-        (("x" . "Extension") . dired-filter-by-extension)
-        (("f" . "File") . dired-filter-by-file)
-        (("d" . "Directory") . dired-filter-by-directory)
-        (("e" . "Execute") . dired-filter-by-executable)
-        (("." . "Dot files") . dired-filter-by-dot-files)
-        (("r" . "Regex") . dired-filter-by-regexp)
-        (("s" . "Symlink") . dired-filter-by-symlink)
-        (("n" . "Name") . dired-filter-by-name)
-        ))
-
-(defun one-key-menu-dired-filter ()
-  "The `one-key' menu for DIRED-FILTER."
-  (interactive)
-  (require 'dired-filter)
-  (one-key-menu "DIRED-FILTER" one-key-menu-dired-filter-alist t))
+(one-key-create-menu
+ "DIRED-FILTER"
+ '(
+   (("x" . "Extension") . dired-filter-by-extension)
+   (("f" . "File") . dired-filter-by-file)
+   (("d" . "Directory") . dired-filter-by-directory)
+   (("e" . "Execute") . dired-filter-by-executable)
+   (("." . "Dot files") . dired-filter-by-dot-files)
+   (("r" . "Regex") . dired-filter-by-regexp)
+   (("s" . "Symlink") . dired-filter-by-symlink)
+   (("n" . "Name") . dired-filter-by-name)
+   )
+ t)
 
 (provide 'init-dired)
 

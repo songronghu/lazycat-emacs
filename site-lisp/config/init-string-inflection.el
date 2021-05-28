@@ -84,23 +84,17 @@
 
 ;;; Code:
 
-(defvar one-key-string-inflection-alist nil
-  "The `one-key' menu alist for DIRECTORY.")
-
-(setq one-key-string-inflection-alist
-      '(
-        (("c" . "FooBar") . (lambda () (interactive) (string-inflection-camelcase)))
-        (("l" . "fooBar") . (lambda () (interactive) (string-inflection-lower-camelcase)))
-        (("_" . "foo_bar") . (lambda () (interactive) (string-inflection-underscore)))
-        (("u" . "FOO_BAR") . (lambda () (interactive) (string-inflection-upcase)))
-        (("k" . "foo-bar") . (lambda () (interactive) (string-inflection-kebab-case)))
-        (("t" . "foo_bar <=> FooBar") . (lambda () (interactive) (string-inflection-toggle)))
-        ))
-
-(defun one-key-string-inflection ()
-  "The `one-key' menu for DIRECTORY."
-  (interactive)
-  (one-key-menu "STRING INFLECTION" one-key-string-inflection-alist t))
+(one-key-create-menu
+ "STRING-INFLECTION"
+ '(
+   (("c" . "FooBar") . (lambda () (interactive) (string-inflection-camelcase)))
+   (("l" . "fooBar") . (lambda () (interactive) (string-inflection-lower-camelcase)))
+   (("_" . "foo_bar") . (lambda () (interactive) (string-inflection-underscore)))
+   (("u" . "FOO_BAR") . (lambda () (interactive) (string-inflection-upcase)))
+   (("k" . "foo-bar") . (lambda () (interactive) (string-inflection-kebab-case)))
+   (("t" . "foo_bar <=> FooBar") . (lambda () (interactive) (string-inflection-toggle)))
+   )
+ t)
 
 (provide 'init-string-inflection)
 

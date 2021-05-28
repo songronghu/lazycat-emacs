@@ -87,39 +87,33 @@
 ;;; Code:
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Cycle Buffer ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defvar one-key-menu-cycle-buffer-alist nil
-  "The `one-key' menu alist for CYCLE-BUFFER.")
-
-(setq one-key-menu-cycle-buffer-alist
-      '(
-        (("l" . "Elisp") . (lambda () (interactive) (cycle-buffer-in-special-mode 'emacs-lisp-mode)))
-        (("e" . "Jade") . (lambda () (interactive) (cycle-buffer-in-special-mode 'jade-mode)))
-        (("'" . "EAF") . (lambda () (interactive) (cycle-buffer-in-special-mode 'eaf-mode)))
-        (("i" . "IRC") . (lambda () (interactive) (cycle-buffer-in-special-mode 'erc-mode)))
-        (("d" . "Dired") . (lambda () (interactive) (cycle-buffer-in-special-mode 'dired-mode)))
-        (("o" . "Org") . (lambda () (interactive) (cycle-buffer-in-special-mode 'org-mode)))
-        (("H" . "Haskell") . (lambda () (interactive) (cycle-buffer-in-special-mode 'haskell-mode)))
-        (("t" . "Term") . (lambda () (interactive) (cycle-buffer-in-special-mode 'term-mode)))
-        (("y" . "Yaoddmuse") . (lambda () (interactive) (cycle-buffer-in-special-mode 'yaoddmuse-mode)))
-        (("r" . "Ruby") . (lambda () (interactive) (cycle-buffer-in-special-mode 'ruby-mode)))
-        (("V" . "PDF View") . (lambda () (interactive) (cycle-buffer-in-special-mode 'pdf-view-mode)))
-        (("C" . "C-Mode") . (lambda () (interactive) (cycle-buffer-in-special-mode 'c-mode)))
-        (("c" . "C++-Mode") . (lambda () (interactive) (cycle-buffer-in-special-mode 'c++-mode)))
-        (("j" . "JS") . (lambda () (interactive) (cycle-buffer-in-special-mode 'js-mode)))
-        (("x" . "XML") . (lambda () (interactive) (cycle-buffer-in-special-mode 'nxml-mode)))
-        (("p" . "Python") . (lambda () (interactive) (cycle-buffer-in-special-mode 'python-mode)))
-        (("s" . "CSS") . (lambda () (interactive) (cycle-buffer-in-special-mode 'css-mode)))
-        (("h" . "html") . (lambda () (interactive) (cycle-buffer-in-special-mode 'web-mode)))
-        (("m" . "OCaml") . (lambda () (interactive) (cycle-buffer-in-special-mode 'tuareg-mode)))
-        (("g" . "Golang") . (lambda () (interactive) (cycle-buffer-in-special-mode 'go-mode)))
-        (("q" . "QML") . (lambda () (interactive) (cycle-buffer-in-special-mode 'qml-mode)))
-        (("v" . "Vala") . (lambda () (interactive) (cycle-buffer-in-special-mode 'vala-mode)))
-        ))
-
-(defun one-key-menu-cycle-buffer ()
-  "The `one-key' menu for CYCLE-BUFFER."
-  (interactive)
-  (one-key-menu "CYCLE-BUFFER" one-key-menu-cycle-buffer-alist t))
+(one-key-create-menu
+ "CYCLE-BUFFER"
+ '(
+   (("l" . "Elisp") . (lambda () (interactive) (cycle-buffer-in-special-mode 'emacs-lisp-mode)))
+   (("e" . "Jade") . (lambda () (interactive) (cycle-buffer-in-special-mode 'jade-mode)))
+   (("'" . "EAF") . (lambda () (interactive) (cycle-buffer-in-special-mode 'eaf-mode)))
+   (("i" . "IRC") . (lambda () (interactive) (cycle-buffer-in-special-mode 'erc-mode)))
+   (("d" . "Dired") . (lambda () (interactive) (cycle-buffer-in-special-mode 'dired-mode)))
+   (("o" . "Org") . (lambda () (interactive) (cycle-buffer-in-special-mode 'org-mode)))
+   (("H" . "Haskell") . (lambda () (interactive) (cycle-buffer-in-special-mode 'haskell-mode)))
+   (("t" . "Term") . (lambda () (interactive) (cycle-buffer-in-special-mode 'term-mode)))
+   (("y" . "Yaoddmuse") . (lambda () (interactive) (cycle-buffer-in-special-mode 'yaoddmuse-mode)))
+   (("r" . "Ruby") . (lambda () (interactive) (cycle-buffer-in-special-mode 'ruby-mode)))
+   (("V" . "PDF View") . (lambda () (interactive) (cycle-buffer-in-special-mode 'pdf-view-mode)))
+   (("C" . "C-Mode") . (lambda () (interactive) (cycle-buffer-in-special-mode 'c-mode)))
+   (("c" . "C++-Mode") . (lambda () (interactive) (cycle-buffer-in-special-mode 'c++-mode)))
+   (("j" . "JS") . (lambda () (interactive) (cycle-buffer-in-special-mode 'js-mode)))
+   (("x" . "XML") . (lambda () (interactive) (cycle-buffer-in-special-mode 'nxml-mode)))
+   (("p" . "Python") . (lambda () (interactive) (cycle-buffer-in-special-mode 'python-mode)))
+   (("s" . "CSS") . (lambda () (interactive) (cycle-buffer-in-special-mode 'css-mode)))
+   (("h" . "html") . (lambda () (interactive) (cycle-buffer-in-special-mode 'web-mode)))
+   (("m" . "OCaml") . (lambda () (interactive) (cycle-buffer-in-special-mode 'tuareg-mode)))
+   (("g" . "Golang") . (lambda () (interactive) (cycle-buffer-in-special-mode 'go-mode)))
+   (("q" . "QML") . (lambda () (interactive) (cycle-buffer-in-special-mode 'qml-mode)))
+   (("v" . "Vala") . (lambda () (interactive) (cycle-buffer-in-special-mode 'vala-mode)))
+   )
+ t)
 
 (provide 'init-cycle-buffer)
 
