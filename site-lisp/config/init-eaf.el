@@ -114,6 +114,7 @@
 (eaf-setq eaf-terminal-font-size "18")
 (eaf-setq eaf-browser-enable-adblocker "true")
 (eaf-setq eaf-browser-enable-autofill "true")
+(eaf-setq eaf-music-play-order "random")
 
 (eaf-setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 
