@@ -63,7 +63,7 @@
          (require 'init-eldoc)
          (require 'init-yasnippet)
          (require 'init-company-mode)
-         (require 'init-company-tabnine)
+         ;; (require 'init-company-tabnine)
          (require 'init-smooth-scrolling)
          (require 'init-cursor-chg)
          (require 'init-winpoint)
@@ -77,7 +77,8 @@
          (require 'init-auto-sudoedit)
          (require 'init-rime)
          (require 'init-eaf)
-         (require 'init-nox)
+         (require 'init-citre)
+         ;; (require 'init-nox)
          (require 'init-sdcv)           ; Don't remove this line
          (require 'init-elfeed)
          (require 'init-proxy)

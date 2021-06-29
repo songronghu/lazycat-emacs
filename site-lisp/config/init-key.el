@@ -629,14 +629,11 @@
 
 (lazy-load-global-keys
  '(
-   ("C-7" . xref-pop-marker-stack)
-   ("C-8" . xref-find-definitions)
-   ("C-9" . xref-find-definitions-other-window)
-   ("M-k" . xref-find-references)
-   ("M-," . nox-rename)
-   ("M-." . nox-show-doc)
+   ("C-7" . citre-jump-back)
+   ("C-8" . citre-jump)
+   ("C-9" . citre-peek)
    )
- "init-nox")
+ "init-citre")
 
 ;; Elfeed.
 (lazy-load-global-keys

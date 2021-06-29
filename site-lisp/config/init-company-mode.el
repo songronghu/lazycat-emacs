@@ -126,6 +126,7 @@
               (setq company-backends (delete 'company-etags company-backends))
               (setq company-backends (delete 'company-oddmuse company-backends))
               (add-to-list 'company-backends 'company-files)
+              (add-to-list 'company-backends 'company-capf)
 
               ;; Use the tab-and-go frontend.
               ;; Allows TAB to select and complete at the same time.

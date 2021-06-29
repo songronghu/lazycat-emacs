@@ -277,3 +277,9 @@
 [submodule "site-lisp/extensions/tree-sitter-langs"]
 	path = site-lisp/extensions/tree-sitter-langs
 	url = https://github.com/ubolonton/tree-sitter-langs.git
+[submodule "site-lisp/extensions/citre"]
+	path = site-lisp/extensions/citre
+	url = https://github.com/universal-ctags/citre.git
+[submodule "site-lisp/extensions/selectrum"]
+	path = site-lisp/extensions/selectrum
+	url = https://github.com/raxod502/selectrum.git
