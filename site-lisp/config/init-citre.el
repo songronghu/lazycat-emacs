@@ -88,6 +88,11 @@
 
 (selectrum-mode +1)
 
+(defun citre-jump+ ()
+  (interactive)
+  (unless (ignore-error (citre-jump))
+    (xref-find-definitions (symbol-at-point))))
+
 (provide 'init-citre)
 
 ;;; init-citre.el ends here

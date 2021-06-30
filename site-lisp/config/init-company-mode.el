@@ -141,6 +141,9 @@
 
               (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
+              ;; Remove duplicate candidate.
+              (add-to-list 'company-transformers #'delete-dups)
+
               ;; Add `company-elisp' backend for elisp.
               (add-hook 'emacs-lisp-mode-hook
                         #'(lambda ()

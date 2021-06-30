@@ -630,7 +630,7 @@
 (lazy-load-global-keys
  '(
    ("C-7" . citre-jump-back)
-   ("C-8" . citre-jump)
+   ("C-8" . citre-jump+)
    ("C-9" . citre-peek)
    )
  "init-citre")
