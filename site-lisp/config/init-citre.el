@@ -90,7 +90,8 @@
 
 (defun citre-jump+ ()
   (interactive)
-  (unless (ignore-error (citre-jump))
+  (if (ignore-errors (citre-get-definitions))
+      (citre-jump)
     (xref-find-definitions (symbol-at-point))))
 
 (provide 'init-citre)
