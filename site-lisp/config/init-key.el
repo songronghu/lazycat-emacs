@@ -632,7 +632,7 @@
    ("C-7" . citre-jump-back)
    ("C-8" . citre-jump+)
    ("C-9" . citre-peek)
-   ("C-0" . citre-update-tags-file)
+   ("C-0" . citre-update-this-tags-file)
    )
  "init-citre")
 
