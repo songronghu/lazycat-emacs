@@ -82,7 +82,6 @@
 ;;; Require
 (require 'citre)
 (require 'citre-config)
-(require 'selectrum)
 
 ;;; Code:
 
@@ -90,8 +89,6 @@
  citre-default-create-tags-file-location 'global-cache
  citre-use-project-root-when-creating-tags t
  citre-prompt-language-for-ctags-command t)
-
-(selectrum-mode +1)
 
 (defun citre-jump+ ()
   (interactive)
