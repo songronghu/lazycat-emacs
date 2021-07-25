@@ -110,15 +110,13 @@
 (eaf-bind-key emacs-session-save "<f5>" eaf-browser-keybinding)
 (eaf-bind-key refresh_page "M-r" eaf-browser-keybinding)
 
-(eaf-setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) "2.3" "1"))
-
+(eaf-setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))
 (eaf-setq eaf-browser-aria2-proxy-host "127.0.0.1")
 (eaf-setq eaf-browser-aria2-proxy-port "9888")
-(eaf-setq eaf-terminal-font-size "18")
-(eaf-setq eaf-browser-enable-adblocker "true")
-(eaf-setq eaf-browser-enable-autofill "true")
+(eaf-setq eaf-terminal-font-size 18)
+(eaf-setq eaf-browser-enable-adblocker t)
+(eaf-setq eaf-browser-enable-autofill t)
 (eaf-setq eaf-music-play-order "random")
-
 (eaf-setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 
 (defun jekyll-start-server ()
