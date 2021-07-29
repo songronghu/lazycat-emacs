@@ -49,6 +49,7 @@
     (require 'init-one-key)
     (require 'init-key)
     (require 'init-vi-navigate)
+    (require 'init-isearch-mb)
     (require 'init-performance)
 
     ;; 可以延后加载的
