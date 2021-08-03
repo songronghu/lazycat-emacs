@@ -88,10 +88,6 @@
 
 ;;; Code:
 
-(tool-bar-mode -1)                      ;禁用工具栏
-(menu-bar-mode -1)                      ;禁用菜单栏
-(scroll-bar-mode -1)                    ;禁用滚动条
-
 (if (featurep 'cocoa)
     (progn
       ;; 在Mac平台, Emacs不能进入Mac原生的全屏模式,否则会导致 `make-frame' 创建时也集成原生全屏属性后造成白屏和左右滑动现象.

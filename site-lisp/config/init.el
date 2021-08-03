@@ -21,7 +21,7 @@
     ;;(require 'benchmark-init)
     ;;(benchmark-init/activate)
 
-    (require 'init-startup)
+    ;; (require 'init-startup) ; Mac only
 
     (require 'init-generic)
     (require 'lazycat-theme)
@@ -62,7 +62,7 @@
 
          (require 'init-tempbuf)
          (require 'init-eldoc)
-         (require 'init-yasnippet)
+         ;; (require 'init-yasnippet)
          (require 'init-company-mode)
          (require 'init-smooth-scrolling)
          (require 'init-cursor-chg)
