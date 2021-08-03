@@ -1,7 +1,7 @@
-;;; init-startup.el --- Config load when startup
+;;; init-fullscreen.el --- Config load when fullscreen
 
-;; Filename: init-startup.el
-;; Description: Config load when startup
+;; Filename: init-fullscreen.el
+;; Description: Config load when fullscreen
 ;; Author: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2014, Andy Stewart, all rights reserved.
@@ -9,7 +9,7 @@
 ;; Versio: 0.5
 ;; Last-Updated: 2018-07-06 10:02:57
 ;;           By: Andy Stewart
-;; URL: http://www.emacswiki.org/emacs/download/init-startup.el
+;; URL: http://www.emacswiki.org/emacs/download/init-fullscreen.el
 ;; Keywords:
 ;; Compatibility: GNU Emacs 24.3.50.1
 ;;
@@ -39,19 +39,19 @@
 
 ;;; Commentary:
 ;;
-;; Config load when startup
+;; Config load when fullscreen
 ;;
 
 ;;; Installation:
 ;;
-;; Put init-startup.el to your load-path.
+;; Put init-fullscreen.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
-;; And the following to your ~/.emacs startup file.
+;; And the following to your ~/.emacs fullscreen file.
 ;;
-;; (require 'init-startup)
+;; (require 'init-fullscreen)
 ;;
 ;; No need more.
 
@@ -60,7 +60,7 @@
 ;;
 ;;
 ;; All of the above can customize by:
-;;      M-x customize-group RET init-startup RET
+;;      M-x customize-group RET init-fullscreen RET
 ;;
 
 ;;; Change log:
@@ -115,6 +115,6 @@
   (require 'fullscreen)
   (fullscreen))
 
-(provide 'init-startup)
+(provide 'init-fullscreen)
 
-;;; init-startup.el ends here
+;;; init-fullscreen.el ends here

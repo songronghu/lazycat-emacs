@@ -21,7 +21,7 @@
     ;;(require 'benchmark-init)
     ;;(benchmark-init/activate)
 
-    ;; (require 'init-startup) ; Mac only
+    (require 'init-fullscreen)
 
     (require 'init-generic)
     (require 'lazycat-theme)
