@@ -200,7 +200,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'rjsx-mode "rjsx-mode")
 (autoload 'flex-mode "flex")
 (autoload 'bison-mode "bison")
-(autoload 'pdf-view-mode "init-pdf-tools")
 (autoload 'llvm-mode "llvm-mode")
 (autoload 'nim-mode "init-nim")
 
