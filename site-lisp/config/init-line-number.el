@@ -105,7 +105,6 @@
                'js-mode-hook
                'html-mode-hook
                'css-mode-hook
-               'apt-utils-mode-hook
                'tuareg-mode-hook
                'go-mode-hook
                'coffee-mode-hook
