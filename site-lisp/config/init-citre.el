@@ -92,9 +92,13 @@
 
 (defun citre-jump+ ()
   (interactive)
-  (condition-case _
-      (citre-jump)
-    (error (call-interactively #'xref-find-definitions))))
+  (if (eq major-mode 'emacs-lisp-mode)
+      (progn
+        (require 'dumb-jump)
+        (dumb-jump-go))
+    (condition-case _
+        (citre-jump)
+      (error (call-interactively #'xref-find-definitions)))))
 
 (provide 'init-citre)
 
