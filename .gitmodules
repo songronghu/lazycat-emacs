@@ -250,15 +250,6 @@
 [submodule "site-lisp/extensions/lsp-python-ms"]
 	path = site-lisp/extensions/lsp-python-ms
 	url = https://github.com/emacs-lsp/lsp-python-ms.git
-[submodule "site-lisp/extensions/forge"]
-	path = site-lisp/extensions/forge
-	url = https://github.com/magit/forge.git
-[submodule "site-lisp/extensions/closql"]
-	path = site-lisp/extensions/closql
-	url = https://github.com/emacscollective/closql.git
-[submodule "site-lisp/extensions/emacsql"]
-	path = site-lisp/extensions/emacsql
-	url = https://github.com/skeeto/emacsql.git
 [submodule "site-lisp/extensions/ghub"]
 	path = site-lisp/extensions/ghub
 	url = https://github.com/magit/ghub.git
