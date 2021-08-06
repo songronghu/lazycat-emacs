@@ -118,6 +118,7 @@
 (setq eaf-music-play-order "random")
 (setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 (setq eaf-terminal-font-size 18)
+(setq eaf-browser-font-family "WenQuanYi Micro Hei Mono")
 
 (defun jekyll-start-server ()
   (interactive)
