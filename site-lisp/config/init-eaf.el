@@ -119,6 +119,8 @@
 (setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 (setq eaf-terminal-font-size 18)
 (setq eaf-browser-font-family "WenQuanYi Micro Hei Mono")
+(setq eaf-terminal-font-family "WenQuanYi Micro Hei Mono")
+(setq eaf-jupyter-font-family "WenQuanYi Micro Hei Mono")
 
 (defun jekyll-start-server ()
   (interactive)
