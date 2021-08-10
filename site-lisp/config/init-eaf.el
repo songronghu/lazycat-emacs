@@ -81,6 +81,25 @@
 
 ;;; Require
 (require 'eaf)
+(require 'eaf-browser)
+(require 'eaf-pdf-viewer)
+(require 'eaf-markdown-previewer)
+(require 'eaf-js-video-player)
+(require 'eaf-video-player)
+(require 'eaf-image-viewer)
+(require 'eaf-org-previewer)
+(require 'eaf-mindmap)
+(require 'eaf-mail)
+(require 'eaf-terminal)
+(require 'eaf-camera)
+(require 'eaf-jupyter)
+(require 'eaf-netease-cloud-music)
+(require 'eaf-music-player)
+(require 'eaf-system-monitor)
+(require 'eaf-file-manager)
+(require 'eaf-file-browser)
+(require 'eaf-demo)
+(require 'eaf-vue-demo)
 
 ;;; Code:
 
