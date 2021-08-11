@@ -214,9 +214,6 @@
 [submodule "site-lisp/extensions/valign"]
 	path = site-lisp/extensions/valign
 	url = https://github.com/casouri/valign.git
-[submodule "site-lisp/extensions/emacs-application-framework"]
-	path = site-lisp/extensions/emacs-application-framework
-	url = https://github.com/manateelazycat/emacs-application-framework.git
 [submodule "site-lisp/extensions/magit-popup"]
 	path = site-lisp/extensions/magit-popup
 	url = https://github.com/magit/magit-popup.git
@@ -268,63 +265,3 @@
 [submodule "site-lisp/extensions/isearch-mb"]
 	path = site-lisp/extensions/isearch-mb
 	url = https://github.com/astoff/isearch-mb.git
-[submodule "site-lisp/extensions/eaf-demo"]
-	path = site-lisp/extensions/eaf-demo
-	url = https://github.com/manateelazycat/eaf-demo
-[submodule "site-lisp/extensions/eaf-vue-demo"]
-	path = site-lisp/extensions/eaf-vue-demo
-	url = https://github.com/manateelazycat/eaf-vue-demo
-[submodule "site-lisp/extensions/eaf-airshare"]
-	path = site-lisp/extensions/eaf-airshare
-	url = https://github.com/manateelazycat/eaf-airshare
-[submodule "site-lisp/extensions/eaf-camera"]
-	path = site-lisp/extensions/eaf-camera
-	url = https://github.com/manateelazycat/eaf-camera
-[submodule "site-lisp/extensions/eaf-file-browser"]
-	path = site-lisp/extensions/eaf-file-browser
-	url = https://github.com/manateelazycat/eaf-file-browser
-[submodule "site-lisp/extensions/eaf-file-sender"]
-	path = site-lisp/extensions/eaf-file-sender
-	url = https://github.com/manateelazycat/eaf-file-sender
-[submodule "site-lisp/extensions/eaf-mindmap"]
-	path = site-lisp/extensions/eaf-mindmap
-	url = https://github.com/manateelazycat/eaf-mindmap
-[submodule "site-lisp/extensions/eaf-markdown-previewer"]
-	path = site-lisp/extensions/eaf-markdown-previewer
-	url = https://github.com/manateelazycat/eaf-markdown-previewer
-[submodule "site-lisp/extensions/eaf-org-previewer"]
-	path = site-lisp/extensions/eaf-org-previewer
-	url = https://github.com/manateelazycat/eaf-org-previewer
-[submodule "site-lisp/extensions/eaf-jupyter"]
-	path = site-lisp/extensions/eaf-jupyter
-	url = https://github.com/manateelazycat/eaf-jupyter
-[submodule "site-lisp/extensions/eaf-system-monitor"]
-	path = site-lisp/extensions/eaf-system-monitor
-	url = https://github.com/manateelazycat/eaf-system-monitor
-[submodule "site-lisp/extensions/eaf-js-video-player"]
-	path = site-lisp/extensions/eaf-js-video-player
-	url = https://github.com/manateelazycat/eaf-js-video-player
-[submodule "site-lisp/extensions/eaf-image-viewer"]
-	path = site-lisp/extensions/eaf-image-viewer
-	url = https://github.com/manateelazycat/eaf-image-viewer
-[submodule "site-lisp/extensions/eaf-video-player"]
-	path = site-lisp/extensions/eaf-video-player
-	url = https://github.com/manateelazycat/eaf-video-player
-[submodule "site-lisp/extensions/eaf-music-player"]
-	path = site-lisp/extensions/eaf-music-player
-	url = https://github.com/manateelazycat/eaf-music-player
-[submodule "site-lisp/extensions/eaf-terminal"]
-	path = site-lisp/extensions/eaf-terminal
-	url = https://github.com/manateelazycat/eaf-terminal
-[submodule "site-lisp/extensions/eaf-pdf-viewer"]
-	path = site-lisp/extensions/eaf-pdf-viewer
-	url = https://github.com/manateelazycat/eaf-pdf-viewer
-[submodule "site-lisp/extensions/eaf-file-manager"]
-	path = site-lisp/extensions/eaf-file-manager
-	url = https://github.com/manateelazycat/eaf-file-manager
-[submodule "site-lisp/extensions/eaf-browser"]
-	path = site-lisp/extensions/eaf-browser
-	url = https://github.com/manateelazycat/eaf-browser
-[submodule "site-lisp/extensions/eaf-netease-cloud-music"]
-	path = site-lisp/extensions/eaf-netease-cloud-music
-	url = https://github.com/manateelazycat/eaf-netease-cloud-music
