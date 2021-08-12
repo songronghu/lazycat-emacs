@@ -30,6 +30,7 @@ or `CVS', and any subdirectory that contains a file named `.nosearch'."
              ;; NOTE:
              ;; Don't scan node_modules directories, such as EAF npm subdirectories.
              (not (string-match-p "/node_modules" this-dir))
+             (not (string-match-p "/dist" this-dir))
 
              (string-match "\\`[[:alnum:]]" file)
              ;; The lower-case variants of RCS and CVS are for DOS/Windows.
@@ -44,7 +45,12 @@ or `CVS', and any subdirectory that contains a file named `.nosearch'."
   "Recursive add directories to `load-path'."
   (let ((default-directory (file-name-as-directory dir)))
     (add-to-list 'load-path dir)
-    (normal-top-level-add-subdirs-to-load-path)))
+    (normal-top-level-add-subdirs-to-load-path)
+    (dolist (path load-path)
+      (when (or (string-match-p "/node_modules" path)
+                (string-match-p "/dist" path))
+        (setq load-path (delete path load-path))))))
+
 (add-subdirs-to-load-path "/usr/share/emacs/lazycat/")
 
 (require 'init)
