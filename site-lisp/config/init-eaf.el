@@ -80,10 +80,6 @@
 ;;
 
 ;;; Require
-;; Improve EAF new page creation speed.
-(setq eaf-kill-process-after-last-buffer-closed nil)
-(setq eaf-start-python-process-when-require t)
-
 (require 'eaf)
 (require 'eaf-browser)
 (require 'eaf-pdf-viewer)
