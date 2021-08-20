@@ -80,22 +80,23 @@
 ;;
 
 ;;; Require
-
+(require 'eaf)
+(require 'eaf-file-manager)
 
 ;;; Code:
 
 (one-key-create-menu
  "DIRECTORY"
  '(
-   (("h" . "Home") . (lambda () (interactive) (dired-x-find-file "~/")))
-   (("b" . "Book") . (lambda () (interactive) (dired-x-find-file "/space/data/Book")))
-   (("p" . "Emacs Package") . (lambda () (interactive) (dired-x-find-file lazycat-emacs-root-dir)))
-   (("z" . "Elisp") . (lambda () (interactive) (dired-x-find-file (concat lazycat-emacs-extension-dir "/lazycat"))))
-   (("c" . "Config") . (lambda () (interactive) (dired-x-find-file lazycat-emacs-config-dir)))
-   (("'" . "EAF Git") . (lambda () (interactive) (dired-x-find-file "/home/andy/emacs-application-framework")))
-   ((";" . "EAF Package") . (lambda () (interactive) (dired-x-find-file (concat lazycat-emacs-extension-dir "/emacs-application-framework"))))
-   (("s" . "Space") . (lambda () (interactive) (dired-x-find-file "/space")))
-   (("x" . "Reading") . (lambda () (interactive) (dired-x-find-file "/space/data/Book/Reading"))))
+   (("h" . "Home") . (lambda () (interactive) (eaf-open-in-file-manager "~/")))
+   (("b" . "Book") . (lambda () (interactive) (eaf-open-in-file-manager "/space/data/Book")))
+   (("p" . "Emacs Package") . (lambda () (interactive) (eaf-open-in-file-manager lazycat-emacs-root-dir)))
+   (("z" . "Elisp") . (lambda () (interactive) (eaf-open-in-file-manager (concat lazycat-emacs-extension-dir "/lazycat"))))
+   (("c" . "Config") . (lambda () (interactive) (eaf-open-in-file-manager lazycat-emacs-config-dir)))
+   (("'" . "EAF Git") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/emacs-application-framework")))
+   ((";" . "EAF Package") . (lambda () (interactive) (eaf-open-in-file-manager (concat lazycat-emacs-extension-dir "/emacs-application-framework"))))
+   (("s" . "Space") . (lambda () (interactive) (eaf-open-in-file-manager "/space")))
+   (("x" . "Reading") . (lambda () (interactive) (eaf-open-in-file-manager "/space/data/Book/Reading"))))
  t)
 
 (one-key-create-menu

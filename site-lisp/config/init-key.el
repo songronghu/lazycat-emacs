@@ -316,7 +316,6 @@
 ;;; --- Dired
 (lazy-load-global-keys
  '(
-   ("<f8>" . dired-jump)
    ("C-x C-f" . find-file)
    )
  "init-dired")
@@ -325,6 +324,7 @@
 (unless (featurep 'cocoa)
   (lazy-load-global-keys
    '(
+     ("<f8>" . eaf-open-in-file-manager)
      ("s-'" . eaf-open)
      ("s-\"" . eaf-open-browser)
      ("s-/" . eaf-open-terminal)
