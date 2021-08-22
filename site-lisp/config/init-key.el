@@ -48,6 +48,7 @@
    ("C-s-q" . quoted-insert)            ;读取系一个输入字符并插入
    ("M-h" . set-mark-command) ;Instead C-Space for Chinese input method
    ("M-H" . set-mark-command) ;Instead C-Space for Chinese input method
+   ("M-;" . comment-dwim)
    ))
 (lazy-load-global-keys
  '(
@@ -324,7 +325,7 @@
 (unless (featurep 'cocoa)
   (lazy-load-global-keys
    '(
-     ("M-;" . eaf-open-in-file-manager)
+     ("M-j" . eaf-open-in-file-manager)
      ("s-'" . eaf-open)
      ("s-\"" . eaf-open-browser)
      ("s-/" . eaf-open-terminal)
