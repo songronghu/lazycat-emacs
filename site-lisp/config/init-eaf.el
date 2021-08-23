@@ -136,6 +136,7 @@
 (setq eaf-browser-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-terminal-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-jupyter-font-family "WenQuanYi Micro Hei Mono")
+(setq eaf-file-manager-show-hidden-file nil)
 
 (defun jekyll-start-server ()
   (interactive)
