@@ -94,7 +94,6 @@
    (("e" . "Jade") . (lambda () (interactive) (cycle-buffer-in-special-mode 'jade-mode)))
    (("'" . "EAF") . (lambda () (interactive) (cycle-buffer-in-special-mode 'eaf-mode)))
    (("i" . "IRC") . (lambda () (interactive) (cycle-buffer-in-special-mode 'erc-mode)))
-   (("d" . "Dired") . (lambda () (interactive) (cycle-buffer-in-special-mode 'dired-mode)))
    (("o" . "Org") . (lambda () (interactive) (cycle-buffer-in-special-mode 'org-mode)))
    (("H" . "Haskell") . (lambda () (interactive) (cycle-buffer-in-special-mode 'haskell-mode)))
    (("t" . "Term") . (lambda () (interactive) (cycle-buffer-in-special-mode 'term-mode)))

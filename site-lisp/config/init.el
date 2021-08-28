@@ -43,7 +43,6 @@
     (require 'init-line-number)
     (require 'init-auto-save)
     (require 'init-mode)
-    (require 'init-dired)
     (require 'init-awesome-pair)
     (require 'init-indent)
     (require 'init-one-key)
@@ -80,6 +79,7 @@
          (require 'init-citre)
          (require 'init-sdcv)           ; Don't remove this line
          (require 'init-proxy)
+         (require 'init-dired)
 
          ;; Restore session at last.
          (require 'init-session)

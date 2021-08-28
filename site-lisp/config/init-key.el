@@ -313,13 +313,6 @@
    ("s-x s-x" . aweshell-dedicated-toggle)
    )
  "aweshell")
-;;; ### Dired ###
-;;; --- Dired
-(lazy-load-global-keys
- '(
-   ("C-x C-f" . find-file)
-   )
- "init-dired")
 ;;; ### EAF ###
 ;;; EAF
 (unless (featurep 'cocoa)
@@ -330,12 +323,6 @@
      ("s-\"" . eaf-open-browser)
      ("s-/" . eaf-open-terminal)
      )
-   "init-eaf")
-  (lazy-load-local-keys
-   '(
-     ("H" . eaf-open-this-from-dired)
-     )
-   dired-mode-map
    "init-eaf"))
 ;; Cycle buffer
 (lazy-load-global-keys
