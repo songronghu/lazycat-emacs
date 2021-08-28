@@ -89,22 +89,13 @@
  "DIRECTORY"
  '(
    (("h" . "Home") . (lambda () (interactive) (eaf-open-in-file-manager "~/")))
-   (("b" . "Book") . (lambda () (interactive) (eaf-open-in-file-manager "/space/data/Book")))
+   (("b" . "Book") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Book")))
+   (("j" . "Picture") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Picture")))
+   (("m" . "Music") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Music")))
    (("p" . "Emacs Package") . (lambda () (interactive) (eaf-open-in-file-manager lazycat-emacs-root-dir)))
-   (("z" . "Elisp") . (lambda () (interactive) (eaf-open-in-file-manager (concat lazycat-emacs-extension-dir "/lazycat"))))
    (("c" . "Config") . (lambda () (interactive) (eaf-open-in-file-manager lazycat-emacs-config-dir)))
    (("'" . "EAF Git") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/emacs-application-framework")))
-   ((";" . "EAF Package") . (lambda () (interactive) (eaf-open-in-file-manager (concat lazycat-emacs-extension-dir "/emacs-application-framework"))))
-   (("s" . "Space") . (lambda () (interactive) (eaf-open-in-file-manager "/space")))
-   (("x" . "Reading") . (lambda () (interactive) (eaf-open-in-file-manager "/space/data/Book/Reading"))))
- t)
-
-(one-key-create-menu
- "UI"
- '(
-   (("t" . "Tool-Bar") . tool-bar-mode)
-   (("m" . "Menu-Bar") . menu-bar-mode)
-   (("c" . "Scroll-Bar") . scroll-bar-mode))
+   )
  t)
 
 (provide 'init-one-key)
