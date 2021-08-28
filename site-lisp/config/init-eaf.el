@@ -137,6 +137,7 @@
 (setq eaf-terminal-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-jupyter-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-file-manager-show-hidden-file nil)
+(setq eaf-music-default-file "/data/Music/")
 
 (defun jekyll-start-server ()
   (interactive)
