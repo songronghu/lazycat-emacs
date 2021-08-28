@@ -92,7 +92,7 @@
    (("b" . "Book") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Book")))
    (("j" . "Picture") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Picture")))
    (("m" . "Music") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Music")))
-   (("p" . "Emacs Package") . (lambda () (interactive) (eaf-open-in-file-manager lazycat-emacs-root-dir)))
+   ((";" . "Emacs Package") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/lazycat-emacs/site-lisp/extensions/emacs-application-framework")))
    (("c" . "Config") . (lambda () (interactive) (eaf-open-in-file-manager lazycat-emacs-config-dir)))
    (("'" . "EAF Git") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/emacs-application-framework")))
    )
