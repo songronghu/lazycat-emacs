@@ -79,7 +79,6 @@
          (require 'init-citre)
          (require 'init-sdcv)           ; Don't remove this line
          (require 'init-proxy)
-         (require 'init-dired)
 
          ;; Restore session at last.
          (require 'init-session)
