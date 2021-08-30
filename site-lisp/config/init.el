@@ -73,7 +73,6 @@
 
          (require 'init-idle)
 
-         (require 'init-auto-sudoedit)
          (require 'init-rime)
          (require 'init-eaf)
          (require 'init-citre)
