@@ -61,9 +61,6 @@
 [submodule "awesome-tray"]
 	path = site-lisp/extensions/awesome-tray
 	url = https://github.com/manateelazycat/awesome-tray.git
-[submodule "grep-dired"]
-	path = site-lisp/extensions/grep-dired
-	url = https://github.com/manateelazycat/grep-dired.git
 [submodule "json-reformat"]
 	path = site-lisp/extensions/json-reformat
 	url = https://github.com/gongo/json-reformat.git
