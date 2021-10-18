@@ -99,6 +99,7 @@
 (require 'eaf-file-browser)
 (require 'eaf-demo)
 (require 'eaf-vue-demo)
+(require 'eaf-rss-reader)
 
 ;;; Code:
 
