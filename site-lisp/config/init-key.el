@@ -323,6 +323,7 @@
      ("s-'" . eaf-open)
      ("s-\"" . eaf-open-browser)
      ("s-/" . eaf-open-terminal)
+     ("s-b" . eaf-open-rss-reader)
      )
    "init-eaf"))
 ;; Cycle buffer
@@ -616,12 +617,5 @@
    ("C-0" . citre-update-this-tags-file)
    )
  "init-citre")
-
-;; Elfeed.
-(lazy-load-global-keys
- '(
-   ("s-b" . elfeed-search-show)
-   )
- "init-elfeed")
 
 (provide 'init-key)
