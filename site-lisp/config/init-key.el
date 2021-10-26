@@ -227,31 +227,16 @@
    ("C-x O" . toggle-window-split)
    )
  "window-extension")
-;;; ### Awesome-Tab ###
+;;; ### Sort-Tab ###
 ;;; --- 多标签浏览
-(lazy-load-set-keys
- '(
-   ("s-j" . awesome-tab-ace-jump)        ;Ace jump
-   ("M-7" . awesome-tab-backward-tab)    ;移动到后一个标签
-   ("M-8" . awesome-tab-forward-tab)     ;移动到前一个标签
-   ("M-9" . awesome-tab-backward-group)  ;移动到后一个标签组
-   ("M-0" . awesome-tab-forward-group)   ;移动到前一个标签组
-   ("<C-tab>" . awesome-tab-forward-tab) ;移动到后一个标签
-   ("<C-S-iso-lefttab>" . awesome-tab-backward-tab) ;移动到前一个标签
-   ))
 (lazy-load-global-keys
  '(
-   ("M-&" . awesome-tab-backward-tab-other-window)
-   ("M-*" . awesome-tab-forward-tab-other-window)
-   ("M-s-7" . awesome-tab-select-beg-tab)
-   ("M-s-8" . awesome-tab-select-end-tab)
-   ("M-s-9" . awesome-tab-move-current-tab-to-beg)
-   ("s-q" . awesome-tab-kill-other-buffers-in-current-group)
-   ("s-Q" . awesome-tab-kill-all-buffers-in-current-group)
-   ("s-w" . awesome-tab-keep-match-buffers-in-current-group)
-   ("s-W" . awesome-tab-kill-match-buffers-in-current-group)
+   ("M-7" . sort-tab-select-prev-tab)   ;选择前一个标签
+   ("M-8" . sort-tab-select-next-tab)   ;选择后一个标签
+   ("M-s-7" . sort-tab-select-first-tab) ;选择第一个标签
+   ("M-s-8" . sort-tab-select-last-tab)  ;选择最后一个标签
    )
- "awesome-tab")
+ "sort-tab")
 ;;; ### Functin key ###
 ;;; --- 功能函数
 (lazy-load-set-keys

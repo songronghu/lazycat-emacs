@@ -112,10 +112,6 @@
       `(,(cons "freenode.net" '("#emacs"))))
 (setq erc-log-channels-directory        ;日志的记录目录
       "~/.emacs.d/lazycat-emacs/Configure-File/ERC/logs/")
-(dolist (hooked (list
-                 'turn-on-eldoc-mode    ;开启elisp参数提醒模式
-                 ))
-  (add-hook 'erc-mode-hook hooked))
 (setq erc-modules                       ;加载的模块
       '(
         autojoin                        ;自动加入

@@ -76,6 +76,7 @@
 
 ;;; Code:
 
+(global-eldoc-mode -1)
 (dolist (hook (list
                'ielm-mode-hook
                'emacs-lisp-mode-hook
@@ -86,15 +87,8 @@
                'org-mode-hook
                ))
   (add-hook hook #'(lambda ()
-                     (progn
-                       (require 'eldoc)
-                       (require 'eldoc-extension)
-                       (setq eldoc-idle-delay 0) ;显示延迟
-                       (setq eldoc-argument-case 'eldoc-argument-list) ;高亮函数参数
-                       (turn-on-eldoc-mode)))))
-
-(add-hook 'go-mode-hook 'go-eldoc-setup)
-(autoload 'go-eldoc-setup "go-eldoc")
+                     (eldoc-mode -1)
+                     (setq eldoc-documentation-function #'ignore) )))
 
 (provide 'init-eldoc)
 

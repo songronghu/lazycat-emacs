@@ -38,7 +38,6 @@
 
     (require 'init-tree-sitter)
     (require 'init-awesome-tray)
-    (require 'init-awesome-tab)
     (require 'init-backup)
     (require 'init-line-number)
     (require 'init-auto-save)
@@ -61,7 +60,7 @@
 
          (require 'init-tempbuf)
          (require 'init-eldoc)
-         ;; (require 'init-yasnippet)
+         (require 'init-yasnippet)
          (require 'init-company-mode)
          (require 'init-smooth-scrolling)
          (require 'init-cursor-chg)
@@ -70,6 +69,7 @@
          (require 'init-c)
          (require 'init-flycheck)
          (require 'init-org)
+         ;;(require 'init-sort-tab)
 
          (require 'init-idle)
 
