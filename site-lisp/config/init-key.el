@@ -214,7 +214,6 @@
  '(
    ("C-c v" . split-window-vertically)   ;纵向分割窗口
    ("C-c h" . split-window-horizontally) ;横向分割窗口
-   ("C-;" . kill-this-buffer)            ;关闭当前buffer
    ("C-x ;" . delete-other-windows)      ;关闭其它窗口
    ))
 (lazy-load-global-keys
@@ -231,10 +230,11 @@
 ;;; --- 多标签浏览
 (lazy-load-global-keys
  '(
-   ("M-7" . sort-tab-select-prev-tab)   ;选择前一个标签
-   ("M-8" . sort-tab-select-next-tab)   ;选择后一个标签
+   ("M-7" . sort-tab-select-prev-tab)    ;选择前一个标签
+   ("M-8" . sort-tab-select-next-tab)    ;选择后一个标签
    ("M-s-7" . sort-tab-select-first-tab) ;选择第一个标签
    ("M-s-8" . sort-tab-select-last-tab)  ;选择最后一个标签
+   ("C-;" . sort-tab-close-current-tab)  ;关闭当前标签
    )
  "sort-tab")
 ;;; ### Functin key ###

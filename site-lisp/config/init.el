@@ -69,8 +69,6 @@
          (require 'init-c)
          (require 'init-flycheck)
          (require 'init-org)
-         ;;(require 'init-sort-tab)
-
          (require 'init-idle)
 
          (require 'init-rime)
@@ -82,6 +80,8 @@
          ;; Restore session at last.
          (require 'init-session)
          (emacs-session-restore)
+         
+         (require 'init-sort-tab)
 
          (server-start)            ;为emacsclient准备使用场景，比如git
          ))))
