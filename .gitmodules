@@ -268,3 +268,6 @@
 [submodule "site-lisp/extensions/f"]
 	path = site-lisp/extensions/f
 	url = https://github.com/rejeep/f.el.git
+[submodule "site-lisp/extensions/sort-tab"]
+	path = site-lisp/extensions/sort-tab
+	url = https://github.com/manateelazycat/sort-tab.git
