@@ -80,7 +80,7 @@
          ;; Restore session at last.
          (require 'init-session)
          (emacs-session-restore)
-         
+
          (require 'init-sort-tab)
 
          (server-start)            ;为emacsclient准备使用场景，比如git
