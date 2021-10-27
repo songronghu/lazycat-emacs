@@ -59,7 +59,7 @@
 ;;
 ;; 2014/03/16
 ;;      * Add `toggle-window-split'.
-;; 
+;;
 ;; 2009/02/07
 ;;      * First released.
 ;;
@@ -123,7 +123,7 @@ Argument BUFFER-NAME the buffer name that will delete."
 (defun toggle-one-window ()
   "Toggle between window layout and one window."
   (interactive)
-  (if (one-window-p t)
+  (if (equal (length (cl-remove-if #'window-dedicated-p (window-list))) 1)
       (if toggle-one-window-window-configuration
           (progn
             (set-window-configuration toggle-one-window-window-configuration)
