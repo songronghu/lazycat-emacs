@@ -148,6 +148,16 @@
   (interactive)
   (eaf-open-browser "http://127.0.0.1:4000"))
 
+(defun eaf-goto-left-tab ()
+  "Go to left tab, you need re-implement this interface yourself."
+  (interactive)
+  (sort-tab-select-prev-tab))
+
+(defun eaf-goto-right-tab ()
+  "Go to right tab, you need re-implement this interface yourself."
+  (interactive)
+  (sort-tab-select-next-tab))
+
 (provide 'init-eaf)
 
 ;;; init-eaf.el ends here
