@@ -79,9 +79,6 @@
 
 ;;; Code:
 
-(defvar toggle-one-window-window-configuration nil
-  "The window configuration use for `toggle-one-window'.")
-
 (defun delete-buffer-and-window (buffer-name)
   "Delete buffer and window that special.
 Argument BUFFER-NAME the buffer name that will delete."
@@ -119,18 +116,6 @@ Argument BUFFER-NAME the buffer name that will delete."
   "Select next window."
   (interactive)
   (other-window -1))
-
-(defun toggle-one-window ()
-  "Toggle between window layout and one window."
-  (interactive)
-  (if (equal (length (cl-remove-if #'window-dedicated-p (window-list))) 1)
-      (if toggle-one-window-window-configuration
-          (progn
-            (set-window-configuration toggle-one-window-window-configuration)
-            (setq toggle-one-window-window-configuration nil))
-        (message "No other windows exist."))
-    (setq toggle-one-window-window-configuration (current-window-configuration))
-    (delete-other-windows)))
 
 (defun sticky-window-keep-window-visible ()
   "Insure the buffer associated with the current window stays visible.

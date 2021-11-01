@@ -12,7 +12,7 @@
 ;; Version: 0.1
 ;; Last-Updated: `(format-time-string "%Y-%m-%d %T")`
 ;;           By: $3
-;; URL: http://www.emacswiki.org/emacs/download/$1.el
+;; URL: https://www.github.org/manateelazycat/$1
 ;; Keywords: $5
 ;; Compatibility: `(substring (emacs-version) 0 (string-match " (" (emacs-version))))`
 ;;

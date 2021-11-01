@@ -218,14 +218,18 @@
    ))
 (lazy-load-global-keys
  '(
-   ("C-c V" . delete-other-windows-vertically+)   ;关闭上下的其他窗口
-   ("C-c H" . delete-other-windows-horizontally+) ;关闭左右的其他窗口
    ("C-'" . delete-current-buffer-and-window) ;关闭当前buffer, 并关闭窗口
    ("C-\"" . delete-current-buffer-window)    ;删除当前buffer的窗口
-   ("M-s-o" . toggle-one-window)              ;切换一个窗口
    ("C-x O" . toggle-window-split)
    )
  "window-extension")
+;;; ### Toggle-One-Window ###
+;;; --- 临时最大化当前窗口
+(lazy-load-global-keys
+ '(
+   ("M-s-o" . toggle-one-window)              ;切换一个窗口
+   )
+ "toggle-one-window")
 ;;; ### Sort-Tab ###
 ;;; --- 多标签浏览
 (lazy-load-global-keys

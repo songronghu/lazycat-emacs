@@ -271,3 +271,6 @@
 [submodule "site-lisp/extensions/sort-tab"]
 	path = site-lisp/extensions/sort-tab
 	url = https://github.com/manateelazycat/sort-tab.git
+[submodule "site-lisp/extensions/toggle-one-window"]
+	path = site-lisp/extensions/toggle-one-window
+	url = https://github.com/manateelazycat/toggle-one-window.git
