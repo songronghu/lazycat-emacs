@@ -523,13 +523,6 @@
    ("s-c p" . one-key-projectile-rails) ;projectile rails
    )
  "init-projectile-rails")
-;;; ### Top ###
-;;; --- 进程管理器
-(lazy-load-global-keys
- '(
-   ("<s-f8>" . top)                     ;TOP
-   )
- "init-top")
 ;;; ### Keyboard Macro ###
 ;;; --- 键盘宏
 (lazy-load-global-keys
