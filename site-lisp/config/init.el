@@ -36,7 +36,6 @@
     (require 'redo)
     (require 'highlight-parentheses)
 
-    (require 'init-tree-sitter)
     (require 'init-awesome-tray)
     (require 'init-backup)
     (require 'init-line-number)

@@ -274,3 +274,6 @@
 [submodule "site-lisp/extensions/toggle-one-window"]
 	path = site-lisp/extensions/toggle-one-window
 	url = https://github.com/manateelazycat/toggle-one-window.git
+[submodule "site-lisp/extensions/blamer"]
+	path = site-lisp/extensions/blamer
+	url = https://github.com/Artawower/blamer.el.git

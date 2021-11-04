@@ -81,6 +81,7 @@
 
 ;;; Require
 (require 'magit)
+(require 'blamer)
 
 ;;; Code:
 (when (featurep 'cocoa)
@@ -119,7 +120,7 @@
    (("l" . "Magit log") . magit-log-all)
    (("L" . "Magit blame") . magit-blame+)
    (("b" . "Magit branch") . magit-branch)
-   (("B" . "Magit buffer") . magit-process-buffer)
+   (("B" . "Blamer") . global-blamer-mode)
    (("m" . "Magit submodule add") . magit-submodule-add+)
    (("d" . "Magit submodule remove") . magit-submodule-remove+)
    (("M" . "Magit submodule list") . magit-list-submodules)
