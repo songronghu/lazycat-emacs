@@ -34,8 +34,8 @@
     (require 'display-line-numbers)
     (require 'basic-toolkit)
     (require 'redo)
-    (require 'highlight-parentheses)
 
+    (require 'init-highlight-parentheses)
     (require 'init-awesome-tray)
     (require 'init-backup)
     (require 'init-line-number)
