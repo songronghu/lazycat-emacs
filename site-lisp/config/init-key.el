@@ -10,7 +10,8 @@
 ;;; ### Popweb ###
 ;;; --- Web翻译
 (lazy-load-global-keys
- '((";" . popweb-dict-youdao))
+ '((";" . popweb-dict-youdao-input)
+   ("y" . popweb-dict-youdao-pointer))
  "init-popweb"
  "C-z")
 ;;; ### Insert translated name ###
