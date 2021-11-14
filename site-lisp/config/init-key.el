@@ -7,14 +7,11 @@
 ;;; --- 卸载按键
 (lazy-load-unset-keys                   ;全局按键的卸载
  '("C-x C-f" "C-z" "C-q" "s-W" "s-z" "M-h" "C-x C-c" "C-\\" "s-c" "s-x" "s-v"))
-;;; ### Sdcv ###
-;;; --- 星际译王命令行
+;;; ### Popweb ###
+;;; --- Web翻译
 (lazy-load-global-keys
- '(("p" . sdcv-search-pointer)          ;光标处的单词, buffer显示
-   ("y" . sdcv-search-pointer+)         ;光标处的单词, tooltip显示
-   ("i" . sdcv-search-input)            ;输入的单词, buffer显示
-   (";" . sdcv-search-input+))
- "init-sdcv"
+ '((";" . popweb-dict-youdao))
+ "init-popweb"
  "C-z")
 ;;; ### Insert translated name ###
 (lazy-load-global-keys

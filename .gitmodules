@@ -277,3 +277,6 @@
 [submodule "site-lisp/extensions/blamer"]
 	path = site-lisp/extensions/blamer
 	url = https://github.com/Artawower/blamer.el.git
+[submodule "site-lisp/extensions/popweb"]
+	path = site-lisp/extensions/popweb
+	url = https://github.com/manateelazycat/popweb.git

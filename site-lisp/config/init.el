@@ -73,7 +73,6 @@
          (require 'init-rime)
          (require 'init-eaf)
          (require 'init-citre)
-         (require 'init-sdcv)           ; Don't remove this line
          (require 'init-proxy)
 
          ;; Restore session at last.
