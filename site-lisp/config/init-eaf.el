@@ -159,7 +159,7 @@
   (sort-tab-select-next-tab))
 
 (defun eaf-translate-text (text)
-  (popweb-dict-youdao text))
+  (popweb-dict-bing text))
 
 (provide 'init-eaf)
 
