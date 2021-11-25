@@ -1,7 +1,7 @@
-;;; init-awesome-pair.el --- Awesome-Pair configuration
+;;; init-grammatical-edit.el --- Grammatical-Edit configuration
 
-;; Filename: init-awesome-pair.el
-;; Description: Awesome-Pair configuration
+;; Filename: init-grammatical-edit.el
+;; Description: Grammatical-Edit configuration
 ;; Author: Andy Stewart lazycat.manatee@gmail.com
 ;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
 ;; Copyright (C) 2008, 2009, Andy Stewart, all rights reserved.
@@ -10,7 +10,7 @@
 ;; Last-Updated: 2008-10-20 09:41:55
 ;;           By: Andy Stewart
 ;; URL:
-;; Keywords: awesome-pair
+;; Keywords: grammatical-edit
 ;; Compatibility: GNU Emacs 23.0.60.1
 ;;
 ;; Features that might be required by this library:
@@ -39,19 +39,19 @@
 
 ;;; Commentary:
 ;;
-;; Awesome-Pair configuration
+;; Grammatical-Edit configuration
 ;;
 
 ;;; Installation:
 ;;
-;; Put init-awesome-pair.el to your load-path.
+;; Put init-grammatical-edit.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'init-awesome-pair)
+;; (require 'init-grammatical-edit)
 ;;
 ;; No need more.
 
@@ -108,8 +108,8 @@
                'conf-toml-mode-hook
                'nim-mode-hook
                ))
-  (add-hook hook #'(lambda () (awesome-pair-mode 1))))
+  (add-hook hook #'(lambda () (grammatical-edit-mode 1))))
 
-(provide 'init-awesome-pair)
+(provide 'init-grammatical-edit)
 
-;;; init-awesome-pair.el ends here
+;;; init-grammatical-edit.el ends here

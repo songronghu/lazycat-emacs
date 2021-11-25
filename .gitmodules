@@ -280,3 +280,6 @@
 [submodule "site-lisp/extensions/popweb"]
 	path = site-lisp/extensions/popweb
 	url = https://github.com/manateelazycat/popweb.git
+[submodule "site-lisp/extensions/grammatical-edit"]
+	path = site-lisp/extensions/grammatical-edit
+	url = https://github.com/manateelazycat/grammatical-edit

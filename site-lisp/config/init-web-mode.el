@@ -69,7 +69,7 @@
 ;;      * Add `js2-refactor'.
 ;;
 ;; 2018/07/11
-;;      * Use function `paredit-pair-kill+' in awesome-pair-extension.el 0.5 instead `tagedit-kill' to build better kill experience for `web-mode' and `ruby-mode'.
+;;      * Use function `paredit-pair-kill+' in grammatical-edit-extension.el 0.5 instead `tagedit-kill' to build better kill experience for `web-mode' and `ruby-mode'.
 ;;
 ;; 2018/06/12
 ;;      * Add config for `web-mode-markup-indent-offset'.
@@ -102,7 +102,7 @@
 (require 'emmet-extension)
 (require 'js)
 (require 'indium)
-(require 'awesome-pair)
+(require 'grammatical-edit)
 (require 'instant-rename-tag)
 (require 'highlight-matching-tag)
 
@@ -152,7 +152,7 @@
  t)
 
 ;; We-mode.
-(lazy-load-set-keys awesome-pair-key-alist web-mode-map)
+(lazy-load-set-keys grammatical-edit-key-alist web-mode-map)
 (lazy-load-local-keys
  '(
    ("M-s-SPC" . web-mode-element-content-select)
