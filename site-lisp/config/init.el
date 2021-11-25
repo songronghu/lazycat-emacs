@@ -73,6 +73,7 @@
          (require 'init-rime)
          (require 'init-eaf)
          (require 'init-citre)
+         (require 'init-tree-sitter)
          (require 'init-proxy)
 
          ;; Restore session at last.
