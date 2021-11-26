@@ -98,6 +98,14 @@
 (tree-sitter-load 'elisp "elisp")
 (add-to-list 'tree-sitter-major-mode-language-alist '(emacs-lisp-mode . elisp))
 
+;; Add Vue for tree-sitter:
+;;
+;; 1. git clone https://github.com/ikatyang/tree-sitter-vue.git
+;; 2. gcc ./src/parser.c ./src/scanner.cc -fPIC -I./ --shared -o vue.so
+;; 3. cp ./vue.so ~/.tree-sitter-langs/bin (~/.tree-sitter-langs/bin is path of your tree-sitter-langs repo)
+(tree-sitter-load 'vue "vue")
+(add-to-list 'tree-sitter-major-mode-language-alist '(web-mode . vue))
+
 (provide 'init-tree-sitter)
 
 ;;; init-tree-sitter.el ends here
