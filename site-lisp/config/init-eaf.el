@@ -100,7 +100,7 @@
 (require 'eaf-demo)
 (require 'eaf-vue-demo)
 (require 'eaf-rss-reader)
-
+(require 'popweb-dict-bing)
 (require 'popweb-dict-youdao)
 
 ;;; Code:
@@ -159,7 +159,7 @@
   (sort-tab-select-next-tab))
 
 (defun eaf-translate-text (text)
-  (popweb-dict-bing text))
+  (popweb-dict-bing-input text))
 
 (provide 'init-eaf)
 
