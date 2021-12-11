@@ -225,7 +225,7 @@
 ;;; --- 临时最大化当前窗口
 (lazy-load-global-keys
  '(
-   ("M-s-o" . toggle-one-window)              ;切换一个窗口
+   ("M-s-o" . toggle-one-window)        ;切换一个窗口
    )
  "toggle-one-window")
 ;;; ### Sort-Tab ###
@@ -251,7 +251,7 @@
 ;;; --- 结构化编程
 (lazy-load-unset-keys
  '("M-J" "M-r" "M-s" "M-;" "C-M-f" "C-M-b" "M-)")
- grammatical-edit-mode-map)                 ;卸载按键
+ grammatical-edit-mode-map)             ;卸载按键
 (defvar grammatical-edit-key-alist nil)
 (setq grammatical-edit-key-alist
       '(
@@ -267,6 +267,7 @@
         ("]" . grammatical-edit-close-bracket)     ;智能 ]
         ("}" . grammatical-edit-close-curly)       ;智能 }
         ("\"" . grammatical-edit-double-quote)     ;智能 "
+        ("'" . grammatical-edit-single-quote)      ;智能 '
         ("=" . grammatical-edit-equal)             ;智能 =
         ("SPC" . grammatical-edit-space)           ;智能 space
         ("RET" . grammatical-edit-newline)         ;智能 newline
@@ -276,10 +277,11 @@
         ("C-k" . grammatical-edit-kill)            ;向前kill
         ;; 包围
         ("M-\"" . grammatical-edit-wrap-double-quote) ;用 " " 包围对象, 或跳出字符串
-        ("M-[" . grammatical-edit-wrap-bracket)       ;用 [ ] 包围对象
-        ("M-{" . grammatical-edit-wrap-curly)         ;用 { } 包围对象
-        ("M-(" . grammatical-edit-wrap-round)         ;用 ( ) 包围对象
-        ("M-)" . grammatical-edit-unwrap)             ;去掉包围对象
+        ("M-'" . grammatical-edit-wrap-single-quote) ;用 ' ' 包围对象, 或跳出字符串
+        ("M-[" . grammatical-edit-wrap-bracket)      ;用 [ ] 包围对象
+        ("M-{" . grammatical-edit-wrap-curly)        ;用 { } 包围对象
+        ("M-(" . grammatical-edit-wrap-round)        ;用 ( ) 包围对象
+        ("M-)" . grammatical-edit-unwrap)            ;去掉包围对象
         ;; 跳出并换行缩进
         ("M-:" . grammatical-edit-jump-out-pair-and-newline) ;跳出括号并换行
         ))
