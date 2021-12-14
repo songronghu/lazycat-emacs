@@ -148,7 +148,9 @@
               (add-hook 'emacs-lisp-mode-hook
                         #'(lambda ()
                             (require 'company-elisp)
-                            (push 'company-elisp company-backends)))
+                            (if (and (listp company-backends) (member 'company-elisp company-backends))
+                                company-backends
+                              (push 'company-elisp company-backends))))
 
               ;; Enable global.
               (global-company-mode)
