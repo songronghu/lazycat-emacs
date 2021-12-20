@@ -97,6 +97,7 @@
 ;; 3. cp ./elisp.so ~/.tree-sitter-langs/bin (~/.tree-sitter-langs/bin is path of your tree-sitter-langs repo)
 (tree-sitter-load 'elisp "elisp")
 (add-to-list 'tree-sitter-major-mode-language-alist '(emacs-lisp-mode . elisp))
+(add-to-list 'tree-sitter-major-mode-language-alist '(inferior-emacs-lisp-mode . elisp))
 
 ;; Add Vue for tree-sitter:
 ;;
