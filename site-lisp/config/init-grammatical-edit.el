@@ -107,6 +107,7 @@
                'llvm-mode-hook
                'conf-toml-mode-hook
                'nim-mode-hook
+               'typescript-mode-hook
                ))
   (add-hook hook #'(lambda () (grammatical-edit-mode 1))))
 

@@ -163,6 +163,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.l$" . flex-mode)
                     ("\\.y$" . bison-mode)
                     ("\\.pdf$" . pdf-view-mode)
+                    ("\\.ts$" . typescript-mode)
                     ("\\.cpp$" . c++-mode)
                     ("\\.h$" . c++-mode)
                     ("\\.ll$" . llvm-mode)
@@ -202,6 +203,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'bison-mode "bison")
 (autoload 'llvm-mode "llvm-mode")
 (autoload 'nim-mode "init-nim")
+(autoload 'typescript-mode "typescript-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行

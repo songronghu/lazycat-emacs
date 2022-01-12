@@ -107,6 +107,14 @@
 (tree-sitter-load 'vue "vue")
 (add-to-list 'tree-sitter-major-mode-language-alist '(web-mode . vue))
 
+;; Add Typescript for tree-sitter.
+;;
+;; 1. git clone https://github.com/tree-sitter/tree-sitter-typescript.git
+;; 2. gcc ./tsx/src/parser.c ./tsx/src/scanner.cc -fPIC -I./ --shared -o typescript.so
+;; 3. cp ./typescript.so ~/.tree-sitter-langs/bin (~/.tree-sitter-langs/bin is path of your tree-sitter-langs repo)
+(tree-sitter-load 'typescript "typescript")
+(add-to-list 'tree-sitter-major-mode-language-alist '(typescript-mode . typescript))
+
 (provide 'init-tree-sitter)
 
 ;;; init-tree-sitter.el ends here
