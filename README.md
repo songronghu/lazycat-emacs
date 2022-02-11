@@ -61,7 +61,7 @@ $ ./configure && make && make install
 ## Install On Arch Linux
 1. Install emacs git version:
 ```
-sudo pacman -S emacs-native-comp-git
+sudo pacman -S emacs-git
 ```
 2. Install Font:
 
@@ -79,11 +79,6 @@ sudo ln -s /home/username/lazycat-emacs/site-lisp /usr/share/emacs/lazycat
 5. Copy site-start.el in emacs directory to start my config:
 ```
 sudo cp /home/username/lazycat-emacs/site-start.el /usr/share/emacs/site-lisp/
-```
-
-6. Start emacs:
-```
-emacs
 ```
 
 ## Old extensions and configuration files.
