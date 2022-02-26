@@ -214,9 +214,6 @@
 [submodule "site-lisp/extensions/magit-popup"]
 	path = site-lisp/extensions/magit-popup
 	url = https://github.com/magit/magit-popup.git
-[submodule "site-lisp/extensions/elfeed"]
-	path = site-lisp/extensions/elfeed
-	url = https://github.com/skeeto/elfeed.git
 [submodule "site-lisp/extensions/nim-mode"]
 	path = site-lisp/extensions/nim-mode
 	url = https://github.com/nim-lang/nim-mode.git
