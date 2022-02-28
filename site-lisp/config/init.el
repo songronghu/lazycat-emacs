@@ -48,6 +48,7 @@
     (require 'init-vi-navigate)
     (require 'init-isearch-mb)
     (require 'init-performance)
+    (require 'init-rime)
 
     ;; 可以延后加载的
     (run-with-idle-timer
@@ -70,7 +71,6 @@
          (require 'init-org)
          (require 'init-idle)
 
-         (require 'init-rime)
          (require 'init-eaf)
          (require 'init-citre)
          (require 'init-tree-sitter)
