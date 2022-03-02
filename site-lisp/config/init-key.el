@@ -171,9 +171,14 @@
 (lazy-load-global-keys
  '(
    ("C-/" . undo-tree-undo)             ;撤销
-   ("C-?" . undo-tree-redo)             ;重做)
+   ("C-?" . undo-tree-redo)             ;重做
    )
  "undo-tree")
+(lazy-load-global-keys
+ '(
+   ("C-," . goto-last-change)           ;跳到最后编辑的地方
+   )
+ "goto-last-change")
 ;;; ### Rect ###
 ;;; --- 矩形操作
 (lazy-load-global-keys
