@@ -58,7 +58,6 @@
          (require 'browse-kill-ring)
          (require 'elf-mode)
 
-         (require 'init-tempbuf)
          (require 'init-eldoc)
          (require 'init-yasnippet)
          (require 'init-company-mode)
