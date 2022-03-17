@@ -72,7 +72,6 @@
 
          (require 'init-eaf)
          (require 'init-citre)
-         (require 'init-tree-sitter)
          (require 'init-proxy)
 
          ;; Restore session at last.
@@ -80,6 +79,7 @@
          (emacs-session-restore)
 
          (require 'init-sort-tab)
+         (require 'init-tree-sitter)
 
          (server-start)            ;为emacsclient准备使用场景，比如git
          ))))
