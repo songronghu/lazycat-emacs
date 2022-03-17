@@ -283,3 +283,6 @@
 [submodule "site-lisp/extensions/find-orphan"]
 	path = site-lisp/extensions/find-orphan
 	url = https://github.com/manateelazycat/find-orphan
+[submodule "site-lisp/extensions/a"]
+	path = site-lisp/extensions/a
+	url = https://github.com/plexus/a.el.git

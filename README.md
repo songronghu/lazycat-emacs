@@ -81,6 +81,13 @@ sudo ln -s /home/username/lazycat-emacs/site-lisp /usr/share/emacs/lazycat
 sudo cp /home/username/lazycat-emacs/site-start.el /usr/share/emacs/site-lisp/
 ```
 
+## Update extensions.
+When I want upgrade extensions to newest version, I will use below command:
+
+```
+git submodule foreach git pull --rebase
+```
+
 ## Old extensions and configuration files.
 In 2005, Emacs didn't have much advanced features, and it took me more than a decade to continuously improve Emacs.
 

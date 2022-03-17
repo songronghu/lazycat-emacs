@@ -88,7 +88,7 @@
   ;; Initialize environment from user's shell to make eshell know every PATH by other shell.
   (require 'exec-path-from-shell)
   (exec-path-from-shell-initialize))
-(load-file (concat lazycat-emacs-extension-dir "/with-editor/with-editor.el"))
+(load-library "with-editor")
 
 ;; Magit configuration.
 (setq magit-commit-ask-to-stage nil)    ;don't ask stage question
