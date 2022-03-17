@@ -290,6 +290,8 @@
         ("M-)" . grammatical-edit-unwrap)            ;去掉包围对象
         ;; 跳出并换行缩进
         ("M-:" . grammatical-edit-jump-out-pair-and-newline) ;跳出括号并换行
+        ;; 向父节点跳动
+        ("C-j" . grammatical-edit-jump-up)
         ))
 (lazy-load-set-keys grammatical-edit-key-alist grammatical-edit-mode-map)
 ;;; ### Thingh-edit ###
