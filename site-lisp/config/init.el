@@ -58,6 +58,7 @@
          (require 'browse-kill-ring)
          (require 'elf-mode)
 
+         (require 'init-tree-sitter)
          (require 'init-eldoc)
          (require 'init-yasnippet)
          (require 'init-company-mode)
@@ -79,7 +80,6 @@
          (emacs-session-restore)
 
          (require 'init-sort-tab)
-         (require 'init-tree-sitter)
 
          (server-start)            ;为emacsclient准备使用场景，比如git
          ))))
