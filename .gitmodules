@@ -283,3 +283,6 @@
 [submodule "site-lisp/extensions/a"]
 	path = site-lisp/extensions/a
 	url = https://github.com/plexus/a.el.git
+[submodule "site-lisp/extensions/xterm-color"]
+	path = site-lisp/extensions/xterm-color
+	url = https://github.com/atomontage/xterm-color.git
