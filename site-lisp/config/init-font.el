@@ -88,17 +88,21 @@
        (set-face-attribute 'default nil :height 140 :family "WenQuanYi Micro Hei Mono"))
       (t
        (let ((emacs-font-size 14)
-             emacs-font-name)
+             (chinese-font-name  "TsangerJinKai03-6763")
+             english-font-name)
          (cond
           ((featurep 'cocoa)
-           (setq emacs-font-name "Monaco"))
+           (setq english-font-name "Monaco"))
           ((string-equal system-type "gnu/linux")
-           (setq emacs-font-name "WenQuanYi Micro Hei Mono")))
+           (setq english-font-name "WenQuanYi Micro Hei Mono")))
          (when (display-grayscale-p)
-           (set-frame-font (format "%s-%s" (eval emacs-font-name) (eval emacs-font-size)))
-           (set-fontset-font (frame-parameter nil 'font) 'unicode (eval emacs-font-name))
+           (set-frame-font (format "%s-%s" (eval english-font-name) (eval emacs-font-size)))
+           (set-fontset-font (frame-parameter nil 'font) 'unicode (eval english-font-name))
 
-           (setq nox-doc-tooltip-font (format "%s-%s" emacs-font-name emacs-font-size))
+           (dolist (charset '(kana han symbol cjk-misc bopomofo))
+             (set-fontset-font (frame-parameter nil 'font) charset (font-spec :family (eval chinese-font-name))))
+
+           (setq nox-doc-tooltip-font (format "%s-%s" english-font-name emacs-font-size))
            ))))
 
 (provide 'init-font)
