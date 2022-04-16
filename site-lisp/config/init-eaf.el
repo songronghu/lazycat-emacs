@@ -129,7 +129,7 @@
 (eaf-bind-key emacs-session-save "<f5>" eaf-browser-keybinding)
 (eaf-bind-key refresh_page "M-r" eaf-browser-keybinding)
 
-(setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2 1))
+(setq eaf-webengine-default-zoom (if (> (frame-pixel-width) 3000) 2 1))
 (setq eaf-browser-aria2-proxy-host "127.0.0.1")
 (setq eaf-browser-aria2-proxy-port "9888")
 (setq eaf-browser-enable-adblocker t)
@@ -137,7 +137,7 @@
 (setq eaf-music-play-order "random")
 (setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 (setq eaf-terminal-font-size 18)
-(setq eaf-browser-font-family "WenQuanYi Micro Hei Mono")
+(setq eaf-webengine-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-terminal-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-jupyter-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-file-manager-show-hidden-file nil)
