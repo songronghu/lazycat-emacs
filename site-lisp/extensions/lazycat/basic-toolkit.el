@@ -457,7 +457,13 @@ Otherwise return nil."
 (defun backward-indent ()
   "Backward indent."
   (interactive)
-  (goto-column (- (current-column) 4)))
+  (goto-column (- (current-column) 4))
+  ;; Remove blank after point if current line is empty line.
+  (when (looking-at "\\s-+")
+    (kill-region (point)
+                 (save-excursion
+                   (end-of-line)
+                   (point)))))
 
 (defun scroll-up-one-line()
   "Scroll up one line."
