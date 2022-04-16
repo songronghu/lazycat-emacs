@@ -565,8 +565,8 @@
 ;;
 (lazy-load-global-keys
  '(
-   ("s-x f" . one-key-menu-magit))
- "init-git")
+   ("s-x f" . one-key-menu-git))
+ "init-eaf")
 
 ;;; ### Magit ###
 (lazy-load-global-keys
