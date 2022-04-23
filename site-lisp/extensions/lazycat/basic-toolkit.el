@@ -459,7 +459,7 @@ Otherwise return nil."
   (interactive)
   (goto-column (- (current-column) 4))
   ;; Remove blank after point if current line is empty line.
-  (when (looking-at "\\s-+")
+  (when (looking-at "\\s-+$")
     (kill-region (point)
                  (save-excursion
                    (end-of-line)
