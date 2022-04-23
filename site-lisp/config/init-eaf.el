@@ -140,7 +140,7 @@
 (setq eaf-webengine-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-webengine-fixed-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-webengine-serif-font-family "TsangerJinKai03-6763")
-(setq eaf-webengine-font-size 16)
+(setq eaf-webengine-font-size 18)
 (setq eaf-webengine-fixed-font-size 18)
 (setq eaf-terminal-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-jupyter-font-family "WenQuanYi Micro Hei Mono")
