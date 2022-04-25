@@ -125,18 +125,6 @@
    (("D" . "Magit discarded") . magit-discard)
    (("," . "Magit init") . magit-init)
    (("." . "Magit add remote") . magit-remote-add)
-   (("h" . "Magithub menu") . one-key-menu-magithub)
-   )
- t)
-
-(one-key-create-menu
- "MAGITHUB"
- '(
-   (("h" . "Browse") . magithub-browse)
-   (("H" . "Browse file") . magithub-browse-file)
-   (("i" . "Create issue") . magithub-issue-new)
-   (("b" . "Browse issue") . magithub-issue-browse)
-   (("B" . "Browse pull") . magithub-pull-browse)
    )
  t)
 

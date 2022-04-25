@@ -18,10 +18,6 @@ url = https://github.com/ananthakumaran/typescript.el.git
 path = site-lisp/extensions/watch-other-window
 url = https://github.com/manateelazycat/watch-other-window.git
 
-[submodule "site-lisp/extensions/magithub"]
-path = site-lisp/extensions/magithub
-url = https://github.com/vermiculus/magithub
-
 [submodule "site-lisp/extensions/magit"]
 path = site-lisp/extensions/magit
 url = https://github.com/magit/magit
