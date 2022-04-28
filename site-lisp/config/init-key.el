@@ -601,4 +601,10 @@
    )
  "dumb-jump")
 
+(lazy-load-global-keys
+ '(
+   ("C--" . recursive-search-references)
+   )
+ "recursive-search-references")
+
 (provide 'init-key)
