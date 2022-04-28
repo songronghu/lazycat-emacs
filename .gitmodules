@@ -230,10 +230,6 @@ url = https://github.com/tumashu/posframe.git
 path = site-lisp/extensions/fuz
 url = https://github.com/cireu/fuz.el.git
 
-[submodule "emacs-async"]
-path = site-lisp/extensions/emacs-async
-url = https://github.com/jwiegley/emacs-async.git
-
 [submodule "projectile"]
 path = site-lisp/extensions/projectile
 url = https://github.com/bbatsov/projectile.git
@@ -317,10 +313,6 @@ url = https://github.com/astoff/isearch-mb.git
 [submodule "site-lisp/extensions/emacs-application-framework"]
 path = site-lisp/extensions/emacs-application-framework
 url = https://github.com/emacs-eaf/emacs-application-framework
-
-[submodule "site-lisp/extensions/f"]
-path = site-lisp/extensions/f
-url = https://github.com/rejeep/f.el.git
 
 [submodule "site-lisp/extensions/sort-tab"]
 path = site-lisp/extensions/sort-tab
