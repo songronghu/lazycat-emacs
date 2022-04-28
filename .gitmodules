@@ -22,10 +22,6 @@ url = https://github.com/manateelazycat/watch-other-window.git
 path = site-lisp/extensions/magit
 url = https://github.com/magit/magit
 
-[submodule "ghub-plus"]
-path = site-lisp/extensions/ghub-plus
-url = https://github.com/vermiculus/ghub-plus.git
-
 [submodule "web-mode"]
 path = site-lisp/extensions/web-mode
 url = https://github.com/fxbois/web-mode
@@ -190,14 +186,6 @@ url = https://github.com/manateelazycat/multi-term.git
 path = site-lisp/extensions/instant-rename-tag
 url = https://github.com/manateelazycat/instant-rename-tag.git
 
-[submodule "highlight-matching-tag"]
-path = site-lisp/extensions/highlight-matching-tag
-url = https://github.com/manateelazycat/highlight-matching-tag.git
-
-[submodule "highlight-indent-guides"]
-path = site-lisp/extensions/highlight-indent-guides
-url = https://github.com/DarthFennec/highlight-indent-guides.git
-
 [submodule "awesome-tab"]
 path = site-lisp/extensions/awesome-tab
 url = https://github.com/manateelazycat/awesome-tab.git
@@ -281,10 +269,6 @@ url = https://github.com/emacs-lsp/lsp-pyright.git
 [submodule "site-lisp/extensions/lsp-python-ms"]
 path = site-lisp/extensions/lsp-python-ms
 url = https://github.com/emacs-lsp/lsp-python-ms.git
-
-[submodule "site-lisp/extensions/ghub"]
-path = site-lisp/extensions/ghub
-url = https://github.com/magit/ghub.git
 
 [submodule "site-lisp/extensions/treepy"]
 path = site-lisp/extensions/treepy

@@ -98,8 +98,6 @@
 ;;; Require
 
 (require 'web-mode)
-(require 'emmet-mode)
-(require 'emmet-extension)
 (require 'js)
 (require 'grammatical-edit)
 (require 'instant-rename-tag)
@@ -119,16 +117,6 @@
 ;; Emmit.
 (setq web-mode-tag-auto-close-style 2) ;2 mean auto-close with > and </.
 (setq web-mode-markup-indent-offset 2)
-(dolist (hook (list
-               'sgml-mode-hook
-               'css-mode-hook
-               'web-mode-hook
-               ))
-  (add-hook hook #'(lambda ()
-                     ;; Make `emmet-expand-yas' not conflict with yas/mode
-                     (setq emmet-preview-default nil)
-                     (emmet-mode)
-                     )))
 
 ;; We-mode.
 (lazy-load-set-keys grammatical-edit-key-alist web-mode-map)
@@ -138,8 +126,6 @@
    ("C-s-l" . web-mode-element-clone)
    ("C-M-SPC" . web-mode-mark-and-expand)
    ("C-:" . web-mode-comment-or-uncomment)
-   ("M-i" . emmet-expand-yas)
-   ("C-c M-i" . emmet-preview-current-line)
    ("C-M-SPC" . mark-sexp)
    ("M-R" . instant-rename-tag)
    )
