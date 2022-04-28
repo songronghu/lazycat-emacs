@@ -354,3 +354,6 @@ url = https://github.com/manateelazycat/find-orphan
 path = site-lisp/extensions/xterm-color
 url = https://github.com/atomontage/xterm-color.git
 
+[submodule "site-lisp/extensions/recursive-search-references"]
+	path = site-lisp/extensions/recursive-search-references
+	url = https://github.com/manateelazycat/recursive-search-references
