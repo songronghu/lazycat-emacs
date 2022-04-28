@@ -226,10 +226,6 @@ url = https://github.com/bbatsov/projectile.git
 path = site-lisp/extensions/benchmark-init
 url = https://github.com/dholm/benchmark-init-el
 
-[submodule "sly-el-indent"]
-path = site-lisp/extensions/sly-el-indent
-url = https://github.com/cireu/sly-el-indent.git
-
 [submodule "xr"]
 path = site-lisp/extensions/xr
 url = https://github.com/mattiase/xr.git
@@ -269,10 +265,6 @@ url = https://github.com/emacs-lsp/lsp-pyright.git
 [submodule "site-lisp/extensions/lsp-python-ms"]
 path = site-lisp/extensions/lsp-python-ms
 url = https://github.com/emacs-lsp/lsp-python-ms.git
-
-[submodule "site-lisp/extensions/treepy"]
-path = site-lisp/extensions/treepy
-url = https://github.com/volrath/treepy.el.git
 
 [submodule "site-lisp/extensions/one-key"]
 path = site-lisp/extensions/one-key
@@ -327,5 +319,6 @@ path = site-lisp/extensions/recursive-search-references
 url = https://github.com/manateelazycat/recursive-search-references
 
 [submodule "site-lisp/extensions/highlight-matching-tag"]
-	path = site-lisp/extensions/highlight-matching-tag
-	url = https://github.com/manateelazycat/highlight-matching-tag
+path = site-lisp/extensions/highlight-matching-tag
+url = https://github.com/manateelazycat/highlight-matching-tag
+
