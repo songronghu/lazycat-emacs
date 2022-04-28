@@ -596,11 +596,9 @@
 
 (lazy-load-global-keys
  '(
-   ("C-7" . citre-jump-back)
-   ("C-8" . citre-jump+)
-   ("C-9" . citre-peek)
-   ("C-0" . citre-update-this-tags-file)
+   ("C-7" . dumb-jump-back)
+   ("C-8" . dumb-jump-go)
    )
- "init-citre")
+ "dumb-jump")
 
 (provide 'init-key)

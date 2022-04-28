@@ -72,7 +72,6 @@
          (require 'init-idle)
 
          (require 'init-eaf)
-         (require 'init-citre)
          (require 'init-proxy)
 
          ;; Restore session at last.
