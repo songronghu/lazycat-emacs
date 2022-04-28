@@ -326,3 +326,6 @@ url = https://github.com/atomontage/xterm-color.git
 path = site-lisp/extensions/recursive-search-references
 url = https://github.com/manateelazycat/recursive-search-references
 
+[submodule "site-lisp/extensions/highlight-matching-tag"]
+	path = site-lisp/extensions/highlight-matching-tag
+	url = https://github.com/manateelazycat/highlight-matching-tag
