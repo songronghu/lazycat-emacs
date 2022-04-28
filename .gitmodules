@@ -34,10 +34,6 @@ url = https://github.com/fxbois/web-mode
 path = site-lisp/extensions/iedit
 url = https://github.com/victorhge/iedit
 
-[submodule "Indium"]
-path = site-lisp/extensions/Indium
-url = https://github.com/NicolasPetton/Indium
-
 [submodule "tide"]
 path = site-lisp/extensions/tide
 url = https://github.com/ananthakumaran/tide.git
@@ -355,5 +351,6 @@ path = site-lisp/extensions/xterm-color
 url = https://github.com/atomontage/xterm-color.git
 
 [submodule "site-lisp/extensions/recursive-search-references"]
-	path = site-lisp/extensions/recursive-search-references
-	url = https://github.com/manateelazycat/recursive-search-references
+path = site-lisp/extensions/recursive-search-references
+url = https://github.com/manateelazycat/recursive-search-references
+

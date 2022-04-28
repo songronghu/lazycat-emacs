@@ -101,7 +101,6 @@
 (require 'emmet-mode)
 (require 'emmet-extension)
 (require 'js)
-(require 'indium)
 (require 'grammatical-edit)
 (require 'instant-rename-tag)
 (require 'highlight-matching-tag)
@@ -130,26 +129,6 @@
                      (setq emmet-preview-default nil)
                      (emmet-mode)
                      )))
-
-;; Indium.
-(add-hook 'js-mode-hook #'indium-interaction-mode)
-(define-key indium-interaction-mode-map (kbd "C-c C-l") 'indium-reload)
-
-(one-key-create-menu
- "INDIUM"
- '(
-   (("c" . "Indium connect") . indium-connect)
-   (("C" . "Indium launch") . indium-launch)
-   (("i" . "Indium switch REPL buffer") . indium-switch-to-repl-buffer)
-   (("a" . "Indium add breakpoint") . indium-add-breakpoint)
-   (("A" . "Indium add condition breakpoint") . indium-add-conditional-breakpoint)
-   (("e" . "Indium edit condition breakpoint") . indium-edit-breakpoint-condition)
-   (("l" . "Indium list breakpoints") . indium-list-breakpoints)
-   (("r" . "Indium remove breakpoint") . indium-remove-breakpoint)
-   (("R" . "Indium remove all breakpoints") . indium-remove-all-breakpoints-from-buffer)
-   (("t" . "Indium toggle breakpoint") . indium-toggle-breakpoint)
-   )
- t)
 
 ;; We-mode.
 (lazy-load-set-keys grammatical-edit-key-alist web-mode-map)

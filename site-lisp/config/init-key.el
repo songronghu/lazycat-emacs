@@ -571,11 +571,6 @@
 ;;; ### Magit ###
 (lazy-load-global-keys
  '(
-   ("s-x i" . one-key-menu-indium))
- "init-web-mode")
-
-(lazy-load-global-keys
- '(
    ("s-m" . toggle-input-method)
    )
  "init-rime")
