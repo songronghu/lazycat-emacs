@@ -322,3 +322,6 @@ url = https://github.com/manateelazycat/recursive-search-references
 path = site-lisp/extensions/highlight-matching-tag
 url = https://github.com/manateelazycat/highlight-matching-tag
 
+[submodule "site-lisp/extensions/f"]
+	path = site-lisp/extensions/f
+	url = https://github.com/rejeep/f.el.git

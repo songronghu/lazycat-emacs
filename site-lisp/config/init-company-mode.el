@@ -111,7 +111,14 @@
               (require 'company-dabbrev)
               (require 'company-files)
               (require 'company-tng)
-              (require 'company-tabnine)
+
+              (require 'lsp-mode)
+              (require 'lsp-lens)
+              (require 'lsp-modeline)
+              (require 'lsp-headerline)
+              (require 'lsp-pyright)
+
+              (add-hook 'python-mode-hook #'lsp-deferred)
 
               ;; Config for company mode.
               (setq company-minimum-prefix-length 1) ; pop up a completion menu by tapping a character
@@ -126,7 +133,8 @@
               ;; Customize company backends.
               (setq company-backends
                     '(
-                      (company-tabnine company-dabbrev company-keywords company-files company-capf)
+                      (
+                       company-dabbrev company-keywords company-files company-capf)
                       ))
 
               ;; Add yasnippet support for all company backends.

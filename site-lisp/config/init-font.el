@@ -102,8 +102,6 @@
 
              (dolist (charset '(kana han symbol cjk-misc bopomofo))
                (set-fontset-font (frame-parameter nil 'font) charset (font-spec :family (eval chinese-font-name))))
-
-             (setq nox-doc-tooltip-font (format "%s-%s" english-font-name emacs-font-size))
              )))))
 
 (load-font-setup)
