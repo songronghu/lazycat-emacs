@@ -262,10 +262,6 @@ url = https://github.com/magnars/dash.el.git
 path = site-lisp/extensions/lsp-pyright
 url = https://github.com/emacs-lsp/lsp-pyright.git
 
-[submodule "site-lisp/extensions/lsp-python-ms"]
-path = site-lisp/extensions/lsp-python-ms
-url = https://github.com/emacs-lsp/lsp-python-ms.git
-
 [submodule "site-lisp/extensions/one-key"]
 path = site-lisp/extensions/one-key
 url = https://github.com/manateelazycat/one-key
@@ -323,5 +319,6 @@ path = site-lisp/extensions/highlight-matching-tag
 url = https://github.com/manateelazycat/highlight-matching-tag
 
 [submodule "site-lisp/extensions/f"]
-	path = site-lisp/extensions/f
-	url = https://github.com/rejeep/f.el.git
+path = site-lisp/extensions/f
+url = https://github.com/rejeep/f.el.git
+
