@@ -117,6 +117,8 @@
               (require 'lsp-modeline)
               (require 'lsp-headerline)
               (require 'lsp-pyright)
+              
+              (setq lsp-log-io t)
 
               (add-hook 'python-mode-hook #'lsp-deferred)
 
