@@ -242,6 +242,7 @@
    ("M-s-7" . sort-tab-select-first-tab) ;选择第一个标签
    ("M-s-8" . sort-tab-select-last-tab)  ;选择最后一个标签
    ("C-;" . sort-tab-close-current-tab)  ;关闭当前标签
+   ("s-q" . sort-tab-close-mode-tabs)    ;关闭特定模式的标签
    ("s-Q" . sort-tab-close-all-tabs)     ;关闭所有标签
    )
  "sort-tab")
