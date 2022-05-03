@@ -322,3 +322,6 @@ url = https://github.com/manateelazycat/highlight-matching-tag
 path = site-lisp/extensions/f
 url = https://github.com/rejeep/f.el.git
 
+[submodule "site-lisp/extensions/lspbridge"]
+	path = site-lisp/extensions/lspbridge
+	url = https://github.com/manateelazycat/lsp-bridge
