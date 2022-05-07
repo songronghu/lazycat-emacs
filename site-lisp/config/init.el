@@ -62,7 +62,7 @@
          (require 'init-tree-sitter)
          (require 'init-eldoc)
          (require 'init-yasnippet)
-         ;; (require 'init-company-mode)
+         (require 'init-company-mode)
          (require 'init-smooth-scrolling)
          (require 'init-cursor-chg)
          (require 'init-winpoint)
