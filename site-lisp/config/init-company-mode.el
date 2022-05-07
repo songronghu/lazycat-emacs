@@ -111,7 +111,7 @@
               (require 'company-files)
               (require 'company-tng)
               (require 'company-tabnine)
-              
+
               (require 'lazy-load)
               (require 'lsp-bridge)
 
@@ -155,10 +155,10 @@
               ;; Customize company backends.
               (setq company-backends
                     '((
-                       company-lsp-bridge 
-                       company-tabnine
-                       company-dabbrev
-                       company-keywords
+                       company-lsp-bridge
+                       ;; company-tabnine
+                       ;; company-dabbrev
+                       ;; company-keywords
                        company-files
                        company-capf
                        )))
