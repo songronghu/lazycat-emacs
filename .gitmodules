@@ -234,10 +234,6 @@ url = https://github.com/mattiase/xr.git
 path = site-lisp/extensions/emacs-rime
 url = https://github.com/DogLooksGood/emacs-rime.git
 
-[submodule "nox"]
-path = site-lisp/extensions/nox
-url = https://github.com/manateelazycat/nox.git
-
 [submodule "site-lisp/extensions/valign"]
 path = site-lisp/extensions/valign
 url = https://github.com/casouri/valign.git
@@ -323,5 +319,6 @@ path = site-lisp/extensions/f
 url = https://github.com/rejeep/f.el.git
 
 [submodule "site-lisp/extensions/lspbridge"]
-	path = site-lisp/extensions/lspbridge
-	url = https://github.com/manateelazycat/lsp-bridge
+path = site-lisp/extensions/lspbridge
+url = https://github.com/manateelazycat/lsp-bridge
+
