@@ -597,10 +597,10 @@
 
 (lazy-load-global-keys
  '(
-   ("C-7" . dumb-jump-back)
-   ("C-8" . dumb-jump-go)
+   ("C-7" . lsp-bridge-jump-back)
+   ("C-8" . lsp-bridge-jump)
    )
- "dumb-jump")
+ "init-lsp-bridge")
 
 (lazy-load-global-keys
  '(

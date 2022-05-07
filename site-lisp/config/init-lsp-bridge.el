@@ -80,6 +80,7 @@
 ;;
 
 ;;; Require
+(require 'lsp-bridge)
 
 ;;; Code:
 
@@ -87,9 +88,30 @@
                'python-mode-hook
                ))
   (add-hook hook (lambda ()
-                   (require 'lsp-bridge)
                    (lsp-bridge-enable)
                    )))
+
+(defun lsp-bridge-jump ()
+  (interactive)
+  (cond
+   ((eq major-mode 'emacs-lisp-mode)
+    (let ((symb (function-called-at-point)))
+      (when symb
+        (find-function symb))))
+   ((boundp 'lsp-bridge-flag)
+    (lsp-bridge-find-define))
+   (t
+    (require 'dumb-jump)
+    (dumb-jump-go))))
+
+(defun lsp-bridge-jump-back ()
+  (interactive)
+  (cond
+   ((boundp 'lsp-bridge-flag)
+    (bury-buffer))
+   (t
+    (require 'dumb-jump)
+    (dumb-jump-back))))
 
 (provide 'init-lsp-bridge)
 
