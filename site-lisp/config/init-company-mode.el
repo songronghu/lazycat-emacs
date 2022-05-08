@@ -146,7 +146,7 @@
               (setq company-minimum-prefix-length 1) ; pop up a completion menu by tapping a character
               (setq company-show-numbers t) ; number the candidates (use M-1, M-2 etc to select completions).
               (setq company-require-match nil) ; allow input string that do not match candidate words
-              (setq company-idle-delay 0) ; trigger completion immediately.
+              (setq company-idle-delay 0.2)    ; trigger after 200ms
 
               ;; Don't downcase the returned candidates.
               (setq company-dabbrev-downcase nil)
