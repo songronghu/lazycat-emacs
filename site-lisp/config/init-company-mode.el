@@ -143,7 +143,7 @@
               ;; (add-hook 'python-mode-hook #'lsp-deferred)
 
               ;; Config for company mode.
-              (setq company-minimum-prefix-length 1) 
+              (setq company-minimum-prefix-length 0) 
               (setq company-show-numbers t)
               (setq company-require-match nil)
               (setq company-idle-delay 0.2)   
@@ -164,16 +164,16 @@
                        )))
 
               ;; Add yasnippet support for all company backends.
-              (defvar company-mode/enable-yas t
-                "Enable yasnippet for all backends.")
+              ;; (defvar company-mode/enable-yas t
+              ;;   "Enable yasnippet for all backends.")
 
-              (defun company-mode/backend-with-yas (backend)
-                (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
-                    backend
-                  (append (if (consp backend) backend (list backend))
-                          '(:with company-yasnippet))))
+              ;; (defun company-mode/backend-with-yas (backend)
+              ;;   (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
+              ;;       backend
+              ;;     (append (if (consp backend) backend (list backend))
+              ;;             '(:with company-yasnippet))))
 
-              (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+              ;; (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
               ;; Remove duplicate candidate.
               (add-to-list 'company-transformers #'delete-dups)
