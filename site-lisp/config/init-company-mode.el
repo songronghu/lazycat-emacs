@@ -143,7 +143,7 @@
               ;; (add-hook 'python-mode-hook #'lsp-deferred)
 
               ;; Config for company mode.
-              (setq company-minimum-prefix-length 0) 
+              (setq company-minimum-prefix-length 1) 
               (setq company-show-numbers t)
               (setq company-require-match nil)
               (setq company-idle-delay 0.2)   
