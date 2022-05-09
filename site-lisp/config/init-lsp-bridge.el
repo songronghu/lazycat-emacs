@@ -85,7 +85,15 @@
 ;;; Code:
 
 (dolist (hook (list
+               'c-mode-hook
+               'c++-mode-hook
                'python-mode-hook
+               'ruby-mode-hook
+               'rust-mode-hook
+               'elixir-mode-hook
+               'go-mode-hook
+               'haskell-mode-hook
+               'haskell-literate-mode-hook
                ))
   (add-hook hook (lambda ()
                    (lsp-bridge-enable)
