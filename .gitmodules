@@ -322,3 +322,9 @@ url = https://github.com/rejeep/f.el.git
 path = site-lisp/extensions/lspbridge
 url = https://github.com/manateelazycat/lsp-bridge
 
+[submodule "site-lisp/extensions/company-box"]
+	path = site-lisp/extensions/company-box
+	url = https://github.com/sebastiencs/company-box
+[submodule "site-lisp/extensions/frame-local"]
+	path = site-lisp/extensions/frame-local
+	url = https://github.com/sebastiencs/frame-local
