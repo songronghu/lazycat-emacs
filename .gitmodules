@@ -328,3 +328,6 @@ url = https://github.com/manateelazycat/lsp-bridge
 [submodule "site-lisp/extensions/frame-local"]
 	path = site-lisp/extensions/frame-local
 	url = https://github.com/sebastiencs/frame-local
+[submodule "site-lisp/extensions/corfu"]
+	path = site-lisp/extensions/corfu
+	url = https://github.com/minad/corfu
