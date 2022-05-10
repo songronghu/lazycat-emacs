@@ -39,6 +39,7 @@
     (require 'init-awesome-tray)
     (require 'init-backup)
     (require 'init-line-number)
+    (require 'init-corfu)
     (require 'init-lsp-bridge)
     (require 'init-auto-save)
     (require 'init-mode)

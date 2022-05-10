@@ -331,3 +331,9 @@ url = https://github.com/manateelazycat/lsp-bridge
 [submodule "site-lisp/extensions/corfu"]
 	path = site-lisp/extensions/corfu
 	url = https://github.com/minad/corfu
+[submodule "site-lisp/extensions/cape"]
+	path = site-lisp/extensions/cape
+	url = https://github.com/minad/cape
+[submodule "site-lisp/extensions/orderless"]
+	path = site-lisp/extensions/orderless
+	url = https://github.com/oantolin/orderless

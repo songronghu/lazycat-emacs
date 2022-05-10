@@ -1,6 +1,6 @@
-;;; init-lsp-bridge.el --- Configuration for lsp-bridge
+;;; init-corfu.el --- Configuration for corfu
 
-;; Filename: init-lsp-bridge.el
+;; Filename: init-corfu.el
 ;; Description: Configuration for display line number
 ;; Author: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
@@ -9,7 +9,7 @@
 ;; Version: 0.1
 ;; Last-Updated: 2018-08-26 02:03:32
 ;;           By: Andy Stewart
-;; URL: http://www.emacswiki.org/emacs/download/init-lsp-bridge.el
+;; URL: http://www.emacswiki.org/emacs/download/init-corfu.el
 ;; Keywords:
 ;; Compatibility: GNU Emacs 27.0.50
 ;;
@@ -44,14 +44,14 @@
 
 ;;; Installation:
 ;;
-;; Put init-lsp-bridge.el to your load-path.
+;; Put init-corfu.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'init-lsp-bridge)
+;; (require 'init-corfu)
 ;;
 ;; No need more.
 
@@ -60,7 +60,7 @@
 ;;
 ;;
 ;; All of the above can customize by:
-;;      M-x customize-group RET init-lsp-bridge RET
+;;      M-x customize-group RET init-corfu RET
 ;;
 
 ;;; Change log:
@@ -80,63 +80,26 @@
 ;;
 
 ;;; Require
-(require 'lsp-bridge)
+(require 'corfu)
+(require 'cape)
 
 ;;; Code:
 
-(global-corfu-mode)
+(add-to-list 'completion-at-point-functions #'cape-file)
+(add-to-list 'completion-at-point-functions #'cape-dabbrev)
+(add-to-list 'completion-at-point-functions #'cape-symbol)
 
-(dolist (hook (list
-               'emacs-lisp-mode-hook
-               ))
-  (add-hook hook (lambda ()
-                   (setq-local corfu-auto t)
-                   )))
+(lazy-load-set-keys
+ '(
+   ("M-h" . corfu-complete)
+   ("M-." . corfu-first)
+   ("M-," . corfu-last)
+   )
+ corfu-map)
 
-(dolist (hook (list
-               'c-mode-hook
-               'c++-mode-hook
-               'python-mode-hook
-               'ruby-mode-hook
-               'rust-mode-hook
-               'elixir-mode-hook
-               'go-mode-hook
-               'haskell-mode-hook
-               'haskell-literate-mode-hook
-               'dart-mode-hook
-               'scala-mode-hook
-               'tuareg-mode-hook
-               'typescript-mode-hook
-               'js2-mode-hook
-               'js-mode-hook
-               ))
-  (add-hook hook (lambda ()
-                   (setq-local corfu-auto nil)
-                   (lsp-bridge-enable)
-                   )))
+(custom-set-faces
+ '(corfu-default ((t (:height 1.3)))))
 
-(defun lsp-bridge-jump ()
-  (interactive)
-  (cond
-   ((eq major-mode 'emacs-lisp-mode)
-    (let ((symb (function-called-at-point)))
-      (when symb
-        (find-function symb))))
-   ((boundp 'lsp-bridge-flag)
-    (lsp-bridge-find-define))
-   (t
-    (require 'dumb-jump)
-    (dumb-jump-go))))
+(provide 'init-corfu)
 
-(defun lsp-bridge-jump-back ()
-  (interactive)
-  (cond
-   ((boundp 'lsp-bridge-flag)
-    (bury-buffer))
-   (t
-    (require 'dumb-jump)
-    (dumb-jump-back))))
-
-(provide 'init-lsp-bridge)
-
-;;; init-lsp-bridge.el ends here
+;;; init-corfu.el ends here
