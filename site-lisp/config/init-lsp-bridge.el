@@ -81,8 +81,15 @@
 
 ;;; Require
 (require 'lsp-bridge)
+(require 'corfu)
+(require 'corfu-info)
 
 ;;; Code:
+
+;; Corfu configuration.
+(global-corfu-mode)
+(setq corfu-auto nil)
+(setq corfu-auto-prefix 0)
 
 (dolist (hook (list
                'c-mode-hook
@@ -94,6 +101,12 @@
                'go-mode-hook
                'haskell-mode-hook
                'haskell-literate-mode-hook
+               'dart-mode-hook
+               'scala-mode-hook
+               'tuareg-mode-hook
+               'typescript-mode-hook
+               'js2-mode-hook
+               'js-mode-hook
                ))
   (add-hook hook (lambda ()
                    (lsp-bridge-enable)
