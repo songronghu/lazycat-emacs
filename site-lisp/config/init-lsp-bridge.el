@@ -131,7 +131,7 @@
       (when symb
         (find-function symb))))
    ((boundp 'lsp-bridge-flag)
-    (lsp-bridge-find-define))
+    (lsp-bridge-find-def))
    (t
     (require 'dumb-jump)
     (dumb-jump-go))))
