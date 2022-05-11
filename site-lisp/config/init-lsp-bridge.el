@@ -130,7 +130,7 @@
     (let ((symb (function-called-at-point)))
       (when symb
         (find-function symb))))
-   ((boundp 'lsp-bridge-flag)
+   (lsp-bridge-mode
     (lsp-bridge-find-def))
    (t
     (require 'dumb-jump)
@@ -139,7 +139,7 @@
 (defun lsp-bridge-jump-back ()
   (interactive)
   (cond
-   ((boundp 'lsp-bridge-flag)
+   (lsp-bridge-mode
     (lsp-bridge-return-from-def))
    (t
     (require 'dumb-jump)
