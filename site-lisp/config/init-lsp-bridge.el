@@ -81,6 +81,8 @@
 
 ;;; Require
 (require 'lsp-bridge)
+(require 'lsp-bridge-orderless)   ;; make lsp-bridge support fuzzy match, optional
+(require 'lsp-bridge-icon)        ;; show icon for completion items, optional
 
 ;;; Code:
 
@@ -112,7 +114,7 @@
                ))
   (add-hook hook (lambda ()
                    (setq-local corfu-auto nil)
-                   (lsp-bridge-enable)
+                   (lsp-bridge-mode 1)
                    )))
 
 (defun lsp-bridge-jump ()
