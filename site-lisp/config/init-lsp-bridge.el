@@ -81,8 +81,8 @@
 
 ;;; Require
 (require 'lsp-bridge)
-(require 'lsp-bridge-orderless)   ;; make lsp-bridge support fuzzy match, optional
-(require 'lsp-bridge-icon)        ;; show icon for completion items, optional
+(require 'lsp-bridge-orderless) ;; make lsp-bridge support fuzzy match, optional
+(require 'lsp-bridge-icon) ;; show icon for completion items, optional
 
 ;;; Code:
 
@@ -119,7 +119,7 @@
                'bibtex-mode-hook
                ))
   (add-hook hook (lambda ()
-                   (setq-local corfu-auto nil)  ;; let lsp-bridge control when popup completion frame
+                   (setq-local corfu-auto nil) ;; let lsp-bridge control when popup completion frame
                    (lsp-bridge-mode 1)
                    )))
 
@@ -140,7 +140,7 @@
   (interactive)
   (cond
    ((boundp 'lsp-bridge-flag)
-    (bury-buffer))
+    (lsp-bridge-return-from-def))
    (t
     (require 'dumb-jump)
     (dumb-jump-back))))
