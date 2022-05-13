@@ -337,3 +337,6 @@ url = https://github.com/manateelazycat/lsp-bridge
 [submodule "site-lisp/extensions/orderless"]
 	path = site-lisp/extensions/orderless
 	url = https://github.com/oantolin/orderless
+[submodule "site-lisp/extensions/corfu-english-helper"]
+	path = site-lisp/extensions/corfu-english-helper
+	url = https://github.com/manateelazycat/corfu-english-helper
