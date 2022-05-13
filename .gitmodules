@@ -6,10 +6,6 @@ url = https://github.com/manateelazycat/lazycat-theme.git
 path = site-lisp/extensions/sdcv
 url = https://github.com/manateelazycat/sdcv.git
 
-[submodule "company-english-helper"]
-path = site-lisp/extensions/company-english-helper
-url = https://github.com/manateelazycat/company-english-helper.git
-
 [submodule "typescript"]
 path = site-lisp/extensions/typescript
 url = https://github.com/ananthakumaran/typescript.el.git
@@ -198,10 +194,6 @@ url = https://github.com/rnkn/olivetti.git
 path = site-lisp/extensions/names
 url = https://github.com/Malabarba/names.git
 
-[submodule "company-tabnine"]
-path = site-lisp/extensions/company-tabnine
-url = https://github.com/TommyX12/company-tabnine.git
-
 [submodule "site-lisp/extensions/unicode-escape"]
 path = site-lisp/extensions/unicode-escape
 url = https://github.com/kosh04/unicode-escape.el.git
@@ -322,21 +314,23 @@ url = https://github.com/rejeep/f.el.git
 path = site-lisp/extensions/lspbridge
 url = https://github.com/manateelazycat/lsp-bridge
 
-[submodule "site-lisp/extensions/company-box"]
-	path = site-lisp/extensions/company-box
-	url = https://github.com/sebastiencs/company-box
 [submodule "site-lisp/extensions/frame-local"]
-	path = site-lisp/extensions/frame-local
-	url = https://github.com/sebastiencs/frame-local
+path = site-lisp/extensions/frame-local
+url = https://github.com/sebastiencs/frame-local
+
 [submodule "site-lisp/extensions/corfu"]
-	path = site-lisp/extensions/corfu
-	url = https://github.com/minad/corfu
+path = site-lisp/extensions/corfu
+url = https://github.com/minad/corfu
+
 [submodule "site-lisp/extensions/cape"]
-	path = site-lisp/extensions/cape
-	url = https://github.com/minad/cape
+path = site-lisp/extensions/cape
+url = https://github.com/minad/cape
+
 [submodule "site-lisp/extensions/orderless"]
-	path = site-lisp/extensions/orderless
-	url = https://github.com/oantolin/orderless
+path = site-lisp/extensions/orderless
+url = https://github.com/oantolin/orderless
+
 [submodule "site-lisp/extensions/corfu-english-helper"]
-	path = site-lisp/extensions/corfu-english-helper
-	url = https://github.com/manateelazycat/corfu-english-helper
+path = site-lisp/extensions/corfu-english-helper
+url = https://github.com/manateelazycat/corfu-english-helper
+
