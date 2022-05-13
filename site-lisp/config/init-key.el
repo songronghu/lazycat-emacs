@@ -597,6 +597,7 @@
 
 (lazy-load-global-keys
  '(
+   ("C-6" . lsp-bridge-lookup-documentation)
    ("C-7" . lsp-bridge-jump-back)
    ("C-8" . lsp-bridge-jump)
    ("C-9" . lsp-bridge-find-references)
