@@ -125,7 +125,10 @@
                (cape-capf-buster
                 (cape-super-capf
                  #'lsp-bridge-capf
-                 #'tabnine-completion-at-point
+                 
+                 ;; 我嫌弃TabNine太占用我的CPU了， 需要的同学注释下面这一行就好了
+                 ;; #'tabnine-completion-at-point
+                 
                  #'cape-file
                  #'cape-dabbrev
                  )
