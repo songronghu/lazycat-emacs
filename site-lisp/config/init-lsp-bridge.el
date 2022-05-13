@@ -95,9 +95,11 @@
                    (setq-local corfu-auto t)
                    )))
 
+;; Enable lsp-bridge.
 (dolist (hook (list
                'c-mode-hook
                'c++-mode-hook
+               'java-mode-hook
                'python-mode-hook
                'ruby-mode-hook
                'rust-mode-hook
@@ -108,8 +110,10 @@
                'dart-mode-hook
                'scala-mode-hook
                'typescript-mode-hook
+               'typescript-tsx-mode-hook
                'js2-mode-hook
                'js-mode-hook
+               'rjsx-mode-hook
                'tuareg-mode-hook
                'latex-mode-hook
                'Tex-latex-mode-hook
@@ -117,9 +121,15 @@
                'context-mode-hook
                'texinfo-mode-hook
                'bibtex-mode-hook
+               'clojure-mode-hook
+               'clojurec-mode-hook
+               'clojurescript-mode-hook
+               'clojurex-mode-hook
+               'sh-mode-hook
+               'web-mode-hook
                ))
   (add-hook hook (lambda ()
-                   (setq-local corfu-auto nil) ;; let lsp-bridge control when popup completion frame
+                   (setq-local corfu-auto nil)  ;; let lsp-bridge control when popup completion frame
                    (lsp-bridge-mode 1)
                    )))
 
