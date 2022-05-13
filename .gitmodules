@@ -334,3 +334,6 @@ url = https://github.com/oantolin/orderless
 path = site-lisp/extensions/corfu-english-helper
 url = https://github.com/manateelazycat/corfu-english-helper
 
+[submodule "site-lisp/extensions/tabnine-capf"]
+	path = site-lisp/extensions/tabnine-capf
+	url = https://github.com/50ways2sayhard/tabnine-capf

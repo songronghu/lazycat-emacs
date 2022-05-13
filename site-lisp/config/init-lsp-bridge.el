@@ -80,22 +80,59 @@
 ;;
 
 ;;; Require
+(require 'corfu)
+(require 'cape)
 (require 'lsp-bridge)
 (require 'lsp-bridge-orderless) ;; make lsp-bridge support fuzzy match, optional
 (require 'lsp-bridge-icon) ;; show icon for completion items, optional
+(require 'tabnine-capf)
 
 ;;; Code:
 
-(global-corfu-mode)
+;; 修改Corfu默认按键
+(lazy-load-set-keys
+ '(
+   ("M-h" . corfu-complete)
+   ("M-." . corfu-first)
+   ("M-," . corfu-last)
+   )
+ corfu-map)
+
+;; 修改Corfu行高，默认太小了
+(custom-set-faces
+ '(corfu-default ((t (:height 1.3)))))
+
+;; 打开日志，开发者才需要
+;; (setq lsp-bridge-enable-log t)
+
+;; 默认用这三个补全后端
+(add-to-list 'completion-at-point-functions #'cape-symbol)
+(add-to-list 'completion-at-point-functions #'cape-file)
+(add-to-list 'completion-at-point-functions #'cape-dabbrev)
 
 (dolist (hook (list
                'emacs-lisp-mode-hook
                ))
   (add-hook hook (lambda ()
-                   (setq-local corfu-auto t)
+                   (setq-local corfu-auto t) ; Elisp文件自动弹出补全
                    )))
 
-;; Enable lsp-bridge.
+;; 通过Cape融合不同的补全后端，比如lsp-bridge、 tabnine、 file、 dabbrev.
+(defun lsp-bridge-mix-multi-backends ()
+  (setq-local completion-category-defaults nil)
+  (setq-local completion-at-point-functions
+              (list
+               (cape-capf-buster
+                (cape-super-capf
+                 #'lsp-bridge-capf
+                 #'tabnine-completion-at-point
+                 #'cape-file
+                 #'cape-dabbrev
+                 )
+                'equal)
+               )))
+
+
 (dolist (hook (list
                'c-mode-hook
                'c++-mode-hook
@@ -129,10 +166,12 @@
                'web-mode-hook
                ))
   (add-hook hook (lambda ()
-                   (setq-local corfu-auto nil)  ;; let lsp-bridge control when popup completion frame
-                   (lsp-bridge-mode 1)
+                   (setq-local corfu-auto nil) ; 编程文件关闭Corfu自动补全， 由lsp-bridge来手动触发补全
+                   (lsp-bridge-mode 1)         ; 开启lsp-bridge
+                   (lsp-bridge-mix-multi-backends) ; 通过Cape融合多个补全后端
                    )))
 
+;; 融合 `lsp-bridge' `find-function' 以及 `dumb-jump' 的智能跳转
 (defun lsp-bridge-jump ()
   (interactive)
   (cond
@@ -154,6 +193,9 @@
    (t
     (require 'dumb-jump)
     (dumb-jump-back))))
+
+;; 全局开启补全
+(global-corfu-mode)
 
 (provide 'init-lsp-bridge)
 
