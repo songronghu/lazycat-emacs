@@ -337,3 +337,6 @@ url = https://github.com/manateelazycat/corfu-english-helper
 [submodule "site-lisp/extensions/tabnine-capf"]
 	path = site-lisp/extensions/tabnine-capf
 	url = https://github.com/50ways2sayhard/tabnine-capf
+[submodule "site-lisp/extensions/markdown-mode"]
+	path = site-lisp/extensions/markdown-mode
+	url = https://github.com/jrblevin/markdown-mode
