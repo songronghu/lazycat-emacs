@@ -142,6 +142,7 @@
                'java-mode-hook
                'python-mode-hook
                'ruby-mode-hook
+               'lua-mode-hook
                'rust-mode-hook
                'elixir-mode-hook
                'go-mode-hook
