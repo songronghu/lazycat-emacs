@@ -136,39 +136,7 @@
                )))
 
 
-(dolist (hook (list
-               'c-mode-hook
-               'c++-mode-hook
-               'java-mode-hook
-               'python-mode-hook
-               'ruby-mode-hook
-               'lua-mode-hook
-               'rust-mode-hook
-               'elixir-mode-hook
-               'go-mode-hook
-               'haskell-mode-hook
-               'haskell-literate-mode-hook
-               'dart-mode-hook
-               'scala-mode-hook
-               'typescript-mode-hook
-               'typescript-tsx-mode-hook
-               'js2-mode-hook
-               'js-mode-hook
-               'rjsx-mode-hook
-               'tuareg-mode-hook
-               'latex-mode-hook
-               'Tex-latex-mode-hook
-               'texmode-hook
-               'context-mode-hook
-               'texinfo-mode-hook
-               'bibtex-mode-hook
-               'clojure-mode-hook
-               'clojurec-mode-hook
-               'clojurescript-mode-hook
-               'clojurex-mode-hook
-               'sh-mode-hook
-               'web-mode-hook
-               ))
+(dolist (hook lsp-bridge-default-mode-hooks)
   (add-hook hook (lambda ()
                    (setq-local corfu-auto nil) ; 编程文件关闭Corfu自动补全， 由lsp-bridge来手动触发补全
                    (lsp-bridge-mode 1)         ; 开启lsp-bridge
