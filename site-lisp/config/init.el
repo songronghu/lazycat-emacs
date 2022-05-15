@@ -81,7 +81,7 @@
 
          (require 'init-sort-tab)
 
-         (server-start)            ;为emacsclient准备使用场景，比如git
+         (server-start t t)            ;为emacsclient准备使用场景，比如git
          ))))
 
 (provide 'init)
