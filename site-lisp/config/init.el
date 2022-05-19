@@ -25,7 +25,8 @@
 
     (require 'init-generic)
     (require 'lazycat-theme)
-    (lazycat-theme-load-with-sunrise)
+    ;; (lazycat-theme-load-with-sunrise)
+    (lazycat-theme-load-dark)
     (when (featurep 'cocoa)
       (require 'cache-path-from-shell))
     (require 'lazy-load)
