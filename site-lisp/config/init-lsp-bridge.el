@@ -81,10 +81,13 @@
 
 ;;; Require
 (require 'corfu)
+(require 'corfu-info)
+(require 'corfu-history)
 (require 'cape)
 (require 'lsp-bridge)
 (require 'lsp-bridge-orderless) ;; make lsp-bridge support fuzzy match, optional
 (require 'lsp-bridge-icon) ;; show icon for completion items, optional
+(require 'lsp-bridge-jdtls)
 (require 'tabnine-capf)
 
 ;;; Code:
@@ -168,6 +171,7 @@
 
 ;; 全局开启补全
 (global-corfu-mode)
+(corfu-history-mode t)
 
 (provide 'init-lsp-bridge)
 
