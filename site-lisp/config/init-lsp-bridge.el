@@ -95,7 +95,7 @@
 ;; 修改Corfu默认按键
 (lazy-load-set-keys
  '(
-   ("M-h" . corfu-complete)
+   ("M-h" . corfu-insert)
    ("M-." . corfu-first)
    ("M-," . corfu-last)
    )
@@ -128,10 +128,10 @@
                (cape-capf-buster
                 (cape-super-capf
                  #'lsp-bridge-capf
-                 
+
                  ;; 我嫌弃TabNine太占用我的CPU了， 需要的同学注释下面这一行就好了
                  ;; #'tabnine-completion-at-point
-                 
+
                  #'cape-file
                  #'cape-dabbrev
                  )
