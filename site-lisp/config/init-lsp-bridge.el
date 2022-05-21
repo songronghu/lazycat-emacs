@@ -96,6 +96,7 @@
 (lazy-load-set-keys
  '(
    ("M-h" . corfu-insert)
+   ("M-H" . lsp-bridge-insert-common-prefix)
    ("M-." . corfu-first)
    ("M-," . corfu-last)
    )
@@ -132,8 +133,8 @@
                  ;; 我嫌弃TabNine太占用我的CPU了， 需要的同学注释下面这一行就好了
                  ;; #'tabnine-completion-at-point
 
-                 #'cape-file
-                 #'cape-dabbrev
+                 ;; #'cape-file
+                 ;; #'cape-dabbrev
                  )
                 'equal)
                )))
