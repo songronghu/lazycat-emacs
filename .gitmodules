@@ -340,3 +340,9 @@ url = https://github.com/manateelazycat/corfu-english-helper
 [submodule "site-lisp/extensions/markdown-mode"]
 	path = site-lisp/extensions/markdown-mode
 	url = https://github.com/jrblevin/markdown-mode
+[submodule "site-lisp/extensions/flycheck"]
+	path = site-lisp/extensions/flycheck
+	url = https://github.com/flycheck/flycheck
+[submodule "site-lisp/extensions/gotest"]
+	path = site-lisp/extensions/gotest
+	url = https://github.com/nlamirault/gotest.el
