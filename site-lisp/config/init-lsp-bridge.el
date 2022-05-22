@@ -80,31 +80,29 @@
 ;;
 
 ;;; Require
-(require 'corfu)
-(require 'corfu-info)
-(require 'corfu-history)
+(require 'lsp-bridge-fw)
+(require 'lsp-bridge-fw-history)
 (require 'cape)
 (require 'lsp-bridge)
 (require 'lsp-bridge-orderless) ;; make lsp-bridge support fuzzy match, optional
-(require 'lsp-bridge-icon) ;; show icon for completion items, optional
 (require 'lsp-bridge-jdtls)
 (require 'tabnine-capf)
 
 ;;; Code:
 
-;; 修改Corfu默认按键
+;; 修改Lsp-Bridge-Fw默认按键
 (lazy-load-set-keys
  '(
-   ("M-h" . corfu-insert)
+   ("M-h" . lsp-bridge-fw-insert)
    ("M-H" . lsp-bridge-insert-common-prefix)
-   ("M-." . corfu-first)
-   ("M-," . corfu-last)
+   ("M-." . lsp-bridge-fw-first)
+   ("M-," . lsp-bridge-fw-last)
    )
- corfu-map)
+ lsp-bridge-fw-map)
 
-;; 修改Corfu行高，默认太小了
+;; 修改Lsp-Bridge-Fw行高，默认太小了
 (custom-set-faces
- '(corfu-default ((t (:height 1.3)))))
+ '(lsp-bridge-fw-default ((t (:height 1.3)))))
 
 ;; 打开日志，开发者才需要
 ;; (setq lsp-bridge-enable-log t)
@@ -118,7 +116,7 @@
                'emacs-lisp-mode-hook
                ))
   (add-hook hook (lambda ()
-                   (setq-local corfu-auto t) ; Elisp文件自动弹出补全
+                   (setq-local lsp-bridge-fw-auto t) ; Elisp文件自动弹出补全
                    )))
 
 ;; 通过Cape融合不同的补全后端，比如lsp-bridge、 tabnine、 file、 dabbrev.
@@ -133,8 +131,8 @@
                  ;; 我嫌弃TabNine太占用我的CPU了， 需要的同学注释下面这一行就好了
                  ;; #'tabnine-completion-at-point
 
-                 #'cape-file
-                 #'cape-dabbrev
+                 ;; #'cape-file
+                 ;; #'cape-dabbrev
                  )
                 'equal)
                )))
@@ -142,7 +140,7 @@
 
 (dolist (hook lsp-bridge-default-mode-hooks)
   (add-hook hook (lambda ()
-                   (setq-local corfu-auto nil) ; 编程文件关闭Corfu自动补全， 由lsp-bridge来手动触发补全
+                   (setq-local lsp-bridge-fw-auto nil) ; 编程文件关闭Lsp-Bridge-Fw自动补全， 由lsp-bridge来手动触发补全
                    (lsp-bridge-mode 1)         ; 开启lsp-bridge
                    (lsp-bridge-mix-multi-backends) ; 通过Cape融合多个补全后端
                    )))
@@ -171,8 +169,8 @@
     (dumb-jump-back))))
 
 ;; 全局开启补全
-(global-corfu-mode)
-(corfu-history-mode t)
+(global-lsp-bridge-fw-mode)
+(lsp-bridge-fw-history-mode t)
 
 (provide 'init-lsp-bridge)
 
