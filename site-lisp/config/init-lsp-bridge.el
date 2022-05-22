@@ -100,10 +100,6 @@
    )
  lsp-bridge-ui-map)
 
-;; 修改Lsp-Bridge-Ui行高，默认太小了
-(custom-set-faces
- '(lsp-bridge-ui-default ((t (:height 1.3)))))
-
 ;; 打开日志，开发者才需要
 ;; (setq lsp-bridge-enable-log t)
 
@@ -141,7 +137,7 @@
 (dolist (hook lsp-bridge-default-mode-hooks)
   (add-hook hook (lambda ()
                    (setq-local lsp-bridge-ui-auto nil) ; 编程文件关闭Lsp-Bridge-Ui自动补全， 由lsp-bridge来手动触发补全
-                   (lsp-bridge-mode 1)         ; 开启lsp-bridge
+                   (lsp-bridge-mode 1)             ; 开启lsp-bridge
                    (lsp-bridge-mix-multi-backends) ; 通过Cape融合多个补全后端
                    )))
 
