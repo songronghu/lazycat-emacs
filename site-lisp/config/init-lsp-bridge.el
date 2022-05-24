@@ -101,6 +101,9 @@
    )
  corfu-map)
 
+;; 让corfu适应高分屏
+(when (> (frame-pixel-width) 3000) (custom-set-faces '(corfu-default ((t (:height 1.3))))))
+
 ;; 打开日志，开发者才需要
 ;; (setq lsp-bridge-enable-log t)
 
