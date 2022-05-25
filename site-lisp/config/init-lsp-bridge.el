@@ -84,7 +84,7 @@
 (require 'corfu-history)
 (require 'cape)
 (require 'lsp-bridge)
-(require 'lsp-bridge-icon) 
+(require 'lsp-bridge-icon)
 (require 'lsp-bridge-orderless)
 (require 'lsp-bridge-jdtls)
 (require 'tabnine-capf)
@@ -98,6 +98,8 @@
    ("M-H" . lsp-bridge-insert-common-prefix)
    ("M-." . corfu-first)
    ("M-," . corfu-last)
+   ("M-j" . corfu-next)
+   ("M-k" . corfu-previous)
    )
  corfu-map)
 
@@ -141,7 +143,7 @@
 (dolist (hook lsp-bridge-default-mode-hooks)
   (add-hook hook (lambda ()
                    (setq-local corfu-auto nil) ; 编程文件关闭Corfu自动补全， 由lsp-bridge来手动触发补全
-                   (lsp-bridge-mode 1)             ; 开启lsp-bridge
+                   (lsp-bridge-mode 1)         ; 开启lsp-bridge
                    (lsp-bridge-mix-multi-backends) ; 通过Cape融合多个补全后端
                    )))
 
