@@ -92,8 +92,6 @@
  '(
    ("c" . kill-this-buffer)                         ;关闭当前buffer
    ("C" . kill-current-mode-buffers-except-current) ;关闭所有后台标签
-   ("m" . awesome-tab-forward-tab)                       ;向右一个标签
-   ("n" . awesome-tab-backward-tab)                      ;向左一个标签
    ("<" . end-of-buffer)                            ;最下面
    (">" . beginning-of-buffer)                      ;最上面
    )

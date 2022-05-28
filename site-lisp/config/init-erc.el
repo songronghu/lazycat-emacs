@@ -79,7 +79,6 @@
 (require 'erc-nick-notify)
 (require 'init-doi)
 (require 'init-irc)
-(require 'init-git)
 (require 'paste2)
 (require 'doi-extension)
 
@@ -104,7 +103,6 @@
 (setq erc-truncate-mode t)               ;开启截断模式
 (setq erc-enable-logging nil)            ;禁止日志
 (setq erc-log-mode nil)                  ;关闭日志模式
-(setq erc-header-line-uses-awesome-tab-p t)   ;默认开启 Awesome-Tab
 (setq erc-nick-notify-delay '(0 1 0))    ;设置延迟为1分钟
 (setq erc-nickserv-passwords             ;设置自动登录时需要的密码
       '((freenode (((eval erc-nick) . (eval erc-password))))))

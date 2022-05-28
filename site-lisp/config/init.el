@@ -38,7 +38,6 @@
 
     (require 'init-highlight-parentheses)
     (require 'init-awesome-tray)
-    (require 'init-backup)
     (require 'init-line-number)
     (require 'init-lsp-bridge)
     (require 'init-auto-save)
@@ -63,13 +62,11 @@
          (require 'init-tree-sitter)
          (require 'init-eldoc)
          (require 'init-yasnippet)
-         ;; (require 'init-company-mode)
          (require 'init-smooth-scrolling)
          (require 'init-cursor-chg)
          (require 'init-winpoint)
          (require 'init-info)
          (require 'init-c)
-         ;; (require 'init-flycheck)
          (require 'init-org)
          (require 'init-idle)
 
