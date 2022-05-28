@@ -358,14 +358,6 @@
    )
  isearch-mode-map
  )
-;;; ### LSP Bridge ###
-(lazy-load-global-keys
- '(
-   ("M-s-j" . lsp-bridge-jump-to-next-diagnostic)      ;显示下一个错误
-   ("M-s-k" . lsp-bridge-jump-to-prev-diagnostic)      ;显示上一个错误
-   )
- "init-lsp-bridge"
- )
 ;;; ### kill-ring-search ###
 ;;; --- 删除环的递增式搜索
 (lazy-load-global-keys
@@ -601,6 +593,8 @@
    ("C-8" . lsp-bridge-jump)
    ("C-9" . lsp-bridge-find-references)
    ("C-0" . lsp-bridge-rename)
+   ("M-s-j" . lsp-bridge-jump-to-next-diagnostic) ;显示下一个错误
+   ("M-s-k" . lsp-bridge-jump-to-prev-diagnostic) ;显示上一个错误
    )
  "init-lsp-bridge")
 

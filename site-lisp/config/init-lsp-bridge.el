@@ -87,67 +87,32 @@
 
 ;;; Code:
 
-(setq lsp-bridge-completion-provider 'corfu)
+(require 'corfu)
+(require 'corfu-history)
+(require 'cape)
 
-(cl-case lsp-bridge-completion-provider
-  (company
-   (require 'company)
-   (require 'company-box)
+;; 默认用这三个补全后端
+(add-to-list 'completion-at-point-functions #'cape-symbol)
+(add-to-list 'completion-at-point-functions #'cape-file)
+(add-to-list 'completion-at-point-functions #'cape-dabbrev)
 
-   ;; 修改Company默认按键
-   (lazy-load-unset-keys
-    '("TAB")
-    company-mode-map)                   ;unset default keys
-
-   (lazy-load-unset-keys
-    '("M-p" "M-n" "C-m"
-      "M-1" "M-2" "M-3" "M-4" "M-5" "M-6" "M-7" "M-8" "M-9" "M-0")
-    company-active-map)
-
-   (lazy-load-set-keys
-    '(
-      ("TAB" . company-complete-selection)
-      ("M-h" . company-complete-selection)
-      ("M-H" . company-complete-common)
-      ("M-w" . company-show-location)
-      ("M-s" . company-search-candidates)
-      ("M-S" . company-filter-candidates)
-      ("M-n" . company-select-next)
-      ("M-p" . company-select-previous)
-      ("M-i" . yas-expand)
-      )
-    company-active-map)
-
-   ;; (when (> (frame-pixel-width) 3000) (custom-set-faces '(company-box-candidate ((t (:height 1.3))))))
+;; 修改Corfu默认按键
+(lazy-load-set-keys
+ '(
+   ("M-h" . corfu-insert)
+   ("M-H" . lsp-bridge-insert-common-prefix)
+   ("M-." . corfu-first)
+   ("M-," . corfu-last)
+   ("M-j" . corfu-next)
+   ("M-k" . corfu-previous)
    )
-  (corfu
-   (require 'corfu)
-   (require 'corfu-history)
-   (require 'cape)
+ corfu-map)
 
-   ;; 默认用这三个补全后端
-   (add-to-list 'completion-at-point-functions #'cape-symbol)
-   (add-to-list 'completion-at-point-functions #'cape-file)
-   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+;; 让Corfu适应高分屏
+(when (> (frame-pixel-width) 3000) (custom-set-faces '(corfu-default ((t (:height 1.3))))))
 
-   ;; 修改Corfu默认按键
-   (lazy-load-set-keys
-    '(
-      ("M-h" . corfu-insert)
-      ("M-H" . lsp-bridge-insert-common-prefix)
-      ("M-." . corfu-first)
-      ("M-," . corfu-last)
-      ("M-j" . corfu-next)
-      ("M-k" . corfu-previous)
-      )
-    corfu-map)
-
-   ;; 让Corfu适应高分屏
-   (when (> (frame-pixel-width) 3000) (custom-set-faces '(corfu-default ((t (:height 1.3))))))
-
-   ;; 开启 history mode
-   (corfu-history-mode t)
-   ))
+;; 开启 history mode
+(corfu-history-mode t)
 
 (global-lsp-bridge-mode)
 
