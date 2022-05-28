@@ -80,72 +80,76 @@
 ;;
 
 ;;; Require
-(require 'corfu)
-(require 'corfu-history)
-(require 'cape)
 (require 'lsp-bridge)
 (require 'lsp-bridge-icon)
 (require 'lsp-bridge-orderless)
 (require 'lsp-bridge-jdtls)
-(require 'tabnine-capf)
 
 ;;; Code:
 
-;; 修改Corfu默认按键
-(lazy-load-set-keys
- '(
-   ("M-h" . corfu-insert)
-   ("M-H" . lsp-bridge-insert-common-prefix)
-   ("M-." . corfu-first)
-   ("M-," . corfu-last)
-   ("M-j" . corfu-next)
-   ("M-k" . corfu-previous)
+(setq lsp-bridge-completion-provider 'corfu)
+
+(cl-case lsp-bridge-completion-provider
+  (company
+   (require 'company)
+   (require 'company-box)
+
+   ;; 修改Company默认按键
+   (lazy-load-unset-keys
+    '("TAB")
+    company-mode-map)                   ;unset default keys
+
+   (lazy-load-unset-keys
+    '("M-p" "M-n" "C-m"
+      "M-1" "M-2" "M-3" "M-4" "M-5" "M-6" "M-7" "M-8" "M-9" "M-0")
+    company-active-map)
+
+   (lazy-load-set-keys
+    '(
+      ("TAB" . company-complete-selection)
+      ("M-h" . company-complete-selection)
+      ("M-H" . company-complete-common)
+      ("M-w" . company-show-location)
+      ("M-s" . company-search-candidates)
+      ("M-S" . company-filter-candidates)
+      ("M-n" . company-select-next)
+      ("M-p" . company-select-previous)
+      ("M-i" . yas-expand)
+      )
+    company-active-map)
+
+   ;; (when (> (frame-pixel-width) 3000) (custom-set-faces '(company-box-candidate ((t (:height 1.3))))))
    )
- corfu-map)
+  (corfu
+   (require 'corfu)
+   (require 'corfu-history)
+   (require 'cape)
 
-;; 让corfu适应高分屏
-(when (> (frame-pixel-width) 3000) (custom-set-faces '(corfu-default ((t (:height 1.3))))))
+   ;; 默认用这三个补全后端
+   (add-to-list 'completion-at-point-functions #'cape-symbol)
+   (add-to-list 'completion-at-point-functions #'cape-file)
+   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
 
-;; 打开日志，开发者才需要
-;; (setq lsp-bridge-enable-log t)
+   ;; 修改Corfu默认按键
+   (lazy-load-set-keys
+    '(
+      ("M-h" . corfu-insert)
+      ("M-H" . lsp-bridge-insert-common-prefix)
+      ("M-." . corfu-first)
+      ("M-," . corfu-last)
+      ("M-j" . corfu-next)
+      ("M-k" . corfu-previous)
+      )
+    corfu-map)
 
-;; 默认用这三个补全后端
-(add-to-list 'completion-at-point-functions #'cape-symbol)
-(add-to-list 'completion-at-point-functions #'cape-file)
-(add-to-list 'completion-at-point-functions #'cape-dabbrev)
+   ;; 让Corfu适应高分屏
+   (when (> (frame-pixel-width) 3000) (custom-set-faces '(corfu-default ((t (:height 1.3))))))
 
-(dolist (hook (list
-               'emacs-lisp-mode-hook
-               ))
-  (add-hook hook (lambda ()
-                   (setq-local corfu-auto t) ; Elisp文件自动弹出补全
-                   )))
+   ;; 开启 history mode
+   (corfu-history-mode t)
+   ))
 
-;; 通过Cape融合不同的补全后端，比如lsp-bridge、 tabnine、 file、 dabbrev.
-(defun lsp-bridge-mix-multi-backends ()
-  (setq-local completion-category-defaults nil)
-  (setq-local completion-at-point-functions
-              (list
-               (cape-capf-buster
-                (cape-super-capf
-                 #'lsp-bridge-capf
-
-                 ;; 我嫌弃TabNine太占用我的CPU了， 需要的同学注释下面这一行就好了
-                 ;; #'tabnine-completion-at-point
-
-                 ;; #'cape-file
-                 ;; #'cape-dabbrev
-                 )
-                'equal)
-               )))
-
-
-(dolist (hook lsp-bridge-default-mode-hooks)
-  (add-hook hook (lambda ()
-                   (setq-local corfu-auto nil) ; 编程文件关闭Corfu自动补全， 由lsp-bridge来手动触发补全
-                   (lsp-bridge-mode 1)         ; 开启lsp-bridge
-                   (lsp-bridge-mix-multi-backends) ; 通过Cape融合多个补全后端
-                   )))
+(global-lsp-bridge-mode)
 
 ;; 融合 `lsp-bridge' `find-function' 以及 `dumb-jump' 的智能跳转
 (defun lsp-bridge-jump ()
@@ -170,9 +174,33 @@
     (require 'dumb-jump)
     (dumb-jump-back))))
 
-;; 全局开启补全
-(global-corfu-mode)
-(corfu-history-mode t)
+;; 打开日志，开发者才需要
+;; (setq lsp-bridge-enable-log t)
+
+;; (require 'tabnine-capf)
+
+;; 通过Cape融合不同的补全后端，比如lsp-bridge、 tabnine、 file、 dabbrev.
+;; (defun lsp-bridge-mix-multi-backends ()
+;;   (setq-local completion-category-defaults nil)
+;;   (setq-local completion-at-point-functions
+;;               (list
+;;                (cape-capf-buster
+;;                 (cape-super-capf
+;;                  #'lsp-bridge-capf
+
+;;                  ;; 我嫌弃TabNine太占用我的CPU了， 需要的同学注释下面这一行就好了
+;;                  ;; #'tabnine-completion-at-point
+
+;;                  ;; #'cape-file
+;;                  ;; #'cape-dabbrev
+;;                  )
+;;                 'equal)
+;;                )))
+
+;; (dolist (hook lsp-bridge-default-mode-hooks)
+;;   (add-hook hook (lambda ()
+;;                    (lsp-bridge-mix-multi-backends) ; 通过Cape融合多个补全后端
+;;                    )))
 
 (provide 'init-lsp-bridge)
 

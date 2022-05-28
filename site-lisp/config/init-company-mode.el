@@ -143,10 +143,10 @@
               ;; (add-hook 'python-mode-hook #'lsp-deferred)
 
               ;; Config for company mode.
-              (setq company-minimum-prefix-length 0) 
+              (setq company-minimum-prefix-length 0)
               (setq company-show-numbers t)
               (setq company-require-match nil)
-              (setq company-idle-delay 0.2)   
+              (setq company-idle-delay 0.2)
 
               ;; Don't downcase the returned candidates.
               (setq company-dabbrev-downcase nil)
@@ -188,29 +188,6 @@
 
               ;; Enable global.
               (global-company-mode)
-
-              ;; Key settings.
-              (lazy-load-unset-keys
-               '("TAB")
-               company-mode-map)        ;unset default keys
-
-              (lazy-load-unset-keys
-               '("M-p" "M-n" "C-m")
-               company-active-map)
-
-              (lazy-load-set-keys
-               '(
-                 ("TAB" . company-complete-selection)
-                 ("M-h" . company-complete-selection)
-                 ("M-H" . company-complete-common)
-                 ("M-w" . company-show-location)
-                 ("M-s" . company-search-candidates)
-                 ("M-S" . company-filter-candidates)
-                 ("M-n" . company-select-next)
-                 ("M-p" . company-select-previous)
-                 ("M-i" . yas-expand)
-                 )
-               company-active-map)
               ))
 
 ;; The free version of TabNine is good enough,

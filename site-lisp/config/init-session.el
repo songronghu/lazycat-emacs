@@ -122,7 +122,6 @@
     (make-directory "~/.emacs.d/" t)
     (desktop-save "~/.emacs.d/")
     ;; Exit emacs.
-    (tabnine-capf-kill-process)
     (server-force-stop)
     (kill-emacs)))
 

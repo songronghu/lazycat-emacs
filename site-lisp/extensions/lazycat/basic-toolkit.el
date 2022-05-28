@@ -522,8 +522,8 @@ Otherwise return nil."
     (save-excursion
       (dolist (buf (buffer-list))
         (set-buffer buf)
-        (if (and (string-prefix-p "*" (buffer-name)) (string-suffix-p "*" (buffer-name)))
-            (kill-buffer buf))
+        (when (and (string-prefix-p "*" (buffer-name)) (string-suffix-p "*" (buffer-name)))
+          (kill-buffer buf))
         ))))
 
 (defun join-lines (n)
