@@ -358,14 +358,13 @@
    )
  isearch-mode-map
  )
-;;; ### Flycheck ###
-;;; --- 及时拼写检查
+;;; ### LSP Bridge ###
 (lazy-load-global-keys
  '(
-   ("M-s-j" . flycheck-next-error)      ;显示下一个错误
-   ("M-s-k" . flycheck-previous-error)  ;显示上一个错误
+   ("M-s-j" . lsp-bridge-jump-to-next-diagnostic)      ;显示下一个错误
+   ("M-s-k" . lsp-bridge-jump-to-prev-diagnostic)      ;显示上一个错误
    )
- "init-flycheck"
+ "init-lsp-bridge"
  )
 ;;; ### kill-ring-search ###
 ;;; --- 删除环的递增式搜索

@@ -69,7 +69,7 @@
          (require 'init-winpoint)
          (require 'init-info)
          (require 'init-c)
-         (require 'init-flycheck)
+         ;; (require 'init-flycheck)
          (require 'init-org)
          (require 'init-idle)
 
