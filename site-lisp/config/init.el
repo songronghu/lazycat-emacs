@@ -16,7 +16,7 @@
   (defvar lazycat-emacs-config-dir (concat lazycat-emacs-root-dir "/config"))
   (defvar lazycat-emacs-extension-dir (concat lazycat-emacs-root-dir "/extensions"))
 
-  (with-temp-message ""                 ;抹掉插件启动的输出
+  (with-temp-message ""              ;抹掉插件启动的输出
     ;;(require 'benchmark-init-modes)
     ;;(require 'benchmark-init)
     ;;(benchmark-init/activate)
@@ -69,6 +69,7 @@
          (require 'init-c)
          (require 'init-org)
          (require 'init-idle)
+         (require 'init-markdown-mode)
 
          (require 'init-eaf)
          (require 'init-proxy)
@@ -79,7 +80,7 @@
 
          (require 'init-sort-tab)
 
-         (server-start t t)            ;为emacsclient准备使用场景，比如git
+         (server-start t t)        ;为emacsclient准备使用场景，比如git
          ))))
 
 (provide 'init)

@@ -81,6 +81,7 @@
 
 ;;; Require
 (require 'markdown-mode)
+(require 'olivetti)
 
 ;;; Code:
 
@@ -89,7 +90,6 @@
                ))
   (add-hook hook
             #'(lambda ()
-                (require 'olivetti)
                 (olivetti-mode 1)
                 (olivetti-set-width 120)
                 )))
