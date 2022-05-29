@@ -106,10 +106,6 @@ url = https://github.com/manateelazycat/thing-edit.git
 path = site-lisp/extensions/lsp-mode
 url = https://github.com/emacs-lsp/lsp-mode.git
 
-[submodule "company-lsp"]
-path = site-lisp/extensions/company-lsp
-url = https://github.com/tigersoldier/company-lsp.git
-
 [submodule "lazy-search"]
 path = site-lisp/extensions/lazy-search
 url = https://github.com/manateelazycat/lazy-search.git
@@ -337,8 +333,4 @@ url = https://github.com/nlamirault/gotest.el
 [submodule "site-lisp/extensions/interaction-log"]
 path = site-lisp/extensions/interaction-log
 url = https://github.com/michael-heerdegen/interaction-log.el
-
-[submodule "site-lisp/extensions/company-box"]
-path = site-lisp/extensions/company-box
-url = https://github.com/sebastiencs/company-box
 
