@@ -116,6 +116,8 @@
 
 (global-lsp-bridge-mode)
 
+(global-corfu-mode)
+
 ;; 融合 `lsp-bridge' `find-function' 以及 `dumb-jump' 的智能跳转
 (defun lsp-bridge-jump ()
   (interactive)
