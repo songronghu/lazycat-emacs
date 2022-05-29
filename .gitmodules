@@ -70,17 +70,9 @@ url = https://github.com/gongo/json-reformat.git
 path = site-lisp/extensions/restclient.el
 url = https://github.com/pashky/restclient.el.git
 
-[submodule "flycheck-swift"]
-path = site-lisp/extensions/flycheck-swift
-url = http://github.com/swift-emacs/flycheck-swift.git
-
 [submodule "rcodetools"]
 path = site-lisp/extensions/rcodetools
 url = http://github.com/rcodetools/rcodetools
-
-[submodule "flycheck-pycheckers"]
-path = site-lisp/extensions/flycheck-pycheckers
-url = http://github.com/msherry/flycheck-pycheckers
 
 [submodule "swift-mode"]
 path = site-lisp/extensions/swift-mode
@@ -335,20 +327,22 @@ path = site-lisp/extensions/corfu-english-helper
 url = https://github.com/manateelazycat/corfu-english-helper
 
 [submodule "site-lisp/extensions/tabnine-capf"]
-	path = site-lisp/extensions/tabnine-capf
-	url = https://github.com/50ways2sayhard/tabnine-capf
+path = site-lisp/extensions/tabnine-capf
+url = https://github.com/50ways2sayhard/tabnine-capf
+
 [submodule "site-lisp/extensions/markdown-mode"]
-	path = site-lisp/extensions/markdown-mode
-	url = https://github.com/jrblevin/markdown-mode
-[submodule "site-lisp/extensions/flycheck"]
-	path = site-lisp/extensions/flycheck
-	url = https://github.com/flycheck/flycheck
+path = site-lisp/extensions/markdown-mode
+url = https://github.com/jrblevin/markdown-mode
+
 [submodule "site-lisp/extensions/gotest"]
-	path = site-lisp/extensions/gotest
-	url = https://github.com/nlamirault/gotest.el
+path = site-lisp/extensions/gotest
+url = https://github.com/nlamirault/gotest.el
+
 [submodule "site-lisp/extensions/interaction-log"]
-	path = site-lisp/extensions/interaction-log
-	url = https://github.com/michael-heerdegen/interaction-log.el
+path = site-lisp/extensions/interaction-log
+url = https://github.com/michael-heerdegen/interaction-log.el
+
 [submodule "site-lisp/extensions/company-box"]
-	path = site-lisp/extensions/company-box
-	url = https://github.com/sebastiencs/company-box
+path = site-lisp/extensions/company-box
+url = https://github.com/sebastiencs/company-box
+
