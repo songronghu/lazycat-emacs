@@ -26,10 +26,6 @@ url = https://github.com/fxbois/web-mode
 path = site-lisp/extensions/iedit
 url = https://github.com/victorhge/iedit
 
-[submodule "tide"]
-path = site-lisp/extensions/tide
-url = https://github.com/ananthakumaran/tide.git
-
 [submodule "js2-refactor"]
 path = site-lisp/extensions/js2-refactor
 url = https://github.com/magnars/js2-refactor.el.git
