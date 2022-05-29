@@ -230,10 +230,6 @@ url = https://github.com/manateelazycat/one-key
 path = site-lisp/extensions/tree-sitter
 url = https://github.com/ubolonton/emacs-tree-sitter
 
-[submodule "site-lisp/extensions/netease-cloud-music"]
-path = site-lisp/extensions/netease-cloud-music
-url = https://github.com/SpringHan/netease-cloud-music.el.git
-
 [submodule "site-lisp/extensions/request"]
 path = site-lisp/extensions/request
 url = https://github.com/tkf/emacs-request.git
