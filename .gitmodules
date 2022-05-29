@@ -94,10 +94,6 @@ url = https://github.com/manateelazycat/auto-save.git
 path = site-lisp/extensions/thing-edit
 url = https://github.com/manateelazycat/thing-edit.git
 
-[submodule "lsp-mode"]
-path = site-lisp/extensions/lsp-mode
-url = https://github.com/emacs-lsp/lsp-mode.git
-
 [submodule "lazy-search"]
 path = site-lisp/extensions/lazy-search
 url = https://github.com/manateelazycat/lazy-search.git
@@ -213,10 +209,6 @@ url = https://github.com/nflath/c-eldoc
 [submodule "site-lisp/extensions/dash"]
 path = site-lisp/extensions/dash
 url = https://github.com/magnars/dash.el.git
-
-[submodule "site-lisp/extensions/lsp-pyright"]
-path = site-lisp/extensions/lsp-pyright
-url = https://github.com/emacs-lsp/lsp-pyright.git
 
 [submodule "site-lisp/extensions/one-key"]
 path = site-lisp/extensions/one-key
