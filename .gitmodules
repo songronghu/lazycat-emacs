@@ -134,10 +134,6 @@ url = https://github.com/manateelazycat/lazy-load.git
 path = site-lisp/extensions/transient
 url = https://github.com/magit/transient.git
 
-[submodule "site-lisp/extensions/with-editor"]
-path = site-lisp/extensions/with-editor
-url = https://github.com/magit/with-editor.git
-
 [submodule "symbol-overlay"]
 path = site-lisp/extensions/symbol-overlay
 url = https://github.com/wolray/symbol-overlay.git
