@@ -314,10 +314,6 @@ url = https://github.com/50ways2sayhard/tabnine-capf
 path = site-lisp/extensions/markdown-mode
 url = https://github.com/jrblevin/markdown-mode
 
-[submodule "site-lisp/extensions/gotest"]
-path = site-lisp/extensions/gotest
-url = https://github.com/nlamirault/gotest.el
-
 [submodule "site-lisp/extensions/interaction-log"]
 path = site-lisp/extensions/interaction-log
 url = https://github.com/michael-heerdegen/interaction-log.el
