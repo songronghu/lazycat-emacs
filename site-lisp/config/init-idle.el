@@ -104,7 +104,6 @@ from tradition chinese to simple chinese" t)
 (setq global-mark-ring-max 1024)        ;设置最大的全局标记容量
 (global-hl-line-mode 1)                 ;高亮当前行
 (setq isearch-allow-scroll t)           ;isearch搜索时是可以滚动屏幕的
-(setq one-key-popup-window nil)         ;禁止自动弹出窗口
 (setq enable-recursive-minibuffers t)   ;minibuffer 递归调用命令
 (setq history-delete-duplicates t)      ;删除minibuffer的重复历史
 (setq minibuffer-message-timeout 1)     ;显示消息超时的时间
