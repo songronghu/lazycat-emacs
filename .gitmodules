@@ -14,10 +14,6 @@ url = https://github.com/ananthakumaran/typescript.el.git
 path = site-lisp/extensions/watch-other-window
 url = https://github.com/manateelazycat/watch-other-window.git
 
-[submodule "site-lisp/extensions/magit"]
-path = site-lisp/extensions/magit
-url = https://github.com/magit/magit
-
 [submodule "web-mode"]
 path = site-lisp/extensions/web-mode
 url = https://github.com/fxbois/web-mode
@@ -213,10 +209,6 @@ url = https://github.com/DogLooksGood/emacs-rime.git
 [submodule "site-lisp/extensions/valign"]
 path = site-lisp/extensions/valign
 url = https://github.com/casouri/valign.git
-
-[submodule "site-lisp/extensions/magit-popup"]
-path = site-lisp/extensions/magit-popup
-url = https://github.com/magit/magit-popup.git
 
 [submodule "site-lisp/extensions/nim-mode"]
 path = site-lisp/extensions/nim-mode
