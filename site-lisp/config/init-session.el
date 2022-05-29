@@ -122,7 +122,6 @@
     (make-directory "~/.emacs.d/" t)
     (desktop-save "~/.emacs.d/")
     ;; Exit emacs.
-    (server-force-stop)
     (kill-emacs)))
 
 (provide 'init-session)
