@@ -186,10 +186,6 @@ url = https://github.com/bbatsov/projectile.git
 path = site-lisp/extensions/benchmark-init
 url = https://github.com/dholm/benchmark-init-el
 
-[submodule "xr"]
-path = site-lisp/extensions/xr
-url = https://github.com/mattiase/xr.git
-
 [submodule "emacs-rime"]
 path = site-lisp/extensions/emacs-rime
 url = https://github.com/DogLooksGood/emacs-rime.git
