@@ -22,10 +22,6 @@ url = https://github.com/fxbois/web-mode
 path = site-lisp/extensions/iedit
 url = https://github.com/victorhge/iedit
 
-[submodule "js2-refactor"]
-path = site-lisp/extensions/js2-refactor
-url = https://github.com/magnars/js2-refactor.el.git
-
 [submodule "cache-path-from-shell"]
 path = site-lisp/extensions/cache-path-from-shell
 url = https://github.com/manateelazycat/cache-path-from-shell.git
