@@ -172,6 +172,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.nims$" . nim-mode)
                     ("\\.nimble$" . nim-mode)
                     ("\\.nim.cfg$" . nim-mode)
+                    ("\\.exs$" . elixir-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -204,6 +205,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'llvm-mode "llvm-mode")
 (autoload 'nim-mode "init-nim")
 (autoload 'typescript-mode "typescript-mode")
+(autoload 'elixir-mode "elixir-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行

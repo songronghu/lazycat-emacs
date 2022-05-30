@@ -128,7 +128,8 @@
                'conf-toml-mode-hook
                'nxml-mode-hook
                'nim-mode-hook
-               'typescript-mode
+               'typescript-mode-hook
+               'elixir-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 

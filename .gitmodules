@@ -301,3 +301,6 @@ url = https://github.com/michael-heerdegen/interaction-log.el
 [submodule "site-lisp/extensions/corfu-doc"]
 	path = site-lisp/extensions/corfu-doc
 	url = https://github.com/galeo/corfu-doc
+[submodule "site-lisp/extensions/elixir-mode"]
+	path = site-lisp/extensions/elixir-mode
+	url = https://github.com/elixir-editors/emacs-elixir.git
