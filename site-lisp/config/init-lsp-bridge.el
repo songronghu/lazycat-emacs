@@ -101,10 +101,10 @@
  '(
    ("M-h" . corfu-insert)
    ("M-H" . lsp-bridge-insert-common-prefix)
-   ("M-." . corfu-first)
-   ("M-," . corfu-last)
-   ("M-j" . corfu-next)
-   ("M-k" . corfu-previous)
+   ("M-j" . corfu-doc-scroll-up)
+   ("M-k" . corfu-doc-scroll-down)
+   ("M-n" . corfu-next)
+   ("M-p" . corfu-previous)
    )
  corfu-map)
 
@@ -144,30 +144,30 @@
 ;; 打开日志，开发者才需要
 ;; (setq lsp-bridge-enable-log t)
 
-;; (require 'tabnine-capf)
+(require 'tabnine-capf)
 
 ;; 通过Cape融合不同的补全后端，比如lsp-bridge、 tabnine、 file、 dabbrev.
-;; (defun lsp-bridge-mix-multi-backends ()
-;;   (setq-local completion-category-defaults nil)
-;;   (setq-local completion-at-point-functions
-;;               (list
-;;                (cape-capf-buster
-;;                 (cape-super-capf
-;;                  #'lsp-bridge-capf
+(defun lsp-bridge-mix-multi-backends ()
+  (setq-local completion-category-defaults nil)
+  (setq-local completion-at-point-functions
+              (list
+               (cape-capf-buster
+                (cape-super-capf
+                 #'lsp-bridge-capf
 
-;;                  ;; 我嫌弃TabNine太占用我的CPU了， 需要的同学注释下面这一行就好了
-;;                  ;; #'tabnine-completion-at-point
+                 ;; 我嫌弃TabNine太占用我的CPU了， 需要的同学注释下面这一行就好了
+                 ;; #'tabnine-completion-at-point
 
-;;                  ;; #'cape-file
-;;                  ;; #'cape-dabbrev
-;;                  )
-;;                 'equal)
-;;                )))
+                 #'cape-file
+                 #'cape-dabbrev
+                 )
+                'equal)
+               )))
 
-;; (dolist (hook lsp-bridge-default-mode-hooks)
-;;   (add-hook hook (lambda ()
-;;                    (lsp-bridge-mix-multi-backends) ; 通过Cape融合多个补全后端
-;;                    )))
+(dolist (hook lsp-bridge-default-mode-hooks)
+  (add-hook hook (lambda ()
+                   (lsp-bridge-mix-multi-backends) ; 通过Cape融合多个补全后端
+                   )))
 
 (provide 'init-lsp-bridge)
 
