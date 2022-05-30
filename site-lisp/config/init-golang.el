@@ -82,7 +82,6 @@
 ;;; Require
 
 (require 'go-mode)
-(require 'gotest)
 
 ;;; Code:
 
@@ -100,10 +99,7 @@
    ("C-c C-f" . gofmt)
    ("C-c C-d" . godoc)
    ("C-c C-a" . go-import-add)
-   ("C-c t" . go-test-current-test)
-   ("C-c f" . go-test-current-file)
-   ("C-c p" . go-test-current-project)
-   ("C-c b" . go-test-current-benchmark))
+   )
  go-mode-map)
 
 (provide 'init-golang)
