@@ -455,11 +455,11 @@
  "init-woman")
 ;;; ### Company en words ###
 ;;; --- 英文助手
-(lazy-load-global-keys
- '(
-   ("M-r" . toggle-corfu-english-helper) ;英文助手
-   )
- "corfu-english-helper")
+;; (lazy-load-global-keys
+;;  '(
+;;    ("M-r" . toggle-corfu-english-helper) ;英文助手
+;;    )
+;;  "corfu-english-helper")
 ;;; ### Ido ###
 ;;; --- 交互式管理文件和缓存
 (lazy-load-set-keys
