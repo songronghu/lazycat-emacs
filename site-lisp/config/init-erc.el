@@ -84,14 +84,6 @@
 
 ;;; Code:
 
-(defun get-git-user-name ()
-  (interactive)
-  (replace-regexp-in-string "\n$" "" (shell-command-to-string "git config --get user.name")))
-
-(defun get-git-user-email ()
-  (interactive)
-  (replace-regexp-in-string "\n$" "" (shell-command-to-string "git config --get user.email")))
-
 (setq erc-user-full-name (get-git-user-name))   ;设置全名
 (setq erc-autojoin-mode t)                      ;自动加入
 (setq erc-join-buffer 'bury)                    ;在隐藏的Buffer中加入
