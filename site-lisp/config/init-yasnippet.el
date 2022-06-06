@@ -76,14 +76,6 @@
           #'(lambda ()
               (require 'yasnippet)
 
-              (defun get-git-user-name ()
-                (interactive)
-                (replace-regexp-in-string "\n$" "" (shell-command-to-string "git config --get user.name")))
-
-              (defun get-git-user-email ()
-                (interactive)
-                (replace-regexp-in-string "\n$" "" (shell-command-to-string "git config --get user.email")))
-
               (add-to-list `yas/root-directory (concat lazycat-emacs-root-dir "/snippets"))
               (yas-global-mode 1)
 
