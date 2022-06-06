@@ -27,6 +27,7 @@
     (require 'lazycat-theme)
     ;; (lazycat-theme-load-with-sunrise)
     (lazycat-theme-load-dark)
+    ;; (lazycat-theme-load-light)
     (when (featurep 'cocoa)
       (require 'cache-path-from-shell))
     (require 'lazy-load)
