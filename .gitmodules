@@ -282,10 +282,6 @@ url = https://github.com/minad/cape
 path = site-lisp/extensions/orderless
 url = https://github.com/oantolin/orderless
 
-[submodule "site-lisp/extensions/corfu-english-helper"]
-path = site-lisp/extensions/corfu-english-helper
-url = https://github.com/manateelazycat/corfu-english-helper
-
 [submodule "site-lisp/extensions/tabnine-capf"]
 path = site-lisp/extensions/tabnine-capf
 url = https://github.com/50ways2sayhard/tabnine-capf
@@ -298,9 +294,7 @@ url = https://github.com/jrblevin/markdown-mode
 path = site-lisp/extensions/interaction-log
 url = https://github.com/michael-heerdegen/interaction-log.el
 
-[submodule "site-lisp/extensions/corfu-doc"]
-	path = site-lisp/extensions/corfu-doc
-	url = https://github.com/galeo/corfu-doc
 [submodule "site-lisp/extensions/elixir-mode"]
-	path = site-lisp/extensions/elixir-mode
-	url = https://github.com/elixir-editors/emacs-elixir.git
+path = site-lisp/extensions/elixir-mode
+url = https://github.com/elixir-editors/emacs-elixir.git
+
