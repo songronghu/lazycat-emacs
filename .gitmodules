@@ -274,10 +274,6 @@ url = https://github.com/sebastiencs/frame-local
 path = site-lisp/extensions/orderless
 url = https://github.com/oantolin/orderless
 
-[submodule "site-lisp/extensions/tabnine-capf"]
-path = site-lisp/extensions/tabnine-capf
-url = https://github.com/50ways2sayhard/tabnine-capf
-
 [submodule "site-lisp/extensions/markdown-mode"]
 path = site-lisp/extensions/markdown-mode
 url = https://github.com/jrblevin/markdown-mode
@@ -291,8 +287,10 @@ path = site-lisp/extensions/elixir-mode
 url = https://github.com/elixir-editors/emacs-elixir.git
 
 [submodule "site-lisp/extensions/json-mode"]
-	path = site-lisp/extensions/json-mode
-	url = https://github.com/joshwnj/json-mode
+path = site-lisp/extensions/json-mode
+url = https://github.com/joshwnj/json-mode
+
 [submodule "site-lisp/extensions/json-snatcher"]
-	path = site-lisp/extensions/json-snatcher
-	url = https://github.com/Sterlingg/json-snatcher
+path = site-lisp/extensions/json-snatcher
+url = https://github.com/Sterlingg/json-snatcher
+
