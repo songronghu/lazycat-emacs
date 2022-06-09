@@ -66,10 +66,6 @@ url = http://github.com/rcodetools/rcodetools
 path = site-lisp/extensions/swift-mode
 url = http://github.com/swift-emacs/swift-mode
 
-[submodule "awesome-pair"]
-path = site-lisp/extensions/awesome-pair
-url = https://github.com/manateelazycat/awesome-pair.git
-
 [submodule "css-sort"]
 path = site-lisp/extensions/css-sort
 url = https://github.com/manateelazycat/css-sort.git
@@ -149,10 +145,6 @@ url = https://github.com/manateelazycat/multi-term.git
 [submodule "instant-rename-tag"]
 path = site-lisp/extensions/instant-rename-tag
 url = https://github.com/manateelazycat/instant-rename-tag.git
-
-[submodule "awesome-tab"]
-path = site-lisp/extensions/awesome-tab
-url = https://github.com/manateelazycat/awesome-tab.git
 
 [submodule "olivetti"]
 path = site-lisp/extensions/olivetti
