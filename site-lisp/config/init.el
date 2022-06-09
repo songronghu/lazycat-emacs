@@ -63,7 +63,6 @@
          (require 'init-tree-sitter)
          (require 'init-eldoc)
          (require 'init-yasnippet)
-         (require 'init-smooth-scrolling)
          (require 'init-cursor-chg)
          (require 'init-winpoint)
          (require 'init-info)
