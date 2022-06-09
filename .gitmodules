@@ -158,10 +158,6 @@ url = https://github.com/manateelazycat/awesome-tab.git
 path = site-lisp/extensions/olivetti
 url = https://github.com/rnkn/olivetti.git
 
-[submodule "names"]
-path = site-lisp/extensions/names
-url = https://github.com/Malabarba/names.git
-
 [submodule "site-lisp/extensions/unicode-escape"]
 path = site-lisp/extensions/unicode-escape
 url = https://github.com/kosh04/unicode-escape.el.git
