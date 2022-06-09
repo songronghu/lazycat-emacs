@@ -266,10 +266,6 @@ url = https://github.com/rejeep/f.el.git
 path = site-lisp/extensions/lspbridge
 url = https://github.com/manateelazycat/lsp-bridge
 
-[submodule "site-lisp/extensions/frame-local"]
-path = site-lisp/extensions/frame-local
-url = https://github.com/sebastiencs/frame-local
-
 [submodule "site-lisp/extensions/orderless"]
 path = site-lisp/extensions/orderless
 url = https://github.com/oantolin/orderless
