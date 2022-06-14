@@ -599,6 +599,7 @@
    ("C-0" . lsp-bridge-rename)
    ("M-s-j" . lsp-bridge-jump-to-next-diagnostic) ;显示下一个错误
    ("M-s-k" . lsp-bridge-jump-to-prev-diagnostic) ;显示上一个错误
+   ("M-s-l" . lsp-bridge-ignore-current-diagnostic) ;忽略当前的错误
    ("M-s-n" . lsp-bridge-popup-documentation-scroll-up) ;向下滚动文档
    ("M-s-p" . lsp-bridge-popup-documentation-scroll-down) ;向上滚动文档
    )
