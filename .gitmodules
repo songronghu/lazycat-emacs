@@ -178,10 +178,6 @@ url = https://github.com/dholm/benchmark-init-el
 path = site-lisp/extensions/emacs-rime
 url = https://github.com/DogLooksGood/emacs-rime.git
 
-[submodule "site-lisp/extensions/valign"]
-path = site-lisp/extensions/valign
-url = https://github.com/casouri/valign.git
-
 [submodule "site-lisp/extensions/nim-mode"]
 path = site-lisp/extensions/nim-mode
 url = https://github.com/nim-lang/nim-mode.git
