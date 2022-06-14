@@ -543,11 +543,6 @@
  '(
    ("C-s-x" . auto-install-from-emacswiki))
  "init-auto-install")
-;;; ### expand-region ###
-(lazy-load-global-keys
- '(
-   ("C-=" . er/expand-region))
- "expand-region")
 ;; ### vdiff ###
 (lazy-load-global-keys
  '(

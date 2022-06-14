@@ -80,7 +80,6 @@
 ;;
 
 ;;; Require
-(require 'robe)
 (require 'inf-ruby-extension)
 (require 'ruby-end)
 (require 'ruby-extension)
@@ -89,7 +88,6 @@
 
 (add-hook 'ruby-mode-hook
           #'(lambda ()
-             (robe-mode 1)
              (ruby-end-mode 1)
              ))
 
