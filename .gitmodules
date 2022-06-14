@@ -58,10 +58,6 @@ url = https://github.com/gongo/json-reformat.git
 path = site-lisp/extensions/restclient.el
 url = https://github.com/pashky/restclient.el.git
 
-[submodule "rcodetools"]
-path = site-lisp/extensions/rcodetools
-url = http://github.com/rcodetools/rcodetools
-
 [submodule "swift-mode"]
 path = site-lisp/extensions/swift-mode
 url = http://github.com/swift-emacs/swift-mode
