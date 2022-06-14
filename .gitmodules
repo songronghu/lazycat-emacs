@@ -174,10 +174,6 @@ url = https://github.com/DogLooksGood/emacs-rime.git
 path = site-lisp/extensions/nim-mode
 url = https://github.com/nim-lang/nim-mode.git
 
-[submodule "site-lisp/extensions/c-eldoc"]
-path = site-lisp/extensions/c-eldoc
-url = https://github.com/nflath/c-eldoc
-
 [submodule "site-lisp/extensions/dash"]
 path = site-lisp/extensions/dash
 url = https://github.com/magnars/dash.el.git
