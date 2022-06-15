@@ -81,8 +81,6 @@
 
 ;;; Require
 (require 'lsp-bridge)
-;; (require 'lsp-bridge-icon)
-;; (require 'lsp-bridge-orderless)
 (require 'lsp-bridge-jdtls)
 
 ;;; Code:
