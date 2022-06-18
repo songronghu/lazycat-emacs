@@ -239,10 +239,12 @@ Optional argument REVERSED default is move next line, if reversed is non-nil mov
 (defun indent-buffer ()
   "Automatic format current buffer."
   (interactive)
-  (save-excursion
-    (indent-region (point-min) (point-max) nil)
-    (delete-trailing-whitespace)
-    (untabify (point-min) (point-max))))
+  (if (derived-mode-p 'python-mode)
+      (message "Don't indent python buffer, it will mess up the code syntax.")
+    (save-excursion
+      (indent-region (point-min) (point-max) nil)
+      (delete-trailing-whitespace)
+      (untabify (point-min) (point-max)))))
 
 (defun indent-comment-buffer ()
   "Indent comment of buffer."
