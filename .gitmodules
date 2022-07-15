@@ -262,3 +262,6 @@ url = https://github.com/joshwnj/json-mode
 path = site-lisp/extensions/json-snatcher
 url = https://github.com/Sterlingg/json-snatcher
 
+[submodule "site-lisp/extensions/php-mode"]
+	path = site-lisp/extensions/php-mode
+	url = https://github.com/emacs-php/php-mode
