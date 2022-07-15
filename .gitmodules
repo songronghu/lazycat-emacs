@@ -265,3 +265,6 @@ url = https://github.com/Sterlingg/json-snatcher
 [submodule "site-lisp/extensions/php-mode"]
 	path = site-lisp/extensions/php-mode
 	url = https://github.com/emacs-php/php-mode
+[submodule "site-lisp/extensions/multiple-cursor"]
+	path = site-lisp/extensions/multiple-cursor
+	url = https://github.com/magnars/multiple-cursors.el
