@@ -543,19 +543,14 @@
  '(
    ("C-s-x" . auto-install-from-emacswiki))
  "init-auto-install")
-;; ### vdiff ###
-(lazy-load-global-keys
- '(
-   ("M-s-u" . vdiff-buffers))
- "vdiff")
-;;; ### Magit ###
+;;; ### Git ###
 ;;
 (lazy-load-global-keys
  '(
    ("s-x f" . one-key-menu-git))
  "init-eaf")
 
-;;; ### Magit ###
+;;; ### Input Method ###
 (lazy-load-global-keys
  '(
    ("s-m" . toggle-input-method)
