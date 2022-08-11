@@ -268,3 +268,6 @@ url = https://github.com/Sterlingg/json-snatcher
 [submodule "site-lisp/extensions/multiple-cursor"]
 	path = site-lisp/extensions/multiple-cursor
 	url = https://github.com/magnars/multiple-cursors.el
+[submodule "site-lisp/extensions/clojure-mode"]
+	path = site-lisp/extensions/clojure-mode
+	url = https://github.com/clojure-emacs/clojure-mode
