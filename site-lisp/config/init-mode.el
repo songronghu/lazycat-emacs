@@ -174,6 +174,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.nim.cfg$" . nim-mode)
                     ("\\.exs$" . elixir-mode)
                     ("\\.json$" . json-mode)
+                    ("\\.clj$" . clojure-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -208,6 +209,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'typescript-mode "typescript-mode")
 (autoload 'elixir-mode "elixir-mode")
 (autoload 'json-mode "json-mode")
+(autoload 'clojure-mode "clojure-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行
