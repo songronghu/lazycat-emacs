@@ -164,6 +164,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.y$" . bison-mode)
                     ("\\.pdf$" . pdf-view-mode)
                     ("\\.ts$" . typescript-mode)
+                    ("\\.tsx$" . typescript-mode)
                     ("\\.cpp$" . c++-mode)
                     ("\\.h$" . c++-mode)
                     ("\\.ll$" . llvm-mode)
