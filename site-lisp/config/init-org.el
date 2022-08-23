@@ -120,7 +120,7 @@
                      )))
 
 (let ((emacs-font-size 14)
-      (emacs-font-name "MapleMono"))
+      (emacs-font-name "WenQuanYi Micro Hei Mono"))
   (set-frame-font (format "%s-%s" (eval emacs-font-name) (eval emacs-font-size)))
   (set-fontset-font (frame-parameter nil 'font) 'unicode (eval emacs-font-name)))
 
