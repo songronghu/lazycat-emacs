@@ -85,7 +85,7 @@
 
 ;;; Code:
 
-(setq acm-enable-tabnine-helper t)
+(setq acm-enable-tabnine-helper nil)
 (global-lsp-bridge-mode)
 
 ;; 融合 `lsp-bridge' `find-function' 以及 `dumb-jump' 的智能跳转
