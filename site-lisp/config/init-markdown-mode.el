@@ -82,8 +82,11 @@
 ;;; Require
 (require 'markdown-mode)
 (require 'olivetti)
+(require 'pangu-spacing)
 
 ;;; Code:
+
+(global-pangu-spacing-mode 1)
 
 (dolist (hook (list
                'markdown-mode-hook
@@ -92,6 +95,8 @@
             #'(lambda ()
                 (olivetti-mode 1)
                 (olivetti-set-width 120)
+                
+                (set (make-local-variable 'pangu-spacing-real-insert-separtor) t)
                 )))
 
 (provide 'init-markdown-mode)
