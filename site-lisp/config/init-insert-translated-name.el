@@ -82,6 +82,8 @@
 ;;; Require
 (require 'insert-translated-name)
 
+(setq insert-translated-name-translate-engine "youdao")
+
 ;;; Code:
 (dolist (hook (list
                'markdown-mode-hook
