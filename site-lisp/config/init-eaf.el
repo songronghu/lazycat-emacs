@@ -166,6 +166,8 @@
 (defun eaf-translate-text (text)
   (popweb-dict-bing-input text))
 
+(setq eaf-goto-right-after-close-buffer t)
+
 (one-key-create-menu
  "GIT"
  '(
