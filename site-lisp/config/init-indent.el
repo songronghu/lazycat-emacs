@@ -115,6 +115,7 @@
                'qml-mode-hook
                'scss-mode-hook
                'coffee-mode-hook
+               'rust-mode-hook
                ))
   (add-hook hook #'(lambda ()
                      (setq indent-tabs-mode nil)
