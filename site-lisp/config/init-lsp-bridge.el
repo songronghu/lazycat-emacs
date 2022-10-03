@@ -105,7 +105,7 @@
   (interactive)
   (cond
    (lsp-bridge-mode
-    (lsp-bridge-return-from-def))
+    (lsp-bridge-find-def-return))
    (t
     (require 'dumb-jump)
     (dumb-jump-back))))
