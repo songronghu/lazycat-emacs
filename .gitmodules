@@ -277,3 +277,6 @@ url = https://github.com/Sterlingg/json-snatcher
 [submodule "site-lisp/extensions/rust-mode"]
 	path = site-lisp/extensions/rust-mode
 	url = https://github.com/rust-lang/rust-mode
+[submodule "site-lisp/extensions/emacs-websocket"]
+	path = site-lisp/extensions/emacs-websocket
+	url = https://github.com/ahyatt/emacs-websocket
