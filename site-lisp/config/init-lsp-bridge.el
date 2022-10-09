@@ -112,7 +112,7 @@
 
 (setq lsp-bridge-get-single-lang-server-by-project
       (lambda (project-path filepath)
-        (when (string-equal (file-name-base project-path) "deno-bridge")
+        (when (member (file-name-base project-path) '("deno-bridge" "deno-bridge-ts"))
         "deno")))
 
 ;; 打开日志，开发者才需要
