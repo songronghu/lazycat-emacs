@@ -580,12 +580,11 @@
  '("M-." "M-,"))
 (lazy-load-global-keys
  '(
-   ("C-6" . lsp-bridge-popup-documentation)
    ("C-7" . lsp-bridge-jump-back)
    ("C-8" . lsp-bridge-jump)
-   ("M-," . lsp-bridge-jump-back)
-   ("M-." . lsp-bridge-jump)
-   ("C-9" . lsp-bridge-find-references)
+   ("M-," . lsp-bridge-code-action)
+   ("M-." . lsp-bridge-find-references)
+   ("C-9" . lsp-bridge-popup-documentation)
    ("C-0" . lsp-bridge-rename)
    ("M-s-j" . lsp-bridge-diagnostic-jump-next) ;显示下一个错误
    ("M-s-k" . lsp-bridge-diagnostic-jump-prev) ;显示上一个错误
