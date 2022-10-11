@@ -280,3 +280,6 @@ url = https://github.com/Sterlingg/json-snatcher
 [submodule "site-lisp/extensions/emacs-websocket"]
 	path = site-lisp/extensions/emacs-websocket
 	url = https://github.com/ahyatt/emacs-websocket
+[submodule "site-lisp/extensions/deno-bridge"]
+	path = site-lisp/extensions/deno-bridge
+	url = https://github.com/manateelazycat/deno-bridge
