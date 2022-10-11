@@ -112,8 +112,15 @@
 
 (setq lsp-bridge-get-single-lang-server-by-project
       (lambda (project-path filepath)
-        (when (member (file-name-base project-path) '("deno-bridge" "deno-bridge-ts" "deno-translator" "insert-translated-name"))
-          "deno")))
+        ;; If typescript first line include deno.land, then use Deno LSP server.
+        (save-excursion
+          (when (string-equal (file-name-extension filepath) "ts")
+           (dolist (buf (buffer-list))
+             (when (string-equal (buffer-file-name buf) filepath)
+               (with-current-buffer buf
+                 (goto-char (point-min))
+                 (when (string-match-p (regexp-quote "from \"https://deno.land") (buffer-substring-no-properties (point-at-bol) (point-at-eol)))
+                   (return "deno")))))))))
 
 ;; 打开日志，开发者才需要
 ;; (setq lsp-bridge-enable-log t)
