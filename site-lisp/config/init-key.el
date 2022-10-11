@@ -457,7 +457,7 @@
 ;;; --- 英文助手
 (lazy-load-global-keys
  '(
-   ("M-r" . lsp-bridge-toggle-english-helper) ;英文助手
+   ("M-r" . lsp-bridge-toggle-sdcv-helper) ;英文助手
    )
  "init-lsp-bridge")
 ;;; ### Ido ###
