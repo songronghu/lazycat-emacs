@@ -99,6 +99,8 @@
                 (olivetti-set-width 120)
                 )))
 
+(setq telega-chat-fill-column 120)
+
 ;; 缩小头像避免裂开
 (setf (alist-get 2 telega-avatar-factors-alist ) '(0.5 . 0.1))
 
