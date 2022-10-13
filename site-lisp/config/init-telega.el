@@ -101,8 +101,16 @@
 
 (setq telega-chat-fill-column 120)
 
-;; 缩小头像避免裂开
-(setf (alist-get 2 telega-avatar-factors-alist ) '(0.5 . 0.1))
+;; 修复图片分割和不对齐的问题
+(defun telega-buffer-face-mode-variable ()
+  (interactive)
+  (make-face 'my-telega-face)
+  (set-face-attribute 'my-telega-face nil :font "等距更纱黑体 SC 13")
+  (setq buffer-face-mode-face 'my-telega-face)
+  (buffer-face-mode))
+(add-hook 'telega-root-mode-hook 'telega-buffer-face-mode-variable)
+(add-hook 'telega-webpage-mode-hook 'telega-buffer-face-mode-variable)
+(add-hook 'telega-chat-mode-hook 'telega-buffer-face-mode-variable)
 
 (provide 'init-telega)
 
