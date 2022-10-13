@@ -597,6 +597,12 @@
 
 (lazy-load-global-keys
  '(
+   ("C-6" . telega)
+   )
+ "init-telega")
+
+(lazy-load-global-keys
+ '(
    ("C--" . recursive-search-references)
    )
  "recursive-search-references")
