@@ -112,6 +112,11 @@
 (add-hook 'telega-webpage-mode-hook 'telega-buffer-face-mode-variable)
 (add-hook 'telega-chat-mode-hook 'telega-buffer-face-mode-variable)
 
+;; EAF打开telega 链接
+(defun telega-browse-url-advisor (orig-fun &optional arg &rest args)
+  (eaf-open-browser arg))
+(advice-add #'telega-browse-url :around #'telega-browse-url-advisor)
+
 (provide 'init-telega)
 
 ;;; init-telega.el ends here
