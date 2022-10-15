@@ -81,6 +81,8 @@ sudo ln -s /home/username/lazycat-emacs/site-lisp /usr/share/emacs/lazycat
 sudo cp /home/username/lazycat-emacs/site-start.el /usr/share/emacs/site-lisp/
 ```
 
+Emacs29 native-comp branch will freeze if I put config in `/usr/share/emacs/site-lisp/`, we need put config in ~/.emacs instead to avoid Emacs29 freeze.
+
 ## Update extensions.
 When I want upgrade extensions to newest version, I will use below command:
 
