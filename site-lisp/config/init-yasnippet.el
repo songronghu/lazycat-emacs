@@ -75,6 +75,7 @@
 (add-hook 'prog-mode-hook
           #'(lambda ()
               (require 'yasnippet)
+              (require 'yasnippet-snippets)
 
               (defun get-git-user-name ()
                 (interactive)
