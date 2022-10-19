@@ -292,3 +292,9 @@ url = https://github.com/Sterlingg/json-snatcher
 [submodule "site-lisp/extensions/visual-fill-column"]
 	path = site-lisp/extensions/visual-fill-column
 	url = https://codeberg.org/joostkremers/visual-fill-column
+[submodule "site-lisp/extensions/yasnippet"]
+	path = site-lisp/extensions/yasnippet
+	url = https://github.com/joaotavora/yasnippet
+[submodule "site-lisp/extensions/yasnippet-snippets"]
+	path = site-lisp/extensions/yasnippet-snippets
+	url = https://github.com/AndreaCrotti/yasnippet-snippets

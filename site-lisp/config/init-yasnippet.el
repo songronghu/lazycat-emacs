@@ -84,7 +84,7 @@
                 (interactive)
                 (replace-regexp-in-string "\n$" "" (shell-command-to-string "git config --get user.email")))
 
-              (add-to-list `yas/root-directory (concat lazycat-emacs-root-dir "/snippets"))
+              (add-to-list `yas/root-directory (concat lazycat-emacs-extension-dir "/yasnippet-snippets/snippets"))
               (yas-global-mode 1)
 
               ;; Disable yasnippet mode on some mode.
