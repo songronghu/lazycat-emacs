@@ -263,38 +263,46 @@ path = site-lisp/extensions/json-snatcher
 url = https://github.com/Sterlingg/json-snatcher
 
 [submodule "site-lisp/extensions/php-mode"]
-	path = site-lisp/extensions/php-mode
-	url = https://github.com/emacs-php/php-mode
+path = site-lisp/extensions/php-mode
+url = https://github.com/emacs-php/php-mode
+
 [submodule "site-lisp/extensions/multiple-cursor"]
-	path = site-lisp/extensions/multiple-cursor
-	url = https://github.com/magnars/multiple-cursors.el
+path = site-lisp/extensions/multiple-cursor
+url = https://github.com/magnars/multiple-cursors.el
+
 [submodule "site-lisp/extensions/clojure-mode"]
-	path = site-lisp/extensions/clojure-mode
-	url = https://github.com/clojure-emacs/clojure-mode
+path = site-lisp/extensions/clojure-mode
+url = https://github.com/clojure-emacs/clojure-mode
+
 [submodule "site-lisp/extensions/pangu-spacing"]
-	path = site-lisp/extensions/pangu-spacing
-	url = https://github.com/coldnew/pangu-spacing
+path = site-lisp/extensions/pangu-spacing
+url = https://github.com/coldnew/pangu-spacing
+
 [submodule "site-lisp/extensions/rust-mode"]
-	path = site-lisp/extensions/rust-mode
-	url = https://github.com/rust-lang/rust-mode
+path = site-lisp/extensions/rust-mode
+url = https://github.com/rust-lang/rust-mode
+
 [submodule "site-lisp/extensions/emacs-websocket"]
-	path = site-lisp/extensions/emacs-websocket
-	url = https://github.com/ahyatt/emacs-websocket
+path = site-lisp/extensions/emacs-websocket
+url = https://github.com/ahyatt/emacs-websocket
+
 [submodule "site-lisp/extensions/deno-bridge"]
-	path = site-lisp/extensions/deno-bridge
-	url = https://github.com/manateelazycat/deno-bridge
+path = site-lisp/extensions/deno-bridge
+url = https://github.com/manateelazycat/deno-bridge
+
 [submodule "site-lisp/extensions/telega.el"]
-	path = site-lisp/extensions/telega.el
-	url = https://github.com/zevlg/telega.el
+path = site-lisp/extensions/telega.el
+url = https://github.com/zevlg/telega.el
+
 [submodule "site-lisp/extensions/rainbow-identifiers"]
-	path = site-lisp/extensions/rainbow-identifiers
-	url = https://github.com/Fanael/rainbow-identifiers
+path = site-lisp/extensions/rainbow-identifiers
+url = https://github.com/Fanael/rainbow-identifiers
+
 [submodule "site-lisp/extensions/visual-fill-column"]
-	path = site-lisp/extensions/visual-fill-column
-	url = https://codeberg.org/joostkremers/visual-fill-column
+path = site-lisp/extensions/visual-fill-column
+url = https://codeberg.org/joostkremers/visual-fill-column
+
 [submodule "site-lisp/extensions/yasnippet"]
-	path = site-lisp/extensions/yasnippet
-	url = https://github.com/joaotavora/yasnippet
-[submodule "site-lisp/extensions/yasnippet-snippets"]
-	path = site-lisp/extensions/yasnippet-snippets
-	url = https://github.com/AndreaCrotti/yasnippet-snippets
+path = site-lisp/extensions/yasnippet
+url = https://github.com/joaotavora/yasnippet
+
