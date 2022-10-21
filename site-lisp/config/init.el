@@ -72,7 +72,6 @@
          (require 'init-markdown-mode)
 
          (require 'init-eaf)
-         (require 'init-proxy)
 
          ;; Restore session at last.
          (require 'init-session)

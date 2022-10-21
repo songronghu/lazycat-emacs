@@ -107,9 +107,9 @@
 ;;; Code:
 
 ;; You need configuration your own local proxy program first.
-(setq eaf-proxy-type "socks5")
-(setq eaf-proxy-host "127.0.0.1")
-(setq eaf-proxy-port "1080")
+;; (setq eaf-proxy-type "socks5")
+;; (setq eaf-proxy-host "127.0.0.1")
+;; (setq eaf-proxy-port "1080")
 
 ;; Make `eaf-browser-restore-buffers' restore last close browser buffers.
 (setq eaf-browser-continue-where-left-off t)
