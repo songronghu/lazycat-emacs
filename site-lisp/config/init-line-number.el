@@ -131,6 +131,7 @@
                'typescript-mode-hook
                'elixir-mode-hook
                'clojure-mode-hook
+               'dart-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 

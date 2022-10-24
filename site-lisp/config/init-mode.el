@@ -176,6 +176,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.exs$" . elixir-mode)
                     ("\\.json$" . json-mode)
                     ("\\.clj$" . clojure-mode)
+                    ("\\.dart$" . dart-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -211,6 +212,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'elixir-mode "elixir-mode")
 (autoload 'json-mode "json-mode")
 (autoload 'clojure-mode "clojure-mode")
+(autoload 'dart-mode "dart-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行
