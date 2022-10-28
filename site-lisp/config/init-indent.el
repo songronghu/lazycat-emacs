@@ -101,7 +101,9 @@
   (setq-local web-mode-markup-indent-offset n)
   (setq-local web-mode-sql-indent-offset n)
 
-  (setq-local css-indent-offset n))
+  (setq-local css-indent-offset n)
+
+  (setq-local typescript-indent-level n))
 
 (dolist (hook (list
                'c-mode-hook
@@ -125,6 +127,7 @@
 (dolist (hook (list
                'web-mode-hook
                'js-mode-hook
+               'typescript-mode-hook
                ))
   (add-hook hook #'(lambda ()
                      (setq indent-tabs-mode nil)
