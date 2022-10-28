@@ -83,6 +83,14 @@
 (require 'markdown-mode)
 (require 'olivetti)
 (require 'pangu-spacing)
+(require 'deno-bridge-jieba)
+
+(lazy-load-set-keys
+ '(
+   ("M-f" . deno-bridge-jieba-forward-word)
+   ("M-b" . deno-bridge-jieba-backward-word)
+   )
+ markdown-mode-map)
 
 ;;; Code:
 

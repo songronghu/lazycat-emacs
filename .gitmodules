@@ -309,3 +309,6 @@ url = https://github.com/joaotavora/yasnippet
 [submodule "site-lisp/extensions/dart-mode"]
 	path = site-lisp/extensions/dart-mode
 	url = https://github.com/bradyt/dart-mode
+[submodule "site-lisp/extensions/deno-bridge-jieba"]
+	path = site-lisp/extensions/deno-bridge-jieba
+	url = https://github.com/ginqi7/deno-bridge-jieba
