@@ -312,3 +312,6 @@ url = https://github.com/joaotavora/yasnippet
 [submodule "site-lisp/extensions/deno-bridge-jieba"]
 	path = site-lisp/extensions/deno-bridge-jieba
 	url = https://github.com/ginqi7/deno-bridge-jieba
+[submodule "site-lisp/extensions/blink-search"]
+	path = site-lisp/extensions/blink-search
+	url = https://github.com/manateelazycat/blink-search
