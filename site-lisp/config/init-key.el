@@ -571,10 +571,9 @@
 
 (lazy-load-global-keys
  '(
-   ("s-y" . snails)
-   ("s-u" . snails-search-point)
+   ("s-y" . blink-search)
    )
- "init-snails")
+ "blink-search")
 
 (lazy-load-unset-keys                   ;全局按键的卸载
  '("M-." "M-,"))
