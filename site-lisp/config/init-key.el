@@ -573,7 +573,7 @@
  '(
    ("s-y" . blink-search)
    )
- "blink-search")
+ "init-blink-search")
 
 (lazy-load-unset-keys                   ;全局按键的卸载
  '("M-." "M-,"))
