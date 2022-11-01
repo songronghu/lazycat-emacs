@@ -146,10 +146,6 @@ url = https://github.com/rnkn/olivetti.git
 path = site-lisp/extensions/unicode-escape
 url = https://github.com/kosh04/unicode-escape.el.git
 
-[submodule "snails"]
-path = site-lisp/extensions/snails
-url = https://github.com/manateelazycat/snails.git
-
 [submodule "posframe"]
 path = site-lisp/extensions/posframe
 url = https://github.com/tumashu/posframe.git
@@ -307,11 +303,14 @@ path = site-lisp/extensions/yasnippet
 url = https://github.com/joaotavora/yasnippet
 
 [submodule "site-lisp/extensions/dart-mode"]
-	path = site-lisp/extensions/dart-mode
-	url = https://github.com/bradyt/dart-mode
+path = site-lisp/extensions/dart-mode
+url = https://github.com/bradyt/dart-mode
+
 [submodule "site-lisp/extensions/deno-bridge-jieba"]
-	path = site-lisp/extensions/deno-bridge-jieba
-	url = https://github.com/ginqi7/deno-bridge-jieba
+path = site-lisp/extensions/deno-bridge-jieba
+url = https://github.com/ginqi7/deno-bridge-jieba
+
 [submodule "site-lisp/extensions/blink-search"]
-	path = site-lisp/extensions/blink-search
-	url = https://github.com/manateelazycat/blink-search
+path = site-lisp/extensions/blink-search
+url = https://github.com/manateelazycat/blink-search
+
