@@ -93,11 +93,8 @@
    (("j" . "Picture") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Picture")))
    (("m" . "Music") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Music")))
    (("c" . "Config") . (lambda () (interactive) (eaf-open-in-file-manager lazycat-emacs-config-dir)))
-   (("i" . "Extension") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/lazycat-emacs/site-lisp/extensions")))
-   ((";" . "EAF") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/lazycat-emacs/site-lisp/extensions/emacs-application-framework")))
-   (("'" . "EAF Git") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/emacs-application-framework")))
-   (("o" . "LSP Bridge") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/lazycat-emacs/site-lisp/extensions/lspbridge")))
-   (("p" . "LSP Bridge Git") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/lspbridge")))
+   ((";" . "Extension") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/lazycat-emacs/site-lisp/extensions")))
+   (("o" . "EAF") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/lazycat-emacs/site-lisp/extensions/emacs-application-framework")))
    )
  t)
 
