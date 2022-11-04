@@ -286,18 +286,6 @@ url = https://github.com/ahyatt/emacs-websocket
 path = site-lisp/extensions/deno-bridge
 url = https://github.com/manateelazycat/deno-bridge
 
-[submodule "site-lisp/extensions/telega.el"]
-path = site-lisp/extensions/telega.el
-url = https://github.com/zevlg/telega.el
-
-[submodule "site-lisp/extensions/rainbow-identifiers"]
-path = site-lisp/extensions/rainbow-identifiers
-url = https://github.com/Fanael/rainbow-identifiers
-
-[submodule "site-lisp/extensions/visual-fill-column"]
-path = site-lisp/extensions/visual-fill-column
-url = https://codeberg.org/joostkremers/visual-fill-column
-
 [submodule "site-lisp/extensions/yasnippet"]
 path = site-lisp/extensions/yasnippet
 url = https://github.com/joaotavora/yasnippet
