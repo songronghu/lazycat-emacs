@@ -302,3 +302,9 @@ url = https://github.com/ginqi7/deno-bridge-jieba
 path = site-lisp/extensions/blink-search
 url = https://github.com/manateelazycat/blink-search
 
+[submodule "site-lisp/extensions/python-black"]
+	path = site-lisp/extensions/python-black
+	url = https://github.com/wbolster/emacs-python-black
+[submodule "site-lisp/extensions/reformatter"]
+	path = site-lisp/extensions/reformatter
+	url = https://github.com/purcell/emacs-reformatter
