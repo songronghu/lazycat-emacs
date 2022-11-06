@@ -10,12 +10,12 @@
 ;; Last-Updated: 2022-11-01 21:06:59
 ;;           By: Andy Stewart
 ;; URL: https://www.github.org/manateelazycat/init-blink-search
-;; Keywords: 
+;; Keywords:
 ;; Compatibility: GNU Emacs 28.2
 ;;
 ;; Features that might be required by this library:
 ;;
-;; 
+;;
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -40,7 +40,7 @@
 ;;; Commentary:
 ;;
 ;; Config for blink search
-;; 
+;;
 
 ;;; Installation:
 ;;
@@ -57,7 +57,7 @@
 
 ;;; Customize:
 ;;
-;; 
+;;
 ;;
 ;; All of the above can customize by:
 ;;      M-x customize-group RET init-blink-search RET
@@ -71,12 +71,12 @@
 
 ;;; Acknowledgements:
 ;;
-;; 
+;;
 ;;
 
 ;;; TODO
 ;;
-;; 
+;;
 ;;
 
 ;;; Require
@@ -84,10 +84,12 @@
 
 ;;; Code:
 
-(setq blink-search-common-directory '(("HOME" "~/") 
+(setq blink-search-common-directory '(("HOME" "~/")
                                       ("CONFIG" "~/lazycat-emacs/site-lisp/config/")
                                       ("REPO" "~/lazycat-emacs/site-lisp/extensions/")
                                       ("EAF" "~/lazycat-emacs/site-lisp/extensions/emacs-application-framework/app/")))
+
+;; (setq blink-search-enable-posframe t)
 
 (provide 'init-blink-search)
 
