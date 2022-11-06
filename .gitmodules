@@ -2,10 +2,6 @@
 path = site-lisp/extensions/lazycat-theme
 url = https://github.com/manateelazycat/lazycat-theme.git
 
-[submodule "sdcv"]
-path = site-lisp/extensions/sdcv
-url = https://github.com/manateelazycat/sdcv.git
-
 [submodule "typescript"]
 path = site-lisp/extensions/typescript
 url = https://github.com/ananthakumaran/typescript.el.git
@@ -303,8 +299,10 @@ path = site-lisp/extensions/blink-search
 url = https://github.com/manateelazycat/blink-search
 
 [submodule "site-lisp/extensions/python-black"]
-	path = site-lisp/extensions/python-black
-	url = https://github.com/wbolster/emacs-python-black
+path = site-lisp/extensions/python-black
+url = https://github.com/wbolster/emacs-python-black
+
 [submodule "site-lisp/extensions/reformatter"]
-	path = site-lisp/extensions/reformatter
-	url = https://github.com/purcell/emacs-reformatter
+path = site-lisp/extensions/reformatter
+url = https://github.com/purcell/emacs-reformatter
+
