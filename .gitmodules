@@ -82,10 +82,6 @@ url = https://github.com/manateelazycat/auto-save.git
 path = site-lisp/extensions/thing-edit
 url = https://github.com/manateelazycat/thing-edit.git
 
-[submodule "lazy-search"]
-path = site-lisp/extensions/lazy-search
-url = https://github.com/manateelazycat/lazy-search.git
-
 [submodule "goto-line-preview"]
 path = site-lisp/extensions/goto-line-preview
 url = https://github.com/jcs090218/goto-line-preview.git
