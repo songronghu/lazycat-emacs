@@ -142,10 +142,6 @@ url = https://github.com/kosh04/unicode-escape.el.git
 path = site-lisp/extensions/posframe
 url = https://github.com/tumashu/posframe.git
 
-[submodule "site-lisp/extensions/fuz"]
-path = site-lisp/extensions/fuz
-url = https://github.com/cireu/fuz.el.git
-
 [submodule "projectile"]
 path = site-lisp/extensions/projectile
 url = https://github.com/bbatsov/projectile.git
