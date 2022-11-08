@@ -324,12 +324,6 @@
      ("s-b" . eaf-open-rss-reader)
      )
    "init-eaf"))
-;; Cycle buffer
-(lazy-load-global-keys
- '(
-   ("M-C" . one-key-menu-cycle-buffer)  ;特定模式切换
-   )
- "init-cycle-buffer")
 ;;; ### Isearch ###
 ;;; --- 交互式搜索
 (lazy-load-set-keys
@@ -453,7 +447,7 @@
  '(
    ("<f1>" . woman))
  "init-woman")
-;;; ### Company en words ###
+;;; ### English Helper ###
 ;;; --- 英文助手
 (lazy-load-global-keys
  '(
