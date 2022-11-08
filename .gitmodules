@@ -14,10 +14,6 @@ url = https://github.com/manateelazycat/watch-other-window.git
 path = site-lisp/extensions/web-mode
 url = https://github.com/fxbois/web-mode
 
-[submodule "iedit"]
-path = site-lisp/extensions/iedit
-url = https://github.com/victorhge/iedit
-
 [submodule "cache-path-from-shell"]
 path = site-lisp/extensions/cache-path-from-shell
 url = https://github.com/manateelazycat/cache-path-from-shell.git

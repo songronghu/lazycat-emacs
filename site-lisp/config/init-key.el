@@ -392,13 +392,6 @@
    ("M-s-l" . less-minor-mode)          ;打开less模式
    )
  "init-less")
-;;; ### iedit ###
-;;; --- iedit
-(lazy-load-global-keys
- '(
-   ("s-o" . iedit-mode)
-   )
- "init-iedit")
 ;;; ### Ace jump ###
 (lazy-load-global-keys
  '(
