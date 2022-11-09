@@ -282,3 +282,6 @@ url = https://github.com/ginqi7/deno-bridge-jieba
 path = site-lisp/extensions/blink-search
 url = https://github.com/manateelazycat/blink-search
 
+[submodule "site-lisp/extensions/visual-regexp"]
+	path = site-lisp/extensions/visual-regexp
+	url = https://github.com/benma/visual-regexp.el
