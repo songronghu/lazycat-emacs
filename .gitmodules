@@ -285,3 +285,6 @@ url = https://github.com/manateelazycat/blink-search
 [submodule "site-lisp/extensions/visual-regexp"]
 	path = site-lisp/extensions/visual-regexp
 	url = https://github.com/benma/visual-regexp.el
+[submodule "site-lisp/extensions/smex"]
+	path = site-lisp/extensions/smex
+	url = https://github.com/nonsequitur/smex
