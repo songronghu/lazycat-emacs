@@ -255,6 +255,7 @@
    ("s-Q" . sort-tab-close-all-tabs)     ;关闭所有标签
    )
  "sort-tab")
+
 ;;; ### Functin key ###
 ;;; --- 功能函数
 (autoload 'ielm-map "ielm")

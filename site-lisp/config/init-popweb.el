@@ -82,12 +82,18 @@
 ;;; Require
 (require 'popweb-dict-bing)
 (require 'popweb-dict-youdao)
+(require 'eww)
 
 ;;; Code:
 
 (setq popweb-proxy-type "socks5")
 (setq popweb-proxy-host "127.0.0.1")
 (setq popweb-proxy-port "1080")
+
+(lazy-load-set-keys
+'((";" . popweb-dict-bing-input)
+  ("y" . popweb-dict-bing-pointer))
+eww-mode-map)
 
 (provide 'init-popweb)
 
