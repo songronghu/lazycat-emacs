@@ -83,17 +83,24 @@
 (require 'popweb-dict-bing)
 (require 'popweb-dict-youdao)
 (require 'eww)
+(require 'dictionary-overlay)
 
 ;;; Code:
 
-(setq popweb-proxy-type "socks5")
-(setq popweb-proxy-host "127.0.0.1")
-(setq popweb-proxy-port "1080")
+(dictionary-overlay-start)
+
+(defun popweb-translate-and-mark-unknown-word ()
+  (interactive)
+  (popweb-dict-bing-pointer)
+  (dictionary-overlay-mark-word-unknown))
 
 (lazy-load-set-keys
-'((";" . popweb-dict-bing-input)
-  ("y" . popweb-dict-bing-pointer))
-eww-mode-map)
+ '((";" . popweb-dict-bing-input)
+   ("y" . popweb-translate-and-mark-unknown-word)
+   ("u" . dictionary-overlay-mark-word-known)
+   ("." . dictionary-overlay-render-buffer)
+   )
+ eww-mode-map)
 
 (provide 'init-popweb)
 
