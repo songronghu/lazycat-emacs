@@ -288,3 +288,9 @@ url = https://github.com/manateelazycat/blink-search
 [submodule "site-lisp/extensions/smex"]
 	path = site-lisp/extensions/smex
 	url = https://github.com/nonsequitur/smex
+[submodule "site-lisp/extensions/dictionary-overlay"]
+	path = site-lisp/extensions/dictionary-overlay
+	url = https://github.com/ginqi7/dictionary-overlay
+[submodule "site-lisp/extensions/websocket-bridge"]
+	path = site-lisp/extensions/websocket-bridge
+	url = https://github.com/ginqi7/websocket-bridge
