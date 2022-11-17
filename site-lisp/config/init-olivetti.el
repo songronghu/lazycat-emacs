@@ -1,21 +1,21 @@
-;;; init-popweb.el --- Configure for popweb
+;;; init-olivetti.el --- Config for olivetti   -*- lexical-binding: t; -*-
 
-;; Filename: init-popweb.el
-;; Description: Configure for popweb
+;; Filename: init-olivetti.el
+;; Description: Config for olivetti
 ;; Author: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
-;; Copyright (C) 2021, Andy Stewart, all rights reserved.
-;; Created: 2021-11-14 02:06:58
+;; Copyright (C) 2022, Andy Stewart, all rights reserved.
+;; Created: 2022-11-17 21:57:57
 ;; Version: 0.1
-;; Last-Updated: 2021-11-14 02:06:58
+;; Last-Updated: 2022-11-17 21:57:57
 ;;           By: Andy Stewart
-;; URL: https://www.github.org/manateelazycat/init-popweb
-;; Keywords:
-;; Compatibility: GNU Emacs 29.0.50
+;; URL: https://www.github.org/manateelazycat/init-olivetti
+;; Keywords: 
+;; Compatibility: GNU Emacs 28.2
 ;;
 ;; Features that might be required by this library:
 ;;
-;;
+;; 
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -39,77 +39,61 @@
 
 ;;; Commentary:
 ;;
-;; Configure for popweb
-;;
+;; Config for olivetti
+;; 
 
 ;;; Installation:
 ;;
-;; Put init-popweb.el to your load-path.
+;; Put init-olivetti.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'init-popweb)
+;; (require 'init-olivetti)
 ;;
 ;; No need more.
 
 ;;; Customize:
 ;;
-;;
+;; 
 ;;
 ;; All of the above can customize by:
-;;      M-x customize-group RET init-popweb RET
+;;      M-x customize-group RET init-olivetti RET
 ;;
 
 ;;; Change log:
 ;;
-;; 2021/11/14
+;; 2022/11/17
 ;;      * First released.
 ;;
 
 ;;; Acknowledgements:
 ;;
-;;
+;; 
 ;;
 
 ;;; TODO
 ;;
-;;
+;; 
 ;;
 
 ;;; Require
-(require 'popweb-dict-bing)
-(require 'popweb-dict-youdao)
-(require 'eww)
-(require 'dictionary-overlay)
+(require 'olivetti)
 
 ;;; Code:
 
-(dictionary-overlay-start)
+(dolist (hook (list
+               'markdown-mode-hook
+               'Info-mode-hook
+               ))
+  (add-hook hook
+            #'(lambda ()
+                (olivetti-mode 1)
+                (olivetti-set-width 120)
+                )))
 
-(defun popweb-translate-and-mark-unknown-word ()
-  (interactive)
-  (popweb-dict-bing-pointer)
-  (dictionary-overlay-mark-word-unknown))
+(provide 'init-olivetti)
 
-(lazy-load-set-keys
- '((";" . popweb-dict-bing-input)
-   ("y" . popweb-translate-and-mark-unknown-word)
-   ("Y" . dictionary-overlay-mark-word-known)
-   ("." . dictionary-overlay-render-buffer)
-   )
- eww-mode-map)
-
-(lazy-load-set-keys
- '((";" . popweb-dict-bing-input)
-   ("y" . popweb-translate-and-mark-unknown-word)
-   ("Y" . dictionary-overlay-mark-word-known)
-   ("." . dictionary-overlay-render-buffer)
-   )
- Info-mode-map)
-
-(provide 'init-popweb)
-
-;;; init-popweb.el ends here
+;;; init-olivetti.el ends here

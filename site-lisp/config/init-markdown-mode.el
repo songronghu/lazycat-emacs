@@ -81,7 +81,6 @@
 
 ;;; Require
 (require 'markdown-mode)
-(require 'olivetti)
 (require 'pangu-spacing)
 (require 'deno-bridge-jieba)
 
@@ -103,9 +102,6 @@
                ))
   (add-hook hook
             #'(lambda ()
-                (olivetti-mode 1)
-                (olivetti-set-width 120)
-                
                 (set (make-local-variable 'pangu-spacing-real-insert-separtor) t)
                 )))
 
