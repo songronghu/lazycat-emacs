@@ -97,7 +97,7 @@
 (lazy-load-set-keys
  '((";" . popweb-dict-bing-input)
    ("y" . popweb-translate-and-mark-unknown-word)
-   ("u" . dictionary-overlay-mark-word-known)
+   ("Y" . dictionary-overlay-mark-word-known)
    ("." . dictionary-overlay-render-buffer)
    )
  eww-mode-map)

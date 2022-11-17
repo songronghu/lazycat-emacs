@@ -12,7 +12,7 @@
 ;;; --- Web翻译
 (lazy-load-global-keys
  '((";" . popweb-dict-bing-input)
-   ("y" . popweb-dict-bing-pointer))
+   ("y" . popweb-translate-and-mark-unknown-word))
  "init-popweb"
  "C-z")
 
