@@ -10,12 +10,12 @@
 ;; Last-Updated: 2022-11-17 21:57:57
 ;;           By: Andy Stewart
 ;; URL: https://www.github.org/manateelazycat/init-olivetti
-;; Keywords: 
+;; Keywords:
 ;; Compatibility: GNU Emacs 28.2
 ;;
 ;; Features that might be required by this library:
 ;;
-;; 
+;;
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -40,7 +40,7 @@
 ;;; Commentary:
 ;;
 ;; Config for olivetti
-;; 
+;;
 
 ;;; Installation:
 ;;
@@ -57,7 +57,7 @@
 
 ;;; Customize:
 ;;
-;; 
+;;
 ;;
 ;; All of the above can customize by:
 ;;      M-x customize-group RET init-olivetti RET
@@ -71,12 +71,12 @@
 
 ;;; Acknowledgements:
 ;;
-;; 
+;;
 ;;
 
 ;;; TODO
 ;;
-;; 
+;;
 ;;
 
 ;;; Require
@@ -87,6 +87,7 @@
 (dolist (hook (list
                'markdown-mode-hook
                'Info-mode-hook
+               'org-mode-hook
                ))
   (add-hook hook
             #'(lambda ()
