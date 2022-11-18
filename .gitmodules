@@ -294,3 +294,6 @@ url = https://github.com/manateelazycat/blink-search
 [submodule "site-lisp/extensions/websocket-bridge"]
 	path = site-lisp/extensions/websocket-bridge
 	url = https://github.com/ginqi7/websocket-bridge
+[submodule "site-lisp/extensions/lua-mode"]
+	path = site-lisp/extensions/lua-mode
+	url = https://github.com/immerrr/lua-mode
