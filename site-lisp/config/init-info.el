@@ -80,6 +80,7 @@
 ;;
 
 ;;; Require
+(require 'info)
 
 ;;; Code:
 
