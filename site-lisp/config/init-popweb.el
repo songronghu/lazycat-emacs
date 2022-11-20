@@ -98,6 +98,7 @@
  '((";" . popweb-dict-bing-input)
    ("y" . popweb-translate-and-mark-unknown-word)
    ("Y" . dictionary-overlay-mark-word-known)
+   ("," . dictionary-overlay-modify-translation)
    ("." . dictionary-overlay-render-buffer)
    )
  eww-mode-map)
