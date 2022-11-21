@@ -89,6 +89,9 @@
                                       ("REPO" "~/lazycat-emacs/site-lisp/extensions/")
                                       ("EAF" "~/lazycat-emacs/site-lisp/extensions/emacs-application-framework/app/")))
 
+(setq blink-search-grep-pdf-search-paths "/data/Book")
+(setq blink-search-grep-pdf-backend 'eaf-pdf-viewer)
+
 ;; (setq blink-search-enable-posframe t)
 
 (provide 'init-blink-search)
