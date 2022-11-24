@@ -187,16 +187,16 @@
 ;;; --- 标记对象的键盘宏操作
 (lazy-load-global-keys
  '(
-   ("s-/" . markmacro-mark-words)
-   ("s-?" . markmacro-mark-lines)
-   ("s-<" . markmacro-apply-all)
-   ("s->" . markmacro-apply-all-except-first)
-   ("s-M" . markmacro-rect-set)
-   ("s-D" . markmacro-rect-delete)
-   ("s-F" . markmacro-rect-replace)
-   ("s-I" . markmacro-rect-insert)
-   ("s-C" . markmacro-rect-mark-columns)
-   ("s-S" . markmacro-rect-mark-symbols)
+   ("s-/" . markmacro-mark-words)       ;标记当前符号的单词或者选中区域的单词
+   ("s-?" . markmacro-mark-lines)       ;标记非空行
+   ("s-<" . markmacro-apply-all)        ;应用键盘宏到所有标记对象
+   ("s->" . markmacro-apply-all-except-first) ;应用键盘宏到所有标记对象, 除了第一个， 比如下划线转换的时候
+   ("s-M" . markmacro-rect-set)               ;记录矩形编辑开始的位置
+   ("s-D" . markmacro-rect-delete)            ;删除矩形区域
+   ("s-F" . markmacro-rect-replace)           ;替换矩形区域的内容
+   ("s-I" . markmacro-rect-insert)            ;在矩形区域前插入字符串
+   ("s-C" . markmacro-rect-mark-columns)      ;转换矩形列为标记对象
+   ("s-S" . markmacro-rect-mark-symbols)      ;转换矩形列对应的符号为标记对象
    )
  "markmacro")
 
