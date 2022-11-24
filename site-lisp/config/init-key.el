@@ -6,7 +6,7 @@
 ;;; ### Unset key ###
 ;;; --- 卸载按键
 (lazy-load-unset-keys                   ;全局按键的卸载
- '("C-x C-f" "C-z" "C-q" "s-W" "s-z" "M-h" "C-x C-c" "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"))
+ '("C-x C-f" "C-z" "C-q" "s-T" "s-W" "s-z" "M-h" "C-x C-c" "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"))
 
 ;;; ### Popweb ###
 ;;; --- Web翻译
@@ -183,24 +183,22 @@
    )
  "goto-last-change")
 
-;;; ### Rect ###
-;;; --- 矩形操作
+;;; ### Markmacro ###
+;;; --- 标记对象的键盘宏操作
 (lazy-load-global-keys
  '(
-   ("s-M" . rm-set-mark)                ;矩形标记
-   ("s-X" . rm-exchange-point-and-mark) ;矩形对角交换
-   ("s-D" . rm-kill-region)             ;矩形删除
-   ("s-S" . rm-kill-ring-save)          ;矩形保存
-   ("s-Y" . yank-rectangle)             ;粘帖矩形
-   ("s-O" . open-rectangle)            ;用空白填充矩形, 并向右移动文本
-   ("s-C" . clear-rectangle)           ;清空矩形
-   ("s-T" . string-rectangle)          ;用字符串替代矩形的每一行
-   ("s-I" . string-insert-rectangle)   ;插入字符串在矩形的每一行
-   ("s-F" . delete-whitespace-rectangle) ;删除矩形中空格
-   ("s-\"" . copy-rectangle-to-register) ;拷贝矩形到寄存器
-   ("s-:" . mark-rectangle-to-end)       ;标记矩形到行末
+   ("s-/" . markmacro-mark-words)
+   ("s-?" . markmacro-mark-lines)
+   ("s-<" . markmacro-apply-all)
+   ("s->" . markmacro-apply-all-except-first)
+   ("s-M" . markmacro-rect-set)
+   ("s-D" . markmacro-rect-delete)
+   ("s-F" . markmacro-rect-replace)
+   ("s-I" . markmacro-rect-insert)
+   ("s-C" . markmacro-rect-mark-columns)
+   ("s-S" . markmacro-rect-mark-symbols)
    )
- "rect-extension")
+ "markmacro")
 
 ;;; ### Font ###
 ;;; --- 字体命令
@@ -278,7 +276,7 @@
    ("M-s-i" . ielm-toggle)              ;切换ielm
    ("<f5>" . emacs-session-save)        ;退出emacs
    ("C-4" . insert-changelog-date)      ;插入日志时间 (%Y/%m/%d)
-   ("C-5" . insert-standard-date)   
+   ("C-5" . insert-standard-date)
    ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
    )
  "lazycat-toolkit")
@@ -333,16 +331,6 @@
    )
  "init-thing-edit")
 
-;;; ### Aweshell ###
-;;; --- 多标签式的shell
-(lazy-load-global-keys
- '(
-   ("s-n" . aweshell-new)
-   ("s-h" . aweshell-toggle)
-   ("s-x s-x" . aweshell-dedicated-toggle)
-   )
- "aweshell")
-
 ;;; ### EAF ###
 ;;; EAF
 (unless (featurep 'cocoa)
@@ -351,7 +339,7 @@
      ("M-j" . eaf-open-in-file-manager)
      ("s-'" . eaf-open)
      ("s-\"" . eaf-open-browser)
-     ("s-/" . eaf-open-terminal)
+     ("s-n" . eaf-open-terminal)
      ("s-b" . eaf-open-rss-reader)
      )
    "init-eaf"))
@@ -493,29 +481,6 @@
    )
  emacs-lisp-mode-map)
 
-;;; ### String Inflection ###
-;; --- 单词语法风格快速转换
-(lazy-load-global-keys
- '(
-   ("C-c C-u" . one-key-string-inflection)
-   )
- "init-string-inflection")
-
-;;; ### Keyboard Macro ###
-;;; --- 键盘宏
-(lazy-load-global-keys
- '(
-   ("M-s-s" . kmacro-start-macro-or-insert-counter) ;开始键盘宏或插入
-   ("M-s-d" . kmacro-end-or-call-macro)             ;结束键盘宏或调用
-   ("M-s-c" . kmacro-delete-ring-head)              ;删除当前的键盘宏
-   ("M-s-w" . kmacro-cycle-ring-next)               ;下一个键盘宏
-   ("M-s-e" . kmacro-cycle-ring-previous)           ;上一个键盘宏
-   ("M-s-a" . kmacro-edit-macro)                    ;编辑键盘宏
-   ("M-s-v" . name-last-kbd-macro)                  ;命令当前键盘宏
-   ("M-s-f" . insert-kbd-macro)                     ;插入键盘宏
-   ("M-s-q" . apply-macro-to-region-lines) ;应用键盘宏到选择的区域
-   )
- "macros+")
 ;;; ### Git ###
 ;;; --- EAF Git
 (lazy-load-global-keys

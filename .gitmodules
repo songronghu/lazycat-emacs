@@ -297,3 +297,6 @@ url = https://github.com/manateelazycat/blink-search
 [submodule "site-lisp/extensions/lua-mode"]
 	path = site-lisp/extensions/lua-mode
 	url = https://github.com/immerrr/lua-mode
+[submodule "site-lisp/extensions/markmacro"]
+	path = site-lisp/extensions/markmacro
+	url = https://github.com/manateelazycat/markmacro.git
