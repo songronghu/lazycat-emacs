@@ -110,10 +110,6 @@ url = https://github.com/magit/transient.git
 path = site-lisp/extensions/symbol-overlay
 url = https://github.com/wolray/symbol-overlay.git
 
-[submodule "site-lisp/extensions/shift-number"]
-path = site-lisp/extensions/shift-number
-url = https://github.com/alezost/shift-number.el.git
-
 [submodule "delete-block"]
 path = site-lisp/extensions/delete-block
 url = https://github.com/manateelazycat/delete-block.git
@@ -129,10 +125,6 @@ url = https://github.com/manateelazycat/instant-rename-tag.git
 [submodule "olivetti"]
 path = site-lisp/extensions/olivetti
 url = https://github.com/rnkn/olivetti.git
-
-[submodule "site-lisp/extensions/unicode-escape"]
-path = site-lisp/extensions/unicode-escape
-url = https://github.com/kosh04/unicode-escape.el.git
 
 [submodule "posframe"]
 path = site-lisp/extensions/posframe
@@ -283,20 +275,26 @@ path = site-lisp/extensions/blink-search
 url = https://github.com/manateelazycat/blink-search
 
 [submodule "site-lisp/extensions/visual-regexp"]
-	path = site-lisp/extensions/visual-regexp
-	url = https://github.com/benma/visual-regexp.el
+path = site-lisp/extensions/visual-regexp
+url = https://github.com/benma/visual-regexp.el
+
 [submodule "site-lisp/extensions/smex"]
-	path = site-lisp/extensions/smex
-	url = https://github.com/nonsequitur/smex
+path = site-lisp/extensions/smex
+url = https://github.com/nonsequitur/smex
+
 [submodule "site-lisp/extensions/dictionary-overlay"]
-	path = site-lisp/extensions/dictionary-overlay
-	url = https://github.com/ginqi7/dictionary-overlay
+path = site-lisp/extensions/dictionary-overlay
+url = https://github.com/ginqi7/dictionary-overlay
+
 [submodule "site-lisp/extensions/websocket-bridge"]
-	path = site-lisp/extensions/websocket-bridge
-	url = https://github.com/ginqi7/websocket-bridge
+path = site-lisp/extensions/websocket-bridge
+url = https://github.com/ginqi7/websocket-bridge
+
 [submodule "site-lisp/extensions/lua-mode"]
-	path = site-lisp/extensions/lua-mode
-	url = https://github.com/immerrr/lua-mode
+path = site-lisp/extensions/lua-mode
+url = https://github.com/immerrr/lua-mode
+
 [submodule "site-lisp/extensions/markmacro"]
-	path = site-lisp/extensions/markmacro
-	url = https://github.com/manateelazycat/markmacro.git
+path = site-lisp/extensions/markmacro
+url = https://github.com/manateelazycat/markmacro.git
+
