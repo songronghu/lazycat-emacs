@@ -189,15 +189,17 @@
  '(
    ("s-/" . markmacro-mark-words) ;标记当前符号的单词或者选中区域的单词
    ("s-?" . markmacro-mark-lines) ;标记非空行
-   ("s-L" . markmacro-mark-imenus)      ;标记函数或变量
-   ("s-<" . markmacro-apply-all)        ;应用键盘宏到所有标记对象
-   ("s->" . markmacro-apply-all-except-first) ;应用键盘宏到所有标记对象, 除了第一个， 比如下划线转换的时候
-   ("s-M" . markmacro-rect-set)               ;记录矩形编辑开始的位置
-   ("s-D" . markmacro-rect-delete)            ;删除矩形区域
-   ("s-F" . markmacro-rect-replace)           ;替换矩形区域的内容
-   ("s-I" . markmacro-rect-insert)            ;在矩形区域前插入字符串
-   ("s-C" . markmacro-rect-mark-columns)      ;转换矩形列为标记对象
+   ("s-L" . markmacro-mark-imenus)          ;标记函数或变量
+   ("s-h" . markmacro-secondary-region-set) ;设置二级选中区域
+   ("s-H" . markmacro-secondary-region-mark-cursors) ;标记二级选中区域内的光标对象
+   ("s-M" . markmacro-rect-set)          ;记录矩形编辑开始的位置
+   ("s-D" . markmacro-rect-delete)       ;删除矩形区域
+   ("s-F" . markmacro-rect-replace)      ;替换矩形区域的内容
+   ("s-I" . markmacro-rect-insert)       ;在矩形区域前插入字符串
+   ("s-C" . markmacro-rect-mark-columns) ;转换矩形列为标记对象
    ("s-S" . markmacro-rect-mark-symbols) ;转换矩形列对应的符号为标记对象
+   ("s-<" . markmacro-apply-all)         ;应用键盘宏到所有标记对象
+   ("s->" . markmacro-apply-all-except-first) ;应用键盘宏到所有标记对象, 除了第一个， 比如下划线转换的时候
    )
  "markmacro")
 
