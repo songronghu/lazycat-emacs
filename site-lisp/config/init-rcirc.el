@@ -144,6 +144,9 @@
                            (car (last connected-servers)))
                  (car connected-servers))))))
 
+(setq rcirc-omit-responses              ;设置忽略的响应类型
+      (quote ("JOIN" "PART" "QUIT" "NICK" "AWAY" "MODE")))
+
 (add-hook 'rcirc-mode-hook #'(lambda ()
                                ;; 默认打开忽略模式
                                (rcirc-omit-mode)
