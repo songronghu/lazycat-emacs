@@ -75,6 +75,7 @@
 (require 'rcirc)
 (require 'rcirc-color)                  ;让每个名字都有自己的颜色
 (require 'rcirc-extension)
+(require 'dictionary-overlay)
 
 ;;; Code:
 
@@ -145,7 +146,10 @@
 
 (add-hook 'rcirc-mode-hook #'(lambda ()
                                ;; 默认打开忽略模式
-                               (rcirc-omit-mode)))
+                               (rcirc-omit-mode)
+
+                               ;; 默认打开翻译
+                               (dictionary-overlay-render-buffer)))
 
 (provide 'init-rcirc)
 
