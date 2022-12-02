@@ -88,6 +88,7 @@
                'markdown-mode-hook
                'Info-mode-hook
                'org-mode-hook
+               'rcirc-mode-hook
                ))
   (add-hook hook
             #'(lambda ()

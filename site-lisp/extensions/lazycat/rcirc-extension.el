@@ -162,12 +162,6 @@ Example use: /all away food or /all quit zzzz."
 ;; /pounce
 (eval-after-load 'rcirc '(require 'rcirc-pounce))
 
-(defun login-rcirc()
-  "Login rcirc."
-  (interactive)
-  (save-window-excursion
-    (rcirc nil)))
-
 (defun rcirc-smileys (&rest ignore)
   "Run smiley-buffer on the buffer
 but add a temporary space at the end to ensure matches of smiley

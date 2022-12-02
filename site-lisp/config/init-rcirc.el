@@ -72,27 +72,80 @@
 ;;
 
 ;;; Require
-
+(require 'rcirc)
+(require 'rcirc-color)                  ;让每个名字都有自己的颜色
+(require 'rcirc-extension)
 
 ;;; Code:
 
-(setq rcirc-default-full-name (eval my-full-name)) ;设置全名
-(setq rcirc-default-nick (eval my-irc-nick))       ;设置昵称
-(setq rcirc-default-user-name (eval my-name))      ;名字
-(setq rcirc-server-alist                ;rcirc服务器和加入频道
-      `(("irc.freenode.net" :channels ,my-irc-channel-list)))
-(setq rcirc-log-directory "~/.emacs.d/lazycat-emacs/Configure-File/Rcirc/logs") ;rcirc聊天记录
-(setq rcirc-notify-open t)        ;默认打开消息提醒模式
-(setq rcirc-notify-timeout 1)     ;同一个人发信息给我的延迟 (单位: 秒)
-(setq rcirc-authinfo              ;rcirc用户名和密码
-      '(("freenode" nickserv (eval my-irc-nick) (eval my-irc-passwd))))
-(setq rcirc-omit-responses              ;设置忽略的响应类型
-      (quote ("JOIN" "PART" "QUIT" "NICK" "AWAY" "MODE")))
-(setq rcirc-prompt "> ")                ;提示的符号
-(setq rcirc-time-format "[%H:%M] ")     ;时间格式
-(setq rcirc-track-minor-mode nil)       ;关闭mode-line提示
-(add-hook 'rcirc-mode-hook #'(lambda () (rcirc-omit-mode))) ;默认打开忽略模式
-(add-hook 'rcirc-print-hooks 'rcirc-write-log)          ;写入日志
+(defun rcirc-login ()
+  (interactive)
+  (let* ((server "irc.libera.chat")
+         (server-plist (cdr (assoc-string server rcirc-server-alist)))
+         (port "6697")
+         (nick "ManateeLazyCat")
+         (user-name "Andy Stewart")
+         (password (read-passwd "IRC Password: "))
+         (channels '("#emacs"))
+         (encryption 'tls)
+         (process (rcirc-connect server port nick user-name
+                                 rcirc-default-full-name
+                                 channels password encryption)))
+    (when rcirc-display-server-buffer
+      (pop-to-buffer-same-window (process-buffer process))))
+  ;; connect to servers in `rcirc-server-alist'
+  (let (connected-servers)
+    (dolist (c rcirc-server-alist)
+      (let ((server (car c))
+            (nick (or (plist-get (cdr c) :nick) rcirc-default-nick))
+            (port (or (plist-get (cdr c) :port) rcirc-default-port))
+            (user-name (or (plist-get (cdr c) :user-name)
+                           rcirc-default-user-name))
+            (full-name (or (plist-get (cdr c) :full-name)
+                           rcirc-default-full-name))
+            (channels (plist-get (cdr c) :channels))
+            (password (plist-get (cdr c) :password))
+            (encryption (plist-get (cdr c) :encryption))
+            (server-alias (plist-get (cdr c) :server-alias))
+            contact)
+        (when-let (((not password))
+                   (auth (auth-source-search :host server
+                                             :user user-name
+                                             :port port))
+                   (fn (plist-get (car auth) :secret)))
+          (setq password (funcall fn)))
+        (when server
+          (let (connected)
+            (dolist (p (rcirc-process-list))
+              (when (string= (or server-alias server) (process-name p))
+                (setq connected p)))
+            (if (not connected)
+                (condition-case nil
+                    (let ((process (rcirc-connect server port nick user-name
+                                                  full-name channels password encryption
+                                                  server-alias)))
+                      (when rcirc-display-server-buffer
+                        (pop-to-buffer-same-window (process-buffer process))))
+                  (quit (message "Quit connecting to %s"
+                                 (or server-alias server))))
+              (with-current-buffer (process-buffer connected)
+                (setq contact (process-contact
+                               (get-buffer-process (current-buffer)) :name))
+                (setq connected-servers
+                      (cons (if (stringp contact)
+                                contact (or server-alias server))
+                            connected-servers))))))))
+    (when connected-servers
+      (message "Already connected to %s"
+               (if (cdr connected-servers)
+                   (concat (mapconcat 'identity (butlast connected-servers) ", ")
+                           ", and "
+                           (car (last connected-servers)))
+                 (car connected-servers))))))
+
+(add-hook 'rcirc-mode-hook #'(lambda ()
+                               ;; 默认打开忽略模式
+                               (rcirc-omit-mode)))
 
 (provide 'init-rcirc)
 
