@@ -189,6 +189,7 @@
  '(
    ("s-/" . markmacro-mark-words) ;标记当前符号的单词或者选中区域的单词
    ("s-?" . markmacro-mark-lines) ;标记非空行
+   ("s-:" . markmacro-mark-chars) ;标记当前字符
    ("s-L" . markmacro-mark-imenus)          ;标记函数或变量
    ("s-h" . markmacro-secondary-region-set) ;设置二级选中区域
    ("s-H" . markmacro-secondary-region-mark-cursors) ;标记二级选中区域内的光标对象
