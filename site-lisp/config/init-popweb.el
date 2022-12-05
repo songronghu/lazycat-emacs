@@ -80,8 +80,7 @@
 ;;
 
 ;;; Require
-(require 'popweb-dict-bing)
-(require 'popweb-dict-youdao)
+(require 'popweb-dict)
 (require 'eww)
 (require 'dictionary-overlay)
 

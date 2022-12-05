@@ -101,8 +101,7 @@
 (require 'eaf-vue-demo)
 (require 'eaf-rss-reader)
 (require 'eaf-git)
-(require 'popweb-dict-bing)
-(require 'popweb-dict-youdao)
+(require 'popweb-dict)
 
 ;;; Code:
 
