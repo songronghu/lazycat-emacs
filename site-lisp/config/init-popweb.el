@@ -95,6 +95,7 @@
 
 (lazy-load-set-keys
  '((";" . popweb-dict-bing-input)
+   ("i" . popweb-dict-say-word)
    ("y" . popweb-translate-and-mark-unknown-word)
    ("Y" . dictionary-overlay-mark-word-known)
    ("," . dictionary-overlay-modify-translation)
@@ -104,6 +105,7 @@
 
 (lazy-load-set-keys
  '((";" . popweb-dict-bing-input)
+   ("i" . popweb-dict-say-word)
    ("y" . popweb-translate-and-mark-unknown-word)
    ("Y" . dictionary-overlay-mark-word-known)
    ("." . dictionary-overlay-render-buffer)
