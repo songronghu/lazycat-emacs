@@ -85,9 +85,7 @@
 ;;; Code:
 
 (dolist (hook (list
-               'markdown-mode-hook
                'Info-mode-hook
-               'org-mode-hook
                'rcirc-mode-hook
                ))
   (add-hook hook
@@ -95,6 +93,16 @@
                 (olivetti-mode 1)
                 (olivetti-set-width 120)
                 )))
+
+(dolist (hook (list
+               'markdown-mode-hook
+               'org-mode-hook
+               ))
+  (add-hook hook
+            #'(lambda ()
+                (unless (string-prefix-p "README" (file-name-base (buffer-file-name)))
+                  (olivetti-mode 1)
+                  (olivetti-set-width 120)))))
 
 (provide 'init-olivetti)
 
