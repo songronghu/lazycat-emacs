@@ -87,7 +87,9 @@
 (setq blink-search-common-directory '(("HOME" "~/")
                                       ("CONFIG" "~/lazycat-emacs/site-lisp/config/")
                                       ("REPO" "~/lazycat-emacs/site-lisp/extensions/")
-                                      ("EAF" "~/lazycat-emacs/site-lisp/extensions/emacs-application-framework/app/")))
+                                      ("EAF" "~/lazycat-emacs/site-lisp/extensions/emacs-application-framework/app/")
+                                      ("Book" "/data/Book/")
+                                      ))
 
 (setq blink-search-grep-pdf-search-paths "/data/Book")
 (setq blink-search-grep-pdf-backend 'eaf-pdf-viewer)
