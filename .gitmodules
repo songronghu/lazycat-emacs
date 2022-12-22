@@ -298,3 +298,6 @@ url = https://github.com/immerrr/lua-mode
 path = site-lisp/extensions/markmacro
 url = https://github.com/manateelazycat/markmacro.git
 
+[submodule "site-lisp/extensions/whisper"]
+	path = site-lisp/extensions/whisper
+	url = https://github.com/natrys/whisper.el.git

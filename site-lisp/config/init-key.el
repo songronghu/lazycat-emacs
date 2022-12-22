@@ -535,4 +535,11 @@
    )
  "init-lsp-bridge")
 
+;; ### whisper ###
+;;; --- 语音转文字
+(lazy-load-global-keys
+ '(
+   ("s-z" . whisper-run))
+ "init-whisper")
+
 (provide 'init-key)
