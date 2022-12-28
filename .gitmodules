@@ -301,3 +301,6 @@ url = https://github.com/manateelazycat/markmacro.git
 [submodule "site-lisp/extensions/whisper"]
 	path = site-lisp/extensions/whisper
 	url = https://github.com/natrys/whisper.el.git
+[submodule "site-lisp/extensions/ws-butler"]
+	path = site-lisp/extensions/ws-butler
+	url = https://github.com/lewang/ws-butler.git

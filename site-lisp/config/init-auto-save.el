@@ -86,13 +86,15 @@
 ;;
 
 ;;; Require
-
 (require 'auto-save)
+(require 'ws-butler)
 
 ;;; Code:
 
 (auto-save-enable)
 (setq auto-save-silent t)
+
+(ws-butler-global-mode)
 
 (provide 'init-auto-save)
 
