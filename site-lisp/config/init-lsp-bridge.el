@@ -85,7 +85,11 @@
 
 ;;; Code:
 
+(setq acm-enable-quick-access t)
 (global-lsp-bridge-mode)
+
+;; 打开日志，开发者才需要
+;; (setq lsp-bridge-enable-log t)
 
 ;; 融合 `lsp-bridge' `find-function' 以及 `dumb-jump' 的智能跳转
 (defun lsp-bridge-jump ()
@@ -121,9 +125,6 @@
                   (goto-char (point-min))
                   (when (search-forward-regexp (regexp-quote "from \"https://deno.land") nil t)
                     (return "deno")))))))))
-
-;; 打开日志，开发者才需要
-;; (setq lsp-bridge-enable-log t)
 
 (provide 'init-lsp-bridge)
 
