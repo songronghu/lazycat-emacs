@@ -1,9 +1,7 @@
 # -*- mode: snippet -*-
-# name: header3
+# name: link-url
 # contributor: liuyinz <liuyinz95@gmail.com>
-# key: h3
+# key: lku
 # --
 
-### ${1:Header3}
-
-$0
+[${1:Text}](${2:URL})$0

@@ -1,9 +1,8 @@
 # -*- mode: snippet -*-
-# name: header3
+# name: striKeThrough
 # contributor: liuyinz <liuyinz95@gmail.com>
-# key: h3
+# key: kt 
 # --
 
-### ${1:Header3}
+~~${1:striKe Through}~~ $0
 
-$0

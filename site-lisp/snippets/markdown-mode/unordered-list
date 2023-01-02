@@ -1,9 +1,8 @@
 # -*- mode: snippet -*-
-# name: header3
+# name: Unordered List
 # contributor: liuyinz <liuyinz95@gmail.com>
-# key: h3
+# key: ul
 # --
 
-### ${1:Header3}
-
+- ${1:Item}
 $0

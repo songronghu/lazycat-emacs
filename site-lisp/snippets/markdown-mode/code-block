@@ -1,9 +1,11 @@
 # -*- mode: snippet -*-
-# name: header3
+# name: Code Block
 # contributor: liuyinz <liuyinz95@gmail.com>
-# key: h3
+# key: cb
 # --
 
-### ${1:Header3}
+\`\`\`${1:Lang}
+${2:Code}
+\`\`\`
 
 $0

@@ -1,9 +1,8 @@
 # -*- mode: snippet -*-
-# name: header3
+# name: task-list
 # contributor: liuyinz <liuyinz95@gmail.com>
-# key: h3
+# key: tl
 # --
 
-### ${1:Header3}
-
+- [${2: }] ${1:task}
 $0

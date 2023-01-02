@@ -1,9 +1,7 @@
 # -*- mode: snippet -*-
-# name: header3
+# name: Bold-Italic
 # contributor: liuyinz <liuyinz95@gmail.com>
-# key: h3
+# key: bt
 # --
 
-### ${1:Header3}
-
-$0
+***${1:Bold&Italic}*** $0

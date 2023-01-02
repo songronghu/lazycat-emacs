@@ -1,9 +1,8 @@
 # -*- mode: snippet -*-
-# name: header3
+# name: Ordered List
 # contributor: liuyinz <liuyinz95@gmail.com>
-# key: h3
+# key: ol
 # --
 
-### ${1:Header3}
-
+${1:Num}. ${2:Item}
 $0

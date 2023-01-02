@@ -1,9 +1,7 @@
 # -*- mode: snippet -*-
-# name: header3
+# name: Image
 # contributor: liuyinz <liuyinz95@gmail.com>
-# key: h3
+# key: im
 # --
 
-### ${1:Header3}
-
-$0
+![${1:Text}]${2:(${3:Url}${4: "$5"})} $0
