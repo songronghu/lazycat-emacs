@@ -86,6 +86,8 @@
 ;;; Code:
 
 (setq acm-enable-quick-access t)
+(setq acm-backend-yas-match-by-trigger-keyword t)
+
 (global-lsp-bridge-mode)
 
 ;; 打开日志，开发者才需要
