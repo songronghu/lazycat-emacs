@@ -67,7 +67,7 @@
 ;;
 ;; 2014/05/12
 ;;     * Fixed qml-indent-line
-;;     
+;;
 ;; 2014/04/10
 ;;      * Improve qml-font-lock-keywords.
 ;;
@@ -255,8 +255,7 @@ This is run before the process is cranked up."
 (defun qml-indent-exp ()
   (interactive)
   (save-excursion
-    (indent-buffer))
-  )
+    (indent-region (point-min) (point-max) nil)))
 
 (provide 'qml-mode)
 

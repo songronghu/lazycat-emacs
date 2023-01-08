@@ -236,16 +236,6 @@ Optional argument REVERSED default is move next line, if reversed is non-nil mov
   (interactive)
   (comment-dwim-next-line 't))
 
-(defun indent-buffer ()
-  "Automatic format current buffer."
-  (interactive)
-  (if (derived-mode-p 'python-mode)
-      (message "Don't indent python buffer, it will mess up the code syntax.")
-    (save-excursion
-      (indent-region (point-min) (point-max) nil)
-      (delete-trailing-whitespace)
-      (untabify (point-min) (point-max)))))
-
 (defun indent-comment-buffer ()
   "Indent comment of buffer."
   (interactive)
@@ -481,12 +471,12 @@ Otherwise return nil."
   "Automatic reload current file."
   (interactive)
   (cond ((eq major-mode 'emacs-lisp-mode)
-         (indent-buffer)
+         (indent-region (point-min) (point-max) nil)
          (indent-comment-buffer)
          (save-buffer)
          (load-file (buffer-file-name)))
         ((member major-mode '(lisp-mode c-mode perl-mode))
-         (indent-buffer)
+         (indent-region (point-min) (point-max) nil)
          (indent-comment-buffer)
          (save-buffer))
         ((member major-mode '(haskell-mode sh-mode))
