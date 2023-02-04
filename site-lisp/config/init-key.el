@@ -277,47 +277,47 @@
    )
  "lazycat-toolkit")
 
-;;; ### Grammatical-Edit ###
+;;; ### Fingertip ###
 ;;; --- 结构化编程
 (lazy-load-unset-keys
  '("M-J" "M-r" "M-s" "M-;" "C-M-f" "C-M-b" "M-)")
- grammatical-edit-mode-map)             ;卸载按键
-(defvar grammatical-edit-key-alist nil)
-(setq grammatical-edit-key-alist
+ fingertip-mode-map)             ;卸载按键
+(defvar fingertip-key-alist nil)
+(setq fingertip-key-alist
       '(
         ;; 移动
-        ("M-n" . grammatical-edit-jump-left)
-        ("M-p" . grammatical-edit-jump-right)
+        ("M-n" . fingertip-jump-left)
+        ("M-p" . fingertip-jump-right)
         ;; 符号插入
-        ("%" . grammatical-edit-match-paren)       ;括号跳转
-        ("(" . grammatical-edit-open-round)        ;智能 (
-        ("[" . grammatical-edit-open-bracket)      ;智能 [
-        ("{" . grammatical-edit-open-curly)        ;智能 {
-        (")" . grammatical-edit-close-round)       ;智能 )
-        ("]" . grammatical-edit-close-bracket)     ;智能 ]
-        ("}" . grammatical-edit-close-curly)       ;智能 }
-        ("\"" . grammatical-edit-double-quote)     ;智能 "
-        ("'" . grammatical-edit-single-quote)      ;智能 '
-        ("=" . grammatical-edit-equal)             ;智能 =
-        ("SPC" . grammatical-edit-space)           ;智能 space
-        ("RET" . grammatical-edit-newline)         ;智能 newline
+        ("%" . fingertip-match-paren)       ;括号跳转
+        ("(" . fingertip-open-round)        ;智能 (
+        ("[" . fingertip-open-bracket)      ;智能 [
+        ("{" . fingertip-open-curly)        ;智能 {
+        (")" . fingertip-close-round)       ;智能 )
+        ("]" . fingertip-close-bracket)     ;智能 ]
+        ("}" . fingertip-close-curly)       ;智能 }
+        ("\"" . fingertip-double-quote)     ;智能 "
+        ("'" . fingertip-single-quote)      ;智能 '
+        ("=" . fingertip-equal)             ;智能 =
+        ("SPC" . fingertip-space)           ;智能 space
+        ("RET" . fingertip-newline)         ;智能 newline
         ;; 删除
-        ("M-o" . grammatical-edit-backward-delete) ;向后删除
-        ("C-d" . grammatical-edit-forward-delete)  ;向前删除
-        ("C-k" . grammatical-edit-kill)            ;向前kill
+        ("M-o" . fingertip-backward-delete) ;向后删除
+        ("C-d" . fingertip-forward-delete)  ;向前删除
+        ("C-k" . fingertip-kill)            ;向前kill
         ;; 包围
-        ("M-\"" . grammatical-edit-wrap-double-quote) ;用 " " 包围对象, 或跳出字符串
-        ("M-'" . grammatical-edit-wrap-single-quote) ;用 ' ' 包围对象, 或跳出字符串
-        ("M-[" . grammatical-edit-wrap-bracket)      ;用 [ ] 包围对象
-        ("M-{" . grammatical-edit-wrap-curly)        ;用 { } 包围对象
-        ("M-(" . grammatical-edit-wrap-round)        ;用 ( ) 包围对象
-        ("M-)" . grammatical-edit-unwrap)            ;去掉包围对象
+        ("M-\"" . fingertip-wrap-double-quote) ;用 " " 包围对象, 或跳出字符串
+        ("M-'" . fingertip-wrap-single-quote) ;用 ' ' 包围对象, 或跳出字符串
+        ("M-[" . fingertip-wrap-bracket)      ;用 [ ] 包围对象
+        ("M-{" . fingertip-wrap-curly)        ;用 { } 包围对象
+        ("M-(" . fingertip-wrap-round)        ;用 ( ) 包围对象
+        ("M-)" . fingertip-unwrap)            ;去掉包围对象
         ;; 跳出并换行缩进
-        ("M-:" . grammatical-edit-jump-out-pair-and-newline) ;跳出括号并换行
+        ("M-:" . fingertip-jump-out-pair-and-newline) ;跳出括号并换行
         ;; 向父节点跳动
-        ("C-j" . grammatical-edit-jump-up)
+        ("C-j" . fingertip-jump-up)
         ))
-(lazy-load-set-keys grammatical-edit-key-alist grammatical-edit-mode-map)
+(lazy-load-set-keys fingertip-key-alist fingertip-mode-map)
 
 ;;; ### Thingh-edit ###
 ;;; --- 增强式编辑当前光标的对象
