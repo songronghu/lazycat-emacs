@@ -178,10 +178,6 @@ url = https://github.com/manateelazycat/toggle-one-window.git
 path = site-lisp/extensions/popweb
 url = https://github.com/manateelazycat/popweb.git
 
-[submodule "site-lisp/extensions/grammatical-edit"]
-path = site-lisp/extensions/grammatical-edit
-url = https://github.com/manateelazycat/grammatical-edit
-
 [submodule "site-lisp/extensions/find-orphan"]
 path = site-lisp/extensions/find-orphan
 url = https://github.com/manateelazycat/find-orphan
