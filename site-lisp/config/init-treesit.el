@@ -85,9 +85,27 @@
 ;;; Code:
 
 ;; M-x `treesit-install-language-grammar` to install language grammar.
-(add-to-list
- 'treesit-language-source-alist
- '(python "https://github.com/tree-sitter/tree-sitter-python.git"))
+(setq treesit-language-source-alist
+      '((bash       . ("https://github.com/tree-sitter/tree-sitter-bash.git"))
+        (c          . ("https://github.com/tree-sitter/tree-sitter-c.git"))
+        (cmake      . ("https://github.com/uyha/tree-sitter-cmake.git"))
+        (cpp        . ("https://github.com/tree-sitter/tree-sitter-cpp.git"))
+        (csharp     . ("https://github.com/tree-sitter/tree-sitter-c-sharp.git"))
+        (css        . ("https://github.com/tree-sitter/tree-sitter-css.git"))
+        (dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile.git"))
+        (go         . ("https://github.com/tree-sitter/tree-sitter-go.git"))
+        (gomod      . ("https://github.com/camdencheek/tree-sitter-go-mod.git"))
+        (html       . ("https://github.com/tree-sitter/tree-sitter-html.git"))
+        (java       . ("https://github.com/tree-sitter/tree-sitter-java.git"))
+        (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript.git"))
+        (json       . ("https://github.com/tree-sitter/tree-sitter-json.git"))
+        (python     . ("https://github.com/tree-sitter/tree-sitter-python.git"))
+        (ruby       . ("https://github.com/tree-sitter/tree-sitter-ruby.git"))
+        (rust       . ("https://github.com/tree-sitter/tree-sitter-rust.git"))
+        (toml       . ("https://github.com/tree-sitter/tree-sitter-toml.git"))
+        (tsx        . ("https://github.com/tree-sitter/tree-sitter-typescript.git" nil "tsx/src"))
+        (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript.git" nil "typescript/src"))
+        (yaml       . ("https://github.com/ikatyang/tree-sitter-yaml.git"))))
 
 (setq major-mode-remap-alist
       '((c-mode          . c-ts-mode)
