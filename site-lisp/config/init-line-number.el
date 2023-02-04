@@ -132,6 +132,17 @@
                'elixir-mode-hook
                'clojure-mode-hook
                'dart-mode-hook
+
+               'c-ts-mode-hook
+               'c++-ts-mode-hook
+               'cmake-ts-mode-hook
+               'toml-ts-mode-hook
+               'css-ts-mode-hook
+               'js-ts-mode-hook
+               'json-ts-mode-hook
+               'python-ts-mode-hook
+               'bash-ts-mode-hook
+               'typescript-ts-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 

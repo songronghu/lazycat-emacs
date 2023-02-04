@@ -60,7 +60,7 @@
          (require 'browse-kill-ring)
          (require 'elf-mode)
 
-         (require 'init-tree-sitter)
+         (require 'init-treesit)
          (require 'init-eldoc)
          (require 'init-yasnippet)
          (require 'init-cursor-chg)
