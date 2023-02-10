@@ -92,7 +92,6 @@
 (require 'eaf-terminal)
 (require 'eaf-camera)
 (require 'eaf-jupyter)
-(require 'eaf-netease-cloud-music)
 (require 'eaf-music-player)
 (require 'eaf-system-monitor)
 (require 'eaf-file-manager)
