@@ -99,7 +99,7 @@
 
 (require 'web-mode)
 (require 'js)
-(require 'grammatical-edit)
+(require 'fingertip)
 (require 'instant-rename-tag)
 (require 'highlight-matching-tag)
 
@@ -119,7 +119,7 @@
 (setq web-mode-markup-indent-offset 2)
 
 ;; We-mode.
-(lazy-load-set-keys grammatical-edit-key-alist web-mode-map)
+(lazy-load-set-keys fingertip-key-alist web-mode-map)
 (lazy-load-local-keys
  '(
    ("M-s-SPC" . web-mode-element-content-select)
