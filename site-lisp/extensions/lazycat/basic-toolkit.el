@@ -241,6 +241,15 @@ Optional argument REVERSED default is move next line, if reversed is non-nil mov
   (interactive)
   (indent-comment-region (point-min) (point-max)))
 
+(defun indent-buffer ()
+  "Automatic format current buffer."
+  (interactive)
+  (if (derived-mode-p 'python-mode)
+      (message "Don't indent python buffer, it will mess up the code syntax.")
+    (save-excursion
+      (indent-region (point-min) (point-max) nil)
+      )))
+
 (defun indent-comment-region (start end)
   "Indent region."
   (interactive "r")
