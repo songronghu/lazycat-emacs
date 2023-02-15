@@ -100,6 +100,8 @@
 (require 'eaf-vue-demo)
 (require 'eaf-rss-reader)
 (require 'eaf-git)
+(require 'eaf-map)
+
 (require 'popweb-dict)
 
 ;;; Code:
