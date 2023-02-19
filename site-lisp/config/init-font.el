@@ -106,6 +106,9 @@
 
 (load-font-setup)
 
+;; This is hacking to fix Emacs 29 will decrease font after standby.
+(add-function :after after-focus-change-function #'load-font-setup)
+
 (dolist (hook (list
                'c-mode-common-hook
                'c-mode-hook
