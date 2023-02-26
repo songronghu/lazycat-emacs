@@ -127,7 +127,8 @@
         (js-json-mode    . json-ts-mode)
         (python-mode     . python-ts-mode)
         (sh-mode         . bash-ts-mode)
-        (typescript-mode . typescript-ts-mode)))
+        (typescript-mode . typescript-ts-mode)
+        (json-mode       . json-ts-mode)))
 
 (add-hook 'emacs-lisp-mode-hook #'(lambda () (treesit-parser-create 'elisp)))
 
