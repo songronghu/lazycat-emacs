@@ -130,6 +130,12 @@
         (typescript-mode . typescript-ts-mode)
         (json-mode       . json-ts-mode)))
 
+(add-hook 'web-mode-hook #'(lambda ()
+                             (let ((file-name (buffer-file-name)))
+                               (when (and file-name
+                                          (string= (file-name-extension file-name) "vue"))
+                                 (treesit-parser-create 'vue)))))
+
 (add-hook 'emacs-lisp-mode-hook #'(lambda () (treesit-parser-create 'elisp)))
 
 (provide 'init-treesit)
