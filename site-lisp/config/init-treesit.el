@@ -128,7 +128,9 @@
         (python-mode     . python-ts-mode)
         (sh-mode         . bash-ts-mode)
         (typescript-mode . typescript-ts-mode)
-        (json-mode       . json-ts-mode)))
+        ))
+
+(add-hook 'markdown-mode-hook #'(lambda () (treesit-parser-create 'markdown)))
 
 (add-hook 'web-mode-hook #'(lambda ()
                              (let ((file-name (buffer-file-name)))
