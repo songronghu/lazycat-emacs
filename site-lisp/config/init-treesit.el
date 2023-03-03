@@ -139,6 +139,7 @@
                                  (treesit-parser-create 'vue)))))
 
 (add-hook 'emacs-lisp-mode-hook #'(lambda () (treesit-parser-create 'elisp)))
+(add-hook 'ielm-mode-hook #'(lambda () (treesit-parser-create 'elisp)))
 
 (provide 'init-treesit)
 
