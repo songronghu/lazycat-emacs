@@ -134,9 +134,12 @@
 
 (add-hook 'web-mode-hook #'(lambda ()
                              (let ((file-name (buffer-file-name)))
-                               (when (and file-name
-                                          (string= (file-name-extension file-name) "vue"))
-                                 (treesit-parser-create 'vue)))))
+                               (when file-name
+                                 (treesit-parser-create
+                                  (pcase (file-name-extension file-name)
+                                    ("vue" 'vue)
+                                    ("html" 'html))))
+                               )))
 
 (add-hook 'emacs-lisp-mode-hook #'(lambda () (treesit-parser-create 'elisp)))
 (add-hook 'ielm-mode-hook #'(lambda () (treesit-parser-create 'elisp)))
