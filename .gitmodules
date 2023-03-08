@@ -302,3 +302,6 @@ url = https://github.com/lewang/ws-butler.git
 path = site-lisp/extensions/fingertip
 url = https://github.com/manateelazycat/fingertip
 
+[submodule "site-lisp/extensions/mind-wave"]
+	path = site-lisp/extensions/mind-wave
+	url = https://github.com/manateelazycat/mind-wave

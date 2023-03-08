@@ -36,6 +36,7 @@
     (require 'display-line-numbers)
     (require 'basic-toolkit)
     (require 'redo)
+    (require 'mind-wave)
 
     (require 'init-highlight-parentheses)
     (require 'init-awesome-tray)
