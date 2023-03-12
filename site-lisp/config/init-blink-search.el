@@ -89,6 +89,7 @@
                                       ("REPO" "~/lazycat-emacs/site-lisp/extensions/")
                                       ("EAF" "~/lazycat-emacs/site-lisp/extensions/emacs-application-framework/app/")
                                       ("Book" "/data/Book/")
+                                      ("ChatGPT" "~/ChatGPT")
                                       ))
 
 (setq blink-search-grep-pdf-search-paths "/data/Book")
