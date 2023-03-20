@@ -108,7 +108,6 @@
                'conf-toml-mode-hook
                'nim-mode-hook
                'typescript-mode-hook
-
                'c-ts-mode-hook
                'c++-ts-mode-hook
                'cmake-ts-mode-hook
@@ -120,7 +119,11 @@
                'bash-ts-mode-hook
                'typescript-ts-mode-hook
                ))
-  (add-hook hook #'(lambda () (fingertip-mode 1))))
+  (add-hook hook #'(lambda ()
+                     (when (or
+                            (not (buffer-file-name))
+                            (not (string-equal (file-name-extension (buffer-file-name)) "chat")))
+                       (fingertip-mode 1)))))
 
 (provide 'init-fingertip)
 
