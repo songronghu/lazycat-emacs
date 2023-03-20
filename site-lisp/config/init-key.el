@@ -187,12 +187,7 @@
 ;;; --- 标记对象的键盘宏操作
 (lazy-load-global-keys
  '(
-   ("s-/" . markmacro-mark-words) ;标记当前符号的单词或者选中区域的单词
-   ("s-?" . markmacro-mark-lines) ;标记非空行
-   ("s-:" . markmacro-mark-chars) ;标记当前字符
-   ("s-L" . markmacro-mark-imenus)          ;标记函数或变量
-   ("s-h" . markmacro-secondary-region-set) ;设置二级选中区域
-   ("s-H" . markmacro-secondary-region-mark-cursors) ;标记二级选中区域内的光标对象
+   ("s-h" . one-key-menu-mark-macro)     ;one-key菜单
    ("s-M" . markmacro-rect-set)          ;记录矩形编辑开始的位置
    ("s-D" . markmacro-rect-delete)       ;删除矩形区域
    ("s-F" . markmacro-rect-replace)      ;替换矩形区域的内容
@@ -202,7 +197,7 @@
    ("s-<" . markmacro-apply-all)         ;应用键盘宏到所有标记对象
    ("s->" . markmacro-apply-all-except-first) ;应用键盘宏到所有标记对象, 除了第一个， 比如下划线转换的时候
    )
- "markmacro")
+ "init-markmacro")
 
 ;;; ### Font ###
 ;;; --- 字体命令
@@ -281,7 +276,7 @@
 ;;; --- 结构化编程
 (lazy-load-unset-keys
  '("M-J" "M-r" "M-s" "M-;" "C-M-f" "C-M-b" "M-)")
- fingertip-mode-map)             ;卸载按键
+ fingertip-mode-map)                    ;卸载按键
 (defvar fingertip-key-alist nil)
 (setq fingertip-key-alist
       '(
