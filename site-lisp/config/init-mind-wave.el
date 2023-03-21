@@ -87,6 +87,7 @@
  "MIND-WAVE"
  '(
    (("t" . "Translate to english") . mind-wave-translate-to-english)
+   (("T" . "Explain word") . mind-wave-explain-word)
    (("d" . "Proofreading doc") . mind-wave-proofreading-doc)
    (("r" . "Refactory code") . mind-wave-refactory-code)
    (("c" . "Comment code") . mind-wave-comment-code)
