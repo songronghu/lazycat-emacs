@@ -90,7 +90,8 @@
    (("w" . "Mark word") . markmacro-mark-words) ;标记当前符号的单词或者选中区域的单词
    (("l" . "Mark line") . markmacro-mark-lines) ;标记非空行
    (("c" . "Mark char") . markmacro-mark-chars) ;标记当前字符
-   (("i" . "Mark imenu") . markmacro-mark-imenus)          ;标记函数或变量
+   (("p" . "Mark parameters") . markmacro-mark-function-parameters) ;标记函数参数
+   (("i" . "Mark imenu") . markmacro-mark-imenus) ;标记函数或变量
    (("h" . "Secondary region set") . markmacro-secondary-region-set) ;设置二级选中区域
    (("j" . "Secondary region mark cursor") . markmacro-secondary-region-mark-cursors) ;标记二级选中区域内的光标对象
    )
