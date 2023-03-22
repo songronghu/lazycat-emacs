@@ -92,6 +92,7 @@
    (("r" . "Refactory code") . mind-wave-refactory-code)
    (("c" . "Comment code") . mind-wave-comment-code)
    (("e" . "Explain code") . mind-wave-explain-code)
+   (("g" . "Generate Patch Name") . mind-wave-generate-git-commit-name)
    (("v" . "Summary video") . mind-wave-summary-video)
    (("w" . "Summary video") . mind-wave-summary-web)
    )
