@@ -92,9 +92,11 @@
    (("r" . "Refactory code") . mind-wave-refactory-code)
    (("c" . "Comment code") . mind-wave-comment-code)
    (("e" . "Explain code") . mind-wave-explain-code)
+   (("a" . "Action code") . mind-wave-action-code)
    (("g" . "Generate Patch Name") . mind-wave-generate-commit-name)
    (("v" . "Summary video") . mind-wave-summary-video)
    (("w" . "Summary video") . mind-wave-summary-web)
+   (("r" . "Restore window configuration") . mind-wave-restore-window-configuration)
    )
  t)
 
