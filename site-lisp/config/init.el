@@ -62,6 +62,7 @@
     (require 'init-isearch-mb)
     (require 'init-performance)
     (require 'init-rime)
+    (require 'init-mind-wave)
 
     ;; 可以延后加载的
     (run-with-idle-timer

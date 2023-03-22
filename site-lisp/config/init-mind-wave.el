@@ -81,6 +81,7 @@
 
 ;;; Require
 (require 'mind-wave)
+(require 'eaf-git)
 
 ;;; Code:
 (one-key-create-menu
@@ -99,6 +100,8 @@
    (("r" . "Restore window configuration") . mind-wave-restore-window-configuration)
    )
  t)
+
+(add-hook 'eaf-git-commit-and-push-hook #'mind-wave-generate-commit-name)
 
 
 (provide 'init-mind-wave)
