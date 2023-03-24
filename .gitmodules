@@ -305,3 +305,6 @@ url = https://github.com/manateelazycat/fingertip
 [submodule "site-lisp/extensions/mind-wave"]
 	path = site-lisp/extensions/mind-wave
 	url = https://github.com/manateelazycat/mind-wave
+[submodule "site-lisp/extensions/nova"]
+	path = site-lisp/extensions/nova
+	url = https://github.com/manateelazycat/nova.git

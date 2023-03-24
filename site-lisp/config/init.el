@@ -47,6 +47,7 @@
     (require 'basic-toolkit)
     (require 'redo)
     (require 'mind-wave)
+    (require 'nova)
 
     (require 'init-highlight-parentheses)
     (require 'init-awesome-tray)
