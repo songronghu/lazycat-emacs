@@ -94,6 +94,7 @@
    (("R" . "Refactory code with input") . mind-wave-refactory-code-with-input)
    (("c" . "Comment code") . mind-wave-comment-code)
    (("e" . "Explain code") . mind-wave-explain-code)
+   (("E" . "Explain point") . mind-wave-explain-point)
    (("a" . "Adjust text") . mind-wave-adjust-text)
    (("g" . "Generate Patch Name") . mind-wave-generate-commit-name)
    (("v" . "Summary video") . mind-wave-summary-video)
