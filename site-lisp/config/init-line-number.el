@@ -143,6 +143,7 @@
                'python-ts-mode-hook
                'bash-ts-mode-hook
                'typescript-ts-mode-hook
+               'rust-ts-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 

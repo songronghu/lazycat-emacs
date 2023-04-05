@@ -99,6 +99,7 @@
                'ruby-mode-hook
                'coffee-mode-hook
                'rust-mode-hook
+               'rust-ts-mode-hook
                'qmake-mode-hook
                'lua-mode-hook
                'swift-mode-hook
