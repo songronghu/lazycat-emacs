@@ -97,7 +97,7 @@
    (("E" . "Explain point") . mind-wave-explain-point)
    (("a" . "Adjust text") . mind-wave-adjust-text)
    (("g" . "Generate code") . mind-wave-generate-code)
-   (("G" . "Generate Patch Name") . mind-wave-generate-commit-name)
+   (("G" . "Generate patch name") . mind-wave-generate-commit-name)
    (("v" . "Summary video") . mind-wave-summary-video)
    (("w" . "Summary video") . mind-wave-summary-web)
    (("x" . "Restore window configuration") . mind-wave-restore-window-configuration)
