@@ -90,6 +90,7 @@
    (("t" . "Translate to english") . mind-wave-translate-to-english)
    (("T" . "Explain word") . mind-wave-explain-word)
    (("d" . "Proofreading doc") . mind-wave-proofreading-doc)
+   (("f" . "Fix typos") . mind-wave-check-typos)
    (("r" . "Refactory code") . mind-wave-refactory-code)
    (("R" . "Refactory code with input") . mind-wave-refactory-code-with-input)
    (("c" . "Comment code") . mind-wave-comment-code)
