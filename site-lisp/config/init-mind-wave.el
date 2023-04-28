@@ -84,6 +84,11 @@
 (require 'eaf-git)
 
 ;;; Code:
+(setq mind-wave-chat-model "gpt-4")
+(setq mind-wave-async-text-model "gpt-4")
+(setq mind-wave-action-code-model "gpt-4")
+(setq mind-wave-explain-word-model "gpt-4")
+
 (one-key-create-menu
  "MIND-WAVE"
  '(
