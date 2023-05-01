@@ -81,9 +81,9 @@
 
 ;;; Require
 (require 'markdown-mode)
-(require 'pangu-spacing)
 (require 'deno-bridge-jieba)
 
+;;; Code:
 (lazy-load-set-keys
  '(
    ("M-f" . deno-bridge-jieba-forward-word)
@@ -92,18 +92,6 @@
    ("M-N" . deno-bridge-jieba-backward-kill-word)
    )
  markdown-mode-map)
-
-;;; Code:
-
-(global-pangu-spacing-mode 1)
-
-(dolist (hook (list
-               'markdown-mode-hook
-               ))
-  (add-hook hook
-            #'(lambda ()
-                (set (make-local-variable 'pangu-spacing-real-insert-separtor) t)
-                )))
 
 (provide 'init-markdown-mode)
 
