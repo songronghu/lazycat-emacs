@@ -81,6 +81,7 @@
 
 ;;; Require
 (require 'markdown-mode)
+(require 'wraplish)
 (require 'deno-bridge-jieba)
 
 ;;; Code:
@@ -92,6 +93,14 @@
    ("M-N" . deno-bridge-jieba-backward-kill-word)
    )
  markdown-mode-map)
+
+(dolist (hook (list
+               'markdown-mode-hook
+               ))
+  (add-hook hook
+            #'(lambda ()
+                (wraplish-mode 1)
+                )))
 
 (provide 'init-markdown-mode)
 

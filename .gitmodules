@@ -234,10 +234,6 @@ url = https://github.com/magnars/multiple-cursors.el
 path = site-lisp/extensions/clojure-mode
 url = https://github.com/clojure-emacs/clojure-mode
 
-[submodule "site-lisp/extensions/pangu-spacing"]
-path = site-lisp/extensions/pangu-spacing
-url = https://github.com/coldnew/pangu-spacing
-
 [submodule "site-lisp/extensions/rust-mode"]
 path = site-lisp/extensions/rust-mode
 url = https://github.com/rust-lang/rust-mode
@@ -305,4 +301,8 @@ url = https://github.com/manateelazycat/fingertip
 [submodule "site-lisp/extensions/mind-wave"]
 path = site-lisp/extensions/mind-wave
 url = https://github.com/manateelazycat/mind-wave
+
+[submodule "site-lisp/extensions/wraplish"]
+path = site-lisp/extensions/wraplish
+url = https://github.com/manateelazycat/wraplish.git
 
