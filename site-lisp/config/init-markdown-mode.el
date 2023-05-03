@@ -94,6 +94,8 @@
    )
  markdown-mode-map)
 
+(setq wraplish-add-space-after-chinese-comma t)
+
 (dolist (hook (list
                'markdown-mode-hook
                ))
