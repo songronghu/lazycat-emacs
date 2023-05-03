@@ -95,7 +95,6 @@
  markdown-mode-map)
 
 (setq wraplish-add-space-after-comma t)
-(setq wraplish-add-space-after-period t)
 (setq wraplish-add-space-after-chinese-comma t)
 (setq wraplish-add-space-after-chinese-period t)
 (setq wraplish-add-space-after-quote t)
