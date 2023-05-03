@@ -226,10 +226,6 @@ url = https://github.com/Sterlingg/json-snatcher
 path = site-lisp/extensions/php-mode
 url = https://github.com/emacs-php/php-mode
 
-[submodule "site-lisp/extensions/multiple-cursor"]
-path = site-lisp/extensions/multiple-cursor
-url = https://github.com/magnars/multiple-cursors.el
-
 [submodule "site-lisp/extensions/clojure-mode"]
 path = site-lisp/extensions/clojure-mode
 url = https://github.com/clojure-emacs/clojure-mode
@@ -307,5 +303,6 @@ path = site-lisp/extensions/wraplish
 url = https://github.com/manateelazycat/wraplish.git
 
 [submodule "site-lisp/extensions/effortless-indent"]
-	path = site-lisp/extensions/effortless-indent
-	url = https://github.com/manateelazycat/effortless-indent.git
+path = site-lisp/extensions/effortless-indent
+url = https://github.com/manateelazycat/effortless-indent.git
+
