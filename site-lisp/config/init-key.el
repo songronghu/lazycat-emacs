@@ -545,4 +545,11 @@
    ("s-z" . whisper-run))
  "init-whisper")
 
+;; ### effortless-indent ###
+;;; --- 快速缩进
+(lazy-load-global-keys
+ '(
+   ("C-S-y" . effortless-indent))
+ "effortless-indent")
+
 (provide 'init-key)

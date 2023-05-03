@@ -306,3 +306,6 @@ url = https://github.com/manateelazycat/mind-wave
 path = site-lisp/extensions/wraplish
 url = https://github.com/manateelazycat/wraplish.git
 
+[submodule "site-lisp/extensions/effortless-indent"]
+	path = site-lisp/extensions/effortless-indent
+	url = https://github.com/manateelazycat/effortless-indent.git
