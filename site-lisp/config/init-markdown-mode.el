@@ -91,13 +91,22 @@
    ("M-b" . deno-bridge-jieba-backward-word)
    ("M-M" . deno-bridge-jieba-kill-word)
    ("M-N" . deno-bridge-jieba-backward-kill-word)
+   ("s-j" . fix-chinese-colons)
    )
  markdown-mode-map)
 
-(setq wraplish-add-space-after-comma t)
-(setq wraplish-add-space-after-chinese-comma t)
-(setq wraplish-add-space-after-chinese-period t)
-(setq wraplish-add-space-after-pause-symbol t)
+(defun fix-chinese-colons ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (let ((count 0))
+      (while (re-search-forward "[“”]" nil t)
+        (if (= (% count 2) 0)
+            (replace-match "“" nil t)
+          (replace-match "”" nil t))
+        (setq count (1+ count))))))
+
+(setq wraplish-add-space-after-chinese-punctuation t)
 
 (dolist (hook (list
                'markdown-mode-hook
