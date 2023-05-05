@@ -100,19 +100,22 @@
   (save-excursion
     (goto-char (point-min))
     (let ((count 0))
-      (while (re-search-forward "[“”]" nil t)
+      (while (re-search-forward "[\"“”]" nil t)
         (if (= (% count 2) 0)
             (replace-match "“" nil t)
           (replace-match "”" nil t))
-        (setq count (1+ count))))
+        (setq count (1+ count)))))
 
+  (save-excursion
     (goto-char (point-min))
     (let ((count 0))
-      (while (re-search-forward "[‘’]" nil t)
+      (while (re-search-forward "['‘’]" nil t)
         (if (= (% count 2) 0)
             (replace-match "‘" nil t)
           (replace-match "’" nil t))
-        (setq count (1+ count))))))
+        (setq count (1+ count)))))
+
+  (message "Fix Chinese colons."))
 
 (setq wraplish-add-space-after-chinese-punctuation t)
 
