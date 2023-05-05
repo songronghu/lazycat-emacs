@@ -104,6 +104,14 @@
         (if (= (% count 2) 0)
             (replace-match "“" nil t)
           (replace-match "”" nil t))
+        (setq count (1+ count))))
+
+    (goto-char (point-min))
+    (let ((count 0))
+      (while (re-search-forward "[‘’]" nil t)
+        (if (= (% count 2) 0)
+            (replace-match "‘" nil t)
+          (replace-match "’" nil t))
         (setq count (1+ count))))))
 
 (setq wraplish-add-space-after-chinese-punctuation t)
