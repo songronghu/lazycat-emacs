@@ -133,7 +133,7 @@
 (setq eaf-webengine-default-zoom (if (> (frame-pixel-width) 3000) 2 1))
 (setq eaf-browser-aria2-proxy-host "127.0.0.1")
 (setq eaf-browser-aria2-proxy-port "9888")
-(setq eaf-browser-enable-adblocker t)
+(setq eaf-browser-enable-adblocker nil)
 (setq eaf-browser-enable-autofill t)
 (setq eaf-music-play-order "random")
 (setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
