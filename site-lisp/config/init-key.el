@@ -171,17 +171,22 @@
    ("C-M-S-h" . mark-paragraph)            ;选中段落
    ("M-SPC" . just-one-space)              ;只有一个空格在光标处
    ))
-(lazy-load-global-keys
- '(
-   ("C-/" . undo-tree-undo)             ;撤销
-   ("C-?" . undo-tree-redo)             ;重做
-   )
- "undo-tree")
+
+;;; ### goto-last-change ###
+;;; --- 跳到最后编辑的地方
 (lazy-load-global-keys
  '(
    ("C-," . goto-last-change)           ;跳到最后编辑的地方
    )
  "goto-last-change")
+
+;;; ### vundo ###
+;;; --- 可视化撤销插件
+(lazy-load-global-keys
+ '(
+   ("C-/" . vundo)
+   )
+ "init-vundo")
 
 ;;; ### Markmacro ###
 ;;; --- 标记对象的键盘宏操作
