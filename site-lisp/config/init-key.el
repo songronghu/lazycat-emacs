@@ -184,7 +184,8 @@
 ;;; --- 可视化撤销插件
 (lazy-load-global-keys
  '(
-   ("C-/" . vundo)
+   ("C-/" . undo)
+   ("C-?" . vundo)
    )
  "init-vundo")
 
