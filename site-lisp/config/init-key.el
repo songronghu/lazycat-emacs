@@ -558,4 +558,14 @@
    ("C-S-y" . effortless-indent))
  "effortless-indent")
 
+;; ### popper ###
+;;; --- 弹出窗口管理
+(lazy-load-global-keys
+ '(
+   ("C-`" . popper-toggle-latest)
+   ("M-`" . popper-cycle)
+   ("C-M-`" . popper-toggle-type)
+   )
+ "init-popper")
+
 (provide 'init-key)

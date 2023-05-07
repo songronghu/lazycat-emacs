@@ -309,3 +309,6 @@ url = https://github.com/manateelazycat/effortless-indent.git
 [submodule "site-lisp/extensions/vundo"]
 	path = site-lisp/extensions/vundo
 	url = https://github.com/casouri/vundo.git
+[submodule "site-lisp/extensions/popper"]
+	path = site-lisp/extensions/popper
+	url = https://github.com/karthink/popper.git
