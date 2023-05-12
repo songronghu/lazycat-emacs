@@ -85,6 +85,7 @@
 (require 'eaf-pdf-viewer)
 (require 'eaf-markdown-previewer)
 (require 'eaf-markmap)
+(require 'eaf-js-video-player)
 (require 'eaf-video-player)
 (require 'eaf-image-viewer)
 (require 'eaf-org-previewer)
