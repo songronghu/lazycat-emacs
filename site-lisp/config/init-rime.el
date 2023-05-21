@@ -88,7 +88,7 @@
 (setq rime-posframe-properties
       (list :background-color "#333333"
             :foreground-color "#dcdccc"
-            :font "TsangerJinKai03-6763-13"
+            :font "TsangerJinKai03-6763-18"
             :internal-border-width 10))
 
 (setq default-input-method "rime"
