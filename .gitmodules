@@ -154,10 +154,6 @@ url = https://github.com/magnars/dash.el.git
 path = site-lisp/extensions/one-key
 url = https://github.com/manateelazycat/one-key
 
-[submodule "site-lisp/extensions/request"]
-path = site-lisp/extensions/request
-url = https://github.com/tkf/emacs-request.git
-
 [submodule "site-lisp/extensions/isearch-mb"]
 path = site-lisp/extensions/isearch-mb
 url = https://github.com/astoff/isearch-mb.git
@@ -307,8 +303,10 @@ path = site-lisp/extensions/effortless-indent
 url = https://github.com/manateelazycat/effortless-indent.git
 
 [submodule "site-lisp/extensions/vundo"]
-	path = site-lisp/extensions/vundo
-	url = https://github.com/casouri/vundo.git
+path = site-lisp/extensions/vundo
+url = https://github.com/casouri/vundo.git
+
 [submodule "site-lisp/extensions/popper"]
-	path = site-lisp/extensions/popper
-	url = https://github.com/karthink/popper.git
+path = site-lisp/extensions/popper
+url = https://github.com/karthink/popper.git
+
