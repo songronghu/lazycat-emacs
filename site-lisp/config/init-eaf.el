@@ -131,7 +131,7 @@
 (eaf-bind-key emacs-session-save "<f5>" eaf-browser-keybinding)
 (eaf-bind-key refresh_page "M-r" eaf-browser-keybinding)
 
-(setq eaf-webengine-default-zoom (if (> (frame-pixel-width) 2500) 2 1))
+(setq eaf-webengine-default-zoom 1.5)
 (setq eaf-browser-aria2-proxy-host "127.0.0.1")
 (setq eaf-browser-aria2-proxy-port "9888")
 (setq eaf-browser-enable-adblocker nil)
