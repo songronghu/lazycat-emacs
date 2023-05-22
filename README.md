@@ -1,4 +1,4 @@
-# Lazycat Emacs
+f# Lazycat Emacs
 
 [AndyStewart](http://www.emacswiki.org/emacs/AndyStewart)'s Emacs, include [configs](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions) and [extensions](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions).
 
