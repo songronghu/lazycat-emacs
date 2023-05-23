@@ -346,6 +346,7 @@
      ("s-\"" . eaf-open-browser)
      ("s-n" . eaf-open-terminal)
      ("s-b" . eaf-open-rss-reader)
+     ("s-1" . eaf-music-player-play-next)
      )
    "init-eaf"))
 
