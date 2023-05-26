@@ -347,6 +347,7 @@
      ("s-n" . eaf-open-terminal)
      ("s-b" . eaf-open-rss-reader)
      ("s-1" . eaf-music-player-play-next)
+     ("s-2" . eaf-music-player-play-toggle)
      )
    "init-eaf"))
 
