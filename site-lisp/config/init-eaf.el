@@ -148,6 +148,7 @@
 (setq eaf-jupyter-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-file-manager-show-hidden-file nil)
 (setq eaf-music-default-file "/data/Music/")
+(setq eaf-music-player-buffer " *eaf music player*") ;改成隐藏标签， 避免标签kill掉后关闭音乐
 
 (defun jekyll-start-server ()
   (interactive)
