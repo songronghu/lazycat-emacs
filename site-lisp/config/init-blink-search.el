@@ -94,6 +94,7 @@
 
 (setq blink-search-grep-pdf-search-paths "/data/Book")
 (setq blink-search-grep-pdf-backend 'eaf-pdf-viewer)
+(setq blink-search-pdf-backend 'eaf-pdf-viewer)
 
 ;; (setq blink-search-enable-posframe t)
 
