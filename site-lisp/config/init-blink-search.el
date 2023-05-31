@@ -84,9 +84,9 @@
 
 ;;; Code:
 
-(setq blink-search-common-directory '(("HOME" "~/")
+(setq blink-search-common-directory '(("REPO" "~/lazycat-emacs/site-lisp/extensions/")
+                                      ("HOME" "~/")
                                       ("CONFIG" "~/lazycat-emacs/site-lisp/config/")
-                                      ("REPO" "~/lazycat-emacs/site-lisp/extensions/")
                                       ("EAF" "~/lazycat-emacs/site-lisp/extensions/emacs-application-framework/app/")
                                       ("Book" "/data/Book/")
                                       ("ChatGPT" "~/ChatGPT")

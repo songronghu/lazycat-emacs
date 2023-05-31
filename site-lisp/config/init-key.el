@@ -28,7 +28,7 @@
  )
 (lazy-load-global-keys
  '(
-   ("s-i" . insert-translated-name-insert)
+   ("s-j" . insert-translated-name-insert)
    )
  "init-insert-translated-name")
 
