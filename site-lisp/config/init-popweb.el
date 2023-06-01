@@ -82,33 +82,22 @@
 ;;; Require
 (require 'popweb-dict)
 (require 'eww)
-(require 'dictionary-overlay)
 
 ;;; Code:
 
-(dictionary-overlay-start)
-
-(defun popweb-translate-and-mark-unknown-word ()
-  (interactive)
-  (popweb-dict-bing-pointer)
-  (dictionary-overlay-mark-word-unknown))
+(setq popweb-zoom-factor 1.5)
 
 (lazy-load-set-keys
  '((";" . popweb-dict-bing-input)
    ("i" . popweb-dict-say-word)
-   ("y" . popweb-translate-and-mark-unknown-word)
-   ("Y" . dictionary-overlay-mark-word-known)
-   ("," . dictionary-overlay-modify-translation)
-   ("." . dictionary-overlay-render-buffer)
+   ("y" . popweb-dict-bing-pointer)
    )
  eww-mode-map)
 
 (lazy-load-set-keys
  '((";" . popweb-dict-bing-input)
    ("i" . popweb-dict-say-word)
-   ("y" . popweb-translate-and-mark-unknown-word)
-   ("Y" . dictionary-overlay-mark-word-known)
-   ("." . dictionary-overlay-render-buffer)
+   ("y" . popweb-dict-bing-pointer)
    )
  Info-mode-map)
 
