@@ -342,6 +342,7 @@
   (lazy-load-global-keys
    '(
      ("M-j" . eaf-open-in-file-manager)
+     ("F8" . eaf-open-in-file-manager)
      ("s-'" . eaf-open)
      ("s-\"" . eaf-open-browser)
      ("s-n" . eaf-open-terminal)
