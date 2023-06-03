@@ -345,7 +345,7 @@
      ("<f8>" . eaf-open-in-file-manager)
      ("s-'" . eaf-open)
      ("s-\"" . eaf-open-browser)
-     ("s-n" . eaf-open-terminal)
+     ("s-n" . eaf-open-pyqterminal)
      ("s-b" . eaf-open-rss-reader)
      ("s-1" . eaf-music-player-play-next)
      ("s-2" . eaf-music-player-play-toggle)

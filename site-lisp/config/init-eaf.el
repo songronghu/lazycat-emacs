@@ -150,7 +150,7 @@
 (setq eaf-file-manager-show-hidden-file nil)
 (setq eaf-music-default-file "/data/Music/")
 (setq eaf-music-player-buffer " *eaf music player*") ;改成隐藏标签， 避免标签kill掉后关闭音乐
-(setq eaf-pyqterminal-font-family "Hack")
+(setq eaf-pyqterminal-font-family "DejaVuSansM Nerd Font Mono")
 (setq eaf-pyqterminal-font-size 24)
 
 (defun jekyll-start-server ()
