@@ -128,7 +128,7 @@
   (defun org-buffer-face-mode-variable ()
     (interactive)
     (make-face 'width-font-face)
-    (set-face-attribute 'width-font-face nil :font "等距更纱黑体 SC 15")
+    (set-face-attribute 'width-font-face nil :font "等距更纱黑体 SC 22")
     (setq buffer-face-mode-face 'width-font-face)
     (buffer-face-mode))
 
