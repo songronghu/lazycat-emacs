@@ -118,7 +118,7 @@
     (require 'dumb-jump)
     (dumb-jump-back))))
 
-(setq lsp-bridge-get-single-lang-server-by-project
+(setq lsp-bridge-get-multi-lang-server-by-project
       (lambda (project-path filepath)
         ;; If typescript file include deno.land url, then use Deno LSP server.
         (save-excursion
@@ -129,6 +129,12 @@
                   (goto-char (point-min))
                   (when (search-forward-regexp (regexp-quote "from \"https://deno.land") nil t)
                     (return "deno")))))))))
+
+;; Support jump to define of EAF root from EAF application directory.
+(setq lsp-bridge-get-project-path-by-filepath
+      (lambda (filepath)
+        (when (string-prefix-p (expand-file-name "~/lazycat-emacs/site-lisp/extensions/emacs-application-framework/app") filepath)
+          (expand-file-name "~/lazycat-emacs/site-lisp/extensions/emacs-application-framework/"))))
 
 (provide 'init-lsp-bridge)
 
