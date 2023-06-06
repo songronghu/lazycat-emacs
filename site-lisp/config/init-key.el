@@ -558,7 +558,9 @@
 ;;; --- 快速缩进
 (lazy-load-global-keys
  '(
-   ("C-S-y" . effortless-indent))
+   ("C-S-j" . effortless-indent-left)
+   ("C-S-k" . effortless-indent-right)
+   )
  "effortless-indent")
 
 ;; ### popper ###
