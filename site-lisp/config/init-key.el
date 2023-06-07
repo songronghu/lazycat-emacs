@@ -547,13 +547,6 @@
    )
  "init-lsp-bridge")
 
-;; ### whisper ###
-;;; --- 语音转文字
-(lazy-load-global-keys
- '(
-   ("s-z" . whisper-run))
- "init-whisper")
-
 ;; ### effortless-indent ###
 ;;; --- 快速缩进
 (lazy-load-global-keys
