@@ -349,6 +349,7 @@
      ("s-b" . eaf-open-rss-reader)
      ("s-1" . eaf-music-player-play-next)
      ("s-2" . eaf-music-player-play-toggle)
+     ("s-3" . eaf-music-player-pop)
      )
    "init-eaf"))
 
