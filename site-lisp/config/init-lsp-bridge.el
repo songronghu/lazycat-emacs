@@ -85,6 +85,7 @@
 
 ;;; Code:
 
+(setq lsp-bridge-enable-completion-in-minibuffer t)
 (setq acm-enable-quick-access t)
 (setq acm-backend-yas-match-by-trigger-keyword t)
 (setq acm-enable-tabnine nil)
