@@ -153,6 +153,7 @@
 (setq eaf-pyqterminal-font-family "DejaVuSansM Nerd Font Mono")
 (setq eaf-pyqterminal-font-size 24)
 (setq eaf-rebuild-buffer-after-crash nil)
+(setq eaf-pyqterminal-refresh-ms 16)
 
 (defun jekyll-start-server ()
   (interactive)
