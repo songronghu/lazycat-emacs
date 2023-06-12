@@ -106,7 +106,7 @@
         (define-key map (kbd "s") #'color-rg-search-symbol)
         (define-key map (kbd "i") #'color-rg-search-input)
         (define-key map (kbd ",") #'color-rg-search-symbol-in-current-file)
-        (define-key map (kbd ".") #'color-rg-search-symbol-in-current-file)
+        (define-key map (kbd ".") #'color-rg-search-input-in-current-file)
         (define-key map (kbd "<") #'remember-init)
         (define-key map (kbd ">") #'remember-jump)
         (define-key map (kbd "7") #'lsp-bridge-jump-back)
