@@ -155,6 +155,9 @@
 (setq eaf-rebuild-buffer-after-crash nil)
 (setq eaf-pyqterminal-refresh-ms 16)
 
+;; (setq eaf-enable-debug t)
+;; (global-set-key (kbd "s-x s-x") (lambda () (interactive) (message "%s" (with-current-buffer eaf-name (buffer-string)))))
+
 (defun jekyll-start-server ()
   (interactive)
   (eaf-terminal-run-command-in-dir "jekyll serve --livereload" "/home/andy/manateelazycat.github.io"))
