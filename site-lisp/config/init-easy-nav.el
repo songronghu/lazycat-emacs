@@ -83,6 +83,7 @@
 (require 'popweb)
 (require 'init-lsp-bridge)
 (require 'color-rg)
+(require 'init-thing-edit)
 
 ;;; Code:
 
@@ -101,6 +102,7 @@
         (define-key map (kbd "l") #'forward-char)
         (define-key map (kbd "H") #'backward-word)
         (define-key map (kbd "L") #'forward-word)
+        (define-key map (kbd "c") #'one-key-menu-thing-edit)
         (define-key map (kbd "e") #'scroll-down)
         (define-key map (kbd "SPC") #'scroll-up)
         (define-key map (kbd "s") #'color-rg-search-symbol)
