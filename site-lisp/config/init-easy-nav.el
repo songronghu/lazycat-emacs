@@ -110,7 +110,7 @@
         (define-key map (kbd "<") #'remember-init)
         (define-key map (kbd ">") #'remember-jump)
         (define-key map (kbd "7") #'lsp-bridge-jump-back)
-        (define-key map (kbd "8") #'lsp-bridge-jump)
+        (define-key map (kbd "8") #'easy-nav-jump)
         (define-key map (kbd "9") #'lsp-bridge-popup-documentation)
         (define-key map (kbd ";") #'popweb-dict-bing-input)
         (define-key map (kbd "y") #'popweb-dict-bing-pointer)
@@ -133,6 +133,11 @@
   (read-only-mode -1)
   (easy-nav-mode -1)
   (message "Exit easy navigator."))
+
+(defun easy-nav-jump ()
+  (interactive)
+  (lsp-bridge-jump)
+  (easy-nav-enter))
 
 (provide 'init-easy-nav)
 
