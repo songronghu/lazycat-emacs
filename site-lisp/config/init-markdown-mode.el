@@ -91,8 +91,16 @@
    ("M-b" . deno-bridge-jieba-backward-word)
    ("M-M" . deno-bridge-jieba-kill-word)
    ("M-N" . deno-bridge-jieba-backward-kill-word)
+   ("C-c C-c" . markdown-preview-by-eaf)
    )
  markdown-mode-map)
+
+(defun markdown-preview-by-eaf ()
+  (interactive)
+  (if (and (buffer-file-name)
+           (string-equal (file-name-extension (buffer-file-name)) "md"))
+      (eaf--open-internal (buffer-file-name) "markdown-previewer" "")
+    (message "This command only use for markdown.")))
 
 (defun fix-chinese-colons ()
   (interactive)
