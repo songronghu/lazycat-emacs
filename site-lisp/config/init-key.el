@@ -567,4 +567,12 @@
    )
  "init-popper")
 
+;; ### easy-nav ###
+;;; --- 单键导航
+(lazy-load-global-keys
+ '(
+   ("C-s-l" . easy-nav-enter)
+   )
+ "init-easy-nav")
+
 (provide 'init-key)
