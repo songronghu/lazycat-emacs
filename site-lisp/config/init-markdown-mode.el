@@ -91,21 +91,9 @@
    ("M-b" . deno-bridge-jieba-backward-word)
    ("M-M" . deno-bridge-jieba-kill-word)
    ("M-N" . deno-bridge-jieba-backward-kill-word)
-   ("C-c C-c" . markdown-preview-by-eaf)
+   ("C-c C-c" . eaf-markdown-previewer-open)
    )
  markdown-mode-map)
-
-(defun markdown-preview-by-eaf ()
-  (interactive)
-  (require 'eaf)
-  (require 'eaf-markdown-previewer)
-  (if (and (buffer-file-name)
-           (string-equal (file-name-extension (buffer-file-name)) "md"))
-      (progn
-        (eaf--open-internal (buffer-file-name) "markdown-previewer" "")
-        ;; We need call `eaf-monitor-configuration-change' to force EAF render view.
-        (eaf-monitor-configuration-change))
-    (message "This command only use for markdown.")))
 
 (defun fix-chinese-colons ()
   (interactive)
