@@ -411,14 +411,6 @@
    )
  "init-yaoddmuse")
 
-;;; ### Less ###
-;;; --- 快速浏览模式
-(lazy-load-global-keys
- '(
-   ("M-s-l" . less-minor-mode)          ;打开less模式
-   )
- "init-less")
-
 ;;; ### Python ###
 ;;; --- Python mode
 (eval-after-load 'python-mode
