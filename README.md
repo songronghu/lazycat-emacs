@@ -97,6 +97,9 @@ When I want upgrade extensions to newest version, I will use below command:
 git submodule foreach git pull --rebase
 ```
 
+## FAQ
+1. When you occur `No avaliable parser for this buffer`, please use `treesit-install-language-grammar` install grammar for current buffer.
+
 ## Old extensions and configuration files.
 In 2005, Emacs didn't have much advanced features, and it took me more than a decade to continuously improve Emacs.
 
