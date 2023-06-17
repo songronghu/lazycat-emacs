@@ -350,6 +350,8 @@
      ("s-1" . eaf-music-player-play-next)
      ("s-2" . eaf-music-player-play-toggle)
      ("s-3" . eaf-music-player-pop)
+     ("s-6" . eaf-record-log)
+     ("s-7" . eaf-stop-process)
      )
    "init-eaf"))
 
