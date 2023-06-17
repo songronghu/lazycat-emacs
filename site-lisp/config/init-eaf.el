@@ -187,6 +187,8 @@
    )
  t)
 
+(eaf-bind-key eaf-send-backspace-key "M-o" eaf-pyqterminal-keybinding)
+
 (provide 'init-eaf)
 
 ;;; init-eaf.el ends here
