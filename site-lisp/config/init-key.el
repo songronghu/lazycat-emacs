@@ -440,6 +440,12 @@
    )
  "init-lsp-bridge")
 
+(lazy-load-set-keys
+ '(
+   ("M-r" . lsp-bridge-toggle-sdcv-helper) ;英文助手
+   )
+ minibuffer-mode-map)
+
 ;;; ### Ido ###
 ;;; --- 交互式管理文件和缓存
 (lazy-load-set-keys
