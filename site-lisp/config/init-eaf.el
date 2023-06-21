@@ -152,6 +152,8 @@
 (setq eaf-rebuild-buffer-after-crash nil)
 (setq eaf-pyqterminal-refresh-ms 16)
 
+(setq eaf-music-cache-dir "/data/Music/Favorite")
+
 ;; (setq eaf-enable-debug t)
 ;; (global-set-key (kbd "s-x s-x") (lambda () (interactive) (message "%s" (with-current-buffer eaf-name (buffer-string)))))
 
