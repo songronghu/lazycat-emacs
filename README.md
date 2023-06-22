@@ -1,6 +1,8 @@
 # Lazycat Emacs
 
-[AndyStewart](http://www.emacswiki.org/emacs/AndyStewart)'s Emacs, include [configs](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions) and [extensions](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions).
+[AndyStewart](http://www.emacswiki.org/emacs/AndyStewart)'s Emacs, include [configs](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/config) and [extensions](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/extensions).
+
+Best way to study this project is try every keybinding in [init-key.el](https://github.com/manateelazycat/lazycat-emacs/tree/master/site-lisp/config/init-key.el) ;)
 
 ## Download Source Code
 1. Download lazycat-emacs source code:
