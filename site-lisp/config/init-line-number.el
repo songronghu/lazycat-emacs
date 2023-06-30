@@ -132,6 +132,7 @@
                'elixir-mode-hook
                'clojure-mode-hook
                'dart-mode-hook
+               'zig-mode-hook
 
                'c-ts-mode-hook
                'c++-ts-mode-hook

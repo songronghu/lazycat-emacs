@@ -306,3 +306,9 @@ url = https://github.com/casouri/vundo.git
 path = site-lisp/extensions/popper
 url = https://github.com/karthink/popper.git
 
+[submodule "site-lisp/extensions/zig-mode"]
+	path = site-lisp/extensions/zig-mode
+	url = https://github.com/ziglang/zig-mode
+[submodule "site-lisp/extensions/reformatter"]
+	path = site-lisp/extensions/reformatter
+	url = https://github.com/purcell/emacs-reformatter
