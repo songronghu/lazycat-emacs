@@ -535,8 +535,8 @@
 ;;; --- 代码语法补全
 (lazy-load-global-keys
  '(
-   ("C-7" . lsp-bridge-jump-back)
-   ("C-8" . lsp-bridge-jump)
+   ("C-7" . lsp-bridge-find-def-return)
+   ("C-8" . lsp-bridge-find-def)
    ("M-," . lsp-bridge-code-action)
    ("M-." . lsp-bridge-find-references)
    ("C-9" . lsp-bridge-popup-documentation)

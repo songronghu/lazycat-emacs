@@ -111,7 +111,7 @@
         (define-key map (kbd ".") #'color-rg-search-input-in-current-file)
         (define-key map (kbd "<") #'remember-init)
         (define-key map (kbd ">") #'remember-jump)
-        (define-key map (kbd "7") #'lsp-bridge-jump-back)
+        (define-key map (kbd "7") #'lsp-bridge-find-def-return)
         (define-key map (kbd "8") #'easy-nav-jump)
         (define-key map (kbd "9") #'lsp-bridge-popup-documentation)
         (define-key map (kbd ";") #'popweb-dict-bing-input)
@@ -138,7 +138,7 @@
 
 (defun easy-nav-jump ()
   (interactive)
-  (lsp-bridge-jump)
+  (lsp-bridge-find-def)
   (easy-nav-enter))
 
 (provide 'init-easy-nav)
