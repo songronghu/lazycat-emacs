@@ -149,6 +149,8 @@
 (setq eaf-music-player-buffer " *eaf music player*") ;改成隐藏标签， 避免标签kill掉后关闭音乐
 (setq eaf-pyqterminal-font-family "FiraCode Nerd Font Mono")
 (setq eaf-pyqterminal-font-size 24)
+(setq eaf-jupyter-font-family "FiraCode Nerd Font Mono")
+(setq eaf-jupyter-font-size 20)
 (setq eaf-rebuild-buffer-after-crash nil)
 (setq eaf-pyqterminal-refresh-ms 16)
 (setq eaf-music-cache-dir "/data/Music/Favorite")
