@@ -149,6 +149,8 @@
 (add-hook 'go-mode-hook #'(lambda () (treesit-parser-create 'go)))
 (add-hook 'java-mode-hook #'(lambda () (treesit-parser-create 'java)))
 (add-hook 'java-ts-mode-hook #'(lambda () (treesit-parser-create 'java)))
+(add-hook 'php-mode-hook #'(lambda () (treesit-parser-create 'php)))
+(add-hook 'php-ts-mode-hook #'(lambda () (treesit-parser-create 'php)))
 
 (provide 'init-treesit)
 
