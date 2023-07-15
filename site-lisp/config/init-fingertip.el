@@ -90,6 +90,7 @@
                'sh-mode-hook
                'makefile-gmake-mode-hook
                'php-mode-hook
+               'php-ts-mode-hook
                'python-mode-hook
                'js-mode-hook
                'go-mode-hook
