@@ -139,7 +139,8 @@
                                  (treesit-parser-create
                                   (pcase (file-name-extension file-name)
                                     ("vue" 'vue)
-                                    ("html" 'html))))
+                                    ("html" 'html)
+                                    ("php" 'php))))
                                )))
 
 (add-hook 'emacs-lisp-mode-hook #'(lambda () (treesit-parser-create 'elisp)))
