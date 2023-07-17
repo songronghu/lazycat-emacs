@@ -312,3 +312,6 @@ url = https://github.com/karthink/popper.git
 [submodule "site-lisp/extensions/reformatter"]
 	path = site-lisp/extensions/reformatter
 	url = https://github.com/purcell/emacs-reformatter
+[submodule "site-lisp/extensions/valign"]
+	path = site-lisp/extensions/valign
+	url = https://github.com/casouri/valign.git
