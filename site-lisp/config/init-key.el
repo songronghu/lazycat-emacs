@@ -499,14 +499,6 @@
    ("s-x f" . one-key-menu-git))
  "init-eaf")
 
-;;; ### Input Method ###
-;;; --- 输入法
-(lazy-load-global-keys
- '(
-   ("s-m" . toggle-input-method)
-   )
- "init-rime")
-
 ;; ### Smex ###
 ;;; --- 高级M-x
 (lazy-load-global-keys
