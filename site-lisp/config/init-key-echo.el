@@ -88,7 +88,9 @@
 
 (defun key-echo-shift-to-switch-input-method (key)
   (interactive)
-  (when (string-equal key "Key.shift")
+  (when (and (string-equal key "Key.shift")
+             (not buffer-read-only)
+             (not (derived-mode-p 'eaf-mode)))
     (toggle-input-method)
 
     ;; Change cursor color if `cursor-chg' is installed.
