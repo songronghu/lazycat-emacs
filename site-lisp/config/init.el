@@ -63,6 +63,8 @@
     (require 'init-performance)
     (require 'init-rime)
     (require 'init-mind-wave)
+    (require 'init-treesit)
+    (require 'init-key-echo)
 
     ;; 可以延后加载的
     (run-with-idle-timer
@@ -72,7 +74,6 @@
          (require 'browse-kill-ring)
          (require 'elf-mode)
 
-         (require 'init-treesit)
          (require 'init-eldoc)
          (require 'init-yasnippet)
          (require 'init-cursor-chg)

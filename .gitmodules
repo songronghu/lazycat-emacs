@@ -315,3 +315,6 @@ url = https://github.com/karthink/popper.git
 [submodule "site-lisp/extensions/valign"]
 	path = site-lisp/extensions/valign
 	url = https://github.com/casouri/valign.git
+[submodule "site-lisp/extensions/key-echo"]
+	path = site-lisp/extensions/key-echo
+	url = https://github.com/manateelazycat/key-echo.git
