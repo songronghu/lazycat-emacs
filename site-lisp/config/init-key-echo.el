@@ -90,7 +90,10 @@
   (interactive)
   (when (string-equal key "Key.shift")
     (toggle-input-method)
-    ))
+
+    ;; Change cursor color if `cursor-chg' is installed.
+    (when (require 'cursor-chg nil t)
+      (curchg-change-cursor-on-input-method))))
 
 (setq key-echo-single-key-trigger-func 'key-echo-shift-to-switch-input-method)
 
