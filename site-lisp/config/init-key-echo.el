@@ -88,14 +88,25 @@
 
 (defun key-echo-shift-to-switch-input-method (key)
   (interactive)
-  (when (and (string-equal key "Key.shift")
-             (not buffer-read-only)
-             (not (derived-mode-p 'eaf-mode)))
+  ;; (message "***** %s" key)
+  (cond
+   ;; Press `Shift' to toggle input method.
+   ((and (string-equal key "Key.shift")
+         (not buffer-read-only)
+         (not (derived-mode-p 'eaf-mode)))
     (toggle-input-method)
 
     ;; Change cursor color if `cursor-chg' is installed.
     (when (require 'cursor-chg nil t)
-      (curchg-change-cursor-on-input-method))))
+      (curchg-change-cursor-on-input-method)))
+   ;; Press left `Alt' to popup blink-search.
+   ((string-equal key "Key.alt")
+    (when (require 'blink-search nil t)
+      (blink-search)))
+   ;; Press right `Alt' to popup bing translation.
+   ((string-equal key "Key.alt_r")
+    (when (require 'popweb nil t)
+      (popweb-dict-bing-pointer)))))
 
 (setq key-echo-single-key-trigger-func 'key-echo-shift-to-switch-input-method)
 
