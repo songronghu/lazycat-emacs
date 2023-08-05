@@ -99,6 +99,11 @@
     ;; Change cursor color if `cursor-chg' is installed.
     (when (require 'cursor-chg nil t)
       (curchg-change-cursor-on-input-method)))
+   ;; Press left `Alt' to start blink-search.
+   ((string-equal key "Key.alt")
+    (when (require 'blink-search nil t)
+      (unless blink-search-start-buffer
+        (blink-search))))
    ;; Press right `Alt' to popup bing translation.
    ((string-equal key "Key.alt_r")
     (when (require 'popweb nil t)
