@@ -103,11 +103,7 @@
    ((string-equal key "Key.alt")
     (when (require 'blink-search nil t)
       (unless blink-search-start-buffer
-        (blink-search))))
-   ;; Press right `Alt' to popup bing translation.
-   ((string-equal key "Key.alt_r")
-    (when (require 'popweb nil t)
-      (popweb-dict-bing-pointer)))))
+        (blink-search))))))
 
 (setq key-echo-single-key-trigger-func 'key-echo-shift-to-switch-input-method)
 
