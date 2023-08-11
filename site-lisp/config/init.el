@@ -65,6 +65,7 @@
     (require 'init-mind-wave)
     (require 'init-treesit)
     (require 'init-key-echo)
+    (require 'init-holo-layer)
 
     ;; 可以延后加载的
     (run-with-idle-timer
