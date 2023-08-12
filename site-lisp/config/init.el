@@ -84,7 +84,7 @@
          (require 'init-idle)
          (require 'init-markdown-mode)
          (require 'init-olivetti)
-         (require 'init-holo-layer)
+         ;; (require 'init-holo-layer)
 
          (require 'init-eaf)
          (require 'init-popweb)
