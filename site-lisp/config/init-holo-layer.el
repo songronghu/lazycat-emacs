@@ -86,6 +86,7 @@
 
 (setq holo-layer-enable-cursor-animation t)
 (setq holo-layer-hide-mode-line t)
+(setq holo-layer-show-place-info-p t)
 
 (holo-layer-enable)
 
