@@ -85,6 +85,7 @@
 ;;; Code:
 
 (setq holo-layer-enable-cursor-animation t)
+(setq holo-layer-hide-mode-line t)
 
 (holo-layer-enable)
 
