@@ -84,6 +84,8 @@
 
 ;;; Code:
 
+(setq holo-layer-enable-cursor-animation t)
+
 (holo-layer-enable)
 
 (provide 'init-holo-layer)
