@@ -569,4 +569,12 @@
    )
  "init-easy-nav")
 
+;; ### holo-layer ###
+;;; --- 全息图层
+(lazy-load-global-keys
+ '(
+   ("s-m" . holo-layer-jump-to-window)
+   )
+ "init-holo-layer")
+
 (provide 'init-key)
