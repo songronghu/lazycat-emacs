@@ -84,9 +84,11 @@
 
 ;;; Code:
 
+(setq holo-layer-cursor-animation-type "jelly easing")
+(setq holo-layer-enable-window-border t)
 (setq holo-layer-enable-cursor-animation t)
 (setq holo-layer-hide-mode-line t)
-(setq holo-layer-show-place-info-p t)
+(setq holo-layer-enable-place-info t)
 
 (holo-layer-enable)
 
