@@ -120,6 +120,7 @@
                'python-ts-mode-hook
                'bash-ts-mode-hook
                'typescript-ts-mode-hook
+               'zig-mode-hook
                ))
   (add-hook hook #'(lambda ()
                      (when (or

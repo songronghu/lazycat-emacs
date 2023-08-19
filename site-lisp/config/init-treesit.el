@@ -133,6 +133,8 @@
 
 (add-hook 'markdown-mode-hook #'(lambda () (treesit-parser-create 'markdown)))
 
+(add-hook 'zig-mode-hook #'(lambda () (treesit-parser-create 'zig)))
+
 (add-hook 'web-mode-hook #'(lambda ()
                              (let ((file-name (buffer-file-name)))
                                (when file-name
