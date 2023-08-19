@@ -192,6 +192,9 @@
  t)
 
 (eaf-bind-key eaf-send-backspace-key "M-o" eaf-pyqterminal-keybinding)
+(eaf-bind-key scroll_up "M-," eaf-pyqterminal-keybinding)
+(eaf-bind-key scroll_down "M-." eaf-pyqterminal-keybinding)
+(eaf-bind-key eaf-open-in-file-manager "M-j" eaf-pyqterminal-keybinding)
 
 (provide 'init-eaf)
 
