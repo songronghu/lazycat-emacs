@@ -305,6 +305,12 @@
         (")" . fingertip-close-round)       ;智能 )
         ("]" . fingertip-close-bracket)     ;智能 ]
         ("}" . fingertip-close-curly)       ;智能 }
+        ("（" . fingertip-open-chinese-round)        ;智能 （
+        ("「" . fingertip-open-chinese-bracket)      ;智能 「
+        ("【" . fingertip-open-chinese-curly)        ;智能 【
+        ("）" . fingertip-close-chinese-round)       ;智能 ）
+        ("」" . fingertip-close-chinese-bracket)     ;智能 」
+        ("】" . fingertip-close-chinese-curly)       ;智能 】
         ("\"" . fingertip-double-quote)     ;智能 "
         ("'" . fingertip-single-quote)      ;智能 '
         ("=" . fingertip-equal)             ;智能 =
