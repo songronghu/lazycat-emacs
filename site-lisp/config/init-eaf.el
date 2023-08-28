@@ -186,6 +186,7 @@
    (("s" . "Git status") . eaf-open-git)
    (("u" . "Git push to remote") . eaf-git-push)
    (("i" . "Git pull") . eaf-git-pull)
+   (("b" . "Git submodule pull") . eaf-git-submodule-pull)
    (("c" . "Git clone") . eaf-git-clone)
    (("h" . "Git history") . eaf-git-show-history)
    )
