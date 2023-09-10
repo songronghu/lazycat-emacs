@@ -351,7 +351,7 @@
      ("<f8>" . eaf-open-in-file-manager)
      ("s-'" . eaf-open)
      ("s-\"" . eaf-open-browser)
-     ("s-n" . eaf-open-pyqterminal)
+     ("s-n" . eaf-open-terminal)
      ("s-b" . eaf-open-rss-reader)
      ("s-z" . eaf-open-cloud-music)
      ("s-Z" . eaf-open-music-player)

@@ -197,6 +197,16 @@
 (eaf-bind-key scroll_down "M-." eaf-pyqterminal-keybinding)
 (eaf-bind-key eaf-open-in-file-manager "M-j" eaf-pyqterminal-keybinding)
 
+(defun eaf-open-terminal ()
+  "Try to open fish if fish exist, otherwise use default shell."
+  (interactive)
+  (eaf-pyqterminal-run-command-in-dir
+   (if (executable-find "fish")
+       "fish"
+     (eaf--generate-terminal-command))
+   (eaf--non-remote-default-directory)
+   t))
+
 (provide 'init-eaf)
 
 ;;; init-eaf.el ends here
