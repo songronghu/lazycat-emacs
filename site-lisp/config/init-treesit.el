@@ -129,6 +129,7 @@
         (sh-mode         . bash-ts-mode)
         (typescript-mode . typescript-ts-mode)
         (rust-mode       . rust-ts-mode)
+        (java-mode       . java-ts-mode)
         ))
 
 (add-hook 'markdown-mode-hook #'(lambda () (treesit-parser-create 'markdown)))
@@ -153,6 +154,7 @@
 (add-hook 'java-ts-mode-hook #'(lambda () (treesit-parser-create 'java)))
 (add-hook 'php-mode-hook #'(lambda () (treesit-parser-create 'php)))
 (add-hook 'php-ts-mode-hook #'(lambda () (treesit-parser-create 'php)))
+(add-hook 'java-ts-mode-hook #'(lambda () (treesit-parser-create 'java)))
 
 (provide 'init-treesit)
 

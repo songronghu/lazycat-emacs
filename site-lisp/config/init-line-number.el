@@ -145,6 +145,7 @@
                'bash-ts-mode-hook
                'typescript-ts-mode-hook
                'rust-ts-mode-hook
+               'java-ts-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 
