@@ -89,6 +89,7 @@
 (setq holo-layer-enable-cursor-animation t)
 (setq holo-layer-hide-mode-line t)
 (setq holo-layer-enable-place-info t)
+(setq holo-layer-sort-tab-ui t)
 
 (holo-layer-enable)
 
