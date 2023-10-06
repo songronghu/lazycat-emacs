@@ -541,8 +541,7 @@
    ("C-0" . lsp-bridge-rename)
    ("M-s-j" . lsp-bridge-diagnostic-jump-next) ;显示下一个错误
    ("M-s-k" . lsp-bridge-diagnostic-jump-prev) ;显示上一个错误
-   ("M-s-l" . lsp-bridge-diagnostic-ignore)    ;忽略当前的错误
-   ("M-s-u" . lsp-bridge-diagnostic-copy)      ;拷贝诊断信息
+   ("M-s-l" . lsp-bridge-diagnostic-copy)      ;拷贝诊断信息
    ("M-s-n" . lsp-bridge-popup-documentation-scroll-up) ;向下滚动文档
    ("M-s-p" . lsp-bridge-popup-documentation-scroll-down) ;向上滚动文档
    )
