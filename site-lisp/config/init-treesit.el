@@ -94,8 +94,10 @@
         (csharp     . ("https://github.com/tree-sitter/tree-sitter-c-sharp.git"))
         (dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile"))
         (elisp . ("https://github.com/Wilfred/tree-sitter-elisp"))
+        (elixir "https://github.com/elixir-lang/tree-sitter-elixir" "main" "src" nil nil)
         (go . ("https://github.com/tree-sitter/tree-sitter-go"))
         (gomod      . ("https://github.com/camdencheek/tree-sitter-go-mod.git"))
+        (haskell "https://github.com/tree-sitter/tree-sitter-haskell" "master" "src" nil nil)
         (html . ("https://github.com/tree-sitter/tree-sitter-html"))
         (java       . ("https://github.com/tree-sitter/tree-sitter-java.git"))
         (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))
@@ -112,9 +114,10 @@
         (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
         (rust . ("https://github.com/tree-sitter/tree-sitter-rust"))
         (sql . ("https://github.com/m-novikov/tree-sitter-sql"))
+        (scala "https://github.com/tree-sitter/tree-sitter-scala" "master" "src" nil nil)
+        (toml "https://github.com/tree-sitter/tree-sitter-toml" "master" "src" nil nil)
         (vue . ("https://github.com/merico-dev/tree-sitter-vue"))
         (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))
-        (toml . ("https://github.com/tree-sitter/tree-sitter-toml"))
         (zig . ("https://github.com/GrayJack/tree-sitter-zig"))))
 
 (setq major-mode-remap-alist
@@ -155,6 +158,7 @@
 (add-hook 'php-mode-hook #'(lambda () (treesit-parser-create 'php)))
 (add-hook 'php-ts-mode-hook #'(lambda () (treesit-parser-create 'php)))
 (add-hook 'java-ts-mode-hook #'(lambda () (treesit-parser-create 'java)))
+(add-hook 'haskell-mode-hook #'(lambda () (treesit-parser-create 'haskell)))
 
 (provide 'init-treesit)
 
