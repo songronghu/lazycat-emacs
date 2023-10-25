@@ -121,6 +121,13 @@
 (setq ad-redefinition-action 'accept)   ;不要烦人的 redefine warning
 (setq frame-resize-pixelwise t) ;设置缩放的模式,避免Mac平台最大化窗口以后右边和下边有空隙
 
+;; 对大文件或超长行提供性能优化
+(setq-default bidi-display-reordering nil)
+(setq bidi-inhibit-bpa t
+      long-line-threshold 1000
+      large-hscroll-threshold 1000
+      syntax-wholeline-max 1000)
+
 ;; 平滑地进行半屏滚动，避免滚动后recenter操作
 (setq scroll-step 1
       scroll-conservatively 10000)
