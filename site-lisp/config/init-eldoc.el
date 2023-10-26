@@ -88,7 +88,7 @@
   (add-hook hook #'(lambda ()
                      (require 'eldoc)
                      (require 'eldoc-extension)
-                     (setq eldoc-idle-delay 0) ;显示延迟
+                     (setq eldoc-idle-delay 0.05) ;显示一定的延迟， 避免快速移动时minibuffer频繁闪烁
                      (setq eldoc-argument-case 'eldoc-argument-list) ;高亮函数参数
                      (turn-on-eldoc-mode)
                      )))
