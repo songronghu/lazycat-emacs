@@ -551,8 +551,8 @@
 ;;; --- 快速缩进
 (lazy-load-global-keys
  '(
-   ("C-S-j" . effortless-indent-left)
-   ("C-S-k" . effortless-indent-right)
+   ("C-s-7" . effortless-indent-left)
+   ("C-s-8" . effortless-indent-right)
    )
  "effortless-indent")
 
