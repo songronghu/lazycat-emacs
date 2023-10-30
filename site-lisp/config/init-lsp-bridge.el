@@ -88,6 +88,7 @@
 (setq lsp-bridge-enable-completion-in-minibuffer t)
 (setq lsp-bridge-signature-show-function 'lsp-bridge-signature-show-with-frame)
 (setq lsp-bridge-enable-with-tramp t)
+(setq lsp-bridge-enable-org-babel t)
 (setq acm-enable-quick-access t)
 (setq acm-backend-yas-match-by-trigger-keyword t)
 (setq acm-enable-tabnine nil)
