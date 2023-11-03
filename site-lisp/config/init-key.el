@@ -298,24 +298,24 @@
         ("M-n" . fingertip-jump-left)
         ("M-p" . fingertip-jump-right)
         ;; 符号插入
-        ("%" . fingertip-match-paren)       ;括号跳转
-        ("(" . fingertip-open-round)        ;智能 (
-        ("[" . fingertip-open-bracket)      ;智能 [
-        ("{" . fingertip-open-curly)        ;智能 {
-        (")" . fingertip-close-round)       ;智能 )
-        ("]" . fingertip-close-bracket)     ;智能 ]
-        ("}" . fingertip-close-curly)       ;智能 }
-        ("（" . fingertip-open-chinese-round)        ;智能 （
-        ("「" . fingertip-open-chinese-bracket)      ;智能 「
-        ("【" . fingertip-open-chinese-curly)        ;智能 【
-        ("）" . fingertip-close-chinese-round)       ;智能 ）
-        ("」" . fingertip-close-chinese-bracket)     ;智能 」
-        ("】" . fingertip-close-chinese-curly)       ;智能 】
-        ("\"" . fingertip-double-quote)     ;智能 "
-        ("'" . fingertip-single-quote)      ;智能 '
-        ("=" . fingertip-equal)             ;智能 =
-        ("SPC" . fingertip-space)           ;智能 space
-        ("RET" . fingertip-newline)         ;智能 newline
+        ("%" . fingertip-match-paren)            ;括号跳转
+        ("(" . fingertip-open-round)             ;智能 (
+        ("[" . fingertip-open-bracket)           ;智能 [
+        ("{" . fingertip-open-curly)             ;智能 {
+        (")" . fingertip-close-round)            ;智能 )
+        ("]" . fingertip-close-bracket)          ;智能 ]
+        ("}" . fingertip-close-curly)            ;智能 }
+        ("（" . fingertip-open-chinese-round)    ;智能 （
+        ("「" . fingertip-open-chinese-bracket)  ;智能 「
+        ("【" . fingertip-open-chinese-curly)    ;智能 【
+        ("）" . fingertip-close-chinese-round)   ;智能 ）
+        ("」" . fingertip-close-chinese-bracket) ;智能 」
+        ("】" . fingertip-close-chinese-curly)   ;智能 】
+        ("\"" . fingertip-double-quote)          ;智能 "
+        ("'" . fingertip-single-quote)           ;智能 '
+        ("=" . fingertip-equal)                  ;智能 =
+        ("SPC" . fingertip-space)                ;智能 space
+        ("RET" . fingertip-newline)              ;智能 newline
         ;; 删除
         ("M-o" . fingertip-backward-delete) ;向后删除
         ("C-d" . fingertip-forward-delete)  ;向前删除
@@ -544,17 +544,10 @@
    ("M-s-l" . lsp-bridge-diagnostic-copy)      ;拷贝诊断信息
    ("M-s-n" . lsp-bridge-popup-documentation-scroll-up) ;向下滚动文档
    ("M-s-p" . lsp-bridge-popup-documentation-scroll-down) ;向上滚动文档
+   ("C-s-7" . lsp-bridge-indent-left)                     ;向左缩进
+   ("C-s-8" . lsp-bridge-indent-right)                    ;向右缩进
    )
  "init-lsp-bridge")
-
-;; ### effortless-indent ###
-;;; --- 快速缩进
-(lazy-load-global-keys
- '(
-   ("C-s-7" . effortless-indent-left)
-   ("C-s-8" . effortless-indent-right)
-   )
- "effortless-indent")
 
 ;; ### popper ###
 ;;; --- 弹出窗口管理
