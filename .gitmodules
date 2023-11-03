@@ -190,10 +190,6 @@ url = https://github.com/manateelazycat/recursive-search-references
 path = site-lisp/extensions/highlight-matching-tag
 url = https://github.com/manateelazycat/highlight-matching-tag
 
-[submodule "site-lisp/extensions/f"]
-path = site-lisp/extensions/f
-url = https://github.com/rejeep/f.el.git
-
 [submodule "site-lisp/extensions/lspbridge"]
 path = site-lisp/extensions/lspbridge
 url = https://github.com/manateelazycat/lsp-bridge
@@ -307,20 +303,26 @@ path = site-lisp/extensions/popper
 url = https://github.com/karthink/popper.git
 
 [submodule "site-lisp/extensions/zig-mode"]
-	path = site-lisp/extensions/zig-mode
-	url = https://github.com/ziglang/zig-mode
+path = site-lisp/extensions/zig-mode
+url = https://github.com/ziglang/zig-mode
+
 [submodule "site-lisp/extensions/reformatter"]
-	path = site-lisp/extensions/reformatter
-	url = https://github.com/purcell/emacs-reformatter
+path = site-lisp/extensions/reformatter
+url = https://github.com/purcell/emacs-reformatter
+
 [submodule "site-lisp/extensions/valign"]
-	path = site-lisp/extensions/valign
-	url = https://github.com/casouri/valign.git
+path = site-lisp/extensions/valign
+url = https://github.com/casouri/valign.git
+
 [submodule "site-lisp/extensions/key-echo"]
-	path = site-lisp/extensions/key-echo
-	url = https://github.com/manateelazycat/key-echo.git
+path = site-lisp/extensions/key-echo
+url = https://github.com/manateelazycat/key-echo.git
+
 [submodule "site-lisp/extensions/holo-layer"]
-	path = site-lisp/extensions/holo-layer
-	url = https://github.com/manateelazycat/holo-layer.git
+path = site-lisp/extensions/holo-layer
+url = https://github.com/manateelazycat/holo-layer.git
+
 [submodule "site-lisp/extensions/voyager"]
-	path = site-lisp/extensions/voyager
-	url = https://github.com/manateelazycat/voyager.git
+path = site-lisp/extensions/voyager
+url = https://github.com/manateelazycat/voyager.git
+
