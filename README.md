@@ -69,8 +69,10 @@ sudo pacman -S emacs-git
 or compile from source code:
 
 ```
-proxy-ns git pull ; ./configure ; make -j32; sudo make install ; sudo sed -i 's/Exec=emacs/Exec=proxy-ns emacs/g' /usr/local/share/applications/emacs.desktop ; sudo rm /usr/local/share/applications/emacsclient.desktop
+proxy-ns git pull ; ./configure --without-xim ; make -j32; sudo make install ; sudo sed -i 's/Exec=emacs/Exec=proxy-ns emacs/g' /usr/local/share/applications/emacs.desktop ; sudo rm /usr/local/share/applications/emacsclient.desktop
 ```
+
+Use `--without-xim` option to avoid input method active in Emacs, emacs-rime is better solution.
 
 2. Install Font:
 
