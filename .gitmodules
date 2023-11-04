@@ -318,7 +318,3 @@ url = https://github.com/manateelazycat/key-echo.git
 path = site-lisp/extensions/holo-layer
 url = https://github.com/manateelazycat/holo-layer.git
 
-[submodule "site-lisp/extensions/voyager"]
-path = site-lisp/extensions/voyager
-url = https://github.com/manateelazycat/voyager.git
-
