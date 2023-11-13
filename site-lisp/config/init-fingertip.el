@@ -121,6 +121,7 @@
                'bash-ts-mode-hook
                'typescript-ts-mode-hook
                'zig-mode-hook
+               'kotlin-mode-hook
                ))
   (add-hook hook #'(lambda ()
                      (when (or

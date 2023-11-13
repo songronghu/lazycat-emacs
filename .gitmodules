@@ -318,3 +318,6 @@ url = https://github.com/manateelazycat/key-echo.git
 path = site-lisp/extensions/holo-layer
 url = https://github.com/manateelazycat/holo-layer.git
 
+[submodule "site-lisp/extensions/kotlin-mode"]
+	path = site-lisp/extensions/kotlin-mode
+	url = https://github.com/Emacs-Kotlin-Mode-Maintainers/kotlin-mode.git

@@ -178,6 +178,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.clj$" . clojure-mode)
                     ("\\.dart$" . dart-mode)
                     ("\\.zig$" . zig-mode)
+                    ("\\.kt$" . kotlin-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -216,6 +217,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'clojure-mode "clojure-mode")
 (autoload 'dart-mode "dart-mode")
 (autoload 'zig-mode "zig-mode")
+(autoload 'kotlin-mode "kotlin-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行
