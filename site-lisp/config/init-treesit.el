@@ -117,6 +117,7 @@
         (scala "https://github.com/tree-sitter/tree-sitter-scala" "master" "src" nil nil)
         (toml "https://github.com/tree-sitter/tree-sitter-toml" "master" "src" nil nil)
         (vue . ("https://github.com/merico-dev/tree-sitter-vue"))
+        (kotlin . ("https://github.com/fwcd/tree-sitter-kotlin"))
         (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))
         (zig . ("https://github.com/GrayJack/tree-sitter-zig"))))
 
@@ -159,6 +160,7 @@
 (add-hook 'php-ts-mode-hook #'(lambda () (treesit-parser-create 'php)))
 (add-hook 'java-ts-mode-hook #'(lambda () (treesit-parser-create 'java)))
 (add-hook 'haskell-mode-hook #'(lambda () (treesit-parser-create 'haskell)))
+(add-hook 'kotlin-mode-hook #'(lambda () (treesit-parser-create 'kotlin)))
 
 (provide 'init-treesit)
 
