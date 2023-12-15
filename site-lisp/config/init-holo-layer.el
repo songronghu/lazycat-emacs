@@ -91,6 +91,7 @@
 (setq holo-layer-enable-place-info t)
 (setq holo-layer-sort-tab-ui t)
 (setq holo-layer-enable-indent-rainbow t)
+(setq holo-layer-indent-colors '("#333333"))
 
 (holo-layer-enable)
 
