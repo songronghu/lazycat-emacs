@@ -90,6 +90,7 @@
 (setq holo-layer-hide-mode-line t)
 (setq holo-layer-enable-place-info t)
 (setq holo-layer-sort-tab-ui t)
+(setq holo-layer-enable-indent-info nil)
 
 (holo-layer-enable)
 
