@@ -89,6 +89,9 @@
          (require 'init-eaf)
          (require 'init-popweb)
 
+         (require 'trekker)
+         (trekker-enable)
+
          ;; Restore session at last.
          (require 'init-session)
          (emacs-session-restore)
