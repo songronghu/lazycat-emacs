@@ -546,6 +546,7 @@
    ("M-s-p" . lsp-bridge-popup-documentation-scroll-down) ;向上滚动文档
    ("C-s-7" . lsp-bridge-indent-left)                     ;向左缩进
    ("C-s-8" . lsp-bridge-indent-right)                    ;向右缩进
+   ("s-m"   . lsp-bridge-popup-complete-menu)
    )
  "init-lsp-bridge")
 
@@ -566,13 +567,5 @@
    ("C-s-l" . easy-nav-enter)
    )
  "init-easy-nav")
-
-;; ### holo-layer ###
-;;; --- 全息图层
-(lazy-load-global-keys
- '(
-   ("s-m" . holo-layer-jump-to-window)
-   )
- "init-holo-layer")
 
 (provide 'init-key)
