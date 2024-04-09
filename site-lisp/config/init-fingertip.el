@@ -122,6 +122,7 @@
                'typescript-ts-mode-hook
                'zig-mode-hook
                'kotlin-mode-hook
+               'mojo-mode-hook
                ))
   (add-hook hook #'(lambda ()
                      (when (or

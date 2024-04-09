@@ -119,7 +119,8 @@
         (vue . ("https://github.com/merico-dev/tree-sitter-vue"))
         (kotlin . ("https://github.com/fwcd/tree-sitter-kotlin"))
         (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))
-        (zig . ("https://github.com/GrayJack/tree-sitter-zig"))))
+        (zig . ("https://github.com/GrayJack/tree-sitter-zig"))
+        (mojo . ("https://github.com/HerringtonDarkholme/tree-sitter-mojo"))))
 
 (setq major-mode-remap-alist
       '((c-mode          . c-ts-mode)
@@ -139,6 +140,8 @@
 (add-hook 'markdown-mode-hook #'(lambda () (treesit-parser-create 'markdown)))
 
 (add-hook 'zig-mode-hook #'(lambda () (treesit-parser-create 'zig)))
+
+(add-hook 'mojo-mode-hook #'(lambda () (treesit-parser-create 'mojo)))
 
 (add-hook 'web-mode-hook #'(lambda ()
                              (let ((file-name (buffer-file-name)))

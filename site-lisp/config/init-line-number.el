@@ -147,6 +147,8 @@
                'rust-ts-mode-hook
                'java-ts-mode-hook
                'kotlin-mode-hook
+
+               'mojo-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 
