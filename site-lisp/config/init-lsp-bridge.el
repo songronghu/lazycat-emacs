@@ -92,7 +92,7 @@
 (setq acm-enable-quick-access t)
 (setq acm-backend-yas-match-by-trigger-keyword t)
 (setq acm-enable-tabnine nil)
-(setq acm-enable-codeium t)
+(setq acm-enable-codeium nil)
 
 (global-lsp-bridge-mode)
 
