@@ -11,7 +11,7 @@ path = site-lisp/extensions/watch-other-window
 url = https://github.com/manateelazycat/watch-other-window.git
 
 [submodule "web-mode"]
-path = site-lisp/extensions/web-mode
+	path = site-lisp/extensions/languages/web-mode
 url = https://github.com/fxbois/web-mode
 
 [submodule "cache-path-from-shell"]
@@ -67,7 +67,7 @@ path = site-lisp/extensions/color-rg
 url = https://github.com/manateelazycat/color-rg.git
 
 [submodule "rjsx-mode"]
-path = site-lisp/extensions/rjsx-mode
+	path = site-lisp/extensions/languages/rjsx-mode
 url = https://github.com/felipeochoa/rjsx-mode.git
 
 [submodule "auto-save"]
@@ -195,7 +195,7 @@ path = site-lisp/extensions/lspbridge
 url = https://github.com/manateelazycat/lsp-bridge
 
 [submodule "site-lisp/extensions/markdown-mode"]
-path = site-lisp/extensions/markdown-mode
+	path = site-lisp/extensions/languages/markdown-mode
 url = https://github.com/jrblevin/markdown-mode
 
 [submodule "site-lisp/extensions/interaction-log"]
@@ -207,7 +207,7 @@ path = site-lisp/extensions/elixir-mode
 url = https://github.com/elixir-editors/emacs-elixir.git
 
 [submodule "site-lisp/extensions/json-mode"]
-path = site-lisp/extensions/json-mode
+	path = site-lisp/extensions/languages/json-mode
 url = https://github.com/joshwnj/json-mode
 
 [submodule "site-lisp/extensions/json-snatcher"]
@@ -215,7 +215,7 @@ path = site-lisp/extensions/json-snatcher
 url = https://github.com/Sterlingg/json-snatcher
 
 [submodule "site-lisp/extensions/php-mode"]
-path = site-lisp/extensions/php-mode
+	path = site-lisp/extensions/languages/php-mode
 url = https://github.com/emacs-php/php-mode
 
 [submodule "site-lisp/extensions/clojure-mode"]
@@ -267,7 +267,7 @@ path = site-lisp/extensions/websocket-bridge
 url = https://github.com/ginqi7/websocket-bridge
 
 [submodule "site-lisp/extensions/lua-mode"]
-path = site-lisp/extensions/lua-mode
+	path = site-lisp/extensions/languages/lua-mode
 url = https://github.com/immerrr/lua-mode
 
 [submodule "site-lisp/extensions/markmacro"]
@@ -299,7 +299,7 @@ path = site-lisp/extensions/popper
 url = https://github.com/karthink/popper.git
 
 [submodule "site-lisp/extensions/zig-mode"]
-path = site-lisp/extensions/zig-mode
+	path = site-lisp/extensions/languages/zig-mode
 url = https://github.com/ziglang/zig-mode
 
 [submodule "site-lisp/extensions/reformatter"]
