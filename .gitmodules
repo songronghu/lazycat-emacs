@@ -350,3 +350,6 @@ url = https://github.com/jobor/qmake-mode.git
 path = site-lisp/extensions/languages/tuareg
 url = https://github.com/ocaml/tuareg.git
 
+[submodule "site-lisp/extensions/languages/go-mode"]
+	path = site-lisp/extensions/languages/go-mode
+	url = https://github.com/dominikh/go-mode.el.git
