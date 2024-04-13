@@ -342,3 +342,6 @@ url = https://github.com/manateelazycat/holo-layer.git
 [submodule "site-lisp/extensions/languages/qmake-mode"]
 	path = site-lisp/extensions/languages/qmake-mode
 	url = https://github.com/jobor/qmake-mode.git
+[submodule "site-lisp/extensions/languages/tuareg"]
+	path = site-lisp/extensions/languages/tuareg
+	url = https://github.com/ocaml/tuareg.git
