@@ -325,7 +325,7 @@ url = https://github.com/manateelazycat/holo-layer.git
 	path = site-lisp/extensions/trekker
 	url = https://github.com/manateelazycat/trekker.git
 [submodule "site-lisp/extensions/mojo-hl"]
-	path = site-lisp/extensions/mojo-hl
+	path = site-lisp/extensions/languages/mojo-hl
 	url = https://github.com/andcarnivorous/mojo-hl
 [submodule "site-lisp/extensions/languages/haskell-mode"]
 	path = site-lisp/extensions/languages/haskell-mode
