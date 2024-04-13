@@ -330,3 +330,6 @@ url = https://github.com/manateelazycat/holo-layer.git
 [submodule "site-lisp/extensions/languages/haskell-mode"]
 	path = site-lisp/extensions/languages/haskell-mode
 	url = https://github.com/haskell/haskell-mode.git
+[submodule "site-lisp/extensions/languages/coffee-mode"]
+	path = site-lisp/extensions/languages/coffee-mode
+	url = https://github.com/defunkt/coffee-mode.git
