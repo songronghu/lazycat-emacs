@@ -51,7 +51,7 @@ path = site-lisp/extensions/restclient.el
 url = https://github.com/pashky/restclient.el.git
 
 [submodule "swift-mode"]
-path = site-lisp/extensions/swift-mode
+	path = site-lisp/extensions/languages/swift-mode
 url = http://github.com/swift-emacs/swift-mode
 
 [submodule "css-sort"]
