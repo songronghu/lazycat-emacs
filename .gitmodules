@@ -11,7 +11,7 @@ path = site-lisp/extensions/watch-other-window
 url = https://github.com/manateelazycat/watch-other-window.git
 
 [submodule "web-mode"]
-	path = site-lisp/extensions/languages/web-mode
+path = site-lisp/extensions/languages/web-mode
 url = https://github.com/fxbois/web-mode
 
 [submodule "cache-path-from-shell"]
@@ -51,23 +51,19 @@ path = site-lisp/extensions/restclient.el
 url = https://github.com/pashky/restclient.el.git
 
 [submodule "swift-mode"]
-	path = site-lisp/extensions/languages/swift-mode
+path = site-lisp/extensions/languages/swift-mode
 url = http://github.com/swift-emacs/swift-mode
 
 [submodule "css-sort"]
 path = site-lisp/extensions/css-sort
 url = https://github.com/manateelazycat/css-sort.git
 
-[submodule "go-mode"]
-path = site-lisp/extensions/go-mode
-url = https://github.com/dominikh/go-mode.el.git
-
 [submodule "color-rg"]
 path = site-lisp/extensions/color-rg
 url = https://github.com/manateelazycat/color-rg.git
 
 [submodule "rjsx-mode"]
-	path = site-lisp/extensions/languages/rjsx-mode
+path = site-lisp/extensions/languages/rjsx-mode
 url = https://github.com/felipeochoa/rjsx-mode.git
 
 [submodule "auto-save"]
@@ -143,7 +139,7 @@ path = site-lisp/extensions/emacs-rime
 url = https://github.com/DogLooksGood/emacs-rime.git
 
 [submodule "site-lisp/extensions/nim-mode"]
-	path = site-lisp/extensions/languages/nim-mode
+path = site-lisp/extensions/languages/nim-mode
 url = https://github.com/nim-lang/nim-mode.git
 
 [submodule "site-lisp/extensions/dash"]
@@ -195,7 +191,7 @@ path = site-lisp/extensions/lspbridge
 url = https://github.com/manateelazycat/lsp-bridge
 
 [submodule "site-lisp/extensions/markdown-mode"]
-	path = site-lisp/extensions/languages/markdown-mode
+path = site-lisp/extensions/languages/markdown-mode
 url = https://github.com/jrblevin/markdown-mode
 
 [submodule "site-lisp/extensions/interaction-log"]
@@ -203,11 +199,11 @@ path = site-lisp/extensions/interaction-log
 url = https://github.com/michael-heerdegen/interaction-log.el
 
 [submodule "site-lisp/extensions/elixir-mode"]
-	path = site-lisp/extensions/languages/elixir-mode
+path = site-lisp/extensions/languages/elixir-mode
 url = https://github.com/elixir-editors/emacs-elixir.git
 
 [submodule "site-lisp/extensions/json-mode"]
-	path = site-lisp/extensions/languages/json-mode
+path = site-lisp/extensions/languages/json-mode
 url = https://github.com/joshwnj/json-mode
 
 [submodule "site-lisp/extensions/json-snatcher"]
@@ -215,15 +211,15 @@ path = site-lisp/extensions/json-snatcher
 url = https://github.com/Sterlingg/json-snatcher
 
 [submodule "site-lisp/extensions/php-mode"]
-	path = site-lisp/extensions/languages/php-mode
+path = site-lisp/extensions/languages/php-mode
 url = https://github.com/emacs-php/php-mode
 
 [submodule "site-lisp/extensions/clojure-mode"]
-	path = site-lisp/extensions/languages/clojure-mode
+path = site-lisp/extensions/languages/clojure-mode
 url = https://github.com/clojure-emacs/clojure-mode
 
 [submodule "site-lisp/extensions/rust-mode"]
-	path = site-lisp/extensions/languages/rust-mode
+path = site-lisp/extensions/languages/rust-mode
 url = https://github.com/rust-lang/rust-mode
 
 [submodule "site-lisp/extensions/emacs-websocket"]
@@ -239,7 +235,7 @@ path = site-lisp/extensions/yasnippet
 url = https://github.com/joaotavora/yasnippet
 
 [submodule "site-lisp/extensions/dart-mode"]
-	path = site-lisp/extensions/languages/dart-mode
+path = site-lisp/extensions/languages/dart-mode
 url = https://github.com/bradyt/dart-mode
 
 [submodule "site-lisp/extensions/deno-bridge-jieba"]
@@ -267,7 +263,7 @@ path = site-lisp/extensions/websocket-bridge
 url = https://github.com/ginqi7/websocket-bridge
 
 [submodule "site-lisp/extensions/lua-mode"]
-	path = site-lisp/extensions/languages/lua-mode
+path = site-lisp/extensions/languages/lua-mode
 url = https://github.com/immerrr/lua-mode
 
 [submodule "site-lisp/extensions/markmacro"]
@@ -299,7 +295,7 @@ path = site-lisp/extensions/popper
 url = https://github.com/karthink/popper.git
 
 [submodule "site-lisp/extensions/zig-mode"]
-	path = site-lisp/extensions/languages/zig-mode
+path = site-lisp/extensions/languages/zig-mode
 url = https://github.com/ziglang/zig-mode
 
 [submodule "site-lisp/extensions/reformatter"]
@@ -319,29 +315,38 @@ path = site-lisp/extensions/holo-layer
 url = https://github.com/manateelazycat/holo-layer.git
 
 [submodule "site-lisp/extensions/kotlin-mode"]
-	path = site-lisp/extensions/languages/kotlin-mode
-	url = https://github.com/Emacs-Kotlin-Mode-Maintainers/kotlin-mode.git
+path = site-lisp/extensions/languages/kotlin-mode
+url = https://github.com/Emacs-Kotlin-Mode-Maintainers/kotlin-mode.git
+
 [submodule "site-lisp/extensions/trekker"]
-	path = site-lisp/extensions/trekker
-	url = https://github.com/manateelazycat/trekker.git
+path = site-lisp/extensions/trekker
+url = https://github.com/manateelazycat/trekker.git
+
 [submodule "site-lisp/extensions/mojo-hl"]
-	path = site-lisp/extensions/languages/mojo-hl
-	url = https://github.com/andcarnivorous/mojo-hl
+path = site-lisp/extensions/languages/mojo-hl
+url = https://github.com/andcarnivorous/mojo-hl
+
 [submodule "site-lisp/extensions/languages/haskell-mode"]
-	path = site-lisp/extensions/languages/haskell-mode
-	url = https://github.com/haskell/haskell-mode.git
+path = site-lisp/extensions/languages/haskell-mode
+url = https://github.com/haskell/haskell-mode.git
+
 [submodule "site-lisp/extensions/languages/coffee-mode"]
-	path = site-lisp/extensions/languages/coffee-mode
-	url = https://github.com/defunkt/coffee-mode.git
+path = site-lisp/extensions/languages/coffee-mode
+url = https://github.com/defunkt/coffee-mode.git
+
 [submodule "site-lisp/extensions/languages/llvm-mode"]
-	path = site-lisp/extensions/languages/llvm-mode
-	url = https://github.com/nverno/llvm-mode.git
+path = site-lisp/extensions/languages/llvm-mode
+url = https://github.com/nverno/llvm-mode.git
+
 [submodule "site-lisp/extensions/languages/vala-mode"]
-	path = site-lisp/extensions/languages/vala-mode
-	url = https://github.com/rrthomas/vala-mode.git
+path = site-lisp/extensions/languages/vala-mode
+url = https://github.com/rrthomas/vala-mode.git
+
 [submodule "site-lisp/extensions/languages/qmake-mode"]
-	path = site-lisp/extensions/languages/qmake-mode
-	url = https://github.com/jobor/qmake-mode.git
+path = site-lisp/extensions/languages/qmake-mode
+url = https://github.com/jobor/qmake-mode.git
+
 [submodule "site-lisp/extensions/languages/tuareg"]
-	path = site-lisp/extensions/languages/tuareg
-	url = https://github.com/ocaml/tuareg.git
+path = site-lisp/extensions/languages/tuareg
+url = https://github.com/ocaml/tuareg.git
+
