@@ -143,7 +143,7 @@ path = site-lisp/extensions/emacs-rime
 url = https://github.com/DogLooksGood/emacs-rime.git
 
 [submodule "site-lisp/extensions/nim-mode"]
-path = site-lisp/extensions/nim-mode
+	path = site-lisp/extensions/languages/nim-mode
 url = https://github.com/nim-lang/nim-mode.git
 
 [submodule "site-lisp/extensions/dash"]
@@ -203,7 +203,7 @@ path = site-lisp/extensions/interaction-log
 url = https://github.com/michael-heerdegen/interaction-log.el
 
 [submodule "site-lisp/extensions/elixir-mode"]
-path = site-lisp/extensions/elixir-mode
+	path = site-lisp/extensions/languages/elixir-mode
 url = https://github.com/elixir-editors/emacs-elixir.git
 
 [submodule "site-lisp/extensions/json-mode"]
@@ -219,11 +219,11 @@ url = https://github.com/Sterlingg/json-snatcher
 url = https://github.com/emacs-php/php-mode
 
 [submodule "site-lisp/extensions/clojure-mode"]
-path = site-lisp/extensions/clojure-mode
+	path = site-lisp/extensions/languages/clojure-mode
 url = https://github.com/clojure-emacs/clojure-mode
 
 [submodule "site-lisp/extensions/rust-mode"]
-path = site-lisp/extensions/rust-mode
+	path = site-lisp/extensions/languages/rust-mode
 url = https://github.com/rust-lang/rust-mode
 
 [submodule "site-lisp/extensions/emacs-websocket"]
@@ -239,7 +239,7 @@ path = site-lisp/extensions/yasnippet
 url = https://github.com/joaotavora/yasnippet
 
 [submodule "site-lisp/extensions/dart-mode"]
-path = site-lisp/extensions/dart-mode
+	path = site-lisp/extensions/languages/dart-mode
 url = https://github.com/bradyt/dart-mode
 
 [submodule "site-lisp/extensions/deno-bridge-jieba"]
