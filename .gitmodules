@@ -319,7 +319,7 @@ path = site-lisp/extensions/holo-layer
 url = https://github.com/manateelazycat/holo-layer.git
 
 [submodule "site-lisp/extensions/kotlin-mode"]
-	path = site-lisp/extensions/kotlin-mode
+	path = site-lisp/extensions/languages/kotlin-mode
 	url = https://github.com/Emacs-Kotlin-Mode-Maintainers/kotlin-mode.git
 [submodule "site-lisp/extensions/trekker"]
 	path = site-lisp/extensions/trekker
