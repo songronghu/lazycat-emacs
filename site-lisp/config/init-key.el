@@ -544,8 +544,8 @@
    ("M-s-l" . lsp-bridge-diagnostic-copy)      ;拷贝诊断信息
    ("M-s-n" . lsp-bridge-popup-documentation-scroll-up) ;向下滚动文档
    ("M-s-p" . lsp-bridge-popup-documentation-scroll-down) ;向上滚动文档
-   ("C-s-7" . lsp-bridge-indent-left)                     ;向左缩进
-   ("C-s-8" . lsp-bridge-indent-right)                    ;向右缩进
+   ("C-&"   . lsp-bridge-indent-left)                     ;向左缩进
+   ("C-*"   . lsp-bridge-indent-right)                    ;向右缩进
    ("s-m"   . lsp-bridge-popup-complete-menu)
    )
  "init-lsp-bridge")
