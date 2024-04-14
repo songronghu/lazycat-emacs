@@ -77,52 +77,52 @@
 ;;; Code:
 
 (dolist (hook (list
+               'bash-ts-mode-hook
+               'c++-mode-hook
+               'c++-ts-mode-hook
                'c-mode-common-hook
                'c-mode-hook
-               'c++-mode-hook
-               'java-mode-hook
-               'haskell-mode-hook
+               'c-ts-mode-hook
+               'cmake-ts-mode-hook
+               'coffee-mode-hook
+               'conf-toml-mode-hook
+               'css-mode-hook
+               'css-ts-mode-hook
                'emacs-lisp-mode-hook
+               'go-mode-hook
+               'haskell-mode-hook
+               'ielm-mode-hook
+               'jade-mode-hook
+               'java-mode-hook
+               'js-mode-hook
+               'js-ts-mode-hook
+               'json-ts-mode-hook
+               'kotlin-mode-hook
                'lisp-interaction-mode-hook
                'lisp-mode-hook
-               'maxima-mode-hook
-               'ielm-mode-hook
-               'sh-mode-hook
+               'llvm-mode-hook
+               'lua-mode-hook
                'makefile-gmake-mode-hook
+               'markdown-mode-hook
+               'maxima-mode-hook
+               'mojo-mode-hook
+               'nim-mode-hook
                'php-mode-hook
                'php-ts-mode-hook
                'python-mode-hook
-               'js-mode-hook
-               'go-mode-hook
+               'python-ts-mode-hook
+               'qmake-mode-hook
                'qml-mode-hook
-               'jade-mode-hook
-               'css-mode-hook
                'ruby-mode-hook
-               'coffee-mode-hook
                'rust-mode-hook
                'rust-ts-mode-hook
-               'qmake-mode-hook
-               'lua-mode-hook
+               'sh-mode-hook
                'swift-mode-hook
-               'web-mode-hook
-               'markdown-mode-hook
-               'llvm-mode-hook
-               'conf-toml-mode-hook
-               'nim-mode-hook
-               'typescript-mode-hook
-               'c-ts-mode-hook
-               'c++-ts-mode-hook
-               'cmake-ts-mode-hook
                'toml-ts-mode-hook
-               'css-ts-mode-hook
-               'js-ts-mode-hook
-               'json-ts-mode-hook
-               'python-ts-mode-hook
-               'bash-ts-mode-hook
+               'typescript-mode-hook
                'typescript-ts-mode-hook
+               'web-mode-hook
                'zig-mode-hook
-               'kotlin-mode-hook
-               'mojo-mode-hook
                ))
   (add-hook hook #'(lambda ()
                      (when (or

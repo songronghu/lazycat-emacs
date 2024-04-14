@@ -89,66 +89,64 @@
 (setq line-number-display-limit-width 1000)
 
 (dolist (hook (list
+               'asm-mode-hook
+               'bash-ts-mode-hook
+               'c++-ts-mode-hook
                'c-mode-common-hook
                'c-mode-hook
-               'emacs-lisp-mode-hook
-               'lisp-interaction-mode-hook
-               'lisp-mode-hook
-               'java-mode-hook
-               'asm-mode-hook
-               'haskell-mode-hook
-               'rcirc-mode-hook
-               'erc-mode-hook
-               'sh-mode-hook
-               'makefile-gmake-mode-hook
-               'python-mode-hook
-               'js-mode-hook
-               'html-mode-hook
-               'css-mode-hook
-               'tuareg-mode-hook
-               'go-mode-hook
-               'coffee-mode-hook
-               'qml-mode-hook
-               'markdown-mode-hook
-               'slime-repl-mode-hook
-               'package-menu-mode-hook
-               'cmake-mode-hook
-               'php-mode-hook
-               'web-mode-hook
-               'coffee-mode-hook
-               'sws-mode-hook
-               'jade-mode-hook
-               'vala-mode-hook
-               'rust-mode-hook
-               'ruby-mode-hook
-               'qmake-mode-hook
-               'lua-mode-hook
-               'swift-mode-hook
-               'llvm-mode-hook
-               'conf-toml-mode-hook
-               'nxml-mode-hook
-               'nim-mode-hook
-               'typescript-mode-hook
-               'elixir-mode-hook
-               'clojure-mode-hook
-               'dart-mode-hook
-               'zig-mode-hook
-
                'c-ts-mode-hook
-               'c++-ts-mode-hook
+               'clojure-mode-hook
+               'cmake-mode-hook
                'cmake-ts-mode-hook
-               'toml-ts-mode-hook
+               'coffee-mode-hook
+               'coffee-mode-hook
+               'conf-toml-mode-hook
+               'css-mode-hook
                'css-ts-mode-hook
+               'dart-mode-hook
+               'elixir-mode-hook
+               'emacs-lisp-mode-hook
+               'erc-mode-hook
+               'go-mode-hook
+               'haskell-mode-hook
+               'html-mode-hook
+               'jade-mode-hook
+               'java-mode-hook
+               'java-ts-mode-hook
+               'js-mode-hook
                'js-ts-mode-hook
                'json-ts-mode-hook
-               'python-ts-mode-hook
-               'bash-ts-mode-hook
-               'typescript-ts-mode-hook
-               'rust-ts-mode-hook
-               'java-ts-mode-hook
                'kotlin-mode-hook
-
+               'lisp-interaction-mode-hook
+               'lisp-mode-hook
+               'llvm-mode-hook
+               'lua-mode-hook
+               'makefile-gmake-mode-hook
+               'markdown-mode-hook
                'mojo-mode-hook
+               'nim-mode-hook
+               'nxml-mode-hook
+               'package-menu-mode-hook
+               'php-mode-hook
+               'python-mode-hook
+               'python-ts-mode-hook
+               'qmake-mode-hook
+               'qml-mode-hook
+               'rcirc-mode-hook
+               'ruby-mode-hook
+               'rust-mode-hook
+               'rust-ts-mode-hook
+               'sh-mode-hook
+               'slime-repl-mode-hook
+               'swift-mode-hook
+               'sws-mode-hook
+               'toml-ts-mode-hook
+               'tuareg-mode-hook
+               'typescript-mode-hook
+               'typescript-ts-mode-hook
+               'vala-mode-hook
+               'web-mode-hook
+               'zig-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 
