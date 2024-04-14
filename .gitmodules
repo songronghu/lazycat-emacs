@@ -3,7 +3,7 @@ path = site-lisp/extensions/lazycat-theme
 url = https://github.com/manateelazycat/lazycat-theme.git
 
 [submodule "typescript"]
-path = site-lisp/extensions/typescript
+	path = site-lisp/extensions/languages/typescript
 url = https://github.com/ananthakumaran/typescript.el.git
 
 [submodule "watch-other-window"]
