@@ -96,6 +96,9 @@
 
 (global-lsp-bridge-mode)
 
+(add-to-list 'lsp-bridge-multi-lang-server-extension-list '(("html") . "html_tailwindcss"))
+(add-to-list 'lsp-bridge-multi-lang-server-extension-list '(("css") . "css_tailwindcss"))
+
 ;; 打开日志，开发者才需要
 ;; (setq lsp-bridge-enable-log t)
 
