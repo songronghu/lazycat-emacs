@@ -157,6 +157,8 @@
 (setq eaf-pdf-show-progress-on-page nil)
 (setq eaf-rss-reader-phone-agent-list '("https://www.solidot.org/index.rss"))
 
+(setq eaf-pdf-dark-mode "ignore")
+
 ;; (setq eaf-enable-debug t)
 ;; (global-set-key (kbd "s-x s-x") (lambda () (interactive) (message "%s" (with-current-buffer eaf-name (buffer-string)))))
 
