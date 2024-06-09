@@ -180,6 +180,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.zig$" . zig-mode)
                     ("\\.kt$" . kotlin-mode)
                     ("\\.mojo$" . mojo-mode)
+                    ("\\.fs$" . fsharp-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -220,6 +221,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'zig-mode "zig-mode")
 (autoload 'kotlin-mode "kotlin-mode")
 (autoload 'mojo-mode "mojo")
+(autoload 'fsharp-mode "fsharp-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行

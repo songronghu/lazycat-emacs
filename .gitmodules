@@ -353,3 +353,6 @@ url = https://github.com/ocaml/tuareg.git
 [submodule "site-lisp/extensions/languages/go-mode"]
 	path = site-lisp/extensions/languages/go-mode
 	url = https://github.com/dominikh/go-mode.el.git
+[submodule "site-lisp/extensions/languages/fsharp-mode"]
+	path = site-lisp/extensions/languages/fsharp-mode
+	url = https://github.com/fsharp/emacs-fsharp-mode.git

@@ -147,6 +147,7 @@
                'vala-mode-hook
                'web-mode-hook
                'zig-mode-hook
+               'fsharp-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 
