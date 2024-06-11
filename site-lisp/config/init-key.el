@@ -45,6 +45,12 @@
    ("M-H" . set-mark-command) ;Instead C-Space for Chinese input method
    ("M-;" . comment-dwim)
    ))
+(lazy-load-set-keys
+ '(
+   ("M-h" . set-mark-command)
+   )
+ vc-git-region-history-mode-map)
+
 (lazy-load-global-keys
  '(
    ("s-R" . re-builder)                 ;可视化构建正则表达式
