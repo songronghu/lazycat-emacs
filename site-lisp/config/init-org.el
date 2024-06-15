@@ -89,6 +89,11 @@
   (setq org-startup-folded nil)                 ;默认展开内容
   (setq org-startup-indented t)                 ;默认缩进内容
 
+  ;; 隐藏 HTML 导出文件底部的一些无用信息
+  (setq org-export-with-author nil)
+  (setq org-export-time-stamp-file nil)
+  (setq org-html-validation-link nil)
+
   (defun org-export-docx ()
     (interactive)
     (let ((docx-file (concat (file-name-sans-extension (buffer-file-name)) ".docx"))
