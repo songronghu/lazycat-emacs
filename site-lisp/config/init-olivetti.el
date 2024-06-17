@@ -95,6 +95,7 @@
                 )))
 
 (dolist (hook (list
+               'text-mode-hook
                'markdown-mode-hook
                'org-mode-hook
                'mind-wave-chat-mode-hook
