@@ -89,10 +89,6 @@
 (setq initial-buffer-choice t)
 (run-with-timer 1 nil #'(lambda () (bury-buffer)))
 
-;; 增加长行处理性能
-(setq bidi-inhibit-bpa t)
-(setq-default bidi-paragraph-direction 'left-to-right)
-
 ;; 增加IO性能
 (setq process-adaptive-read-buffering nil)
 (setq read-process-output-max (* 1024 1024))
@@ -123,6 +119,7 @@
 
 ;; 对大文件或超长行提供性能优化
 (setq-default bidi-display-reordering nil)
+(setq-default bidi-paragraph-direction 'left-to-right)
 (setq bidi-inhibit-bpa t
       long-line-threshold 1000
       large-hscroll-threshold 1000
