@@ -120,6 +120,7 @@
         (kotlin . ("https://github.com/fwcd/tree-sitter-kotlin"))
         (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))
         (zig . ("https://github.com/GrayJack/tree-sitter-zig"))
+        (clojure . ("https://github.com/sogaiu/tree-sitter-clojure"))
         (mojo . ("https://github.com/HerringtonDarkholme/tree-sitter-mojo"))))
 
 (setq major-mode-remap-alist
@@ -157,6 +158,8 @@
 (add-hook 'go-mode-hook #'(lambda () (treesit-parser-create 'go)))
 (add-hook 'java-mode-hook #'(lambda () (treesit-parser-create 'java)))
 (add-hook 'java-ts-mode-hook #'(lambda () (treesit-parser-create 'java)))
+(add-hook 'clojure-mode-hook #'(lambda () (treesit-parser-create 'clojure)))
+(add-hook 'clojure-ts-mode-hook #'(lambda () (treesit-parser-create 'clojure)))
 (add-hook 'php-mode-hook #'(lambda () (treesit-parser-create 'php)))
 (add-hook 'php-ts-mode-hook #'(lambda () (treesit-parser-create 'php)))
 (add-hook 'java-ts-mode-hook #'(lambda () (treesit-parser-create 'java)))

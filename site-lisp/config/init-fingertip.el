@@ -124,6 +124,8 @@
                'web-mode-hook
                'zig-mode-hook
                'fsharp-mode-hook
+               'clojure-mode-hook
+               'clojure-ts-mode-hook
                ))
   (add-hook hook #'(lambda ()
                      (when (or

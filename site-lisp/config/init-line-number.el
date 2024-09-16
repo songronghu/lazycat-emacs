@@ -96,6 +96,7 @@
                'c-mode-hook
                'c-ts-mode-hook
                'clojure-mode-hook
+               'clojure-ts-mode-hook
                'cmake-mode-hook
                'cmake-ts-mode-hook
                'coffee-mode-hook
