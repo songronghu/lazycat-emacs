@@ -160,6 +160,7 @@
 (add-hook 'java-ts-mode-hook #'(lambda () (treesit-parser-create 'java)))
 (add-hook 'clojure-mode-hook #'(lambda () (treesit-parser-create 'clojure)))
 (add-hook 'clojure-ts-mode-hook #'(lambda () (treesit-parser-create 'clojure)))
+(add-hook 'cider-repl-mode-hook #'(lambda () (treesit-parser-create 'clojure)))
 (add-hook 'php-mode-hook #'(lambda () (treesit-parser-create 'php)))
 (add-hook 'php-ts-mode-hook #'(lambda () (treesit-parser-create 'php)))
 (add-hook 'java-ts-mode-hook #'(lambda () (treesit-parser-create 'java)))

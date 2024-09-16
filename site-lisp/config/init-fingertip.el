@@ -126,6 +126,7 @@
                'fsharp-mode-hook
                'clojure-mode-hook
                'clojure-ts-mode-hook
+               'cider-repl-mode-hook
                ))
   (add-hook hook #'(lambda ()
                      (when (or
