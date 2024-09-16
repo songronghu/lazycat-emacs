@@ -359,3 +359,18 @@ url = https://github.com/ocaml/tuareg.git
 [submodule "site-lisp/extensions/languages/sly"]
 	path = site-lisp/extensions/languages/sly
 	url = https://github.com/joaotavora/sly.git
+[submodule "site-lisp/extensions/languages/cider"]
+	path = site-lisp/extensions/languages/cider
+	url = https://github.com/clojure-emacs/cider
+[submodule "site-lisp/extensions/languages/parseedn"]
+	path = site-lisp/extensions/languages/parseedn
+	url = https://github.com/clojure-emacs/parseedn
+[submodule "site-lisp/extensions/languages/parseclj"]
+	path = site-lisp/extensions/languages/parseclj
+	url = https://github.com/clojure-emacs/parseclj
+[submodule "site-lisp/extensions/languages/queue"]
+	path = site-lisp/extensions/languages/queue
+	url = https://github.com/emacs-straight/queue
+[submodule "site-lisp/extensions/sesman"]
+	path = site-lisp/extensions/sesman
+	url = https://github.com/vspinu/sesman
