@@ -136,6 +136,7 @@
         (typescript-mode . typescript-ts-mode)
         (rust-mode       . rust-ts-mode)
         (java-mode       . java-ts-mode)
+        (clojure-mode    . clojure-ts-mode)
         ))
 
 
