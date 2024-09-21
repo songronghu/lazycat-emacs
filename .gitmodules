@@ -377,3 +377,6 @@ url = https://github.com/ocaml/tuareg.git
 [submodule "site-lisp/extensions/languages/clojure-ts-mode"]
 	path = site-lisp/extensions/languages/clojure-ts-mode
 	url = https://github.com/clojure-emacs/clojure-ts-mode
+[submodule "site-lisp/extensions/cloel"]
+	path = site-lisp/extensions/cloel
+	url = https://github.com/manateelazycat/cloel
