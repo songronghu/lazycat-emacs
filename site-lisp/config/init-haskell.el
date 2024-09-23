@@ -81,7 +81,7 @@
 
 (add-hook 'haskell-mode-hook 'turn-on-font-lock) ;高亮模式
 (add-hook 'haskell-mode-hook 'haskell-indentation-mode) ;智能缩进模式
-(add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)     ;GHCi 交互模式
+;; (add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)     ;GHCi 交互模式
 ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indent) ;智能缩进模式
 ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode) ;文档模式
 (add-hook 'haskell-mode-hook 'hs-lint-mode-hook) ;代码建议
