@@ -110,6 +110,8 @@
 (setq confirm-kill-processes nil)       ;退出自动杀掉进程
 (setq async-bytecomp-allowed-packages nil) ;避免magit报错
 (setq word-wrap-by-category t)             ;按照中文折行
+(setq enable-local-variables :all)         ;不要问 .dir-locals 的问题
+
 (add-hook 'find-file-hook 'highlight-parentheses-mode t) ;增强的括号高亮
 
 (setq completion-auto-select nil)       ;避免默认自动选择
