@@ -572,4 +572,10 @@
  '("M-7" "M-8")
  diff-mode-map)
 
+;; ### gptel ###
+;;; --- AI
+(lazy-load-global-keys
+ '(("s-/" . start-gptel))
+ "init-gptel")
+
 (provide 'init-key)

@@ -98,6 +98,10 @@
         :key open-router-key
         :models '("anthropic/claude-3.5-sonnet")))
 
+(defun start-gptel ()
+  (interactive)
+  (gptel "OpenRouter" nil nil t))
+
 (provide 'init-gptel)
 
 ;;; init-gptel.el ends here
