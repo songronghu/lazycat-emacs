@@ -566,4 +566,10 @@
    )
  "init-easy-nav")
 
+;; ### diff-mode ###
+;;; --- 去掉 diff 的一些按键
+(lazy-load-unset-keys
+ '("M-7" "M-8")
+ diff-mode-map)
+
 (provide 'init-key)

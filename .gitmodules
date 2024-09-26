@@ -393,3 +393,9 @@ url = https://github.com/manateelazycat/reorder-file
 [submodule "/home/andy/lazycat-emacs/site-lisp/extensions/gptel"]
 	path = /home/andy/lazycat-emacs/site-lisp/extensions/gptel
 	url = https://github.com/karthink/gptel
+[submodule "site-lisp/extensions/elysium"]
+	path = site-lisp/extensions/elysium
+	url = https://github.com/lanceberge/elysium
+[submodule "site-lisp/extensions/diff-hl"]
+	path = site-lisp/extensions/diff-hl
+	url = https://github.com/dgutov/diff-hl
