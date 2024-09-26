@@ -3,7 +3,7 @@ path = site-lisp/extensions/lazycat-theme
 url = https://github.com/manateelazycat/lazycat-theme.git
 
 [submodule "typescript"]
-	path = site-lisp/extensions/languages/typescript
+path = site-lisp/extensions/languages/typescript
 url = https://github.com/ananthakumaran/typescript.el.git
 
 [submodule "watch-other-window"]
@@ -278,10 +278,6 @@ url = https://github.com/lewang/ws-butler.git
 path = site-lisp/extensions/fingertip
 url = https://github.com/manateelazycat/fingertip
 
-[submodule "site-lisp/extensions/mind-wave"]
-path = site-lisp/extensions/mind-wave
-url = https://github.com/manateelazycat/mind-wave
-
 [submodule "site-lisp/extensions/wraplish"]
 path = site-lisp/extensions/wraplish
 url = https://github.com/manateelazycat/wraplish.git
@@ -351,35 +347,46 @@ path = site-lisp/extensions/languages/tuareg
 url = https://github.com/ocaml/tuareg.git
 
 [submodule "site-lisp/extensions/languages/go-mode"]
-	path = site-lisp/extensions/languages/go-mode
-	url = https://github.com/dominikh/go-mode.el.git
+path = site-lisp/extensions/languages/go-mode
+url = https://github.com/dominikh/go-mode.el.git
+
 [submodule "site-lisp/extensions/languages/fsharp-mode"]
-	path = site-lisp/extensions/languages/fsharp-mode
-	url = https://github.com/fsharp/emacs-fsharp-mode.git
+path = site-lisp/extensions/languages/fsharp-mode
+url = https://github.com/fsharp/emacs-fsharp-mode.git
+
 [submodule "site-lisp/extensions/languages/sly"]
-	path = site-lisp/extensions/languages/sly
-	url = https://github.com/joaotavora/sly.git
+path = site-lisp/extensions/languages/sly
+url = https://github.com/joaotavora/sly.git
+
 [submodule "site-lisp/extensions/languages/cider"]
-	path = site-lisp/extensions/languages/cider
-	url = https://github.com/clojure-emacs/cider
+path = site-lisp/extensions/languages/cider
+url = https://github.com/clojure-emacs/cider
+
 [submodule "site-lisp/extensions/languages/parseedn"]
-	path = site-lisp/extensions/languages/parseedn
-	url = https://github.com/clojure-emacs/parseedn
+path = site-lisp/extensions/languages/parseedn
+url = https://github.com/clojure-emacs/parseedn
+
 [submodule "site-lisp/extensions/languages/parseclj"]
-	path = site-lisp/extensions/languages/parseclj
-	url = https://github.com/clojure-emacs/parseclj
+path = site-lisp/extensions/languages/parseclj
+url = https://github.com/clojure-emacs/parseclj
+
 [submodule "site-lisp/extensions/languages/queue"]
-	path = site-lisp/extensions/languages/queue
-	url = https://github.com/emacs-straight/queue
+path = site-lisp/extensions/languages/queue
+url = https://github.com/emacs-straight/queue
+
 [submodule "site-lisp/extensions/sesman"]
-	path = site-lisp/extensions/sesman
-	url = https://github.com/vspinu/sesman
+path = site-lisp/extensions/sesman
+url = https://github.com/vspinu/sesman
+
 [submodule "site-lisp/extensions/languages/clojure-ts-mode"]
-	path = site-lisp/extensions/languages/clojure-ts-mode
-	url = https://github.com/clojure-emacs/clojure-ts-mode
+path = site-lisp/extensions/languages/clojure-ts-mode
+url = https://github.com/clojure-emacs/clojure-ts-mode
+
 [submodule "site-lisp/extensions/cloel"]
-	path = site-lisp/extensions/cloel
-	url = https://github.com/manateelazycat/cloel
+path = site-lisp/extensions/cloel
+url = https://github.com/manateelazycat/cloel
+
 [submodule "site-lisp/extensions/cloel-extensions/reorder-file"]
-	path = site-lisp/extensions/cloel-extensions/reorder-file
-	url = https://github.com/manateelazycat/reorder-file
+path = site-lisp/extensions/cloel-extensions/reorder-file
+url = https://github.com/manateelazycat/reorder-file
+

@@ -211,14 +211,6 @@
    )
  "init-markmacro")
 
-;;; ### MindWave ###
-;;; --- ChatGPT AI插件
-(lazy-load-global-keys
- '(
-   ("s-/" . one-key-menu-mind-wave)     ;one-key菜单
-   )
- "init-mind-wave")
-
 ;;; ### Font ###
 ;;; --- 字体命令
 (lazy-load-set-keys

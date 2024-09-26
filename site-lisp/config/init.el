@@ -46,7 +46,6 @@
     (require 'display-line-numbers)
     (require 'basic-toolkit)
     (require 'redo)
-    (require 'mind-wave)
 
     (require 'init-highlight-parentheses)
     (require 'init-awesome-tray)
@@ -62,7 +61,6 @@
     (require 'init-isearch-mb)
     (require 'init-performance)
     (require 'init-rime)
-    (require 'init-mind-wave)
     (require 'init-treesit)
     (require 'init-key-echo)
 
