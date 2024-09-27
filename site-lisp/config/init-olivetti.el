@@ -96,7 +96,7 @@
 
 (dolist (hook (list
                'text-mode-hook
-               'markdown-mode-hook
+               'markdown-ts-mode-hook
                'org-mode-hook
                ))
   (add-hook hook

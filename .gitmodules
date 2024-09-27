@@ -399,3 +399,6 @@ url = https://github.com/manateelazycat/reorder-file
 [submodule "site-lisp/extensions/diff-hl"]
 	path = site-lisp/extensions/diff-hl
 	url = https://github.com/dgutov/diff-hl
+[submodule "site-lisp/extensions/languages/markdown-ts-mode"]
+	path = site-lisp/extensions/languages/markdown-ts-mode
+	url = https://github.com/LionyxML/markdown-ts-mode

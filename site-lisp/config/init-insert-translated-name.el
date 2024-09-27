@@ -87,7 +87,7 @@
 
 ;;; Code:
 (dolist (hook (list
-               'markdown-mode-hook
+               'markdown-ts-mode-hook
                ))
   (add-hook hook #'(lambda ()
                      (require 'insert-translated-name)

@@ -103,7 +103,7 @@
                'llvm-mode-hook
                'lua-mode-hook
                'makefile-gmake-mode-hook
-               'markdown-mode-hook
+               'markdown-ts-mode-hook
                'maxima-mode-hook
                'mojo-mode-hook
                'nim-mode-hook

@@ -136,7 +136,7 @@
                'lua-mode-hook
                'swift-mode-hook
                'web-mode-hook
-               'markdown-mode-hook
+               'markdown-ts-mode-hook
                'llvm-mode-hook
                'conf-toml-mode-hook
                'nim-mode-hook
