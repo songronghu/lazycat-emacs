@@ -85,6 +85,11 @@
 (require 'deno-bridge-jieba)
 
 ;;; Code:
+(setq-default markdown-mode-font-lock-keywords
+              (cl-remove-if
+               (lambda (item) (equal item '(markdown-fontify-tables)))
+               markdown-mode-font-lock-keywords))
+
 (lazy-load-set-keys
  '(
    ("M-f" . deno-bridge-jieba-forward-word)
