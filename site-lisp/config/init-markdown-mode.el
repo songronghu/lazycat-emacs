@@ -80,6 +80,7 @@
 ;;
 
 ;;; Require
+(require 'markdown-mode)
 (require 'markdown-ts-mode)
 (require 'wraplish)
 (require 'deno-bridge-jieba)
@@ -122,13 +123,14 @@
 
 (lazy-load-set-keys
  '(
+   ("TAB" . markdown-cycle)
    ("M-f" . deno-bridge-jieba-forward-word)
    ("M-b" . deno-bridge-jieba-backward-word)
    ("M-M" . deno-bridge-jieba-kill-word)
    ("M-N" . deno-bridge-jieba-backward-kill-word)
    ("C-c C-c" . eaf-markdown-previewer-open)
    )
- markdown-mode-map)
+ markdown-ts-mode-map)
 
 (defun fix-chinese-colons ()
   (interactive)
