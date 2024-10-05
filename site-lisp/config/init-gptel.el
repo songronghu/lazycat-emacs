@@ -85,6 +85,11 @@
 
 ;;; Code:
 
+(lazy-load-set-keys
+ '(
+   ("RET" . gptel-return-dwim))
+ gptel-mode-map)
+
 (setq open-router-key (with-temp-buffer
                         (insert-file-contents "~/.config/openrouter/key.txt")
                         (string-trim (buffer-string))))
@@ -101,6 +106,18 @@
 (defun start-gptel ()
   (interactive)
   (gptel "OpenRouter" nil nil t))
+
+;;;###autoload
+(defun gptel-return-dwim (&optional arg)
+  "If cursor at prompt line, call `gptel-send', otherwise call RET function."
+  (interactive "P")
+  (let ((in-prompt-line-p
+         (save-excursion
+           (beginning-of-line)
+           (search-forward-regexp "^#+\\s-" (line-end-position) t))))
+    (if in-prompt-line-p
+        (gptel-send arg)
+      (call-interactively (key-binding (kbd "C-m"))))))
 
 (provide 'init-gptel)
 
