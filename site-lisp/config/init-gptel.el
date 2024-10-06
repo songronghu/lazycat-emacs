@@ -119,6 +119,16 @@
         (gptel-send arg)
       (call-interactively (key-binding (kbd "C-m"))))))
 
+(defun gptel-pinyin-to-chinese ()
+  (interactive)
+  (message "Convert pinyin to Chinese...")
+  (gptel-request
+      (format "把下面拼音转换成中文， 只输出内容， 不要解释：\n %s"
+              (if (region-active-p)
+                  (buffer-substring-no-properties (mark) (point))
+                (substring-no-properties (buffer-string)))
+              :system "你是一个语言学家， 精通英文和汉语")))
+
 (provide 'init-gptel)
 
 ;;; init-gptel.el ends here

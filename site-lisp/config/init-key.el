@@ -575,7 +575,9 @@
 ;; ### gptel ###
 ;;; --- AI
 (lazy-load-global-keys
- '(("s-?" . start-gptel))
+ '(
+   ("s-?" . start-gptel)
+   ("s-:" . gptel-pinyin-to-chinese))
  "init-gptel")
 
 ;; ### aider ###
