@@ -575,7 +575,13 @@
 ;; ### gptel ###
 ;;; --- AI
 (lazy-load-global-keys
- '(("s-/" . start-gptel))
+ '(("s-?" . start-gptel))
  "init-gptel")
+
+;; ### aider ###
+;;; --- AI
+(lazy-load-global-keys
+ '(("s-/" . aider-transient-menu))
+ "init-aider")
 
 (provide 'init-key)

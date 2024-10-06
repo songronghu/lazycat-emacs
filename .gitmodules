@@ -402,3 +402,6 @@ url = https://github.com/manateelazycat/reorder-file
 [submodule "site-lisp/extensions/languages/markdown-ts-mode"]
 	path = site-lisp/extensions/languages/markdown-ts-mode
 	url = https://github.com/LionyxML/markdown-ts-mode
+[submodule "site-lisp/extensions/aider"]
+	path = site-lisp/extensions/aider
+	url = https://github.com/tninja/aider.el.git
