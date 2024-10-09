@@ -80,6 +80,8 @@
 ;;
 
 ;;; Require
+(require 'eaf)
+(require 'eaf-file-manager)
 (require 'aider)
 
 ;;; Code:
@@ -87,6 +89,16 @@
 (setenv "OPENROUTER_API_KEY" (with-temp-buffer
                                (insert-file-contents "~/.config/openrouter/key.txt")
                                (string-trim (buffer-string))))
+
+(defun eaf-file-manager-send-files-to-aider ()
+  (interactive)
+  (let ((files (eaf-call-sync "execute_function" eaf--buffer-id "get_mark_file_names")))
+    (if files
+        (let ((command (concat "/add " (mapconcat 'expand-file-name files " "))))
+          (aider--send-command command))
+      (message "No files marked in EAF file manager."))))
+
+(eaf-bind-key eaf-file-manager-send-files-to-aider "s" eaf-file-manager-keybinding)
 
 (provide 'init-aider)
 
