@@ -96,6 +96,8 @@
 (setq acm-enable-codeium nil)
 (setq acm-enable-lsp-workspace-symbol t)
 (setq lsp-bridge-enable-inlay-hint t)
+(setq lsp-bridge-semantic-tokens t)
+(setq-default lsp-bridge-semantic-tokens-ignore-modifier-limit-types ["variable"])
 
 (global-lsp-bridge-mode)
 
