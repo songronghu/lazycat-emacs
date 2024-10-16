@@ -84,6 +84,8 @@
 
 ;;; Code:
 
+(setq-default ispell-program-name nil)
+
 (with-eval-after-load 'org
   (setq org-odt-preferred-output-format "docx") ;ODT转换格式默认为docx
   (setq org-startup-folded nil)                 ;默认展开内容
