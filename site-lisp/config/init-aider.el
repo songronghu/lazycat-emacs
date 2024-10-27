@@ -87,7 +87,7 @@
 ;;; Code:
 (setq aider-args '("--no-auto-commits"
                    "--model"
-                   "anthropic/claude-3.5-sonnet:beta"
+                   "anthropic/claude-3-5-sonnet-20241022"
                    ;; "openrouter/deepseek/deepseek-coder"
                    ))
 (setenv "OPENROUTER_API_KEY" (with-temp-buffer
