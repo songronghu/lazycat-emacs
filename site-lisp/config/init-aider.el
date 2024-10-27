@@ -85,9 +85,11 @@
 (require 'aider)
 
 ;;; Code:
+
+;; Search available model by command 'aider --list-models openrouter/ | grep openrouter/'
 (setq aider-args '("--no-auto-commits"
                    "--model"
-                   "anthropic/claude-3-5-sonnet-20241022"
+                   "openrouter/anthropic/claude-3.5-sonnet"
                    ;; "openrouter/deepseek/deepseek-coder"
                    ))
 (setenv "OPENROUTER_API_KEY" (with-temp-buffer
