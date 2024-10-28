@@ -94,7 +94,7 @@
 (setq acm-backend-yas-match-by-trigger-keyword t)
 (setq acm-enable-tabnine nil)
 (setq acm-enable-codeium nil)
-(setq acm-enable-lsp-workspace-symbol t)
+(setq acm-enable-lsp-workspace-symbol nil)
 (setq lsp-bridge-enable-inlay-hint t)
 (setq lsp-bridge-semantic-tokens t)
 (setq-default lsp-bridge-semantic-tokens-ignore-modifier-limit-types ["variable"])
