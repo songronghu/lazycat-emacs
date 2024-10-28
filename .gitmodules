@@ -390,8 +390,8 @@ url = https://github.com/manateelazycat/cloel
 path = site-lisp/extensions/cloel-extensions/reorder-file
 url = https://github.com/manateelazycat/reorder-file
 
-[submodule "/home/andy/lazycat-emacs/site-lisp/extensions/gptel"]
-	path = /home/andy/lazycat-emacs/site-lisp/extensions/gptel
+[submodule "site-lisp/extensions/gptel"]
+	path = site-lisp/extensions/gptel
 	url = https://github.com/karthink/gptel
 [submodule "site-lisp/extensions/elysium"]
 	path = site-lisp/extensions/elysium
