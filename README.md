@@ -80,6 +80,8 @@ Use `--without-xim` option to avoid input method active in Emacs, emacs-rime is 
 sudo pacman -S wqy-microhei
 ```
 
+Need install font `TsangerJinKai03-6763`, otherwise rime can't work
+
 3. Install dependency for from [EAF](https://github.com/manateelazycat/emacs-application-framework)
 
 4. Build my config symlink to emacs directory:
