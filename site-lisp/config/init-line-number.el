@@ -149,6 +149,7 @@
                'web-mode-hook
                'zig-mode-hook
                'fsharp-mode-hook
+               'text-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 
