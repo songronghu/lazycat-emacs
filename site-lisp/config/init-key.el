@@ -586,4 +586,10 @@
  '(("s-/" . aider-transient-menu))
  "init-aider")
 
+;; ### reorder-file ###
+;;; --- 自动排序文件内容
+(lazy-load-global-keys
+ '(("C-q" . reorder-file))
+ "reorder-file")
+
 (provide 'init-key)
