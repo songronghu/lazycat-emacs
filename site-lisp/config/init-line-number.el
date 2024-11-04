@@ -150,6 +150,7 @@
                'zig-mode-hook
                'fsharp-mode-hook
                'text-mode-hook
+               'nix-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 

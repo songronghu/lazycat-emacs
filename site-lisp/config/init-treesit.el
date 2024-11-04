@@ -122,6 +122,7 @@
         (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))
         (zig . ("https://github.com/GrayJack/tree-sitter-zig"))
         (clojure . ("https://github.com/sogaiu/tree-sitter-clojure"))
+        (nix . ("https://github.com/nix-community/nix-ts-mode"))
         (mojo . ("https://github.com/HerringtonDarkholme/tree-sitter-mojo"))))
 
 (setq major-mode-remap-alist

@@ -127,6 +127,7 @@
                'clojure-mode-hook
                'clojure-ts-mode-hook
                'cider-repl-mode-hook
+               'nix-mode-hook
                ))
   (add-hook hook #'(lambda ()
                      (when (or
