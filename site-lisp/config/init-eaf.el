@@ -145,15 +145,15 @@
 (setq eaf-terminal-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-jupyter-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-file-manager-show-hidden-file nil)
-(setq eaf-music-default-file "/data/Music/")
+(setq eaf-music-default-file "/home/andy/Music/")
 (setq eaf-music-player-buffer " *eaf music player*") ;改成隐藏标签， 避免标签kill掉后关闭音乐
+(setq eaf-music-cache-dir "/home/andy/Music/Favorite")
 (setq eaf-pyqterminal-font-family "FiraCode Nerd Font Mono")
 (setq eaf-pyqterminal-font-size 24)
 (setq eaf-jupyter-font-family "FiraCode Nerd Font Mono")
 (setq eaf-jupyter-font-size 20)
 (setq eaf-rebuild-buffer-after-crash nil)
 (setq eaf-pyqterminal-refresh-ms 16)
-(setq eaf-music-cache-dir "/data/Music/Favorite")
 (setq eaf-pdf-show-progress-on-page nil)
 (setq eaf-rss-reader-phone-agent-list '("https://www.solidot.org/index.rss"))
 
