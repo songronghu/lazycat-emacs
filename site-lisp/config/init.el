@@ -86,6 +86,7 @@
 
          (require 'init-eaf)
          (require 'init-popweb)
+         (require 'init-eww)
 
          (require 'trekker)
          (trekker-enable)
