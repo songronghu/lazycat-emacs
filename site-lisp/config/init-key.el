@@ -580,11 +580,11 @@
    ("s-:" . gptel-pinyin-to-chinese))
  "init-gptel")
 
-;; ### aider ###
-;;; --- AI
-(lazy-load-global-keys
- '(("s-/" . aider-transient-menu))
- "init-aider")
+;; ;; ### aider ###
+;; ;;; --- AI
+;; (lazy-load-global-keys
+;;  '(("s-/" . aider-transient-menu))
+;;  "init-aider")
 
 ;; ### reorder-file ###
 ;;; --- 自动排序文件内容

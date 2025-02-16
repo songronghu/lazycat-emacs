@@ -1,15 +1,15 @@
-;;; init-aider.el --- Config for aider   -*- lexical-binding: t; -*-
+;;; init-aidermacs.el --- Config for aidermacs   -*- lexical-binding: t; -*-
 
-;; Filename: init-aider.el
-;; Description: Config for aider
+;; Filename: init-aidermacs.el
+;; Description: Config for aidermacs
 ;; Author: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
-;; Copyright (C) 2024, Andy Stewart, all rights reserved.
-;; Created: 2024-10-06 21:29:41
+;; Copyright (C) 2025, Andy Stewart, all rights reserved.
+;; Created: 2025-02-16 08:12:07
 ;; Version: 0.1
-;; Last-Updated: 2024-10-06 21:29:41
+;; Last-Updated: 2025-02-16 08:12:07
 ;;           By: Andy Stewart
-;; URL: https://www.github.org/manateelazycat/init-aider
+;; URL: https://www.github.org/manateelazycat/init-aidermacs
 ;; Keywords:
 ;; Compatibility: GNU Emacs 31.0.50
 ;;
@@ -39,19 +39,19 @@
 
 ;;; Commentary:
 ;;
-;; Config for aider
+;; Config for aidermacs
 ;;
 
 ;;; Installation:
 ;;
-;; Put init-aider.el to your load-path.
+;; Put init-aidermacs.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'init-aider)
+;; (require 'init-aidermacs)
 ;;
 ;; No need more.
 
@@ -60,12 +60,12 @@
 ;;
 ;;
 ;; All of the above can customize by:
-;;      M-x customize-group RET init-aider RET
+;;      M-x customize-group RET init-aidermacs RET
 ;;
 
 ;;; Change log:
 ;;
-;; 2024/10/06
+;; 2025/02/16
 ;;      * First released.
 ;;
 
@@ -80,32 +80,15 @@
 ;;
 
 ;;; Require
-(require 'eaf)
-(require 'eaf-file-manager)
-(require 'aider)
+(require 'aidermacs)
 
 ;;; Code:
-
-;; Search available model by command 'aider --list-models openrouter/ | grep openrouter/'
-(setq aider-args '("--no-auto-commits"
-                   "--model"
-                   "openrouter/anthropic/claude-3.5-sonnet"
-                   ;; "openrouter/deepseek/deepseek-coder"
-                   ))
+(setq aidermacs-default-model "openrouter/anthropic/claude-3.5-sonnet")
 (setenv "OPENROUTER_API_KEY" (with-temp-buffer
                                (insert-file-contents "~/.config/openrouter/key.txt")
                                (string-trim (buffer-string))))
 
-(defun eaf-file-manager-send-files-to-aider ()
-  (interactive)
-  (let ((files (eaf-call-sync "execute_function" eaf--buffer-id "get_mark_file_names")))
-    (if files
-        (let ((command (concat "/add " (mapconcat 'expand-file-name files " "))))
-          (aider--send-command command))
-      (message "No files marked in EAF file manager."))))
 
-(eaf-bind-key eaf-file-manager-send-files-to-aider "s" eaf-file-manager-keybinding)
+(provide 'init-aidermacs)
 
-(provide 'init-aider)
-
-;;; init-aider.el ends here
+;;; init-aidermacs.el ends here
