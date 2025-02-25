@@ -421,3 +421,6 @@ url = https://github.com/rejeep/f.el.git
 [submodule "site-lisp/extensions/aidermacs"]
 	path = site-lisp/extensions/aidermacs
 	url = https://github.com/MatthewZMD/aidermacs.git
+[submodule "site-lisp/extensions/languages/solidity"]
+	path = site-lisp/extensions/languages/solidity
+	url = https://github.com/ethereum/emacs-solidity.git

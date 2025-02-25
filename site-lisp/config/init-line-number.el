@@ -151,6 +151,7 @@
                'fsharp-mode-hook
                'text-mode-hook
                'nix-mode-hook
+               'solidity-mode-hook
                ))
   (add-hook hook (lambda () (display-line-numbers-mode))))
 

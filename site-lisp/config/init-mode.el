@@ -183,6 +183,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.mojo$" . mojo-mode)
                     ("\\.fs$" . fsharp-mode)
                     ("\\.nix$" . nix-mode)
+                    ("\\.sol$" . solidity-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -225,6 +226,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'mojo-mode "mojo")
 (autoload 'fsharp-mode "fsharp-mode")
 (autoload 'nix-mode "nix-mode")
+(autoload 'solidity-mode "solidity-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行
