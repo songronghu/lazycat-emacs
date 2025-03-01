@@ -136,13 +136,11 @@
 (setq eaf-browser-enable-autofill t)
 (setq eaf-music-play-order "random")
 (setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
-(setq eaf-terminal-font-size 18)
 (setq eaf-webengine-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-webengine-fixed-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-webengine-serif-font-family "TsangerJinKai03-6763")
 (setq eaf-webengine-font-size 18)
 (setq eaf-webengine-fixed-font-size 18)
-(setq eaf-terminal-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-jupyter-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-file-manager-show-hidden-file nil)
 (setq eaf-music-default-file "/home/andy/Music/")
@@ -158,17 +156,6 @@
 (setq eaf-rss-reader-phone-agent-list '("https://www.solidot.org/index.rss"))
 
 (setq eaf-pdf-dark-mode "ignore")
-
-;; (setq eaf-enable-debug t)
-;; (global-set-key (kbd "s-x s-x") (lambda () (interactive) (message "%s" (with-current-buffer eaf-name (buffer-string)))))
-
-(defun jekyll-start-server ()
-  (interactive)
-  (eaf-terminal-run-command-in-dir "jekyll serve --livereload" "/home/andy/manateelazycat.github.io"))
-
-(defun jekyll-open-local ()
-  (interactive)
-  (eaf-open-browser "http://127.0.0.1:4000"))
 
 (defun eaf-goto-left-tab ()
   (interactive)
