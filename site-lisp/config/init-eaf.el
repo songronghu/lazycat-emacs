@@ -89,7 +89,7 @@
 (require 'eaf-video-player)
 (require 'eaf-image-viewer)
 (require 'eaf-org-previewer)
-(require 'eaf-mindmap)
+(require 'eaf-mind-elixir)
 (require 'eaf-mail)
 (require 'eaf-camera)
 (require 'eaf-jupyter)
