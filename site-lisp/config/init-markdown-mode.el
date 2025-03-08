@@ -154,7 +154,7 @@
 
   (message "Fix Chinese colons."))
 
-(setq wraplish-add-space-after-chinese-punctuation t)
+(setq wraplish-add-space-after-chinese-punctuation nil)
 
 (dolist (hook (list
                'markdown-ts-mode-hook
