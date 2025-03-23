@@ -84,6 +84,12 @@
 
 ;;; Code:
 
+;; Customize treesit grammer load path.
+(setq treesit-extra-load-path (list (concat lazycat-emacs-root-dir "/treesit-grammer")))
+
+;; Make sure `treesit-install-language-grammar' download library file at `treesit-extra-load-path'
+(setq treesit--install-language-grammar-out-dir-history treesit-extra-load-path)
+
 ;; M-x `treesit-install-language-grammar` to install language grammar.
 (setq treesit-language-source-alist
       '((bash . ("https://github.com/tree-sitter/tree-sitter-bash"))
