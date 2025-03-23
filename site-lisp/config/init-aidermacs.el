@@ -83,7 +83,8 @@
 (require 'aidermacs)
 
 ;;; Code:
-(setq aidermacs-default-model "openrouter/anthropic/claude-3.5-sonnet")
+(setq aidermacs-program (expand-file-name "~/.local/bin/aider"))
+(setq aidermacs-default-model "openrouter/anthropic/claude-3.7-sonnet")
 (setenv "OPENROUTER_API_KEY" (with-temp-buffer
                                (insert-file-contents "~/.config/openrouter/key.txt")
                                (string-trim (buffer-string))))
