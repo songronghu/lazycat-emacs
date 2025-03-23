@@ -16,60 +16,19 @@ git submodule update --init --recursive
 
 git submodule foreach git reset --hard
 
-git submodule foreach git checkout $(git remote show origin | awk '/HEAD 分支|HEAD branch/ {split($0, a, "："); print a[2]}')
-```
-
-## Install On Mac
-
-1. Download emacs git code
-```
-$ git clone --depth 1 git://git.savannah.gnu.org/emacs.git
-```
-
-2. Install compile dependencies
-```
-$ brew install autoconf automake texinfo gnutls pkg-config libxml2 --debug --verbose
-```
-
-3. Compile emacs git
-```
-$ cd ./emacs && ./autogen.sh
-
-$ export LDFLAGS="-L/usr/local/opt/libxml2/lib"
-$ export CPPFLAGS="-I/usr/local/opt/libxml2/include"
-$ export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
-
-$ ./configure && make && make install
-```
-
-4. Install in launcher:
-
-    open -R nextstep/Emacs.app
-
-    and dragging Emacs to the Applications folder.
-
-5. Add config in ~/.emacs
-```Elisp
-(defun add-subdirs-to-load-path (dir)
-  "Recursive add directories to `load-path'."
-  (let ((default-directory (file-name-as-directory dir)))
-    (add-to-list 'load-path dir)
-    (normal-top-level-add-subdirs-to-load-path)))
-(add-subdirs-to-load-path "~/lazycat-emacs/site-lisp/")
-
-(require 'init)
+git submodule foreach 'git checkout $(git remote show origin | grep "HEAD branch" | sed "s/.*: //")'
 ```
 
 ## Install On Arch Linux
 1. Install emacs git version:
 ```
-sudo pacman -S emacs-git
+sudo pacman -S emacs-git tree-sitter
 ```
 
 or compile from source code:
 
 ```
-git pull ; ./configure --prefix=/usr --with-x-toolkit=gtk3 --without-xim ; make -j32; sudo make install ; sudo rm /usr/local/share/applications/emacsclient.desktop
+git pull ; ./configure --prefix=/usr --with-x-toolkit=gtk3 --with-tree-sitter --without-xim ; make -j32; sudo make install ; sudo rm /usr/local/share/applications/emacsclient.desktop
 ```
 
 Use `--without-xim` option to avoid input method active in Emacs, emacs-rime is better solution.
@@ -82,7 +41,7 @@ sudo pacman -S wqy-microhei
 
 Need install font `TsangerJinKai03-6763`, otherwise rime can't work
 
-3. Install dependency for from [EAF](https://github.com/manateelazycat/emacs-application-framework)
+3. Install dependency for from [EAF](https://github.com/manateelazycat/emacs-application-framework), holo-layer, deno, key-echo
 
 4. Build my config symlink to emacs directory:
 ```
