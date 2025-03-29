@@ -83,13 +83,11 @@
 (require 'emigo)
 
 ;;; Code:
-(emigo-start-process)
+(emigo-enable)
 
 (setq emigo-model "openrouter/anthropic/claude-3.7-sonnet")
 (setq emigo-base-url "https://openrouter.ai/api/v1")
-(setq emigo-api-key (with-temp-buffer
-                      (insert-file-contents "~/.config/openrouter/key.txt")
-                      (string-trim (buffer-string))))
+(setq emigo-api-key (emigo-read-file-content "~/.config/openrouter/key.txt"))
 
 (provide 'init-emigo)
 
