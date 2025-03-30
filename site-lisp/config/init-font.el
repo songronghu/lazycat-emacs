@@ -90,7 +90,7 @@
         (t
          (let ((emacs-font-size (if (> (frame-pixel-width) 2000)
                                     20
-                                  16))
+                                  15))
                (chinese-font-name  "TsangerJinKai03-6763")
                english-font-name)
            (cond
