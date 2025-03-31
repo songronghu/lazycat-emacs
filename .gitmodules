@@ -194,10 +194,6 @@ url = https://github.com/manateelazycat/lsp-bridge
 path = site-lisp/extensions/languages/markdown-mode
 url = https://github.com/jrblevin/markdown-mode
 
-[submodule "site-lisp/extensions/interaction-log"]
-path = site-lisp/extensions/interaction-log
-url = https://github.com/michael-heerdegen/interaction-log.el
-
 [submodule "site-lisp/extensions/elixir-mode"]
 path = site-lisp/extensions/languages/elixir-mode
 url = https://github.com/elixir-editors/emacs-elixir.git
@@ -419,11 +415,14 @@ path = site-lisp/extensions/f
 url = https://github.com/rejeep/f.el.git
 
 [submodule "site-lisp/extensions/aidermacs"]
-	path = site-lisp/extensions/aidermacs
-	url = https://github.com/MatthewZMD/aidermacs.git
+path = site-lisp/extensions/aidermacs
+url = https://github.com/MatthewZMD/aidermacs.git
+
 [submodule "site-lisp/extensions/languages/solidity"]
-	path = site-lisp/extensions/languages/solidity
-	url = https://github.com/ethereum/emacs-solidity.git
+path = site-lisp/extensions/languages/solidity
+url = https://github.com/ethereum/emacs-solidity.git
+
 [submodule "site-lisp/extensions/emigo"]
-	path = site-lisp/extensions/emigo
-	url = https://github.com/MatthewZMD/emigo.git
+path = site-lisp/extensions/emigo
+url = https://github.com/MatthewZMD/emigo.git
+
