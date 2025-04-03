@@ -86,8 +86,8 @@
 (emigo-enable)
 
 ;; (setq emigo-model "openrouter/deepseek/deepseek-chat-v3-0324")
-(setq emigo-model "openrouter/anthropic/claude-3.7-sonnet")
-;; (setq emigo-model "openrouter/google/gemini-2.5-pro-exp-03-25:free")
+;; (setq emigo-model "openrouter/anthropic/claude-3.7-sonnet")
+(setq emigo-model "openrouter/google/gemini-2.5-pro-exp-03-25:free")
 (setq emigo-base-url "https://openrouter.ai/api/v1")
 (setq emigo-api-key (emigo-read-file-content "~/.config/openrouter/key.txt"))
 
