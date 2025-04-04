@@ -1,4 +1,5 @@
 *.elc
 *.pyc
 site-lisp/extensions/predictive/dict-english.el
+site-lisp/extensions/magit
 .aider*
