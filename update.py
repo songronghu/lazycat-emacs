@@ -8,7 +8,8 @@ def reset_and_pull(repo_path):
     repo.checkout_head(strategy=pygit2.GIT_CHECKOUT_FORCE)
     # Pull latest changes
     remote = repo.remotes['origin']
-    remote.fetch()
+    callbacks = pygit2.RemoteCallbacks()  # Empty callbacks
+    remote.fetch(callbacks=callbacks)
     repo.merge(remote.head.target)
 
 def update_main_repo():
