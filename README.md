@@ -12,11 +12,7 @@ git clone https://github.com/manateelazycat/lazycat-emacs.git
 
 2. Fetch all submodules in lazycat-emacs:
 ```
-git submodule update --init --recursive
-
-git submodule foreach git reset --hard
-
-git submodule foreach 'git checkout $(git remote show origin | grep "HEAD branch" | sed "s/.*: //")'
+python update_submodule.py
 ```
 
 ## Install On Arch Linux
