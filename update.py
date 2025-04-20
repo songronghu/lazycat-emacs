@@ -1,38 +1,40 @@
 import os
-import subprocess
-from git import Repo
+import pygit2
 
-def run_command(command, cwd=None):
-    """Run a shell command in a specific directory."""
-    result = subprocess.run(command, shell=True, cwd=cwd, capture_output=True, text=True)
-    if result.returncode != 0:
-        print(f"Error running command: {command}\n{result.stderr}")
-    return result.stdout.strip()
+def reset_and_pull(repo_path):
+    """Reset any changes and pull the latest updates."""
+    repo = pygit2.Repository(repo_path)
+    # Reset any changes
+    repo.checkout_head(strategy=pygit2.GIT_CHECKOUT_FORCE)
+    # Pull latest changes
+    remote = repo.remotes['origin']
+    remote.fetch()
+    repo.merge(remote.head.target)
 
 def update_main_repo():
-    """Update the main repository and reset uncommitted changes."""
+    """Update the main repository."""
     print("Updating main repository...")
-    run_command("git checkout -- .")
-    run_command("git pull")
+    reset_and_pull(os.getcwd())
 
 def update_submodules():
     """Update each submodule to the commit specified in the main repo."""
     print("Updating submodules...")
-    repo = Repo(os.getcwd())
+    repo = pygit2.Repository(os.getcwd())
     for submodule in repo.submodules:
-        submodule_path = submodule.abspath
+        submodule_path = os.path.join(repo.workdir, submodule.path)
         print(f"Processing submodule: {submodule.name} at {submodule_path}")
 
         # Reset any changes in the submodule
-        run_command("git checkout -- .", cwd=submodule_path)
+        reset_and_pull(submodule_path)
 
-        # Check current branch and switch to master/main
-        current_branch = run_command("git rev-parse --abbrev-ref HEAD", cwd=submodule_path)
+        # Check current branch and switch to master/main if necessary
+        submodule_repo = pygit2.Repository(submodule_path)
+        current_branch = submodule_repo.head.shorthand
         if current_branch not in ["master", "main"]:
-            if "master" in run_command("git branch", cwd=submodule_path):
-                run_command("git checkout master", cwd=submodule_path)
-            elif "main" in run_command("git branch", cwd=submodule_path):
-                run_command("git checkout main", cwd=submodule_path)
+            if "refs/heads/master" in submodule_repo.branches:
+                submodule_repo.checkout("refs/heads/master")
+            elif "refs/heads/main" in submodule_repo.branches:
+                submodule_repo.checkout("refs/heads/main")
 
         # Update submodule to the commit specified in the main repo
         submodule.update(init=True, recursive=True)
