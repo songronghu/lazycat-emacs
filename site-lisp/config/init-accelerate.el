@@ -90,7 +90,9 @@
  initial-major-mode 'fundamental-mode
  ;; 不要自动启用package
  package-enable-at-startup nil
- package--init-file-ensured t)
+ package--init-file-ensured t
+ ;; 不要打印 lexical binding 的日志， 烦人
+ warning-suppress-types '((files)))
 
 (provide 'init-accelerate)
 
