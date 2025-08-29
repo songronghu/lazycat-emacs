@@ -25,7 +25,7 @@
   (defvar lazycat-emacs-root-dir (file-truename "~/lazycat-emacs/site-lisp"))
   (defvar lazycat-emacs-config-dir (concat lazycat-emacs-root-dir "/config"))
   (defvar lazycat-emacs-extension-dir (concat lazycat-emacs-root-dir "/extensions"))
-
+  (defvar grep-func-call-history nil)
   (with-temp-message ""              ;抹掉插件启动的输出
     ;;(require 'benchmark-init-modes)
     ;;(require 'benchmark-init)
@@ -35,8 +35,8 @@
 
     (require 'init-generic)
     (require 'lazycat-theme)
-    (lazycat-theme-load-with-sunrise)
-    ;; (lazycat-theme-load-dark)
+    ;;(lazycat-theme-load-with-sunrise)
+    (lazycat-theme-load-dark)
     ;; (lazycat-theme-load-light)
     (when (featurep 'cocoa)
       (require 'cache-path-from-shell))
@@ -92,11 +92,15 @@
          (require 'trekker)
          (trekker-enable)
 
+         (require 'init-avy)
          ;; Restore session at last.
          (require 'init-session)
          (emacs-session-restore)
-
          (require 'init-sort-tab)
+         (require 'company-english-helper)
+         (require 'bhj-grep)
+         (setq my-grep-command "beagrep -s -e pat") ;; should not put it into custom, the custom will be read every time and so the `(let ((grep-command ..' scheme will fail
          ))))
-
+(setenv "PATH" (concat (getenv "PATH") ":/home/ronghusong/.emacs.d.bhj/share/eclipse.jdt.ls/bin"))
+(add-to-list 'exec-path "/home/ronghusong/.emacs.d.bhj/share/eclipse.jdt.ls/bin")
 (provide 'init)

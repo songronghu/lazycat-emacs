@@ -89,7 +89,8 @@
 (require 'eaf-video-player)
 (require 'eaf-image-viewer)
 (require 'eaf-org-previewer)
-(require 'eaf-mind-elixir)
+(require 'eaf-mindmap)
+;;(require 'eaf-mind-elixir)
 (require 'eaf-mail)
 (require 'eaf-camera)
 (require 'eaf-jupyter)
@@ -99,7 +100,7 @@
 (require 'eaf-file-browser)
 (require 'eaf-rss-reader)
 (require 'eaf-git)
-(require 'eaf-map)
+;;(require 'eaf-map)
 (require 'eaf-pyqterminal)
 
 (require 'popweb-dict)
@@ -107,9 +108,9 @@
 ;;; Code:
 
 ;; You need configuration your own local proxy program first.
-;; (setq eaf-proxy-type "socks5")
-;; (setq eaf-proxy-host "127.0.0.1")
-;; (setq eaf-proxy-port "1080")
+(setq eaf-proxy-type "http")
+(setq eaf-proxy-host "127.0.0.1")
+(setq eaf-proxy-port "18080")
 
 ;; Make `eaf-browser-restore-buffers' restore last close browser buffers.
 (setq eaf-browser-continue-where-left-off t)
@@ -143,9 +144,9 @@
 (setq eaf-webengine-fixed-font-size 18)
 (setq eaf-jupyter-font-family "WenQuanYi Micro Hei Mono")
 (setq eaf-file-manager-show-hidden-file nil)
-(setq eaf-music-default-file "/home/andy/Music/")
+(setq eaf-music-default-file "/home/ronghusong/Music/")
 (setq eaf-music-player-buffer " *eaf music player*") ;改成隐藏标签， 避免标签kill掉后关闭音乐
-(setq eaf-music-cache-dir "/home/andy/Music/Favorite")
+(setq eaf-music-cache-dir "/home/ronghusong/Music/Favorite")
 (setq eaf-pyqterminal-font-family "FiraCode Nerd Font Mono")
 (setq eaf-pyqterminal-font-size 24)
 (setq eaf-jupyter-font-family "FiraCode Nerd Font Mono")

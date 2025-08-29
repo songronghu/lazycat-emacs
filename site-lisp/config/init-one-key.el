@@ -89,13 +89,15 @@
  "DIRECTORY"
  '(
    (("h" . "Home") . (lambda () (interactive) (eaf-open-in-file-manager "~/")))
-   (("b" . "Book") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Book")))
-   (("j" . "Picture") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Picture")))
-   (("m" . "Music") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Music")))
+   (("b" . "Book") . (lambda () (interactive) (eaf-open-in-file-manager "/home/ronghusong/03_techbook")))
+   (("p" . "Picture") . (lambda () (interactive) (eaf-open-in-file-manager "/home/ronghusong/Picture")))
+   (("m" . "Music") . (lambda () (interactive) (eaf-open-in-file-manager "/home/ronghusong/Music")))
    (("c" . "Config") . (lambda () (interactive) (eaf-open-in-file-manager lazycat-emacs-config-dir)))
-   ((";" . "Extension") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/lazycat-emacs/site-lisp/extensions")))
-   (("o" . "EAF") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/lazycat-emacs/site-lisp/extensions/emacs-application-framework")))
-   (("l" . "LazyCat") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/microserver")))
+   ((";" . "Extension") . (lambda () (interactive) (eaf-open-in-file-manager "/home/ronghusong/lazycat-emacs/site-lisp/extensions")))
+   (("o" . "EAF") . (lambda () (interactive) (eaf-open-in-file-manager "/home/ronghusong/lazycat-emacs/site-lisp/extensions/emacs-application-framework")))
+   (("d" . "Downloads") . (lambda () (interactive) (eaf-open-in-file-manager "/home/ronghusong/Downloads")))
+   (("w" . "work") . (lambda () (interactive) (eaf-open-in-file-manager "/home/ronghusong/07_Tiantu")))
+   (("t" . "today") . (lambda () (interactive) (eaf-open-in-file-manager "/home/ronghusong/today")))
    )
  t)
 

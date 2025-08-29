@@ -89,6 +89,7 @@
       (list :background-color "#333333"
             :foreground-color "#dcdccc"
             ;; :font "TsangerJinKai03-6763"
+            :font "WenQuanYi Micro Hei Mono-14"
             :internal-border-width 10))
 
 (setq default-input-method "rime"

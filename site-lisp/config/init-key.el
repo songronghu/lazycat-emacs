@@ -16,7 +16,7 @@
  "init-popweb"
  "C-z")
 
-;;; ### Insert translated name ###
+;;; ###kk Insert translated name ###
 ;;; --- 写中文翻译成英文函数名、 变量名
 (lazy-load-global-keys
  '(
@@ -96,7 +96,8 @@
  "basic-toolkit")
 (lazy-load-global-keys
  '(
-   ("M-g" . goto-line-preview))
+   ("M-g g" . goto-line-preview)
+   )
  "goto-line-preview")
 
 ;;; ### Delete block ###
@@ -135,7 +136,7 @@
    ))
 (lazy-load-global-keys
  '(
-   ("M-s" . symbol-overlay-put)         ;懒惰搜索
+   ("M-s s" . symbol-overlay-put)         ;懒惰搜索
    )
  "init-symbol-overlay")
 (lazy-load-global-keys
@@ -191,7 +192,8 @@
 (lazy-load-global-keys
  '(
    ("C-/" . undo)
-   ("C-?" . vundo)
+   ("C-?" . redo)
+   ;;("C-?" . vundo)
    )
  "init-vundo")
 
@@ -483,7 +485,7 @@
 ;;; --- 聊天
 (lazy-load-global-keys
  '(
-   ("C-c i" . switch-to-erc)            ;切换到IRC或自动登录IRC
+   ("C-c i e" . switch-to-erc)            ;切换到IRC或自动登录IRC
    ("C-c I" . erc-nick-notify-jump-last-channel) ;自动跳转到最后收到消息的频道
    )
  "init-erc")
@@ -566,6 +568,14 @@
    )
  "init-easy-nav")
 
+;;; --- 字符跳转
+(lazy-load-global-keys
+  '(
+    ("M-g k" . avy-goto-char)
+    ("M-g l" . avy-goto-word-1)
+    )
+  "avy")
+
 ;; ### diff-mode ###
 ;;; --- 去掉 diff 的一些按键
 (lazy-load-unset-keys
@@ -574,11 +584,11 @@
 
 ;; ### gptel ###
 ;;; --- AI
-(lazy-load-global-keys
- '(
-   ("s-?" . start-gptel)
-   ("s-:" . gptel-pinyin-to-chinese))
- "init-gptel")
+;;(lazy-load-global-keys
+;; '(
+;;   ("s-?" . start-gptel)
+;;   ("s-:" . gptel-pinyin-to-chinese))
+;; "init-gptel")
 
 ;; ;; ### aider ###
 ;; ;;; --- AI
