@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: toml frontmatter
+# key: hugo
+# --
+#+title: $1
+#+date:  `(concat (format-time-string "%Y-%m-%dT%H:%M:%S") (concat (substring (format-time-string "%z") 0 3) ":" (substring (format-time-string "%z") 3 5)))`
+#+draft:  false
+#+hugo_tags: Blog$2
+#+hugo_categories: 技术$3
+#+HUGO_CUSTOM_FRONT_MATTER: :toc true
+$0

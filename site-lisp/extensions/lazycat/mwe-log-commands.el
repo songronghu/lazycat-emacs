@@ -35,7 +35,7 @@
 ;; To see the log buffer, call M-x mwe:open-command-log-buffer.
 
 ;;; Code:
-(require 'cl)
+(require 'cl-lib)
 
 (defvar mwe:*log-keyboard-commands* nil
   "Non-nil means enabling keyboard command logging.
@@ -138,7 +138,7 @@ Scrolling up can be accomplished with:
                   (let ((current (current-buffer)))
                     (goto-char (point-max))
                     (cond ((eq cmd mwe:*last-keyboard-command*)
-                           (incf mwe:*command-repetitions*)
+                           (cl-incf mwe:*command-repetitions*)
                            (save-match-data
                              (when (and (> mwe:*command-repetitions* 1)
                                         (search-backward "[" (line-beginning-position -1) t))

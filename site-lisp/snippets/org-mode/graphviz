@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: graphviz
+# key: gv
+# --
+#+begin_src dot :file Images/${1:output}.png :cmdline -Kdot -Tpng
+  digraph {
+    rankdir=TD
+    node [shape=box,fontname="Courier New",style=filled, colorscheme=accent7, color="1"]
+    //edge [headport=w, tailport=e]
+    ranksep=0.8
+    a[color=1,label="${2:a}"]
+    b[color=2,label="${3:b}"]
+    c[color=3,label="${4:c}"]
+    a -> b -> c
+  }
+#+end_src
+

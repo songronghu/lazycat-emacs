@@ -86,15 +86,15 @@
 
 (setq holo-layer-cursor-animation-type "jelly easing")
 (setq holo-layer-enable-window-border t)
-(setq holo-layer-enable-cursor-animation t)
+(setq holo-layer-enable-cursor-animation nil)
 (setq holo-layer-hide-mode-line t)
 (setq holo-layer-enable-place-info t)
 (setq holo-layer-enable-type-animation t)
-(setq holo-layer-type-animation-style "firefly")
+;;(setq holo-layer-type-animation-style "firefly")
 (setq holo-layer-sort-tab-font-size (if (> (frame-pixel-width) 2000) 18 14))
 (setq holo-layer-place-info-font-size (if (> (frame-pixel-width) 2000) 18 14))
 (holo-layer-enable-sort-tab)
-(setq holo-layer-enable-indent-rainbow t)
+(setq holo-layer-enable-indent-rainbow nil)
 (setq holo-layer-indent-colors '("#5BAB3C" "#4B713F" "#244E30" "#774C3E" "#1E588D" "#3B8155" "#396977" "#18362B" "#525169" "#0B2837"))
 (holo-layer-enable)
 

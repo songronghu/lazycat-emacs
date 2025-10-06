@@ -1,0 +1,10 @@
+*/.svn
+*/.idea
+*/.github
+*/images
+*/icons
+*/screenshot
+*/snapshots
+*/sdcv-dict
+*/treesit-grammer
+*/liberime

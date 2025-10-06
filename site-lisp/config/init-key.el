@@ -44,6 +44,10 @@
    ("M-h" . set-mark-command) ;Instead C-Space for Chinese input method
    ("M-H" . set-mark-command) ;Instead C-Space for Chinese input method
    ("M-;" . comment-dwim)
+   ("M-i" . previous-line)              ;新增：M-i 上一行
+   ("M-n" . next-line)                  ;新增：M-i 上一行
+   ("M-s t" . current-line-move-to-top)              
+   ("M-s l" . move-to-window-line-top-bottom)       
    ))
 (lazy-load-set-keys
  '(
@@ -129,8 +133,9 @@
    ("C-M-b" . backward-paragraph)       ;上一个段落
    ("C-M-y" . backward-up-list)         ;向左跳出 LIST
    ("C-M-o" . up-list)                  ;向右跳出 LIST
-   ("C-M-u" . backward-down-list)       ;向左跳进 LIST
-   ("C-M-i" . down-list)                ;向右跳进 LIST
+   ;;("C-M-u" . backward-down-list)            ;向左跳进 LIST
+   ("C-M-u" . down-list)                ;向右跳进 LIST
+   ;;("C-M-i" . down-list)              ;向右跳进 LIST
    ("C-M-a" . beginning-of-defun)       ;函数开头
    ("C-M-e" . end-of-defun)             ;函数末尾
    ))
@@ -282,7 +287,8 @@
    ("<f5>" . emacs-session-save)        ;退出emacs
    ("C-4" . insert-changelog-date)      ;插入日志时间 (%Y/%m/%d)
    ("C-5" . insert-standard-date)
-   ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
+   ;;("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
+   ("C-6" . switch-to-messages)         ;跳转到 *Messages* buffer
    )
  "lazycat-toolkit")
 
@@ -295,8 +301,8 @@
 (setq fingertip-key-alist
       '(
         ;; 移动
-        ("M-n" . fingertip-jump-left)
-        ("M-p" . fingertip-jump-right)
+        ;;("M-n" . fingertip-jump-left)
+        ;;("M-p" . fingertip-jump-right)
         ;; 符号插入
         ("%" . fingertip-match-paren)            ;括号跳转
         ("(" . fingertip-open-round)             ;智能 (
@@ -601,5 +607,27 @@
 (lazy-load-global-keys
  '(("C-q" . reorder-file))
  "reorder-file")
+
+(lazy-load-global-keys
+  '(
+    ("M-g e" . er/expand-region))
+  "expand-region")
+
+(lazy-load-global-keys
+  '(
+    ("M-g r" . bhj-grep)
+    ("M-s E" . bhj-occur-logcat-errors)
+    ("M-s e" . bhj-occur-make-errors)
+    ("M-s g" . bhj-do-code-generation)
+    ("M-s m" . bhj-occur-merge-conflicts)
+    ("M-s r" . bhj-rgrep)
+    ("M-g a" . bhj-abc-grep)
+    ("M-g o" . bhj-occur)
+    ("M-g f" . grep-func-call)
+    ("M-g t" . grep-beatags)
+    ("M-g n" . next-error)
+    ("M-g p" . previous-error)
+    )
+  "bhj-grep")
 
 (provide 'init-key)

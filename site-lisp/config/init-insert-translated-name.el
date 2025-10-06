@@ -82,6 +82,7 @@
 ;;; Require
 (require 'insert-translated-name)
 
+;;(setq insert-translated-name-translate-engine "dictcn")
 ;;(setq insert-translated-name-translate-engine "youdao")
 (setq insert-translated-name-program "ollama")
 

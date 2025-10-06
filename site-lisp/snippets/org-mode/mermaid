@@ -1,0 +1,13 @@
+#-*- mode: snippet -*-
+# name: mermaid
+# key: mer
+# --
+#+begin_src mermaid :file ../static/images/${1:out}.png
+graph ${2:TD}
+
+${3:A}-->${4:B}
+${5:B}-->${6:C}
+${7:C}-->${8:D}
+$0
+#+end_src
+

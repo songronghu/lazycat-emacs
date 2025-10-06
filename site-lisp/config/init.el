@@ -3,6 +3,7 @@
 
 ;; 字体设置
 (require 'init-font)
+;;(require 'bhj-fonts)
 
 (let (
       ;; 加载的时候临时增大`gc-cons-threshold'以加速启动速度。
@@ -35,9 +36,9 @@
 
     (require 'init-generic)
     (require 'lazycat-theme)
-    ;;(lazycat-theme-load-with-sunrise)
-    (lazycat-theme-load-dark)
-    ;; (lazycat-theme-load-light)
+    (lazycat-theme-load-with-sunrise)
+    ;;(lazycat-theme-load-dark)
+    ;;(lazycat-theme-load-light)
     (when (featurep 'cocoa)
       (require 'cache-path-from-shell))
     (require 'lazy-load)
@@ -99,8 +100,22 @@
          (require 'init-sort-tab)
          (require 'company-english-helper)
          (require 'bhj-grep)
-         (setq my-grep-command "beagrep -s -e pat") ;; should not put it into custom, the custom will be read every time and so the `(let ((grep-command ..' scheme will fail
+         (require 'init-beagrep-fix)  ; 加载修复
+         (setq Info-directory-list
+                     '("/usr/share/info/" "/usr/local/share/info/"))
+         (fido-vertical-mode 1)
+         (setq tags-add-tables nil)
+         (setq tags-file-name nil)
+         (setq tags-table-list nil)
+         (setq my-grep-command "beagrep -e pat") ;; should not put it into custom, the custom will be read every time and so the `(let ((grep-command ..' scheme will fail
          ))))
+;; Force apropos-print-doc into GNU-compatible interface
+(defun apropos-print-doc (symbol type &rest _)
+    "Compatibility shim for Debian-patched apropos-print-doc."
+      (when (fboundp 'apropos-print-doc-1)
+            (apropos-print-doc-1 symbol type)))
+
 (setenv "PATH" (concat (getenv "PATH") ":/home/ronghusong/.emacs.d.bhj/share/eclipse.jdt.ls/bin"))
 (add-to-list 'exec-path "/home/ronghusong/.emacs.d.bhj/share/eclipse.jdt.ls/bin")
+
 (provide 'init)

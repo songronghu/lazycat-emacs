@@ -128,6 +128,58 @@
                      (valign-mode)
                      )))
 
-(provide 'init-org)
 
+(require 'org-bullets)
+
+;; 配置org-bullets
+(setq org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
+;;(add-hook 'org-mode-hook 'org-bullets-mode)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;; 配置ox-mermaind
+(require 'ob-mermaid)
+(setq ob-mermaid-cli-path "/home/ronghusong/.nvm/versions/node/v22.12.0/bin/mmdc") ;; Replace with the actual path to mmdc
+
+;; 配置ox-hugo
+(with-eval-after-load 'ox
+                      (require 'ox-hugo))
+
+ ;; paste image from clipboard
+(defvar tkj/image-dir "../static/images")       ; 实际保存路径
+(defvar tkj/image-insert-dir "/images")         ; 插入到文档的路径
+
+(defun tkj/ensure-directory (path)
+  "create directory if it does not exist and user agrees"
+  (when (and (not (file-exists-p path))
+             (y-or-n-p (format "Directory %s does not exist. Create it?" path)))
+    (make-directory path :parents)))
+
+(defun tkj/paste-image-clipboard ()
+  "Paste screenshot from clipboard"
+  (interactive)
+  (tkj/ensure-directory (file-name-as-directory tkj/image-dir))
+  (let ((image-path (concat (file-name-as-directory tkj/image-dir)
+                            (file-name-base (buffer-name))
+                            (format-time-string "_%Y_%m_%d_%H_%M_%S")
+                            ".png")))
+    (shell-command-to-string (format "xclip -selection clipboard -t image/png -o > %s" image-path))
+    (insert "[[file:" image-path "]]\n")
+    (org-display-inline-images)))
+
+(defun tkj/paste-image-path ()
+  "Paste screenshot from clipboard"
+  (interactive)
+  (tkj/ensure-directory (file-name-as-directory tkj/image-dir))
+  (let* ((filename (concat (file-name-base (buffer-name))
+                           (format-time-string "_%Y_%m_%d_%H_%M_%S")
+                           ".png"))
+         (save-path (concat (file-name-as-directory tkj/image-dir) filename))
+         (insert-path (concat (file-name-as-directory tkj/image-insert-dir) filename)))
+    (shell-command-to-string (format "xclip -selection clipboard -t image/png -o > %s" save-path))
+    (insert "" insert-path "")
+    (org-display-inline-images)))
+
+(setq org-image-actual-width nil)
+
+(provide 'init-org)
 ;;; init-org.el ends here

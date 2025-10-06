@@ -33,7 +33,7 @@
 
         ;; 继续递归搜索子目录
         (add-subdirs-to-load-path subdir-path)))))
-
-(add-subdirs-to-load-path "/usr/share/emacs/lazycat")
+(defvar grep-beatags-history nil)
+(add-subdirs-to-load-path "/usr/local/share/emacs/lazycat")
 
 (require 'init)

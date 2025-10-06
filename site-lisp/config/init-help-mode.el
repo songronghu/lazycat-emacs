@@ -98,7 +98,8 @@
    (("F" . "Apropos Function") . apropos-function)
    (("V" . "Apropos Variable") . apropos-variable)
    (("O" . "Apropos Option") . apropos-option)
-   (("a" . "Apropos Command") . apropos-command)
+   ;;(("a" . "Apropos Command") . apropos-command)
+   ;;(("a" . "Command Apropos") . my-one-key-command-apropos)
    (("d" . "Apropos Documentation") . apropos-documentation)
    ;; Describe.
    (("/" . "Describe Input Method") . describe-input-method)
@@ -164,6 +165,13 @@
    (("C-w" . "Where Is") . where-is)
    )
  t nil nil nil t)
+
+;; 定义command-apropos
+(defun my-one-key-command-apropos ()
+  "Wrapper for `command-apropos' so it works in one-key menu."
+  (interactive)
+  (call-interactively #'command-apropos))
+
 
 ;;; ### Apropos ###
 ;;; --- 程序员命令查询

@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: code
-# key: code_
+# key: code
 # --
-#+begin_${1:lang} ${2:options}
+#+begin_src ${1:sh}
 $0
-#+end_$1
+#+end_src

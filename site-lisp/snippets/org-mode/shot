@@ -1,0 +1,9 @@
+#-*- mode: snippet -*-
+# name: screenshot
+# key: shot
+# --
+
+#+BEGIN_EXPORT md
+{{< collapsible-image src="$1" alt="${2:caption}" title="${3:expand to show}" >}}
+#+END_EXPORT
+$0
