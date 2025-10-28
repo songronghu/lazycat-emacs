@@ -155,8 +155,8 @@ path = site-lisp/extensions/isearch-mb
 url = https://github.com/astoff/isearch-mb.git
 
 [submodule "site-lisp/extensions/emacs-application-framework"]
-path = site-lisp/extensions/emacs-application-framework
-url = https://github.com/emacs-eaf/emacs-application-framework
+	path = site-lisp/extensions/emacs-application-framework
+	url = ./site-lisp/extensions/emacs-application-framework
 
 [submodule "site-lisp/extensions/sort-tab"]
 path = site-lisp/extensions/sort-tab
