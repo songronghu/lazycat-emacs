@@ -162,7 +162,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.swift$" . swift-mode)
                     ("\\.l$" . flex-mode)
                     ("\\.y$" . bison-mode)
-                    ("\\.pdf$" . pdf-view-mode)
+                    ;;("\\.pdf$" . pdf-view-mode)
                     ("\\.ts$" . typescript-ts-mode)
                     ("\\.tsx$" . typescript-ts-mode)
                     ("\\.mts$" . typescript-ts-mode)
@@ -188,8 +188,9 @@ The test for presence of the car of ELT-CONS is done with `equal'."
   (add-to-alist 'auto-mode-alist elt-cons))
 
 (add-to-list 'interpreter-mode-alist '("coffee" . coffee-mode))
-
-
+(with-eval-after-load 'eaf-core
+                      (require 'eaf-file-browser)
+                      (add-to-list 'eaf-app-default-file-handler '("pdf" . "pdf-viewer")))
 ;;; Mode load.
 (autoload 'cmake-mode "cmake-mode")
 (autoload 'qml-mode "qml-mode")

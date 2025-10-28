@@ -101,6 +101,8 @@
          (require 'company-english-helper)
          (require 'bhj-grep)
          (require 'init-beagrep-fix)  ; 加载修复
+         (require 'bbyac)
+         (bbyac-global-mode 1)
          (setq Info-directory-list
                      '("/usr/share/info/" "/usr/local/share/info/"))
          (fido-vertical-mode 1)

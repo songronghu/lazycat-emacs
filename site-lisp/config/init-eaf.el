@@ -198,6 +198,24 @@
    (eaf--non-remote-default-directory)
    t))
 
+;; 当 eaf-file-browser 中打开 pdf 时，强制用 eaf-open 打开
+(defun my/eaf-file-browser-find-file-advice (orig-fun &rest args)
+  "If in eaf file browser and opening a pdf, use eaf-open instead of default.
+  ORIG-FUN is the original find-file; ARGS are its args."
+  (let ((file (car args)))
+    (if (and (stringp file)
+             (string-equal (downcase (or (file-name-extension file) "")) "pdf")
+             ;; 这里尝试识别 file-browser buffer 的 major mode 名
+             ;; 如果你的 eaf file browser major-mode 用不同名字，可据实修改
+             (or (derived-mode-p 'eaf-file-browser-mode) ; 常见可能名
+                 (string-match-p "file-browser" (format "%s" major-mode))))
+      (progn
+        (message "Opening PDF with EAF: %s" file)
+        (eaf-open file))
+      (apply orig-fun args))))
+
+(advice-add 'find-file :around #'my/eaf-file-browser-find-file-advice)
+
 (provide 'init-eaf)
 
 ;;; init-eaf.el ends here
