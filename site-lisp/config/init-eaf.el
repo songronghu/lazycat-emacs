@@ -132,7 +132,7 @@
 
 (setq eaf-webengine-default-zoom (if (> (frame-pixel-width) 2000) 1.5 1))
 (setq eaf-browser-aria2-proxy-host "127.0.0.1")
-(setq eaf-browser-aria2-proxy-port "9888")
+(setq eaf-browser-aria2-proxy-port "18080")
 (setq eaf-browser-enable-adblocker nil)
 (setq eaf-browser-enable-autofill t)
 (setq eaf-music-play-order "random")
@@ -147,8 +147,10 @@
 (setq eaf-music-default-file "/home/ronghusong/Music/")
 (setq eaf-music-player-buffer " *eaf music player*") ;改成隐藏标签， 避免标签kill掉后关闭音乐
 (setq eaf-music-cache-dir "/home/ronghusong/Music/Favorite")
-(setq eaf-pyqterminal-font-family "FiraCode Nerd Font Mono")
-(setq eaf-pyqterminal-font-size 24)
+;;(setq eaf-pyqterminal-font-family "FiraCode Nerd Font Mono")
+(setq eaf-pyqterminal-font-family "JetBrains Mono")
+(setq eaf-pyqterminal-font-size 18)
+
 (setq eaf-jupyter-font-family "FiraCode Nerd Font Mono")
 (setq eaf-jupyter-font-size 20)
 (setq eaf-rebuild-buffer-after-crash nil)

@@ -16,7 +16,7 @@
  "init-popweb"
  "C-z")
 
-;;; ###kk Insert translated name ###
+;;; ### Insert translated name ###
 ;;; --- 写中文翻译成英文函数名、 变量名
 (lazy-load-global-keys
  '(
@@ -590,17 +590,17 @@
 
 ;; ### gptel ###
 ;;; --- AI
-;;(lazy-load-global-keys
-;; '(
-;;   ("s-?" . start-gptel)
-;;   ("s-:" . gptel-pinyin-to-chinese))
-;; "init-gptel")
+(lazy-load-global-keys
+ '(
+   ("s-?" . start-gptel)
+   ("s-:" . gptel-pinyin-to-chinese))
+ "init-gptel")
 
-;; ;; ### aider ###
-;; ;;; --- AI
-;; (lazy-load-global-keys
-;;  '(("s-/" . aider-transient-menu))
-;;  "init-aider")
+;; ### aider ###
+;;; --- AI
+(lazy-load-global-keys
+ '(("s-/" . aidermacs-transient-menu))
+ "init-aidermacs")
 
 ;; ### reorder-file ###
 ;;; --- 自动排序文件内容

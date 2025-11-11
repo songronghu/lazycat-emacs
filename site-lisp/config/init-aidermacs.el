@@ -84,12 +84,13 @@
 
 ;;; Code:
 (setq aidermacs-program (expand-file-name "~/.local/bin/aider"))
-(setq aidermacs-default-model "openrouter/anthropic/claude-3.7-sonnet")
+;;(setq aidermacs-default-model "openrouter/anthropic/claude-3.7-sonnet")
+(setenv "AIDER_MODEL" "openrouter/openai/gpt-oss-20b:free")
+;;(setenv "AIDER_MODEL" "openrouter/openai/gpt-5-nano")
+(setq aidermacs-default-model "openrouter/openai/gpt-oss-20b:free")
 (setenv "OPENROUTER_API_KEY" (with-temp-buffer
-                               (insert-file-contents "~/.config/openrouter/key.txt")
+                               (insert-file-contents "~/.config/openrouter/key-gpt-free.txt")
                                (string-trim (buffer-string))))
-
-
 (provide 'init-aidermacs)
 
 ;;; init-aidermacs.el ends here
