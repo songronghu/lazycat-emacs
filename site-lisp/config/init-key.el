@@ -41,19 +41,21 @@
    ("s-." . unbury-buffer)              ;反隐藏当前buffer
    ("s-[" . eval-expression)            ;执行表达式
    ("C-s-q" . quoted-insert)            ;读取系一个输入字符并插入
-   ("M-h" . set-mark-command) ;Instead C-Space for Chinese input method
-   ("M-H" . set-mark-command) ;Instead C-Space for Chinese input method
+   ("M-h" . set-mark-command)           ;Instead C-Space for Chinese input method
+   ("M-H" . set-mark-command)           ;Instead C-Space for Chinese input method
    ("M-;" . comment-dwim)
    ("M-i" . previous-line)              ;新增：M-i 上一行
    ("M-n" . next-line)                  ;新增：M-n 下一行
-   ("M-s t" . current-line-move-to-top) ;移动当前行到当前窗口顶部             
-   ("M-s l" . move-to-window-line-top-bottom);循环切换当前光标顶部 中间 底部       
+   ;;("M-s t" . current-line-move-to-top) ;移动当前行到当前窗口顶部             
+   ("M-s t" . move-to-window-line-top-bottom) ;移动当前行到当前窗口顶部             
+   ;;("M-s l" . move-to-window-line-top-bottom);循环切换当前光标顶部 中间 底部       
    ))
 (lazy-load-set-keys
  '(
    ("M-h" . set-mark-command)
    )
- vc-git-region-history-mode-map)
+ ;;vc-git-region-history-mode-map)
+ )
 
 (lazy-load-global-keys
  '(
