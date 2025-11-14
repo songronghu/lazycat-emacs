@@ -102,6 +102,7 @@
          (require 'bhj-grep)
          (require 'init-beagrep-fix)  ; 加载修复
          (require 'bbyac)
+         (require 'init-libretranslate)
          (bbyac-global-mode 1)
          (setq Info-directory-list
                      '("/usr/share/info/" "/usr/local/share/info/"))

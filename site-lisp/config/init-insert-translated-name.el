@@ -84,7 +84,8 @@
 
 ;;(setq insert-translated-name-translate-engine "dictcn")
 ;;(setq insert-translated-name-translate-engine "youdao")
-(setq insert-translated-name-program "ollama")
+;;(setq insert-translated-name-program "ollama")
+(setq insert-translated-name-program "libretranslate")
 
 ;;; Code:
 (dolist (hook (list
