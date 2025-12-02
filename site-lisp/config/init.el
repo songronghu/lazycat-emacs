@@ -22,6 +22,7 @@
                             inhibit-message nil)
               (redisplay)))
 
+
   ;; 定义一些启动目录，方便下次迁移修改
   (defvar lazycat-emacs-root-dir (file-truename "~/lazycat-emacs/site-lisp"))
   (defvar lazycat-emacs-config-dir (concat lazycat-emacs-root-dir "/config"))
@@ -118,7 +119,7 @@
       (when (fboundp 'apropos-print-doc-1)
             (apropos-print-doc-1 symbol type)))
 
-(setenv "PATH" (concat (getenv "PATH") ":/home/ronghusong/.emacs.d.bhj/share/eclipse.jdt.ls/bin"))
-(add-to-list 'exec-path "/home/ronghusong/.emacs.d.bhj/share/eclipse.jdt.ls/bin")
+(setenv "PATH" (concat (getenv "PATH") ":/home/ronghusong/software/opensoft/jdtls/bin"))
+(add-to-list 'exec-path "/home/ronghusong/software/opensoft/jdtls/bin")
 
 (provide 'init)

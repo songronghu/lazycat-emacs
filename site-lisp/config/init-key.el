@@ -1,4 +1,5 @@
 ;; Mac平台下交换 Option 和 Command 键。
+
 (when (featurep 'cocoa)
   (setq mac-option-modifier 'super)
   (setq mac-command-modifier 'meta))
@@ -36,19 +37,17 @@
 ;;; --- 工具函数
 (lazy-load-set-keys
  '(
-   ("s-c o" . one-key-menu-directory)   ;目录打开菜单
-   ("s-," . bury-buffer)                ;隐藏当前buffer
-   ("s-." . unbury-buffer)              ;反隐藏当前buffer
-   ("s-[" . eval-expression)            ;执行表达式
-   ("C-s-q" . quoted-insert)            ;读取系一个输入字符并插入
-   ("M-h" . set-mark-command)           ;Instead C-Space for Chinese input method
-   ("M-H" . set-mark-command)           ;Instead C-Space for Chinese input method
-   ("M-;" . comment-dwim)
-   ("M-i" . previous-line)              ;新增：M-i 上一行
-   ("M-n" . next-line)                  ;新增：M-n 下一行
-   ;;("M-s t" . current-line-move-to-top) ;移动当前行到当前窗口顶部             
-   ("M-s t" . move-to-window-line-top-bottom) ;移动当前行到当前窗口顶部             
-   ;;("M-s l" . move-to-window-line-top-bottom);循环切换当前光标顶部 中间 底部       
+   ("s-c o" . one-key-menu-directory)       ;目录打开菜单
+   ("s-," . bury-buffer)                    ;隐藏当前buffer
+   ("s-." . unbury-buffer)                  ;反隐藏当前buffer
+   ("s-[" . eval-expression)                ;执行表达式
+   ("C-s-q" . quoted-insert)                ;读取系一个输入字符并插入
+   ("M-h" . set-mark-command)               ;Instead C-Space for Chinese input method
+   ("M-H" . set-mark-command)               ;Instead C-Space for Chinese input method
+   ("M-;" . comment-dwim)                   ;注释文本
+   ;;("C-i" . previous-line)                  ;上一行
+   ;;("M-i" . current-line-move-to-top)     ;移动当前行到当前窗口顶部             
+   ("M-n" . move-to-window-line-top-bottom) ;循环切换当前光标顶部 中间 底部       
    ))
 (lazy-load-set-keys
  '(
@@ -77,22 +76,22 @@
  "color-rg")
 (lazy-load-global-keys
  '(
-   ("C-z l" . display-line-numbers-mode) ;行号模式切换
-   ("M-s-n" . comment-part-move-down)    ;向下移动注释
-   ("M-s-p" . comment-part-move-up)      ;向上移动注释
-   ("C-s-n" . comment-dwim-next-line)    ;移动到上一行并注释
-   ("C-s-p" . comment-dwim-prev-line)    ;移动到下一行并注释
-   ("M-2" . indent-buffer)               ;自动格式化当前Buffer
-   ("M-z" . upcase-char)      ;Upcase char handly with capitalize-word
-   ("C-x u" . mark-line)      ;选中整行
+   ("C-z l" . display-line-numbers-mode);行号模式切换
+   ("M-s-n" . comment-part-move-down)   ;向下移动注释
+   ("M-s-p" . comment-part-move-up)     ;向上移动注释
+   ("C-s-n" . comment-dwim-next-line)   ;移动到上一行并注释
+   ("C-s-p" . comment-dwim-prev-line)   ;移动到下一行并注释
+   ("M-2" . indent-buffer)              ;自动格式化当前Buffer
+   ("M-z" . upcase-char)                ;Upcase char handly with capitalize-word
+   ("C-x u" . mark-line)                ;选中整行
    ("s-k" . kill-and-join-forward)      ;在缩进的行之间删除
    ("M-G" . goto-column)                ;到指定列
    ("C->" . remember-init)              ;记忆初始函数
    ("C-<" . remember-jump)              ;记忆跳转函数
    ("M-s-," . point-stack-pop)          ;buffer索引跳转
    ("M-s-." . point-stack-push)         ;buffer索引标记
-   ("s-g" . goto-percent)    ;跳转到当前Buffer的文本百分比, 单位为字符
-   ("M-I" . backward-indent) ;向后移动4个字符
+   ("s-g" . goto-percent)               ;跳转到当前Buffer的文本百分比, 单位为字符
+   ("M-I" . backward-indent)            ;向后移动4个字符
    ("s-J" . scroll-up-one-line)         ;向上滚动一行
    ("s-K" . scroll-down-one-line)       ;向下滚动一行
    ("<f2>" . refresh-file)              ;自动刷新文件
@@ -135,7 +134,7 @@
    ("C-M-b" . backward-paragraph)       ;上一个段落
    ("C-M-y" . backward-up-list)         ;向左跳出 LIST
    ("C-M-o" . up-list)                  ;向右跳出 LIST
-   ;;("C-M-u" . backward-down-list)            ;向左跳进 LIST
+   ;;("C-M-u" . backward-down-list)     ;向左跳进 LIST
    ("C-M-u" . down-list)                ;向右跳进 LIST
    ;;("C-M-i" . down-list)              ;向右跳进 LIST
    ("C-M-a" . beginning-of-defun)       ;函数开头
@@ -199,8 +198,8 @@
 (lazy-load-global-keys
  '(
    ("C-/" . undo)
-   ("C-?" . redo)
-   ;;("C-?" . vundo)
+   ;;("C-?" . redo)
+   ("C-?" . vundo)
    )
  "init-vundo")
 
@@ -290,7 +289,7 @@
    ("C-4" . insert-changelog-date)      ;插入日志时间 (%Y/%m/%d)
    ("C-5" . insert-standard-date)
    ;;("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
-   ("C-6" . switch-to-messages)         ;跳转到 *Messages* buffer
+   ;;("C-6" . switch-to-messages)         ;跳转到 *Messages* buffer
    )
  "lazycat-toolkit")
 
@@ -541,8 +540,9 @@
 ;;; --- 代码语法补全
 (lazy-load-global-keys
  '(
-   ("C-7" . lsp-bridge-find-def-return)
-   ("C-8" . lsp-bridge-find-def)
+   ("C-6" . lsp-bridge-find-def-return)
+   ("C-7" . lsp-bridge-find-def)
+   ("C-8" . lsp-bridge-find-impl)
    ("M-," . lsp-bridge-code-action)
    ("M-." . lsp-bridge-find-references)
    ("C-9" . lsp-bridge-popup-documentation)
@@ -633,3 +633,4 @@
   "bhj-grep")
 
 (provide 'init-key)
+

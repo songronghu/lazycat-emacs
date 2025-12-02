@@ -75,6 +75,6 @@ and show the result in a floating posframe near the selection."
   (posframe-hide "libretranslate-frame"))
 
 (global-set-key (kbd "C-c e") #'translate)
-(global-set-key (kbd "C-g") #'libretranslate-posframe-hide)
+(global-set-key (kbd "C-c c") #'libretranslate-posframe-hide)
 
 (provide 'init-libretranslate)

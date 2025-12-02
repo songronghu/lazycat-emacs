@@ -75,9 +75,6 @@
 ;;
 
 ;;; TODO
-;;
-;;
-;;
 
 ;;; Require
 (require 'gptel)
@@ -91,66 +88,64 @@
 ;; '(
 ;;   ("RET" . gptel-return-dwim))
 ;; gptel-mode-map)
+(setq openrouter-key-claude3-haiku (with-temp-buffer
+                                  (insert-file-contents "~/.config/openrouter/key-claude3-haiku.txt")
+                                  (string-trim (buffer-string))))
+(setq openrouter-key-gpt-free (with-temp-buffer
+                                (insert-file-contents "~/.config/openrouter/key-gpt-free.txt")
+                                (string-trim (buffer-string))))
+(setq openrouter-key-gpt-nano (with-temp-buffer
+                                (insert-file-contents "~/.config/openrouter/key-gpt-nano.txt")
+                                (string-trim (buffer-string))))
+(setq openrouter-key-gpt-mini (with-temp-buffer
+                                (insert-file-contents "~/.config/openrouter/key-gpt-mini.txt")
+                                (string-trim (buffer-string))))
+(setq openrouter-key-gemini-2.5-flash-lite (with-temp-buffer
+                                             (insert-file-contents "~/.config/openrouter/key-gemini-2.5-flash-lite.txt")
+                                             (string-trim (buffer-string))))
 
-(setq open-router-key (with-temp-buffer
-                        (insert-file-contents "~/.config/openrouter/key.txt")
-                        (string-trim (buffer-string))))
+(gptel-make-openai "OpenRouter1"
+  :host "openrouter.ai"
+  :endpoint "/api/v1/chat/completions"
+  :stream t
+  :key openrouter-key-claude3-haiku
+  :models '("anthropic/claude-3-haiku"))
 
-;;(setq gptel-model "anthropic/claude-3.5-sonnet"
-;;      gptel-backend
-;;      (gptel-make-openai "OpenRouter"
-;;        :host "openrouter.ai"
-;;        :endpoint "/api/v1/chat/completions"
-;;        :stream t
-;;        :key open-router-key
-;;        :models '("anthropic/claude-3.5-sonnet")))
-;; OPTIONAL configuration
+(gptel-make-openai "OpenRouter2"
+  :host "openrouter.ai"
+  :endpoint "/api/v1/chat/completions"
+  :stream t
+  :key openrouter-key-gpt-free
+  :models '("openai/gpt-oss-20b:free"))
 
-;;(setq
-;;  gptel-model "openai/gpt-oss-20b:free"
-;;  gptel-backend 
-;;  (gptel-make-openai "OpenRouter"
-;;                     :host "openrouter.ai"
-;;                     :endpoint "/api/v1/chat/completions" 
-;;                     :stream t
-;;                     :key open-router-key
-;;                     :models '("openai/gpt-oss-20b:free")))
+(gptel-make-openai "OpenRouter3"
+  :host "openrouter.ai"
+  :endpoint "/api/v1/chat/completions"
+  :stream t
+  :key openrouter-key-gemini-2.5-flash-lite
+  :models '("google/gemini-2.5-flash-lite"))
 
-(setq
-  gptel-model "google/gemini-2.5-flash-lite"
-  gptel-backend 
-  (gptel-make-openai "OpenRouter"
-                     :host "openrouter.ai"
-                     :endpoint "/api/v1/chat/completions" 
-                     :stream t
-                     :key open-router-key
-                     :models '("google/gemini-2.5-flash-lite")))
-;;(setq
-;;  gptel-model "openai/gpt-5-nano"
-;;  gptel-max-tokens 500
-;;  gptel-backend 
-;;  (gptel-make-openai "OpenRouter"
-;;                     :host "openrouter.ai"
-;;                     :endpoint "/api/v1/chat/completions"
-;;                     :stream t
-;;                     :key open-router-key
-;;                     :models '("openai/gpt-5-nano")))
-;;(setq 
-;;    gptel-model "openai/gpt-5-mini"
-;;    gptel-backend
-;;      (gptel-make-openai "OpenRouter"
-;;        :host "openrouter.ai"
-;;        :protocol "https"
-;;        :endpoint "/api/v1/chat/completions"
-;;        :key open-router-key   
-;;        :stream t
-;;        :models '("openai/gpt-5-mini")))
+(gptel-make-openai "OpenRouter5"
+  :host "openrouter.ai"
+  :protocol "https"
+  :endpoint "/api/v1/chat/completions"
+  :key openrouter-key-gpt-mini
+  :stream t
+  :models '("openai/gpt-5-mini"))
+
+(setq gptel-model "openai/gpt-5-nano"
+      gptel-backend
+      (gptel-make-openai "OpenRouter4"
+        :host "openrouter.ai"
+        :endpoint "/api/v1/chat/completions"
+        :stream t
+        :key openrouter-key-gpt-nano
+        :models '("openai/gpt-5-nano")))
 
 (setq gptel-proxy "http://127.0.0.1:18080")
 (setq gptel-default-mode 'org-mode)
+
 (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
-(gptel-mode 1)
-(add-to-list 'auto-mode-alist '("\\.gptel\\'" . gptel-mode))
 
 (defun start-gptel ()
   (interactive)

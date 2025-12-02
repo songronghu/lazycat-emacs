@@ -107,8 +107,12 @@
 (setq lsp-bridge-csharp-lsp-server "csharp-ls")
 (setq lsp-bridge-nix-lsp-server "nil")
 
+(setq lsp-bridge-jdtls-jvm-args '("-javaagent:/home/ronghusong/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar"))
+(setq lsp-bridge-enable-auto-import t) ;; 开启自动导入依赖，目前没有code action。补全时可以通过这个导入相应的依赖，建议开启。
+
 ;; 打开日志，开发者才需要
 ;; (setq lsp-bridge-enable-log t)
+
 
 (setq lsp-bridge-get-multi-lang-server-by-project
       (lambda (project-path filepath)
