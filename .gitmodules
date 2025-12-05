@@ -188,7 +188,7 @@ url = https://github.com/manateelazycat/highlight-matching-tag
 
 [submodule "site-lisp/extensions/lspbridge"]
 path = site-lisp/extensions/lspbridge
-url = https://github.com/manateelazycat/lsp-bridge
+url = https://github.com/songronghu/lsp-bridge.git
 
 [submodule "site-lisp/extensions/markdown-mode"]
 path = site-lisp/extensions/languages/markdown-mode
