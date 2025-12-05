@@ -30,6 +30,7 @@
 (lazy-load-global-keys
  '(
    ("s-j" . insert-translated-name-insert)
+   ("s-t" . insert-translated-name-insert-original-translation)
    )
  "init-insert-translated-name")
 
@@ -579,8 +580,8 @@
 ;;; --- 字符跳转
 (lazy-load-global-keys
   '(
-    ("M-g k" . avy-goto-char)
-    ("M-g l" . avy-goto-word-1)
+    ("M-s k" . avy-goto-char)
+    ("M-s j" . avy-goto-word-1)
     )
   "avy")
 

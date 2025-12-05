@@ -104,6 +104,7 @@
          (require 'init-beagrep-fix)  ; 加载修复
          (require 'bbyac)
          (require 'init-libretranslate)
+         (require 'init-nov)
          (bbyac-global-mode 1)
          (setq Info-directory-list
                      '("/usr/share/info/" "/usr/local/share/info/"))

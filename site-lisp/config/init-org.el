@@ -144,7 +144,14 @@
 (with-eval-after-load 'ox
                       (require 'ox-hugo))
 
- ;; paste image from clipboard
+;; markdown convert org
+(require 'markdown-to-org)
+;; Enable automatic conversion globally
+(markdown-to-org-advice-mode 1)
+;; Or enable per-buffer
+(markdown-to-org-mode 1)
+
+;; paste image from clipboard
 (defvar tkj/image-dir "../static/images")       ; 实际保存路径
 (defvar tkj/image-insert-dir "/images")         ; 插入到文档的路径
 
