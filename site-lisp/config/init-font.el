@@ -86,20 +86,19 @@
 
 (defun load-font-setup()
   (cond ((eq window-system 'pgtk)
-         (set-face-attribute 'default nil :height 140 :family "WenQuanYi Micro Hei Mono"))
+         (set-face-attribute 'default nil :height 130 :family "WenQuanYi Micro Hei Mono"))
         (t
          (let ((emacs-font-size (if (> (frame-pixel-width) 2000)
-                                   16 
+                                    20 
                                   13))
-                                    ;;20
-                                  ;;15))
                (chinese-font-name  "TsangerJinKai03-6763")
                english-font-name)
            (cond
             ((featurep 'cocoa)
              (setq english-font-name "Monaco"))
             ((string-equal system-type "gnu/linux")
-             (setq english-font-name "WenQuanYi Micro Hei Mono")))
+             ;;(setq english-font-name "WenQuanYi Micro Hei Mono")))
+             (setq english-font-name "Monaco")))
            (when (display-grayscale-p)
              (set-frame-font (format "%s-%s" (eval english-font-name) (eval emacs-font-size)))
              (set-fontset-font (frame-parameter nil 'font) 'unicode (eval english-font-name))

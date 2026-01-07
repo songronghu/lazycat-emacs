@@ -97,6 +97,8 @@
 (setq acm-enable-lsp-workspace-symbol t)
 (setq lsp-bridge-enable-inlay-hint t)
 (setq lsp-bridge-semantic-tokens t)
+(setq lsp-bridge-python-lsp-server "pylsp")
+
 (setq-default lsp-bridge-semantic-tokens-ignore-modifier-limit-types ["variable"])
 
 (global-lsp-bridge-mode)
@@ -131,6 +133,8 @@
       (lambda (filepath)
         (when (string-prefix-p (expand-file-name "~/lazycat-emacs/site-lisp/extensions/emacs-application-framework/app") filepath)
           (expand-file-name "~/lazycat-emacs/site-lisp/extensions/emacs-application-framework/"))))
+
+(global-set-key (kbd "C-s-f") 'lsp-bridge-code-format)
 
 (provide 'init-lsp-bridge)
 

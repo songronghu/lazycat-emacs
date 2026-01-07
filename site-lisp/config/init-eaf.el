@@ -148,7 +148,8 @@
 (setq eaf-music-player-buffer " *eaf music player*") ;改成隐藏标签， 避免标签kill掉后关闭音乐
 (setq eaf-music-cache-dir "/home/ronghusong/Music/Favorite")
 ;;(setq eaf-pyqterminal-font-family "FiraCode Nerd Font Mono")
-(setq eaf-pyqterminal-font-family "JetBrains Mono")
+;;(setq eaf-pyqterminal-font-family "JetBrains Mono")
+(setq eaf-pyqterminal-font-family "Monospace")
 (setq eaf-pyqterminal-font-size 18)
 
 (setq eaf-jupyter-font-family "FiraCode Nerd Font Mono")

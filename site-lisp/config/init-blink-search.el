@@ -83,20 +83,24 @@
 (require 'blink-search)
 
 ;;; Code:
-
-(setq blink-search-common-directory '(("REPO" "~/lazycat-emacs/site-lisp/extensions/")
-                                      ("HOME" "~/")
-                                      ("CONFIG" "~/lazycat-emacs/site-lisp/config/")
-                                      ("EAF" "~/lazycat-emacs/site-lisp/extensions/emacs-application-framework/app/")
-                                      ("Book" "/data/Book/")
-                                      ("ChatGPT" "~/ChatGPT")
-                                      ))
-
-(setq blink-search-grep-pdf-search-paths "/data/Book")
+(setq blink-search-common-directory
+      '(("Tiantu" "/home/ronghusong/07_Tiantu/")
+        ;;("REPO" "/home/ronghusong/lazycat-emacs/site-lisp/extensions/")
+        ("HOME" "/home/ronghusong")
+        ;;("CONFIG" "~/lazycat-emacs/site-lisp/config/")
+        ("Document" "/home/ronghusong/Document/")
+        ("Download" "/home/ronghusong/Downloads/")
+        ("IdeaProject" "/home/ronghusong/IdeaProjects/")
+        ("Db" "/home/ronghusong/00_db/")
+        ("Bigdata" "/home/ronghusong/01_bigdata/")
+        ("Dev" "/home/ronghusong/02_dev/")
+        ("Book" "/home/ronghusong/03_techbook/")
+        ("Code" "/home/ronghusong/06_code/")))
+(setq blink-search-grep-pdf-search-paths "~/03_techbook")
 (setq blink-search-grep-pdf-backend 'eaf-pdf-viewer)
 (setq blink-search-pdf-backend 'eaf-pdf-viewer)
 
-;; (setq blink-search-enable-posframe t)
+;;(setq blink-search-enable-posframe t)
 
 (provide 'init-blink-search)
 

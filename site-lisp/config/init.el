@@ -40,6 +40,7 @@
     (lazycat-theme-load-with-sunrise)
     ;;(lazycat-theme-load-dark)
     ;;(lazycat-theme-load-light)
+
     (when (featurep 'cocoa)
       (require 'cache-path-from-shell))
     (require 'lazy-load)
@@ -105,7 +106,11 @@
          (require 'bbyac)
          (require 'init-libretranslate)
          (require 'init-nov)
+         (require 'init-blink-search)
          (bbyac-global-mode 1)
+         (require 'visual-shorthands)
+         (add-hook 'emacs-lisp-mode-hook #'visual-shorthands-mode)
+         (require 'init-lisp-docstring-toggle)
          (setq Info-directory-list
                      '("/usr/share/info/" "/usr/local/share/info/"))
          (fido-vertical-mode 1)

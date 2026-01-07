@@ -633,5 +633,20 @@
     )
   "bhj-grep")
 
+;; 输入法切换中英文
+(lazy-load-set-keys
+ '(
+   ("s-s" . toggle-input-method)          ;交互式查找文件
+   ))
+
+;; visual-shorthands 
+(lazy-load-set-keys
+ '(
+   ("C-c , a" . visual-shorthands-add-mapping)          ;add shorthands mapping
+   ("C-c , c" . visual-shorthands-clear-mappings)       ;clear shorthands mappings
+   ("C-c , r" . visual-shorthands-remove-mapping)       ;remove shorthands mapping
+   ("C-c , v" . visual-shorthands-mode)
+   ))
+
 (provide 'init-key)
 
