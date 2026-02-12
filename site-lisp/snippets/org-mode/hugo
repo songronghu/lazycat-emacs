@@ -8,4 +8,5 @@
 #+hugo_tags: Blog$2
 #+hugo_categories: 技术$3
 #+HUGO_CUSTOM_FRONT_MATTER: :toc true
+#+HUGO_BASE_DIR: ~/src/github/myblog
 $0

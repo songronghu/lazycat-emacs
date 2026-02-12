@@ -7,7 +7,7 @@
 ;;; ### Unset key ###
 ;;; --- 卸载按键
 (lazy-load-unset-keys                   ;全局按键的卸载
- '("C-x C-f" "C-z" "C-q" "s-T" "s-W" "s-z" "M-h" "C-x C-c" "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"))
+ '("C-x C-f" "C-z" "C-q" "s-T" "s-W" "s-z" "M-h" "C-x C-c" "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-," "s-g"))
 
 ;;; ### Popweb ###
 ;;; --- Web翻译
@@ -29,7 +29,7 @@
  )
 (lazy-load-global-keys
  '(
-   ("s-j" . insert-translated-name-insert)
+   ("s-u" . insert-translated-name-insert)
    ("s-t" . insert-translated-name-insert-original-translation)
    )
  "init-insert-translated-name")
@@ -97,7 +97,7 @@
    ("s-K" . scroll-down-one-line)       ;向下滚动一行
    ("<f2>" . refresh-file)              ;自动刷新文件
    ("s-f" . find-file-root)             ;用root打开文件
-   ("s-r" . find-file-smb)              ;访问sambao
+   ;;("s-r" . find-file-smb)              ;访问sambao
    )
  "basic-toolkit")
 (lazy-load-global-keys
@@ -135,9 +135,8 @@
    ("C-M-b" . backward-paragraph)       ;上一个段落
    ("C-M-y" . backward-up-list)         ;向左跳出 LIST
    ("C-M-o" . up-list)                  ;向右跳出 LIST
-   ;;("C-M-u" . backward-down-list)     ;向左跳进 LIST
-   ("C-M-u" . down-list)                ;向右跳进 LIST
-   ;;("C-M-i" . down-list)              ;向右跳进 LIST
+   ("C-M-u" . backward-down-list)       ;向左跳进 LIST
+   ("C-M-i" . down-list)                ;向右跳进 LIST
    ("C-M-a" . beginning-of-defun)       ;函数开头
    ("C-M-e" . end-of-defun)             ;函数末尾
    ))
@@ -579,11 +578,11 @@
 
 ;;; --- 字符跳转
 (lazy-load-global-keys
-  '(
-    ("M-s k" . avy-goto-char)
-    ("M-s j" . avy-goto-word-1)
-    )
-  "avy")
+ '(
+   ("s-d" . avy-goto-char)
+   ("s-j" . avy-goto-word-1)
+   )
+ "avy")
 
 ;; ### diff-mode ###
 ;;; --- 去掉 diff 的一些按键
@@ -595,8 +594,8 @@
 ;;; --- AI
 (lazy-load-global-keys
  '(
-   ("s-?" . start-gptel)
-   ("s-:" . gptel-pinyin-to-chinese))
+   ("s-?" . start-gptel))
+   ;;("s-:" . gptel-pinyin-to-chinese))
  "init-gptel")
 
 ;; ### aider ###
@@ -611,32 +610,34 @@
  '(("C-q" . reorder-file))
  "reorder-file")
 
+;; expand selection
 (lazy-load-global-keys
-  '(
-    ("M-g e" . er/expand-region))
-  "expand-region")
+ '(
+   ("s-w" . er/expand-region))
+ "expand-region")
 
 (lazy-load-global-keys
-  '(
-    ("M-g r" . bhj-grep)
-    ("M-s E" . bhj-occur-logcat-errors)
-    ("M-s e" . bhj-occur-make-errors)
-    ("M-s g" . bhj-do-code-generation)
-    ("M-s m" . bhj-occur-merge-conflicts)
-    ("M-s r" . bhj-rgrep)
-    ("M-g a" . bhj-abc-grep)
-    ("M-g o" . bhj-occur)
-    ("M-g f" . grep-func-call)
-    ("M-g t" . grep-beatags)
-    ("M-g n" . next-error)
-    ("M-g p" . previous-error)
-    )
-  "bhj-grep")
+ '(
+   ("M-g r" . bhj-grep)
+   ("M-s E" . bhj-occur-logcat-errors)
+   ("M-s e" . bhj-occur-make-errors)
+   ;;("M-s g" . bhj-do-code-generation)
+   ("M-s m" . bhj-occur-merge-conflicts)
+   ("M-g o" . bhj-occur)
+   ("M-g f" . grep-func-call)
+   ("M-g t" . grep-beatags)
+   ("M-g n" . next-error)
+   ("M-g p" . previous-error)
+   )
+ "bhj-grep")
 
 ;; 输入法切换中英文
 (lazy-load-set-keys
  '(
-   ("s-s" . toggle-input-method)          ;交互式查找文件
+   ("s-s" . toggle-input-method)
+   ("s-r" . recentf-open-files)
+   ("M-p" . forward-word-begin)
+   ("C-c r" . cider-restart)
    ))
 
 ;; visual-shorthands 
@@ -647,6 +648,10 @@
    ("C-c , r" . visual-shorthands-remove-mapping)       ;remove shorthands mapping
    ("C-c , v" . visual-shorthands-mode)
    ))
+
+;; Lisp structural navigation
+(with-eval-after-load 'elisp-mode
+  (define-key emacs-lisp-mode-map (kbd "C-M-i") #'down-list))
 
 (provide 'init-key)
 

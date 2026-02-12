@@ -147,6 +147,11 @@
 (setq kill-buffer-query-functions
       (remq 'process-kill-buffer-query-function
             kill-buffer-query-functions))
+(defun forward-word-begin ()
+  "Move point to beginning of next word."
+  (interactive)
+  (forward-to-word 1)
+  (skip-syntax-forward " "))
 
 (provide 'init-generic)
 

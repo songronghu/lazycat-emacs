@@ -91,7 +91,8 @@
          (let ((emacs-font-size (if (> (frame-pixel-width) 2000)
                                     20 
                                   13))
-               (chinese-font-name  "TsangerJinKai03-6763")
+               ;;(chinese-font-name  "TsangerJinKai03-6763")
+               (chinese-font-name  "Microsoft YaHei UI")
                english-font-name)
            (cond
             ((featurep 'cocoa)

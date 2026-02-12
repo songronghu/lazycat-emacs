@@ -111,6 +111,8 @@
          (require 'visual-shorthands)
          (add-hook 'emacs-lisp-mode-hook #'visual-shorthands-mode)
          (require 'init-lisp-docstring-toggle)
+         (require 'init-cider)
+         (require 'init-paredit)
          (setq Info-directory-list
                      '("/usr/share/info/" "/usr/local/share/info/"))
          (fido-vertical-mode 1)
